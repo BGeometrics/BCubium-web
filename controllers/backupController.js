@@ -1,5 +1,5 @@
 
-var title = 'My home';
+var title = 'cubeBitcoin';
 var backup = "dir"; // "./backup.sh"
 
 exports.backup = function(req, res) {

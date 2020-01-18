@@ -1,6 +1,6 @@
 // Display detail page for tor.
 
-var title = 'My home node';
+var title = 'cubeBitcoin';
 var torEnable = "./scripts/tor_enable.sh";
 var torDisable = "./scripts/tor_disable.sh";
 var torStatus = "./scripts/tor_status.sh";

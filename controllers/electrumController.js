@@ -1,6 +1,6 @@
 // Display detail page for electrum.
 
-var title = 'My home node';
+var title = 'cubeBitcoin';
 var electrumEnable = "./scripts/electrum_enable.sh"; 
 var electrumDisable = "./scripts/electrum_disable.sh"; 
 var electrumStatus = "./scripts/electrum_status.sh"; 

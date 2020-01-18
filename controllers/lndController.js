@@ -1,6 +1,6 @@
 // Display detail page for lnd.
 
-var title = 'My home node';
+var title = 'cubeBitcoin';
 var lndEnable = "./scripts/lnd_enable.sh";  
 var lndDisable = "./scripts/lnd_disable.sh"; 
 var lndStatus = "./scripts/lnd_status.sh"; 

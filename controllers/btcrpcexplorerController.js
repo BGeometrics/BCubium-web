@@ -1,6 +1,6 @@
 // Display detail page for btcrpcexplorer
 
-var title = 'My home node';
+var title = 'cubeBitcoin';
 var btcrpcexplorerEnable = "./scripts/btcrpcexplorer_enable.sh";
 var btcrpcexplorerDisable = "./scripts/btcrpcexplorer_disable.sh";
 var btcrpcexplorerStatus = "./scripts/btcrpcexplorer_status.sh";

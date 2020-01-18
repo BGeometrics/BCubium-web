@@ -1,6 +1,6 @@
 // Display detail page for Bitcoin.
 
-var title = 'My home node';
+var title = 'cubeBitcoin';
 var bitcoinEnable = "./scripts/bitcoin_enable.sh";  
 var bitcoinDisable = "./scripts/bitcoin_disable.sh"; 
 var bitcoinStatus = "./scripts/bitcoin_status.sh"; 
