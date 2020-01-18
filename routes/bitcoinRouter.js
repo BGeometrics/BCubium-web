@@ -8,6 +8,7 @@ const torController = require('../controllers/torController');
 const backupController = require('../controllers/backupController');
 const btcrpcexplorerController = require('../controllers/btcrpcexplorerController');
 const firewallController = require('../controllers/firewallController');
+const wifiController = require('../controllers/wifiController');
 
 router.get('/', bitcoinController.bitcoin_home);
 router.get('/home/', bitcoinController.bitcoin_home);
@@ -36,6 +37,9 @@ router.get('/firewall_disable', firewallController.firewall_disable);
 router.get('/firewall_status', firewallController.firewall_status);
 
 router.get('/backup', backupController.backup);
+
+router.get('/wifi_scan', wifiController.wifi_scan);
+router.get('/wifi_connect', wifiController.wifi_connect);
 
 // Pages
 /* Page to display all shopping lists
