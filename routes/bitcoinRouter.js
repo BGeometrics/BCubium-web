@@ -7,6 +7,7 @@ const lndController = require('../controllers/lndController');
 const torController = require('../controllers/torController');
 const backupController = require('../controllers/backupController');
 const btcrpcexplorerController = require('../controllers/btcrpcexplorerController');
+const firewallController = require('../controllers/firewallController');
 
 router.get('/', bitcoinController.bitcoin_home);
 router.get('/home/', bitcoinController.bitcoin_home);
@@ -29,6 +30,10 @@ router.get('/tor_status', torController.tor_status);
 router.get('/btcrpcexplorer_enable', btcrpcexplorerController.btcrpcexplorer_enable);
 router.get('/btcrpcexplorer_disable', btcrpcexplorerController.btcrpcexplorer_disable);
 router.get('/btcrpcexplorer_status', btcrpcexplorerController.btcrpcexplorer_status);
+
+router.get('/firewall_enable', firewallController.firewall_enable);
+router.get('/firewall_disable', firewallController.firewall_disable);
+router.get('/firewall_status', firewallController.firewall_status);
 
 router.get('/backup', backupController.backup);
 
