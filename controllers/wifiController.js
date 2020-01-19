@@ -1,4 +1,10 @@
 var wifi = require("node-wifi");
+
+exports.wifi_home = function(req, res) {
+   console.log("Wifi home");
+   res.render('wifi_home.pug');
+};
+
  
 // Initialize wifi module
 // Absolutely necessary even to set interface to null

@@ -25,10 +25,7 @@ exports.bitcoin_home = function(req, res) {
        console.log(ip_external);
    });
 
-   rpcuser = getIPs.get_rpcuser();
-   rpcpassword = getIPs.get_rpcpassword();
-
-   res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, rpcuser: rpcuser, rpcpassword: rpcpassword });
+   res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external });
 };
 
 exports.bitcoin_enable = function(req, res) {
@@ -47,11 +44,7 @@ exports.bitcoin_enable = function(req, res) {
         }
         console.log(`stdout: ${stdout}`);
 
-        rpcuser = getIPs.get_rpcuser();
-        rpcpassword = getIPs.get_rpcpassword();
-
         res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, 
-		rpcuser: rpcuser, rpcpassword: rpcpassword,
 		bitcoin_message: `${stdout}`});
     }); 
 };
@@ -71,11 +64,8 @@ exports.bitcoin_disable = function(req, res) {
             return;
         }
         console.log(`stdout: ${stdout}`);
-        rpcuser = getIPs.get_rpcuser();
-        rpcpassword = getIPs.get_rpcpassword();
 
         res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external,
-		rpcuser: rpcuser, rpcpassword: rpcpassword,
 		bitcoin_message: `${stdout}`});
     }); 
 };
@@ -95,11 +85,8 @@ exports.bitcoin_status = function(req, res) {
             return;
         }
         console.log(`stdout: ${stdout}`);
-        rpcuser = getIPs.get_rpcuser();
-        rpcpassword = getIPs.get_rpcpassword();
 
         res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external,
-		rpcuser: rpcuser, rpcpassword: rpcpassword,
 		bitcoin_message: `${stdout}`});
     });     
 };

@@ -38,6 +38,7 @@ router.get('/firewall_status', firewallController.firewall_status);
 
 router.get('/backup', backupController.backup);
 
+router.get('/wifi_home', wifiController.wifi_home);
 router.get('/wifi_scan', wifiController.wifi_scan);
 router.get('/wifi_connect', wifiController.wifi_connect);
 
