@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SERVICE=electrum
+SERVICE=electrs
 
 STATUS=$(systemctl status $SERVICE | grep Active)
 
