@@ -41,6 +41,7 @@ router.get('/backup', backupController.backup);
 router.get('/wifi_home', wifiController.wifi_home);
 router.get('/wifi_scan', wifiController.wifi_scan);
 router.get('/wifi_connect', wifiController.wifi_connect);
+router.post('/wifi_connect', wifiController.wifi_connect);
 
 // Pages
 /* Page to display all shopping lists

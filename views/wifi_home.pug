@@ -8,3 +8,22 @@ html
     p Wifi
     |
     a(href="./wifi_scan") Scan
+    br
+
+    if ssid == null
+      form(method='POST' action='./wifi_connect')
+        div
+          label(for='name') Wifi net:
+          input(name='ssid' value=net)
+          br
+          label(for='password') Wifi net:
+          input(name='wifi_password' value=net)
+          br
+          button(type='submit') Submit
+    else
+      p Connect wifi #{ssid}
+
+    p
+    |
+    a(href="./") Home
+    

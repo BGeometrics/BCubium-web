@@ -42,13 +42,17 @@ exports.wifi_scan = function() {
 };
 
 // Connect to a network
-exports.wifi_connect = function(ssid, password) {
-  wifi.connect({ ssid: "ssid", password: "password" }, function(err) {
+exports.wifi_connect = function(req, res) { 
+  console.log("ssid: " + req.body.ssid);
+
+  wifi.connect({ ssid: req.body.ssid, password: req.body.password }, function(err) {
     if (err) {
       console.log(err);
     }
     console.log("Connected");
   });
+
+  res.render('wifi_home.pug', { ssid: req.body.ssid });
 };
  
 // Disconnect from a network
