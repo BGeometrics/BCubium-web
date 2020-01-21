@@ -72,7 +72,7 @@ wifi.deleteConnection({ ssid: "ssid" }, function(err) {
   }
   console.log("Deleted");
 });
- 
+
 // List the current wifi connections
 wifi.getCurrentConnections(function(err, currentConnections) {
   if (err) {

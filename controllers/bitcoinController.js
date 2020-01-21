@@ -1,6 +1,6 @@
 // Display detail page for Bitcoin.
 
-var title = 'cubeBitcoin';
+var title = 'Bitcoin Cube';
 var bitcoinEnable = "./scripts/bitcoin_enable.sh";  
 var bitcoinDisable = "./scripts/bitcoin_disable.sh"; 
 var bitcoinStatus = "./scripts/bitcoin_status.sh"; 
@@ -11,6 +11,7 @@ var ip_external = "";
 const getIPs = require('./getIPs');
 
 exports.bitcoin_home = function(req, res) {
+   console.log('home');
    ip_internal = getIPs.get_ip_internal();
    ip_external = getIPs.get_ip_external();    
    var fs_int = require("fs");
@@ -24,7 +25,7 @@ exports.bitcoin_home = function(req, res) {
        ip_external = ip_external_data;
        console.log(ip_external);
    });
-
+   console.log('index_home');
    res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external });
 };
 

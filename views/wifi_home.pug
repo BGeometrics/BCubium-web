@@ -2,30 +2,85 @@ block variables
 doctype html
 html
   head
-    title Bitcoin Cube
+    //meta(charset="utf-8")
+    link(rel="shortcut icon", href="/favicon.ico")
+    title Bitcoin Cube 
     style
       include myapp_fnb.css
   body
     h1= Bitcoin Cube
-    p Wifi
+    p IP internal: #{ip_internal}
+    p IP external: #{ip_external}
+    p Bitcoin
     |
-    a(href="./wifi_scan") Scan
-    br
+    a(href="./bitcoin_enable") Enable
+    | 
+    a(href="./bitcoin_disable") Disable
+    | 
+    a(href="./bitcoin_status") Status
+    | 
+    a(href="http://cubeBitcoin:3002/node-status") Details (BTC-RPC-Explorer)
+    | 
+    p #{bitcoin_message}
 
-    if ssid == null
-      form(method='POST' action='./wifi_connect')
-        div
-          label(for='name') Wifi net:
-          input(name='ssid' value=net)
-          br
-          label(for='password') Wifi net:
-          input(name='wifi_password' value=net)
-          br
-          button(type='submit') Submit
-    else
-      p Connect wifi #{ssid}
+    p Electrum
+    |
+    a(href="./electrum_enable") Enable
+    | 
+    a(href="./electrum_disable") Disable
+    | 
+    a(href="./electrum_status") Status
+    | 
+    p #{electrum_message}
 
+    p LND
+    |    
+    a(href="./lnd_enable") Enable
+    | 
+    a(href="./lnd_disable") Disable
+    | 
+    a(href="./lnd_status") Status
+    | 
+    p #{lnd_message}
+
+    p Tor
+    | 
+    a(href="./tor_enable") Enable
+    | 
+    a(href="./tor_disable") Disable
+    | 
+    a(href="./tor_status") Status
+    | 
+    p #{tor_message}
+
+    p BTC-RPC-Explorer 
+    | 
+    a(href="./btcrpcexplorer_enable") Enable
+    | 
+    a(href="./btcrpcexplorer_disable") Disable
+    | 
+    a(href="./btcrpcexplorer_status") Status
+    | 
+    a(href="http://cubeBitcoin:3002/") BTC-RPC-Explorer
+    | 
+    p #{btcrpcexplorer_message}
+
+    p Firewall
+    | 
+    a(href="./firewall_enable") Enable
+    | 
+    a(href="./firewall_disable") Disable
+    | 
+    a(href="./firewall_status") Status
+    | 
+    p #{firewall_message}
+
+    p Backup
+    |
+    a(href="./backup") Backup
+    | 
+    p #{backup_message}
+	
     p
     |
-    a(href="./") Home
-    
+    a(href="./wifi_home") Wifi
