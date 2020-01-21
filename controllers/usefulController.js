@@ -1,6 +1,5 @@
 
-var title = 'cubeBitcoin';
-var backup = "dir"; // "./backup.sh"
+var backup = "./scripts/backup.sh"; 
 
 exports.backup = function(req, res) {
     const { exec } = require("child_process");
@@ -14,7 +13,7 @@ exports.backup = function(req, res) {
             console.log(`stderr: ${stderr}`);
             return;
         }
-        console.log(`stdout: ${stdout}`);
-        res.render('index_home.pug', { title: title, backup_message: `${stdout}`});
+        console.log('Backup done');
+        res.render('index_home.pug', { usefull_message: 'Backup done'});
     }); 
 };
