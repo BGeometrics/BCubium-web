@@ -2,85 +2,87 @@ block variables
 doctype html
 html
   head
-    //meta(charset="utf-8")
     link(rel="shortcut icon", href="/favicon.ico")
     title 'Bitcoin Cube'
     style
-      include myapp_fnb.css
+      include ../public/stylesheets/styling.css
+      include ../public/stylesheets/fonts.css
+      include ../public/stylesheets/bootstrap.min.css
+      include ../public/stylesheets/highlight.min.css
   body
-    h1='Bitcoin Cube'
-    p IP internal: #{ip_internal}
-    p IP external: #{ip_external}
-    p Bitcoin
+    h3.h3='Bitcoin Cube'
+    p.lead IP internal: #{ip_internal}
+    p.lead IP external: #{ip_external}
+    h2.h6 Bitcoin
     |
-    a(href="./bitcoin_enable") Enable
+    a(class='rounded bg-primary text-white px-2 py-1' href="./bitcoin_enable") Enable
     | 
-    a(href="./bitcoin_disable") Disable
+    a(class='rounded bg-primary text-white px-2 py-1' href="./bitcoin_disable") Disable
     | 
-    a(href="./bitcoin_status") Status
+    a(class='rounded bg-primary text-white px-2 py-1' href="./bitcoin_status") Status
     | 
-    a(href="http://cubeBitcoin:3002/node-status") Details (BTC-RPC-Explorer)
+    a(class='rounded bg-primary text-white px-2 py-1' href="http://cubeBitcoin:3002/node-status") Details (BTC-RPC-Explorer)
     | 
     p #{bitcoin_message}
 
-    p Electrum
-    |
-    a(href="./electrum_enable") Enable
-    | 
-    a(href="./electrum_disable") Disable
-    | 
-    a(href="./electrum_status") Status
-    | 
-    p #{electrum_message}
-
-    p LND
+    h2.h6 LND
     |    
-    a(href="./lnd_enable") Enable
+    a(class='rounded bg-primary text-white px-2 py-1'  href="./lnd_enable") Enable
     | 
-    a(href="./lnd_disable") Disable
+    a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_disable") Disable
     | 
-    a(href="./lnd_status") Status
+    a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_status") Status
     | 
     p #{lnd_message}
 
-    p Tor
+    h2.h6 Electrum
+    |
+    a(class='rounded bg-primary text-white px-2 py-1' href="./electrum_enable") Enable
     | 
-    a(href="./tor_enable") Enable
+    a(class='rounded bg-primary text-white px-2 py-1'  href="./electrum_disable") Disable
     | 
-    a(href="./tor_disable") Disable
+    a(class='rounded bg-primary text-white px-2 py-1' href="./electrum_status") Status
     | 
-    a(href="./tor_status") Status
+    p #{electrum_message}
+
+    h2.h6 Tor
+    | 
+    a(class='rounded bg-primary text-white px-2 py-1' href="./tor_enable") Enable
+    | 
+    a(class='rounded bg-primary text-white px-2 py-1' href="./tor_disable") Disable
+    | 
+    a(class='rounded bg-primary text-white px-2 py-1' href="./tor_status") Status
     | 
     p #{tor_message}
 
-    p BTC-RPC-Explorer 
+    h2.h6 BTC-RPC-Explorer 
     | 
-    a(href="./btcrpcexplorer_enable") Enable
+    a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_enable") Enable
     | 
-    a(href="./btcrpcexplorer_disable") Disable
+    a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_disable") Disable
     | 
-    a(href="./btcrpcexplorer_status") Status
+    a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_status") Status
     | 
-    a(href="http://cubeBitcoin:3002/") BTC-RPC-Explorer
+    a(class='rounded bg-primary text-white px-2 py-1' href="http://cubeBitcoin:3002/") BTC-RPC-Explorer
     | 
     p #{btcrpcexplorer_message}
 
-    p Firewall
+    h2.h6 Firewall
     | 
-    a(href="./firewall_enable") Enable
+    a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_enable") Enable
     | 
-    a(href="./firewall_disable") Disable
+    a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_disable") Disable
     | 
-    a(href="./firewall_status") Status
+    a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_status") Status
     | 
     p #{firewall_message}
 
-    p Backup
+    h2.h6 Backup
     |
-    a(href="./backup") Backup
+    a(class='rounded bg-primary text-white px-2 py-1' href="./backup") Backup
     | 
     p #{backup_message}
 	
-    p
+    h2.h6 Wifi
     |
-    a(href="./wifi_home") Wifi
+    a(class='rounded bg-primary text-white px-2 py-1' href="./wifi_home") Wifi

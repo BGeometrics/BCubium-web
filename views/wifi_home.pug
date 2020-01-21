@@ -4,12 +4,15 @@ html
   head
     title 'Bitcoin Cube'
     style
-      include myapp_fnb.css
+      include ../public/stylesheets/styling.css
+      include ../public/stylesheets/fonts.css
+      include ../public/stylesheets/bootstrap.min.css
+      include ../public/stylesheets/highlight.min.css
   body
-    h1='Bitcoin Cube'
-    p Wifi
+    h3.h3='Bitcoin Cube'
+    h2.h6 Wifi
     |
-    a(href="./wifi_scan") Scan
+    a(class='rounded bg-primary text-white px-2 py-1' href="./wifi_scan") Scan
     br
 
     if ssid == null
@@ -21,11 +24,11 @@ html
           label(for='password') Wifi net:
           input(name='wifi_password' value=net)
           br
-          button(type='submit') Submit
+          button(class='rounded bg-primary text-white px-2 py-1' type='submit') Submit
     else
       p Connect wifi #{ssid}
 
     p
     |
-    a(href="./") Home
+    a(class='rounded bg-primary text-white px-2 py-1' href="./") Home
     
