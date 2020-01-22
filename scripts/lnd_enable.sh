@@ -9,5 +9,6 @@ if [ "$STATUS" == "$ACTIVE" ] ; then
 else
 	echo "start"
    	sudo systemctl start $SERVICE
+        sudo systemctl enable $SERVICE
         systemctl status $SERVICE | grep Active
 fi

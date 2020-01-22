@@ -1,4 +1,5 @@
 var wifi = require("node-wifi");
+var wifi_configure = "./scripts/wifi_configure.sh";
 
 exports.wifi_home = function(req, res) {
    console.log("Wifi home");
@@ -36,7 +37,8 @@ exports.wifi_scan = function(req, res) {
             ...
         ];
         */
-        res.render('wifi_home.pug', {networks: networks});
+
+        res.render('wifi_home.pug', {networks: networks, });
     }
   });
 };
@@ -52,6 +54,9 @@ exports.wifi_connect = function(req, res) {
     console.log("Connected");
   });
 
+  var execute = wifi_configure + " " + req.body.ssid  + " " + req.body.password;	
+  const { execSync } = require("child_process");
+  var ret = execSync(execute).toString();
   res.render('wifi_home.pug', { ssid: req.body.ssid });
 };
  
