@@ -38,8 +38,9 @@ router.get('/firewall_status', firewallController.firewall_status);
 
 router.get('/backup', usefulController.backup);
 router.get('/port_home', usefulController.port_home);
-router.get('/port_redirect', usefulController.port_redirect);
-router.post('/port_redirect', usefulController.port_redirect);
+router.get('/port_redirect_add', usefulController.port_redirect_add);
+router.post('/port_redirect_add', usefulController.port_redirect_add);
+router.get('/port_redirect_delete', usefulController.port_redirect_delete);
 
 router.get('/wifi_home', wifiController.wifi_home);
 router.get('/wifi_scan', wifiController.wifi_scan);

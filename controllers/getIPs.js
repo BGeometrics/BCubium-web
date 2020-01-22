@@ -1,5 +1,6 @@
 var PropertiesReader = require('properties-reader');
 var properties = PropertiesReader('/etc/bitcoin/bitcoin.conf');
+//var execSync = require("exec-sync");
 
 var ip_internal_script = "./scripts/IP_internal.sh";
 var ip_external_script = "./scripts/IP_external.sh";
@@ -7,6 +8,7 @@ var ip_intenal_file = "./scripts/ip_internal.txt";
 var ip_external_file = "./scripts/ip_external.txt";
 var ip_internal = "";
 var ip_external = "";
+var port_redirect_list = "./scripts/port_redirect_list.sh";
 
 
 /* Get internal IP */
@@ -83,3 +85,29 @@ exports.get_rpcpassword = function () {
    console.log("rpcpassword: " + properties.get('rpcpassword'));
    return properties.get('rpcpassword');
 };
+
+exports.ports_redirect_list_convert=function(list_ports) {
+   var res = "";
+   var pos = list_ports.indexOf(",");
+   var sources = list_ports.substring(0,pos);
+   var targets = list_ports.substring(pos+1);
+
+   var ports_source = sources.split(' ');
+   var ports_target = targets.split(' ');
+   for (var i = 0; i < ports_source.length; i++) {
+      res = res + "{ \'source\':\'" + ports_source[i] + "\', \'target\': \'" + ports_target[i] + "\'},";
+   };
+   res = res.substring(0, res.length - 1);
+   var objectStringArray = (new Function("return [" + res + "];")());
+
+   return objectStringArray;
+};
+
+exports.get_ports_redirect = function(req, res) {
+    console.log("execute: " + port_redirect_list);
+    const { execSync } = require("child_process");
+    var list_ports = execSync(port_redirect_list).toString();
+
+    return this.ports_redirect_list_convert(list_ports);
+};
+
