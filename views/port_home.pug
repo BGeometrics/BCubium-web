@@ -8,25 +8,26 @@ html
       include ../public/css/bootstrap.min.css
   body
     h3.h3='Bitcoin Cube'
-    h2.h6 Port redirect
-    |
-    br
-    each port_redirect in port_redirect_list
-      li ports source: #{port_redirect.source} target: #{port_redirect.target}    
-        a(href="./port_redirect_delete?port_source=" + port_redirect.source + "&port_target=" + port_redirect.target) delete
-    br
-    form(method='POST' action='./port_redirect_add')
-      label(for='port_source') Port source:
-      input(name='port_source' value=port_source)
+    div.container.px-2.px-sm-3
+      h2.lead Port redirect
+      |
       br
-      label(for='port_target') Port target:
-      input(name='port_target' value=port_target)
+      each port_redirect in port_redirect_list
+        li Ports source: #{port_redirect.source}. Port target: #{port_redirect.target}    
+          a(class='rounded bg-primary text-white px-2 py-1' href="./port_redirect_delete?port_source=" + port_redirect.source + "&port_target=" + port_redirect.target) delete
       br
-      button(class='rounded bg-primary text-white px-2 py-1' type='submit') Add
-    |
-    p #{usefull_message}
+      form(method='POST' action='./port_redirect_add')
+        label(for='port_source') Port source:
+        input(name='port_source' value=port_source)
+        br
+        label(for='port_target') Port target:
+        input(name='port_target' value=port_target)
+        br
+        button(class='rounded bg-primary text-white px-2 py-1' type='submit') Add
+      |
+      p #{usefull_message}
 
-    p
-    |
-    a(class='rounded bg-primary text-white px-2 py-1' href="./") Home
+      p
+      |
+      a(class='rounded bg-primary text-white px-2 py-1' href="./") Home
     

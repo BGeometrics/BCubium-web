@@ -5,7 +5,6 @@ exports.wifi_home = function(req, res) {
    res.render('wifi_home.pug');
 };
 
- 
 // Initialize wifi module
 // Absolutely necessary even to set interface to null
 wifi.init({
@@ -14,7 +13,7 @@ wifi.init({
  
 
 // Scan networks
-exports.wifi_scan = function() {
+exports.wifi_scan = function(req, res) {
   wifi.scan(function(err, networks) {
     if (err) {
        console.log(err);
@@ -37,6 +36,7 @@ exports.wifi_scan = function() {
             ...
         ];
         */
+        res.render('wifi_home.pug', {networks: networks});
     }
   });
 };
