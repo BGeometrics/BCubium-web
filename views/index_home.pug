@@ -5,84 +5,89 @@ html
     link(rel="shortcut icon", href="/favicon.ico")
     title 'Bitcoin Cube'
     style
-      include ../public/stylesheets/styling.css
-      include ../public/stylesheets/fonts.css
-      include ../public/stylesheets/bootstrap.min.css
-      include ../public/stylesheets/highlight.min.css
+      include ../public/css/bootstrap.css
+      include ../public/css/bootstrap.min.css
   body
     h3.h3='Bitcoin Cube'
     p.lead IP internal: #{ip_internal}
     p.lead IP external: #{ip_external}
-    h2.h6 Bitcoin
-    |
-    a(class='rounded bg-primary text-white px-2 py-1' href="./bitcoin_enable") Enable
-    | 
-    a(class='rounded bg-primary text-white px-2 py-1' href="./bitcoin_disable") Disable
-    | 
-    a(class='rounded bg-primary text-white px-2 py-1' href="./bitcoin_status") Status
-    | 
-    a(class='rounded bg-primary text-white px-2 py-1' href="http://cubeBitcoin:3002/node-status") Details (BTC-RPC-Explorer)
-    | 
-    p #{bitcoin_message}
+    div.container.px-2.px-sm-3
+      h2.h6 Bitcoin
+      |
+      a(class='rounded bg-primary text-white px-2 py-1' href="./bitcoin_enable") Enable
+      | 
+      a(class='rounded bg-primary text-white px-2 py-1' href="./bitcoin_disable") Disable
+      | 
+      a(class='rounded bg-primary text-white px-2 py-1' href="./bitcoin_status") Status
+      | 
+      a(class='rounded bg-primary text-white px-2 py-1' href="http://cubeBitcoin:3002/node-status") Details (BTC-RPC-Explorer)
+      | 
+      p #{bitcoin_message}
 
-    h2.h6 LND
-    |    
-    a(class='rounded bg-primary text-white px-2 py-1'  href="./lnd_enable") Enable
-    | 
-    a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_disable") Disable
-    | 
-    a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_status") Status
-    | 
-    p #{lnd_message}
+      h2.h6 LND
+      |    
+      a(class='rounded bg-primary text-white px-2 py-1'  href="./lnd_enable") Enable
+      | 
+      a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_disable") Disable
+      | 
+      a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_status") Status
+      | 
+      p #{lnd_message}
 
-    h2.h6 Electrum
-    |
-    a(class='rounded bg-primary text-white px-2 py-1' href="./electrum_enable") Enable
-    | 
-    a(class='rounded bg-primary text-white px-2 py-1'  href="./electrum_disable") Disable
-    | 
-    a(class='rounded bg-primary text-white px-2 py-1' href="./electrum_status") Status
-    | 
-    p #{electrum_message}
+      h2.h6 Electrum
+      |
+      a(class='rounded bg-primary text-white px-2 py-1' href="./electrum_enable") Enable
+      | 
+      a(class='rounded bg-primary text-white px-2 py-1'  href="./electrum_disable") Disable
+      | 
+      a(class='rounded bg-primary text-white px-2 py-1' href="./electrum_status") Status
+      | 
+      p #{electrum_message}
 
-    h2.h6 Tor
-    | 
-    a(class='rounded bg-primary text-white px-2 py-1' href="./tor_enable") Enable
-    | 
-    a(class='rounded bg-primary text-white px-2 py-1' href="./tor_disable") Disable
-    | 
-    a(class='rounded bg-primary text-white px-2 py-1' href="./tor_status") Status
-    | 
-    p #{tor_message}
+      h2.h6 Tor
+      | 
+      a(class='rounded bg-primary text-white px-2 py-1' href="./tor_enable") Enable
+      | 
+      a(class='rounded bg-primary text-white px-2 py-1' href="./tor_disable") Disable
+      | 
+      a(class='rounded bg-primary text-white px-2 py-1' href="./tor_status") Status
+      | 
+      p #{tor_message}
 
-    h2.h6 BTC-RPC-Explorer 
-    | 
-    a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_enable") Enable
-    | 
-    a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_disable") Disable
-    | 
-    a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_status") Status
-    | 
-    a(class='rounded bg-primary text-white px-2 py-1' href="http://cubeBitcoin:3002/") BTC-RPC-Explorer
-    | 
-    p #{btcrpcexplorer_message}
+      h2.h6 BTC-RPC-Explorer 
+      | 
+      a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_enable") Enable
+      | 
+      a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_disable") Disable
+      | 
+      a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_status") Status
+      | 
+      a(class='rounded bg-primary text-white px-2 py-1' href="http://cubeBitcoin:3002/") BTC-RPC-Explorer
+      | 
+      p #{btcrpcexplorer_message}
 
-    h2.h6 Firewall
-    | 
-    a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_enable") Enable
-    | 
-    a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_disable") Disable
-    | 
-    a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_status") Status
-    | 
-    p #{firewall_message}
+      h2.h6 Firewall
+      | 
+      a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_enable") Enable
+      | 
+      a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_disable") Disable
+      | 
+      a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_status") Status
+      | 
+      p #{firewall_message}
 
-    h2.h6 Backup
-    |
-    a(class='rounded bg-primary text-white px-2 py-1' href="./backup") Backup
-    | 
-    p #{usefull_message}
+      h2.h6 Backup
+      |
+      a(class='rounded bg-primary text-white px-2 py-1' href="./backup") Backup
+      | 
+      p #{usefull_message}
 	
-    h2.h6 Wifi
-    |
-    a(class='rounded bg-primary text-white px-2 py-1' href="./wifi_home") Wifi
+      h2.h6 Wifi
+      |
+      a(class='rounded bg-primary text-white px-2 py-1' href="./wifi_home") Wifi
+      |
+      p
+	
+      h2.h6 Port redirect
+      |
+      a(class='rounded bg-primary text-white px-2 py-1' href="./port_home") Port redirect

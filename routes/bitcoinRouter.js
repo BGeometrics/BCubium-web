@@ -5,10 +5,10 @@ const bitcoinController = require('../controllers/bitcoinController');
 const electrumController = require('../controllers/electrumController');
 const lndController = require('../controllers/lndController');
 const torController = require('../controllers/torController');
-const usefulController = require('../controllers/usefulController');
 const btcrpcexplorerController = require('../controllers/btcrpcexplorerController');
 const firewallController = require('../controllers/firewallController');
 const wifiController = require('../controllers/wifiController');
+const usefulController = require('../controllers/usefulController');
 
 router.get('/', bitcoinController.bitcoin_home);
 router.get('/home/', bitcoinController.bitcoin_home);
@@ -37,7 +37,9 @@ router.get('/firewall_disable', firewallController.firewall_disable);
 router.get('/firewall_status', firewallController.firewall_status);
 
 router.get('/backup', usefulController.backup);
-
+router.get('/port_home', usefulController.port_home);
+router.get('/port_redirect', usefulController.port_redirect);
+router.post('/port_redirect', usefulController.port_redirect);
 
 router.get('/wifi_home', wifiController.wifi_home);
 router.get('/wifi_scan', wifiController.wifi_scan);
