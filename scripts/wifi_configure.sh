@@ -9,3 +9,5 @@ network={
   psk="$2"
 }
 EOF
+
+sudo /bin/systemctl restart network-manager

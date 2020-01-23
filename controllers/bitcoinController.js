@@ -85,10 +85,11 @@ exports.bitcoin_status = function(req, res) {
             console.log(`stderr: ${stderr}`);
             return;
         }
-        console.log(`stdout: ${stdout}`);
-
+        var ret = `stdout: ${stdout}`;
+	var stat = ret.substring(0,2);
+        console.log(ret);
         res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external,
-		bitcoin_message: `${stdout}`});
+		bitcoin_message: ret, stat: stat});
     });     
 };
 

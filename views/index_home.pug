@@ -26,21 +26,29 @@ html
 
       h2.h6 LND
       |    
+      a(class='rounded bg-primary text-white px-2 py-1'  href="./lnd_start") Start
+      | 
+      a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_stop") Stop
+      |    
+      a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_status") Status
+      | 
       a(class='rounded bg-primary text-white px-2 py-1'  href="./lnd_enable") Enable
       | 
       a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_disable") Disable
-      | 
-      a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_status") Status
       | 
       p #{lnd_message}
 
       h2.h6 Electrum
       |
+      a(class='rounded bg-primary text-white px-2 py-1'  href="./electrum_start") Start
+      | 
+      a(class='rounded bg-primary text-white px-2 py-1' href="./electrum_stop") Stop
+      | 
+      a(class='rounded bg-primary text-white px-2 py-1' href="./electrum_status") Status
+      |    
       a(class='rounded bg-primary text-white px-2 py-1' href="./electrum_enable") Enable
       | 
       a(class='rounded bg-primary text-white px-2 py-1'  href="./electrum_disable") Disable
-      | 
-      a(class='rounded bg-primary text-white px-2 py-1' href="./electrum_status") Status
       | 
       p #{electrum_message}
 
@@ -56,11 +64,15 @@ html
 
       h2.h6 BTC-RPC-Explorer 
       | 
+      a(class='rounded bg-primary text-white px-2 py-1'  href="./btcrpcexplorer_start") Start
+      | 
+      a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_stop") Stop
+      |    
+      a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_status") Status
+      | 
       a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_enable") Enable
       | 
       a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_disable") Disable
-      | 
-      a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_status") Status
       | 
       a(class='rounded bg-primary text-white px-2 py-1' href="http://cubeBitcoin:3002/") BTC-RPC-Explorer
       | 
@@ -87,3 +99,11 @@ html
       a(class='rounded bg-primary text-white px-2 py-1' href="./port_home") Port redirect
       |
       p #{usefull_message}
+      |
+      - var formEdit="1";
+      p(class=typeof stat === "OK" ? "" : "lead") Test
+      |
+//      if stat=="OK"
+//        h2.h6 Test
+//      else
+//	h2.disabled Test

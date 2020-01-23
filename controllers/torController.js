@@ -62,7 +62,9 @@ exports.tor_status = function(req, res) {
             console.log(`stderr: ${stderr}`);
             return;
         }
-        console.log(`stdout: ${stdout}`);
-        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, tor_message: `${stdout}`});
+        var ret = `stdout: ${stdout}`;
+        var stat = ret.substring(0,2);
+        console.log(ret);
+        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, tor_message: ret, stat: stat});
     });     
 };

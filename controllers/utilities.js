@@ -1,6 +1,5 @@
 var PropertiesReader = require('properties-reader');
 var properties = PropertiesReader('/etc/bitcoin/bitcoin.conf');
-//var execSync = require("exec-sync");
 
 var ip_internal_script = "./scripts/IP_internal.sh";
 var ip_external_script = "./scripts/IP_external.sh";
