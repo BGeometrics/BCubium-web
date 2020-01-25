@@ -28,11 +28,12 @@ exports.backup = function(req, res) {
 };
 
 exports.port_home = function(req, res) {
+    console.log("port_redirect_list:" + utilities.get_ports_redirect(req, res));
     res.render('port_home.pug', { port_redirect_list: utilities.get_ports_redirect(req, res)});
 };
 
 exports.port_redirect_add = function(req, res) {
-    var execute = port_redirect_add + " " + req.body.port_source + " " + req.body.port_target;
+    var execute = port_redirect_add + " " + req.body.port_internal + " " + req.body.port_external;
     console.log("Execute: " + execute);
 
     const { execSync } = require("child_process");
@@ -43,12 +44,12 @@ exports.port_redirect_add = function(req, res) {
 };
 
 exports.port_redirect_delete = function(req, res) {
-    console.log(req.query.port_source);
-    var execute = port_redirect_delete + " " + req.query.port_source + " " + req.query.port_target;
+    var execute = port_redirect_delete + " " + req.query.port_internal + " " + req.query.port_external;
+    console.log("Execute: " + execute);
 
     const { execSync } = require("child_process");
     var ret = execSync(execute).toString();
-    console.log('Delete redirect port done. ' +  + req.query.port_source + ' ' + req.query.port_target);
+    console.log('Delete redirect port done. ' +  req.query.port_external + ' ' + req.query.port_internal);
     res.render('port_home.pug', { usefull_message: 'Delete redirect port done ',
 		 port_redirect_list: utilities.get_ports_redirect(req, res)});
 };

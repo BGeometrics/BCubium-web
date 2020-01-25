@@ -25,6 +25,7 @@ exports.bitcoin_home = function(req, res) {
        ip_external = ip_external_data;
        console.log(ip_external);
    });
+   console.log('system_status: ' + utilities.get_system_status());
    res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, system_status: utilities.get_system_status()});
 };
 

@@ -12,7 +12,7 @@ html
     p.lead IP internal: #{ip_internal}
     p.lead IP external: #{ip_external}
     div.container.px-2.px-sm-3
-      if system_status.bitcoin = 'OK' 
+      if system_status.bitcoin == 'OK'
         h2.h6 Bitcoin OK
       else
         h2.h6 Bitcoin KO
@@ -25,9 +25,9 @@ html
       | 
       a(class='rounded bg-primary text-white px-2 py-1' href="http://cubeBitcoin:3002/node-status") Details (BTC-RPC-Explorer)
       | 
-      p #{bitcoin_message}
+      p #{system_status}
 
-      if system_status.lnd = 'OK' 
+      if system_status.lnd == 'OK' 
         h2.h6 LND OK
       else
         h2.h6 LND KO
@@ -44,7 +44,7 @@ html
       | 
       p #{lnd_message}
 
-      if system_status.electrum = 'OK' 
+      if system_status.electrum === 'OK' 
         h2.h6 Electrum OK
       else
         h2.h6 Electrum KO
@@ -61,7 +61,7 @@ html
       | 
       p #{electrum_message}
 
-      if system_status.tor = 'OK' 
+      if system_status.tor == 'OK' 
         h2.h6 Tor OK
       else
         h2.h6 Tor KO
@@ -74,7 +74,7 @@ html
       | 
       p #{tor_message}
 
-      if system_status.btcrpcexplorer = 'OK' 
+      if system_status.btcrpcexplorer == 'OK' 
         h2.h6 BTC-RPC-Explorer OK
       else
         h2.h6 BTC-RPC-Explorer KO
@@ -93,7 +93,7 @@ html
       | 
       p #{btcrpcexplorer_message}
 
-      if system_status.rtl = 'OK' 
+      if system_status.rtl == 'OK' 
         h2.h6 RTL OK
       else
         h2.h6 RTL KO
@@ -112,7 +112,7 @@ html
       | 
       p #{rtl_message}
 
-      if system_status.firewall = 'OK' 
+      if system_status.firewall == 'OK' 
         h2.h6 Firewall OK
       else
         h2.h6 Firewall KO

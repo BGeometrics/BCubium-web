@@ -91,14 +91,15 @@ exports.get_rpcpassword = function () {
 exports.ports_redirect_list_convert=function(list_ports) {
    var res = "";
    var pos = list_ports.indexOf(",");
-   var sources = list_ports.substring(0,pos);
-   var targets = list_ports.substring(pos+1);
+   var externals = list_ports.substring(0,pos);
+   var internals = list_ports.substring(pos+1);
 
-   var ports_source = sources.split(' ');
-   var ports_target = targets.split(' ');
-   for (var i = 0; i < ports_source.length; i++) {
-      res = res + "{ \'source\':\'" + ports_source[i] + "\', \'target\': \'" + ports_target[i] + "\'},";
+   var ports_external = externals.split(' ');
+   var ports_internal = internals.split(' ');
+   for (var i = 0; i < ports_external.length; i++) {
+      res = res + "{ \'external\':\'" + ports_external[i] + "\', \'internal\': \'" + ports_internal[i] + "\'},";
    };
+   console.log("res: " + res);
    res = res.substring(0, res.length - 1);
    var objectStringArray = (new Function("return [" + res + "];")());
 
@@ -108,8 +109,7 @@ exports.ports_redirect_list_convert=function(list_ports) {
 exports.get_ports_redirect = function(req, res) {
    console.log("execute: " + port_redirect_list);
    const { execSync } = require("child_process");
-   var list_ports = execSync(port_redirect_list).toString();
-
+   var list_ports = execSync(port_redirect_list).toString(); 
    return this.ports_redirect_list_convert(list_ports);
 };
 
@@ -137,9 +137,22 @@ exports.get_upnp_rules = function(req, res) {
 
 exports.get_system_status = function(req, res) {
    console.log("execute: " + system_status);
+
+   var str = '{ "name": "John Doe", "age": 42 }';
+   console.log("str: " + str); 
+   var obj = JSON.parse(str);
+
+   console.log("obj: " + obj); 
+   console.log("obj: " + obj.name); 
    const { execSync } = require("child_process");
    var ret = execSync(system_status).toString();
-   var ret_sa = (new Function("return [{" + res + "}];")());
+   //var ret1 = '{"bitcoin":"OK", "lnd":"OK", "electrum":"KO", "btcrpcexplorer":"OK", "rtl":"OK", "tor":"OK", "firewall":"KO"}';
+   console.log("get system status: " + ret); 
+   var obj_status = JSON.parse(ret);
+   console.log("obj_status: " + obj_status); 
+   console.log("obj_status.bitcoin: " + obj_status.bitcoin); 
+   //var ret_sa = (new Function("return " + ret + ";")());
+   //var ret_sa = ret;
 
-   return ret_sa;
+   return obj_status;
 };
