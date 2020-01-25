@@ -9,6 +9,7 @@ const btcrpcexplorerController = require('../controllers/btcrpcexplorerControlle
 const firewallController = require('../controllers/firewallController');
 const wifiController = require('../controllers/wifiController');
 const usefulController = require('../controllers/usefulController');
+const rtlController = require('../controllers/rtlController');
 
 router.get('/', bitcoinController.bitcoin_home);
 router.get('/home/', bitcoinController.bitcoin_home);
@@ -38,6 +39,12 @@ router.get('/btcrpcexplorer_enable', btcrpcexplorerController.btcrpcexplorer_ena
 router.get('/btcrpcexplorer_disable', btcrpcexplorerController.btcrpcexplorer_disable);
 router.get('/btcrpcexplorer_status', btcrpcexplorerController.btcrpcexplorer_status);
 
+router.get('/rtl_start', rtlController.rtl_start);
+router.get('/rtl_stop', rtlController.rtl_stop);
+router.get('/rtl_enable', rtlController.rtl_enable);
+router.get('/rtl_disable', rtlController.rtl_disable);
+router.get('/rtl_status', rtlController.rtl_status);
+
 router.get('/firewall_enable', firewallController.firewall_enable);
 router.get('/firewall_disable', firewallController.firewall_disable);
 router.get('/firewall_status', firewallController.firewall_status);
@@ -47,6 +54,10 @@ router.get('/port_home', usefulController.port_home);
 router.get('/port_redirect_add', usefulController.port_redirect_add);
 router.post('/port_redirect_add', usefulController.port_redirect_add);
 router.get('/port_redirect_delete', usefulController.port_redirect_delete);
+router.get('/upnp_home', usefulController.upnp_home);
+router.get('/upnp_add', usefulController.upnp_add);
+router.post('/upnp_add', usefulController.upnp_add);
+router.get('/upnp_delete', usefulController.upnp_delete);
 
 router.get('/wifi_home', wifiController.wifi_home);
 router.get('/wifi_scan', wifiController.wifi_scan);

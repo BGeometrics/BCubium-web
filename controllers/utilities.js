@@ -1,5 +1,6 @@
 var PropertiesReader = require('properties-reader');
 var properties = PropertiesReader('/etc/bitcoin/bitcoin.conf');
+var os = require("os");
 
 var ip_internal_script = "./scripts/IP_internal.sh";
 var ip_external_script = "./scripts/IP_external.sh";
@@ -8,6 +9,8 @@ var ip_external_file = "./scripts/ip_external.txt";
 var ip_internal = "";
 var ip_external = "";
 var port_redirect_list = "./scripts/port_redirect_list.sh";
+var upnp_rules = "./scripts/upnp_rules.sh";
+var system_status = "./scripts/system_status.sh";
 
 
 /* Get internal IP */
@@ -103,10 +106,40 @@ exports.ports_redirect_list_convert=function(list_ports) {
 };
 
 exports.get_ports_redirect = function(req, res) {
-    console.log("execute: " + port_redirect_list);
-    const { execSync } = require("child_process");
-    var list_ports = execSync(port_redirect_list).toString();
+   console.log("execute: " + port_redirect_list);
+   const { execSync } = require("child_process");
+   var list_ports = execSync(port_redirect_list).toString();
 
-    return this.ports_redirect_list_convert(list_ports);
+   return this.ports_redirect_list_convert(list_ports);
 };
 
+exports.get_upnp_rules = function(req, res) {
+   var res = "";
+   var external_port = "";
+   console.log("Execute: " + upnp_rules);
+   const { execSync } = require("child_process");
+   var upnp_rules_out = execSync(upnp_rules).toString();
+   console.log("upnp_rules_out: " + upnp_rules_out);
+   var lines = upnp_rules_out.split(os.EOL);
+
+   // Iterate legth -1 becasuse last line is null
+   for (i = 0; i < lines.length-1; i++) {
+      external_port = lines[i].substring(7,12).trim();
+      console.log('external port: ' + external_port);
+      res = res + "\{ \'line\':\"" + lines[i] + "\", \'external_port\': \"" + external_port + "\"},";
+   };
+   res = res.substring(0, res.length - 1);
+   console.log("res: " + res);
+   var objectStringArray = (new Function("return [" + res + "];")());
+
+   return objectStringArray;
+};
+
+exports.get_system_status = function(req, res) {
+   console.log("execute: " + system_status);
+   const { execSync } = require("child_process");
+   var ret = execSync(system_status).toString();
+   var ret_sa = (new Function("return [{" + res + "}];")());
+
+   return ret_sa;
+};

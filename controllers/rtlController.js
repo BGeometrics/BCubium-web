@@ -1,21 +1,21 @@
-// Display detail page for lnd.
+// Display detail page for rtl.
 
 var title = 'cubeBitcoin';
-var lndStart = "./scripts/lnd_start.sh";  
-var lndStop = "./scripts/lnd_stop.sh"; 
-var lndEnable = "./scripts/lnd_enable.sh";  
-var lndDisable = "./scripts/lnd_disable.sh"; 
-var lndStatus = "./scripts/lnd_status.sh"; 
+var rtlStart = "./scripts/rtl_start.sh";  
+var rtlStop = "./scripts/rtl_stop.sh"; 
+var rtlEnable = "./scripts/rtl_enable.sh";  
+var rtlDisable = "./scripts/rtl_disable.sh"; 
+var rtlStatus = "./scripts/rtl_status.sh"; 
 var ip_intenal_file = "./scripts/ip_internal.txt";
 var ip_external_file = "./scripts/ip_external.txt";
 var ip_internal = "";
 var ip_external = "";
 const utilities = require('./utilities'); 
 
-exports.lnd_start = function(req, res) {
+exports.rtl_start = function(req, res) {
     const { exec } = require("child_process");
 
-    exec(lndStart, (error, stdout, stderr) => {
+    exec(rtlStart, (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
             return;
@@ -25,14 +25,14 @@ exports.lnd_start = function(req, res) {
             return;
         }
         console.log(`stdout: ${stdout}`);
-        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, lnd_message: `${stdout}`, system_status: utilities.get_system_status()});
+        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, rtl_message: `${stdout}`, system_status: utilities.get_system_status()});
     });
 };
 
-exports.lnd_stop = function(req, res) {
+exports.rtl_stop = function(req, res) {
     const { exec } = require("child_process");
 
-    exec(lndStop, (error, stdout, stderr) => {
+    exec(rtlStop, (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
             return;
@@ -42,16 +42,16 @@ exports.lnd_stop = function(req, res) {
             return;
         }
         console.log(`stdout: ${stdout}`);
-        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, lnd_message: `${stdout}`, system_status: utilities.get_system_status()});
+        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, rtl_message: `${stdout}`, system_status: utilities.get_system_status()});
     });
 };
 
-exports.lnd_enable = function(req, res) {
+exports.rtl_enable = function(req, res) {
     ip_internal = utilities.get_ip_internal();
     ip_external = utilities.get_ip_external();    
     const { exec } = require("child_process");
 
-    exec(lndEnable, (error, stdout, stderr) => {
+    exec(rtlEnable, (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
             return;
@@ -61,16 +61,16 @@ exports.lnd_enable = function(req, res) {
             return;
         }
         console.log(`stdout: ${stdout}`);
-        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, lnd_message: `${stdout}`, system_status: utilities.get_system_status()});
+        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, rtl_message: `${stdout}`, system_status: utilities.get_system_status()});
     }); 
 };
 
-exports.lnd_disable = function(req, res) {
+exports.rtl_disable = function(req, res) {
     ip_internal = utilities.get_ip_internal();
     ip_external = utilities.get_ip_external();    
     const { exec } = require("child_process");
 
-    exec(lndDisable, (error, stdout, stderr) => {
+    exec(rtlDisable, (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
             return;
@@ -80,16 +80,16 @@ exports.lnd_disable = function(req, res) {
             return;
         }
         console.log(`stdout: ${stdout}`);
-        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, lnd_message: `${stdout}`, system_status: utilities.get_system_status()});
+        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, rtl_message: `${stdout}`, system_status: utilities.get_system_status()});
     }); 
 };
 
-exports.lnd_status = function(req, res) {
+exports.rtl_status = function(req, res) {
     ip_internal = utilities.get_ip_internal();
     ip_external = utilities.get_ip_external();    
     const { exec } = require("child_process");
 
-    exec(lndStatus, (error, stdout, stderr) => {
+    exec(rtlStatus, (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
             return;
@@ -100,6 +100,6 @@ exports.lnd_status = function(req, res) {
         }
         var ret = `${stdout}`;
         console.log(ret);
-        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, lnd_message: ret, system_status: utilities.get_system_status()});
+        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, rtl_message: ret, system_status: utilities.get_system_status()});
     });     
 };

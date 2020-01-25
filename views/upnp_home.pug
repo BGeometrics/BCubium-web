@@ -1,0 +1,33 @@
+block variables
+doctype html
+html
+  head
+    title 'Bitcoin Cube'
+    style
+      include ../public/css/bootstrap.css
+      include ../public/css/bootstrap.min.css
+  body
+    h3.h3='Bitcoin Cube'
+    div.container.px-2.px-sm-3
+      h2.lead UPnP
+      |
+      each rule in upnp_rules
+        li #{rule.line}  
+          a(class='rounded bg-primary text-white px-2 py-1' href="./upnp_delete?external_port=" + rule.external_port) delete
+      br
+
+      form(method='POST' action='./upnp_add')
+        label(for='external_port') External port:
+        input(name='external_port' value=external_port)
+        br
+        label(for='internal_port') Internal port:
+        input(name='internal_port' value=internal_port)
+        br
+        button(class='rounded bg-primary text-white px-2 py-1' type='submit') Add
+      |
+      p #{usefull_message}
+
+      p
+      |
+      a(class='rounded bg-primary text-white px-2 py-1' href="./") Home
+    

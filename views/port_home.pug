@@ -17,10 +17,10 @@ html
           a(class='rounded bg-primary text-white px-2 py-1' href="./port_redirect_delete?port_source=" + port_redirect.source + "&port_target=" + port_redirect.target) delete
       br
       form(method='POST' action='./port_redirect_add')
-        label(for='port_source') Port source:
+        label(for='port_source') Source port:
         input(name='port_source' value=port_source)
         br
-        label(for='port_target') Port target:
+        label(for='port_target') Target port:
         input(name='port_target' value=port_target)
         br
         button(class='rounded bg-primary text-white px-2 py-1' type='submit') Add

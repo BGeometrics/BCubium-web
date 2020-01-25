@@ -25,7 +25,7 @@ exports.tor_enable = function(req, res) {
             return;
         }
         console.log(`stdout: ${stdout}`);
-        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, tor_message: `${stdout}`});
+        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, tor_message: `${stdout}`, system_status: utilities.get_system_status()});
     }); 
 };
 
@@ -44,7 +44,7 @@ exports.tor_disable = function(req, res) {
             return;
         }
         console.log(`stdout: ${stdout}`);
-        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, tor_message: `${stdout}`});
+        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, tor_message: `${stdout}`, system_status: utilities.get_system_status()});
     }); 
 };
 
@@ -62,9 +62,8 @@ exports.tor_status = function(req, res) {
             console.log(`stderr: ${stderr}`);
             return;
         }
-        var ret = `stdout: ${stdout}`;
-        var stat = ret.substring(0,2);
+        var ret = `${stdout}`;
         console.log(ret);
-        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, tor_message: ret, stat: stat});
+        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, tor_message: ret, system_status: utilities.get_system_status()});
     });     
 };

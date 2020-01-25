@@ -15,7 +15,7 @@ html
       br
       if networks != null
         each network in networks
-          li Network SSID: #{network.ssid} Quality: #{network.quality}
+          li Network SSID: #{network.ssid} Quality: #{network.quality} Signal level: #{network.signal_level} 
       br
 
       if ssid == null

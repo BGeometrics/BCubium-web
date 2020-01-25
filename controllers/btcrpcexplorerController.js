@@ -26,7 +26,7 @@ exports.btcrpcexplorer_start = function(req, res) {
             return;
         }
         console.log(`stdout: ${stdout}`);
-        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, btcrpcexplorer_message: `${stdout}`});
+        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, btcrpcexplorer_message: `${stdout}`, system_status: utilities.get_system_status()});
    });
 };
 
@@ -43,7 +43,7 @@ exports.btcrpcexplorer_stop = function(req, res) {
             return;
         }
         console.log(`stdout: ${stdout}`);
-        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, btcrpcexplorer_message: `${stdout}`});
+        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, btcrpcexplorer_message: `${stdout}`, system_status: utilities.get_system_status()});
    });
 };
 
@@ -62,7 +62,7 @@ exports.btcrpcexplorer_enable = function(req, res) {
             return;
         }
         console.log(`stdout: ${stdout}`);
-        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, btcrpcexplorer_message: `${stdout}`});
+        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, btcrpcexplorer_message: `${stdout}`, system_status: utilities.get_system_status()});
     }); 
 };
 
@@ -81,7 +81,7 @@ exports.btcrpcexplorer_disable = function(req, res) {
             return;
         }
         console.log(`stdout: ${stdout}`);
-        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, btcrpcexplorer_message: `${stdout}`});
+        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, btcrpcexplorer_message: `${stdout}`, system_status: utilities.get_system_status()});
     }); 
 };
 
@@ -101,8 +101,7 @@ exports.btcrpcexplorer_status = function(req, res) {
             return;
         }
         var ret = `${stdout}`;
-        var stat = ret.substring(0,2);
         console.log(ret);
-	res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, btcrpcexplorer_message: ret, sta: stat});
+	res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, btcrpcexplorer_message: ret, system_status: utilities.get_system_status()});
     });     
 };

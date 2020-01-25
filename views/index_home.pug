@@ -12,7 +12,10 @@ html
     p.lead IP internal: #{ip_internal}
     p.lead IP external: #{ip_external}
     div.container.px-2.px-sm-3
-      h2.h6 Bitcoin
+      if system_status.bitcoin = 'OK' 
+        h2.h6 Bitcoin OK
+      else
+        h2.h6 Bitcoin KO
       |
       a(class='rounded bg-primary text-white px-2 py-1' href="./bitcoin_enable") Start
       | 
@@ -24,7 +27,10 @@ html
       | 
       p #{bitcoin_message}
 
-      h2.h6 LND
+      if system_status.lnd = 'OK' 
+        h2.h6 LND OK
+      else
+        h2.h6 LND KO
       |    
       a(class='rounded bg-primary text-white px-2 py-1'  href="./lnd_start") Start
       | 
@@ -38,7 +44,10 @@ html
       | 
       p #{lnd_message}
 
-      h2.h6 Electrum
+      if system_status.electrum = 'OK' 
+        h2.h6 Electrum OK
+      else
+        h2.h6 Electrum KO
       |
       a(class='rounded bg-primary text-white px-2 py-1'  href="./electrum_start") Start
       | 
@@ -52,7 +61,10 @@ html
       | 
       p #{electrum_message}
 
-      h2.h6 Tor
+      if system_status.tor = 'OK' 
+        h2.h6 Tor OK
+      else
+        h2.h6 Tor KO
       | 
       a(class='rounded bg-primary text-white px-2 py-1' href="./tor_enable") Start
       | 
@@ -62,7 +74,10 @@ html
       | 
       p #{tor_message}
 
-      h2.h6 BTC-RPC-Explorer 
+      if system_status.btcrpcexplorer = 'OK' 
+        h2.h6 BTC-RPC-Explorer OK
+      else
+        h2.h6 BTC-RPC-Explorer KO
       | 
       a(class='rounded bg-primary text-white px-2 py-1'  href="./btcrpcexplorer_start") Start
       | 
@@ -78,7 +93,29 @@ html
       | 
       p #{btcrpcexplorer_message}
 
-      h2.h6 Firewall
+      if system_status.rtl = 'OK' 
+        h2.h6 RTL OK
+      else
+        h2.h6 RTL KO
+      | 
+      a(class='rounded bg-primary text-white px-2 py-1'  href="./rtl_start") Start
+      | 
+      a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_stop") Stop
+      |    
+      a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_status") Status
+      | 
+      a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_enable") Enable
+      | 
+      a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_disable") Disable
+      | 
+      a(class='rounded bg-primary text-white px-2 py-1' href="http://cubeBitcoin:3003/") RTL
+      | 
+      p #{rtl_message}
+
+      if system_status.firewall = 'OK' 
+        h2.h6 Firewall OK
+      else
+        h2.h6 Firewall KO
       | 
       a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_enable") Start
       | 
@@ -98,12 +135,7 @@ html
       |
       a(class='rounded bg-primary text-white px-2 py-1' href="./port_home") Port redirect
       |
+      |
+      a(class='rounded bg-primary text-white px-2 py-1' href="./upnp_home") UPnP
+      |
       p #{usefull_message}
-      |
-      - var formEdit="1";
-      p(class=typeof stat === "OK" ? "" : "lead") Test
-      |
-//      if stat=="OK"
-//        h2.h6 Test
-//      else
-//	h2.disabled Test

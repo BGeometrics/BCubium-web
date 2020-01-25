@@ -25,7 +25,7 @@ exports.electrum_start = function(req, res) {
             return;
         }
         console.log(`stdout: ${stdout}`);
-        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, electrum_message: `${stdout}`});
+        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, electrum_message: `${stdout}`, system_status: utilities.get_system_status()});
     });
 };
 
@@ -42,7 +42,7 @@ exports.electrum_stop = function(req, res) {
             return;
         }
         console.log(`stdout: ${stdout}`);
-        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, electrum_message: `${stdout}`});
+        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, electrum_message: `${stdout}`, system_status: utilities.get_system_status()});
     });
 };
 
@@ -61,7 +61,7 @@ exports.electrum_enable = function(req, res) {
             return;
         }
         console.log(`stdout: ${stdout}`);
-        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, electrum_message: `${stdout}`});
+        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, electrum_message: `${stdout}`, system_status: utilities.get_system_status()});
     }); 
 };
 
@@ -80,7 +80,7 @@ exports.electrum_disable = function(req, res) {
             return;
         }
         console.log(`stdout: ${stdout}`);
-        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, electrum_message: `${stdout}`});
+        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, electrum_message: `${stdout}`, system_status: utilities.get_system_status()});
     }); 
 };
 
@@ -99,8 +99,7 @@ exports.electrum_status = function(req, res) {
             return;
         }
         var ret = `${stdout}`;
-        var stat = ret.substring(0,2);
         console.log(ret);
-        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, electrum_message: ret, stat: stat});
+        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, electrum_message: ret, system_status: utilities.get_system_status()});
     });     
 };

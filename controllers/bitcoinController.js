@@ -25,8 +25,7 @@ exports.bitcoin_home = function(req, res) {
        ip_external = ip_external_data;
        console.log(ip_external);
    });
-   console.log('index_home');
-   res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external });
+   res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, system_status: utilities.get_system_status()});
 };
 
 exports.bitcoin_enable = function(req, res) {
@@ -46,7 +45,7 @@ exports.bitcoin_enable = function(req, res) {
         console.log(`stdout: ${stdout}`);
 
         res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, 
-		bitcoin_message: `${stdout}`});
+		bitcoin_message: `${stdout}`, system_status: utilities.get_system_status()});
     }); 
 };
 
@@ -67,7 +66,7 @@ exports.bitcoin_disable = function(req, res) {
         console.log(`stdout: ${stdout}`);
 
         res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external,
-		bitcoin_message: `${stdout}`});
+		bitcoin_message: `${stdout}`, system_status: utilities.get_system_status()});
     }); 
 };
 
@@ -85,11 +84,11 @@ exports.bitcoin_status = function(req, res) {
             console.log(`stderr: ${stderr}`);
             return;
         }
-        var ret = `stdout: ${stdout}`;
+        var ret = `${stdout}`;
 	var stat = ret.substring(0,2);
         console.log(ret);
         res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external,
-		bitcoin_message: ret, stat: stat});
+		bitcoin_message: ret, system_status: utilities.get_system_status()});
     });     
 };
 
