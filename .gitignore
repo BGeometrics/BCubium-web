@@ -1,2 +1,5 @@
 # ignore all ovpn
 *.ovpn
+
+scripts/ip_internal.txt
+scripts/ip_external.txt
