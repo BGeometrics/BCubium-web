@@ -7,6 +7,7 @@ const lndController = require('../controllers/lndController');
 const torController = require('../controllers/torController');
 const btcrpcexplorerController = require('../controllers/btcrpcexplorerController');
 const firewallController = require('../controllers/firewallController');
+const openvpnController = require('../controllers/openvpnController');
 const wifiController = require('../controllers/wifiController');
 const usefulController = require('../controllers/usefulController');
 const rtlController = require('../controllers/rtlController');
@@ -48,6 +49,13 @@ router.get('/rtl_status', rtlController.rtl_status);
 router.get('/firewall_enable', firewallController.firewall_enable);
 router.get('/firewall_disable', firewallController.firewall_disable);
 router.get('/firewall_status', firewallController.firewall_status);
+
+router.get('/openvpn_start', openvpnController.openvpn_start);
+router.get('/openvpn_stop', openvpnController.openvpn_stop);
+router.get('/openvpn_enable', openvpnController.openvpn_enable);
+router.get('/openvpn_disable', openvpnController.openvpn_disable);
+router.get('/openvpn_status', openvpnController.openvpn_status);
+router.get('/openvpn_home', openvpnController.openvpn_home);
 
 router.get('/backup', usefulController.backup);
 router.get('/port_home', usefulController.port_home);

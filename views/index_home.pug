@@ -25,7 +25,7 @@ html
       | 
       a(class='rounded bg-primary text-white px-2 py-1' href="http://cubeBitcoin:3002/node-status") Details (BTC-RPC-Explorer)
       | 
-      p #{system_status}
+      p #{bitcoin_message}
 
       if system_status.lnd == 'OK' 
         h2.h6 LND OK
@@ -124,6 +124,31 @@ html
       a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_status") Status
       | 
       p #{firewall_message}
+
+      if system_status.openvpn == 'OK'
+        h2.h6 VPN OK
+      else
+        h2.h6 VPN KO
+      |
+      a(class='rounded bg-primary text-white px-2 py-1'  href="./openvpn_start") Start
+      |
+      |
+      a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_stop") Stop
+      |
+      |
+      a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_status") Status
+      |
+      |
+      a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_enable") Enable
+      |
+      |
+      a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_disable") Disable
+      |
+      |
+      a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_home") OpenVPN
+      |
+      |
+      p #{openvpn_message}
 
       h2.h6 Utilities
       |

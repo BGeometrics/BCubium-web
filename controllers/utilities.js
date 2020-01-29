@@ -150,9 +150,6 @@ exports.get_system_status = function(req, res) {
    console.log("get system status: " + ret); 
    var obj_status = JSON.parse(ret);
    console.log("obj_status: " + obj_status); 
-   console.log("obj_status.bitcoin: " + obj_status.bitcoin); 
-   //var ret_sa = (new Function("return " + ret + ";")());
-   //var ret_sa = ret;
 
    return obj_status;
 };
