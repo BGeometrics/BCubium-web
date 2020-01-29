@@ -1,5 +1,6 @@
 var PropertiesReader = require('properties-reader');
 var properties = PropertiesReader('/etc/bitcoin/bitcoin.conf');
+var credentials_properties = PropertiesReader('/etc/Bgeometrics/credentials');
 var os = require("os");
 
 var ip_internal_script = "./scripts/IP_internal.sh";
@@ -88,6 +89,17 @@ exports.get_rpcpassword = function () {
    return properties.get('rpcpassword');
 };
 
+exports.get_user = function () {
+   console.log("user: ");
+   console.log("user: " + credentials_properties.get('user'));
+   return credentials_properties.get('user');
+};
+
+exports.get_password = function () {
+   return credentials_properties.get('password');
+};
+
+
 exports.ports_redirect_list_convert=function(list_ports) {
    var res = "";
    var pos = list_ports.indexOf(",");
@@ -153,3 +165,4 @@ exports.get_system_status = function(req, res) {
 
    return obj_status;
 };
+

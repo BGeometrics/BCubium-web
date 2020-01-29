@@ -11,6 +11,9 @@ html
     h3.h3='Bitcoin Cube'
     p.lead IP internal: #{ip_internal}
     p.lead IP external: #{ip_external}
+    if (user)
+      p.lead User: #{user}
+      p.lead Password: #{password}
     div.container.px-2.px-sm-3
       if system_status.bitcoin == 'OK'
         h2.h6 Bitcoin -> OK
