@@ -2,14 +2,19 @@ block variables
 doctype html
 html
   head
-    meta(charset="utf-8")
     link(rel="shortcut icon", href="/favicon.ico")
-    meta(name="viewport", content="width=device-width, initial-scale=1, shrink-to-fit=no")
-    meta(name="theme-color", content="#000000")
-    title #{title} | WHATABYTE
-    link(rel="stylesheet" href="/style.css")
+    title 'Bitcoin Cube'
     style
-      include myapp_fnb.css
+      include ../public/css/bootstrap.css
+      include ../public/css/bootstrap.min.css
   body
-    div#root
-      block layout-content
+    h3.h3='Bitcoin Cube'
+    p.lead IP internal: #{ip_internal}
+    p.lead IP external: #{ip_external}
+    if (user)
+      p.lead User: #{user}
+      p.lead Password: #{password}
+
+    block content
+
+

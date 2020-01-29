@@ -25,7 +25,9 @@ exports.electrum_start = function(req, res) {
             return;
         }
         console.log(`stdout: ${stdout}`);
-        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, electrum_message: `${stdout}`, system_status: utilities.get_system_status()});
+        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, 
+		electrum_message: `${stdout}`, system_status: utilities.get_system_status(),
+                user: utilities.get_user(), password: utilities.get_password()});
     });
 };
 
@@ -42,7 +44,9 @@ exports.electrum_stop = function(req, res) {
             return;
         }
         console.log(`stdout: ${stdout}`);
-        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, electrum_message: `${stdout}`, system_status: utilities.get_system_status()});
+        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external,
+		electrum_message: `${stdout}`, system_status: utilities.get_system_status(),
+                user: utilities.get_user(), password: utilities.get_password()});
     });
 };
 
@@ -61,7 +65,9 @@ exports.electrum_enable = function(req, res) {
             return;
         }
         console.log(`stdout: ${stdout}`);
-        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, electrum_message: `${stdout}`, system_status: utilities.get_system_status()});
+        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, 
+		electrum_message: `${stdout}`, system_status: utilities.get_system_status(),
+                user: utilities.get_user(), password: utilities.get_password()});
     }); 
 };
 
@@ -80,7 +86,9 @@ exports.electrum_disable = function(req, res) {
             return;
         }
         console.log(`stdout: ${stdout}`);
-        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, electrum_message: `${stdout}`, system_status: utilities.get_system_status()});
+        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, 
+		electrum_message: `${stdout}`, system_status: utilities.get_system_status(),
+                user: utilities.get_user(), password: utilities.get_password()});
     }); 
 };
 
@@ -100,6 +108,8 @@ exports.electrum_status = function(req, res) {
         }
         var ret = `${stdout}`;
         console.log(ret);
-        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, electrum_message: ret, system_status: utilities.get_system_status()});
+        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external,
+		electrum_message: `${stdout}`, system_status: utilities.get_system_status(),
+                user: utilities.get_user(), password: utilities.get_password()});
     });     
 };

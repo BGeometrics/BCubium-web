@@ -25,7 +25,9 @@ exports.openvpn_start = function(req, res) {
             return;
         }
         console.log(`stdout: ${stdout}`);
-        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, openvpn_message: `${stdout}`, system_status: utilities.get_system_status()});
+        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, 
+		openvpn_message: `${stdout}`, system_status: utilities.get_system_status(),
+                user: utilities.get_user(), password: utilities.get_password()});
     });
 };
 
@@ -42,7 +44,9 @@ exports.openvpn_stop = function(req, res) {
             return;
         }
         console.log(`stdout: ${stdout}`);
-        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, openvpn_message: `${stdout}`, system_status: utilities.get_system_status()});
+        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external,
+		openvpn_message: `${stdout}`, system_status: utilities.get_system_status(),
+                user: utilities.get_user(), password: utilities.get_password()});
     });
 };
 
@@ -61,7 +65,9 @@ exports.openvpn_enable = function(req, res) {
             return;
         }
         console.log(`stdout: ${stdout}`);
-        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, openvpn_message: `${stdout}`, system_status: utilities.get_system_status()});
+        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external,
+		openvpn_message: `${stdout}`, system_status: utilities.get_system_status(),
+                user: utilities.get_user(), password: utilities.get_password()});
     }); 
 };
 
@@ -80,7 +86,9 @@ exports.openvpn_disable = function(req, res) {
             return;
         }
         console.log(`stdout: ${stdout}`);
-        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, openvpn_message: `${stdout}`, system_status: utilities.get_system_status()});
+        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, 
+		openvpn_message: `${stdout}`, system_status: utilities.get_system_status(),
+                user: utilities.get_user(), password: utilities.get_password()});
     }); 
 };
 
@@ -100,7 +108,9 @@ exports.openvpn_status = function(req, res) {
         }
         var ret = `${stdout}`;
         console.log(ret);
-        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, openvpn_message: ret, system_status: utilities.get_system_status()});
+        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external,
+		openvpn_message: `${stdout}`, system_status: utilities.get_system_status(),
+                user: utilities.get_user(), password: utilities.get_password()});
     });     
 };
 
