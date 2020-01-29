@@ -56,6 +56,8 @@ router.get('/openvpn_enable', openvpnController.openvpn_enable);
 router.get('/openvpn_disable', openvpnController.openvpn_disable);
 router.get('/openvpn_status', openvpnController.openvpn_status);
 router.get('/openvpn_home', openvpnController.openvpn_home);
+router.get('/openvpn_set_port', openvpnController.openvpn_home);
+router.post('/openvpn_set_port', openvpnController.openvpn_home);
 
 router.get('/backup', usefulController.backup);
 router.get('/port_home', usefulController.port_home);

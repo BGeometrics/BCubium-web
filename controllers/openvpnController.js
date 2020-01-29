@@ -1,6 +1,6 @@
 // Display detail page for openvpn.
 
-var title = 'cubeBitcoin';
+var title = 'Bcube';
 var openvpnStart = "./scripts/openvpn_start.sh";  
 var openvpnStop = "./scripts/openvpn_stop.sh"; 
 var openvpnEnable = "./scripts/openvpn_enable.sh";  
@@ -8,6 +8,7 @@ var openvpnDisable = "./scripts/openvpn_disable.sh";
 var openvpnStatus = "./scripts/openvpn_status.sh"; 
 var ip_intenal_file = "./scripts/ip_internal.txt";
 var ip_external_file = "./scripts/ip_external.txt";
+var openvpn_external_ip = "./scripts/openvpn_external_ip.sh";
 var ip_internal = "";
 var ip_external = "";
 const utilities = require('./utilities'); 
@@ -115,6 +116,16 @@ exports.openvpn_status = function(req, res) {
 };
 
 exports.openvpn_home = function(req, res) {
+   console.log("Port: " + req.query.port);
+
+   if (req.query.port != "" && typeof req.query.port == 'number') {
+      var execute = openvpn_external_ip + " " + req.query.port;
+      console.log("Execute: " + execute);
+
+      const { execSync } = require("child_process");
+      var ret = execSync(execute).toString();
+   }
+	
    res.render('openvpn_home.pug', {ip_external: utilities.get_ip_external()});
 };
 

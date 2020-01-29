@@ -1,10 +1,12 @@
 #!/bin/bash
 
 SERVICE=openvpn
-PORT=4702
-FILE="./public/client.ovpn"
+PORT=443
+FILE="../bcube.ovpn"
 
-set -x
+if [ -n "$1" ]; then
+    PORT=$1
+fi
 
 EXTERNAL_IP=$(./scripts/IP_external.sh)
 

@@ -150,18 +150,10 @@ exports.get_upnp_rules = function(req, res) {
 exports.get_system_status = function(req, res) {
    console.log("execute: " + system_status);
 
-   var str = '{ "name": "John Doe", "age": 42 }';
-   console.log("str: " + str); 
-   var obj = JSON.parse(str);
-
-   console.log("obj: " + obj); 
-   console.log("obj: " + obj.name); 
    const { execSync } = require("child_process");
    var ret = execSync(system_status).toString();
-   //var ret1 = '{"bitcoin":"OK", "lnd":"OK", "electrum":"KO", "btcrpcexplorer":"OK", "rtl":"OK", "tor":"OK", "firewall":"KO"}';
    console.log("get system status: " + ret); 
    var obj_status = JSON.parse(ret);
-   console.log("obj_status: " + obj_status); 
 
    return obj_status;
 };
