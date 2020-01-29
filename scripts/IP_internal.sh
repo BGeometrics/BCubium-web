@@ -1,3 +1,3 @@
 #!/bin/bash
 
-echo -n $(hostname -I)
+echo -n $(ip addr show eth0 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1)

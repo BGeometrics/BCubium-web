@@ -23,7 +23,7 @@ html
       | 
       a(class='rounded bg-primary text-white px-2 py-1' href="./bitcoin_status") Status
       | 
-      a(class='rounded bg-primary text-white px-2 py-1' href="http://cubeBitcoin:3002/node-status") Details (BTC-RPC-Explorer)
+      a(class='rounded bg-primary text-white px-2 py-1' href="http://" + ip_internal + ":3002/node-status") Details (BTC-RPC-Explorer)
       | 
       p #{bitcoin_message}
 
@@ -89,7 +89,7 @@ html
       | 
       a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_disable") Disable
       | 
-      a(class='rounded bg-primary text-white px-2 py-1' href="http://cubeBitcoin:3002/") BTC-RPC-Explorer
+      a(class='rounded bg-primary text-white px-2 py-1' href="http://" + ip_internal + ":3002/") BTC-RPC-Explorer
       | 
       p #{btcrpcexplorer_message}
 
@@ -108,7 +108,7 @@ html
       | 
       a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_disable") Disable
       | 
-      a(class='rounded bg-primary text-white px-2 py-1' href="http://cubeBitcoin:3003/") RTL
+      a(class='rounded bg-primary text-white px-2 py-1' href="http://" + ip_internal + ":3003/") RTL
       | 
       p #{rtl_message}
 
