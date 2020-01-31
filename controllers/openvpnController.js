@@ -116,16 +116,17 @@ exports.openvpn_status = function(req, res) {
 };
 
 exports.openvpn_home = function(req, res) {
-   console.log("Port: " + req.query.port);
-
-   if (req.query.port != "" && typeof req.query.port == 'number') {
-      var execute = openvpn_external_ip + " " + req.query.port;
+   console.log("Port: " + req.body.port);
+   var message = "";
+   if (req.body.port != "") {
+      var execute = openvpn_external_ip + " " + req.body.port;
       console.log("Execute: " + execute);
 
       const { execSync } = require("child_process");
       var ret = execSync(execute).toString();
+      message = "Add port";
    }
 	
-   res.render('openvpn_home.pug', {ip_external: utilities.get_ip_external()});
+   res.render('openvpn_home.pug', {password: utilities.get_password(), openvpn_message: message});
 };
 

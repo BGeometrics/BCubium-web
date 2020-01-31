@@ -90,7 +90,6 @@ exports.get_rpcpassword = function () {
 };
 
 exports.get_user = function () {
-   console.log("user: ");
    console.log("user: " + credentials_properties.get('user'));
    return credentials_properties.get('user');
 };
@@ -98,7 +97,6 @@ exports.get_user = function () {
 exports.get_password = function () {
    return credentials_properties.get('password');
 };
-
 
 exports.ports_redirect_list_convert=function(list_ports) {
    var res = "";
@@ -152,6 +150,7 @@ exports.get_system_status = function(req, res) {
 
    const { execSync } = require("child_process");
    var ret = execSync(system_status).toString();
+   ret = ret.replace(/\n$/, '')
    console.log("get system status: " + ret); 
    var obj_status = JSON.parse(ret);
 

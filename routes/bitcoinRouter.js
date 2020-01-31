@@ -11,6 +11,7 @@ const openvpnController = require('../controllers/openvpnController');
 const wifiController = require('../controllers/wifiController');
 const usefulController = require('../controllers/usefulController');
 const rtlController = require('../controllers/rtlController');
+const webconfigController = require('../controllers/webconfigController');
 
 router.get('/', bitcoinController.bitcoin_home);
 router.get('/home/', bitcoinController.bitcoin_home);
@@ -58,6 +59,8 @@ router.get('/openvpn_status', openvpnController.openvpn_status);
 router.get('/openvpn_home', openvpnController.openvpn_home);
 router.get('/openvpn_set_port', openvpnController.openvpn_home);
 router.post('/openvpn_set_port', openvpnController.openvpn_home);
+
+router.get('/webconfig_restart', webconfigController.webconfig_restart);
 
 router.get('/backup', usefulController.backup);
 router.get('/port_home', usefulController.port_home);

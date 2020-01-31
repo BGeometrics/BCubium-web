@@ -2,155 +2,216 @@ extends layout
 
 block content
     div.container.px-2.px-sm-3
-      if system_status.bitcoin == 'OK'
-        h2.h6 Bitcoin -> OK
-      else
-        h2.h6 Bitcoin -> KO
-      |
-      a(class='rounded bg-primary text-white px-2 py-1' href="./bitcoin_enable") Start
-      | 
-      a(class='rounded bg-primary text-white px-2 py-1' href="./bitcoin_disable") Stop
-      | 
-      a(class='rounded bg-primary text-white px-2 py-1' href="./bitcoin_status") Status
-      | 
-      a(class='rounded bg-primary text-white px-2 py-1' href="http://" + ip_internal + ":3002/node-status") Details (BTC-RPC-Explorer)
-      | 
-      p #{bitcoin_message}
+      div.card.mb-4.shadow-sm
+        div.card-header
+          if system_status.bitcoin == 'OK'
+            p.h2.h6.mb-0 Bitcoin -> OK
+          else
+            p.h2.h6.mb-0 Bitcoin -> KO
+        div.card-body
+          a(class='rounded bg-primary text-white px-2 py-1' href="./bitcoin_enable") Start
+          |
+          |
+          a(class='rounded bg-primary text-white px-2 py-1' href="./bitcoin_disable") Stop
+          |
+          |
+          a(class='rounded bg-primary text-white px-2 py-1' href="./bitcoin_status") Status
+          |
+          |
+          a(class='rounded bg-primary text-white px-2 py-1' href="http://" + ip_internal + ":3002/node-status") Details (BTC-RPC-Explorer)
+          |
+          |
+          p #{bitcoin_message}
 
-      if system_status.lnd == 'OK' 
-        h2.h6 LND -> OK
-      else
-        h2.h6 LND -> KO
-      |    
-      a(class='rounded bg-primary text-white px-2 py-1'  href="./lnd_start") Start
-      | 
-      a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_stop") Stop
-      |    
-      a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_status") Status
-      | 
-      a(class='rounded bg-primary text-white px-2 py-1'  href="./lnd_enable") Enable
-      | 
-      a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_disable") Disable
-      | 
-      p #{lnd_message}
+      div.card.mb-4.shadow-sm
+        div.card-header
+          if system_status.lnd == 'OK'
+            h2.h6 LND -> OK
+          else
+            h2.h6 LND -> KO
+        div.card-body
+          a(class='rounded bg-primary text-white px-2 py-1'  href="./lnd_start") Start
+          |
+          |
+          a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_stop") Stop
+          |
+          |
+          a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_status") Status
+          |
+          |
+          a(class='rounded bg-primary text-white px-2 py-1'  href="./lnd_enable") Enable
+          |
+          |
+          a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_disable") Disable
+          |
+          |
+          p #{lnd_message}
 
-      if system_status.electrum === 'OK' 
-        h2.h6 Electrum -> OK
-      else
-        h2.h6 Electrum -> KO
-      |
-      a(class='rounded bg-primary text-white px-2 py-1'  href="./electrum_start") Start
-      | 
-      a(class='rounded bg-primary text-white px-2 py-1' href="./electrum_stop") Stop
-      | 
-      a(class='rounded bg-primary text-white px-2 py-1' href="./electrum_status") Status
-      |    
-      a(class='rounded bg-primary text-white px-2 py-1' href="./electrum_enable") Enable
-      | 
-      a(class='rounded bg-primary text-white px-2 py-1'  href="./electrum_disable") Disable
-      | 
-      p #{electrum_message}
+      div.card.mb-4.shadow-sm
+        div.card-header
+          if system_status.electrum === 'OK'
+            h2.h6 Electrum -> OK
+          else
+            h2.h6 Electrum -> KO
+        div.card-body
+          a(class='rounded bg-primary text-white px-2 py-1'  href="./electrum_start") Start
+          |
+          |
+          a(class='rounded bg-primary text-white px-2 py-1' href="./electrum_stop") Stop
+          |
+          |
+          a(class='rounded bg-primary text-white px-2 py-1' href="./electrum_status") Status
+          |
+          |
+          a(class='rounded bg-primary text-white px-2 py-1' href="./electrum_enable") Enable
+          |
+          |
+          a(class='rounded bg-primary text-white px-2 py-1'  href="./electrum_disable") Disable
+          |
+          |
+          p #{electrum_message}
 
-      if system_status.tor == 'OK' 
-        h2.h6 Tor -> OK
-      else
-        h2.h6 Tor -> KO
-      | 
-      a(class='rounded bg-primary text-white px-2 py-1' href="./tor_enable") Start
-      | 
-      a(class='rounded bg-primary text-white px-2 py-1' href="./tor_disable") Stop
-      | 
-      a(class='rounded bg-primary text-white px-2 py-1' href="./tor_status") Status
-      | 
-      p #{tor_message}
+      div.card.mb-4.shadow-sm
+        div.card-header
+          if system_status.tor == 'OK'
+            h2.h6 Tor -> OK
+          else
+            h2.h6 Tor -> KO
+        div.card-body
+          a(class='rounded bg-primary text-white px-2 py-1' href="./tor_enable") Start
+          |
+          |
+          a(class='rounded bg-primary text-white px-2 py-1' href="./tor_disable") Stop
+          |
+          |
+          a(class='rounded bg-primary text-white px-2 py-1' href="./tor_status") Status
+          |
+          |
+          p #{tor_message}
 
-      if system_status.btcrpcexplorer == 'OK' 
-        h2.h6 BTC-RPC-Explorer -> OK
-      else
-        h2.h6 BTC-RPC-Explorer -> KO
-      | 
-      a(class='rounded bg-primary text-white px-2 py-1'  href="./btcrpcexplorer_start") Start
-      | 
-      a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_stop") Stop
-      |    
-      a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_status") Status
-      | 
-      a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_enable") Enable
-      | 
-      a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_disable") Disable
-      | 
-      a(class='rounded bg-primary text-white px-2 py-1' href="http://" + ip_internal + ":3002/") BTC-RPC-Explorer
-      | 
-      p #{btcrpcexplorer_message}
+      div.card.mb-4.shadow-sm
+        div.card-header
+          if system_status.btcrpcexplorer == 'OK'
+            h2.h6 BTC-RPC-Explorer -> OK
+          else
+            h2.h6 BTC-RPC-Explorer -> KO
+        div.card-body
+          a(class='rounded bg-primary text-white px-2 py-1'  href="./btcrpcexplorer_start") Start
+          |
+          |
+          a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_stop") Stop
+          |
+          |
+          a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_status") Status
+          |
+          |
+          a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_enable") Enable
+          |
+          |
+          a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_disable") Disable
+          |
+          |
+          a(class='rounded bg-primary text-white px-2 py-1' href="http://" + ip_internal + ":3002/") BTC-RPC-Explorer
+          |
+          |
+          p #{btcrpcexplorer_message}
 
-      if system_status.rtl == 'OK' 
-        h2.h6 RTL -> OK
-      else
-        h2.h6 RTL -> KO
-      | 
-      a(class='rounded bg-primary text-white px-2 py-1'  href="./rtl_start") Start
-      | 
-      a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_stop") Stop
-      |    
-      a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_status") Status
-      | 
-      a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_enable") Enable
-      | 
-      a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_disable") Disable
-      | 
-      a(class='rounded bg-primary text-white px-2 py-1' href="http://" + ip_internal + ":3003/") RTL
-      | 
-      p #{rtl_message}
+      div.card.mb-4.shadow-sm
+        div.card-header
+          if system_status.rtl == 'OK'
+            h2.h6 RTL -> OK
+          else
+            h2.h6 RTL -> KO
+        div.card-body
+          a(class='rounded bg-primary text-white px-2 py-1'  href="./rtl_start") Start
+          |
+          |
+          a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_stop") Stop
+          |
+          |
+          a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_status") Status
+          |
+          |
+          a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_enable") Enable
+          |
+          |
+          a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_disable") Disable
+          |
+          |
+          a(class='rounded bg-primary text-white px-2 py-1' href="http://" + ip_internal + ":3003/") RTL
+          |
+          |
+          p #{rtl_message}
 
-      if system_status.firewall == 'OK' 
-        h2.h6 Firewall -> OK
-      else
-        h2.h6 Firewall -> KO
-      | 
-      a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_enable") Start
-      | 
-      a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_disable") Stop
-      | 
-      a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_status") Status
-      | 
-      p #{firewall_message}
+      div.card.mb-4.shadow-sm
+        div.card-header
+          if system_status.firewall == 'OK'
+            h2.h6 Firewall -> OK
+          else
+            h2.h6 Firewall -> KO
+        div.card-body
+          a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_enable") Start
+          |
+          |
+          a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_disable") Stop
+          |
+          |
+          a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_status") Status
+          |
+          |
+          p #{firewall_message}
 
-      if system_status.openvpn == 'OK'
-        h2.h6 VPN -> OK
-      else
-        h2.h6 VPN -> KO
-      |
-      a(class='rounded bg-primary text-white px-2 py-1'  href="./openvpn_start") Start
-      |
-      |
-      a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_stop") Stop
-      |
-      |
-      a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_status") Status
-      |
-      |
-      a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_enable") Enable
-      |
-      |
-      a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_disable") Disable
-      |
-      |
-      a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_home") OpenVPN
-      |
-      |
-      p #{openvpn_message}
+      div.card.mb-4.shadow-sm
+        div.card-header
+          if system_status.openvpn == 'OK'
+            h2.h6 VPN -> OK
+          else
+            h2.h6 VPN -> KO
+        div.card-body
+          a(class='rounded bg-primary text-white px-2 py-1'  href="./openvpn_start") Start
+          |
+          |
+          a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_stop") Stop
+          |
+          |
+          a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_status") Status
+          |
+          |
+          a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_enable") Enable
+          |
+          |
+          a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_disable") Disable
+          |
+          |
+          a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_home") OpenVPN
+          |
+          |
+          p #{openvpn_message}
 
-      h2.h6 Utilities
-      |
-      a(class='rounded bg-primary text-white px-2 py-1' href="./backup") Backup
-      |
-      |
-      a(class='rounded bg-primary text-white px-2 py-1' href="./wifi_home") Wifi
-      |
-      |
-      a(class='rounded bg-primary text-white px-2 py-1' href="./port_home") Port redirect
-      |
-      |
-      a(class='rounded bg-primary text-white px-2 py-1' href="./upnp_home") UPnP
-      |
-      p #{usefull_message}
+      div.card.mb-4.shadow-sm
+        div.card-header
+          h2.h6 Utilities
+        div.card-body
+          a(class='rounded bg-primary text-white px-2 py-1' href="./backup") Backup
+          |
+          |
+          a(class='rounded bg-primary text-white px-2 py-1' href="./wifi_home") Wifi
+          |
+          |
+          a(class='rounded bg-primary text-white px-2 py-1' href="./port_home") Port redirect
+          |
+          |
+          a(class='rounded bg-primary text-white px-2 py-1' href="./upnp_home") UPnP
+          |
+          |
+          p #{usefull_message}
+
+      div.card.mb-4.shadow-sm
+        div.card-header
+          h2.h6 Web Bcube
+        div.card-body
+          a(class='rounded bg-primary text-white px-2 py-1'  href="./webconfig_restart") Restart
+          |
+          |
+          p #{webconfig_message}
+
