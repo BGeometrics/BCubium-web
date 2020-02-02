@@ -1,29 +1,42 @@
 extends layout
 
 block content
-    div.container.px-2.px-sm-3
-      h2.lead Wifi
-      |
-      a(class='rounded bg-primary text-white px-2 py-1' href="./wifi_scan") Scan
-      br
-      if networks != null
-        each network in networks
-          li Network SSID: #{network.ssid} Quality: #{network.quality} Signal level: #{network.signal_level} 
-      br
+  div.row
+    div.col-md-9
+      div.container.px-2.px-sm-3
+        div.card.mb-4.shadow-sm
+          div.card-header
+            p.h2.h6.mb-0 Wifi
+          div.card-body
+            a(class='rounded bg-primary text-white px-2 py-1' href="./wifi_scan") Scan
+            br
+            if networks != null
+              each network in networks
+                li Network SSID: #{network.ssid} Quality: #{network.quality} Signal level: #{network.signal_level}
+            br
 
-      if ssid == null
-        form(method='POST' action='./wifi_connect')
-          div
-            label(for='name') Wifi ssid:
-            input(name='ssid' value=ssid)
-            br
-            label(for='password') Wifi password:
-            input(name='wifi_password' value=pass)
-            br
-            button.btn.btn-primary(type='submit') Connect
-      else
-        p Connect wifi #{ssid}
-      p
-      |
-      a(class='rounded bg-primary text-white px-2 py-1' href="./") Home
+            if ssid == null
+              form(method='POST' action='./wifi_connect')
+                div
+                  label(for='name') Wifi ssid:
+                  input(name='ssid' value=ssid)
+                  br
+                  label(for='password') Wifi password:
+                  input(name='wifi_password' value=pass)
+                  br
+                  button.btn.btn-primary(type='submit') Connect
+            else
+              p Connect wifi #{ssid}
+            p
+            |
+            a(class='rounded bg-primary text-white px-2 py-1' href="./") Home
+
+    div.col-md-3
+      div.container.px-2.px-sm-3
+        div.card.mb-4.shadow-sm
+          div.card-header
+            h2.h6 Suggestions
+          div.card-body
+            p Vale venga esto puede ser cualquier texto de soporte para que el usuario tenga una idea más clara
+
     

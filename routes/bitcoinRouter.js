@@ -21,7 +21,7 @@ router.get('/bitcoin_status', bitcoinController.bitcoin_status);
 
 router.get('/electrum_start', electrumController.electrum_start);
 router.get('/electrum_stop', electrumController.electrum_stop);
-router.get('/electrum_disable', electrumController.electrum_disable);
+router.get('/electrum_enable', electrumController.electrum_enable);
 router.get('/electrum_disable', electrumController.electrum_disable);
 router.get('/electrum_status', electrumController.electrum_status);
 

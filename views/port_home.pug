@@ -1,26 +1,37 @@
 extends layout
 
 block content
-    div.container.px-2.px-sm-3
-      h2.lead Port redirect
-      |
-      br
-      each port_redirect in port_redirect_list
-        li Port internal: #{port_redirect.internal}. Port external: #{port_redirect.external}    
-          a(class='rounded bg-primary text-white px-2 py-1' href="./port_redirect_delete?port_internal=" + port_redirect.internal + "&port_external=" + port_redirect.external) delete
-      br
-      form(method='POST' action='./port_redirect_add')
-        label(for='port_internal') Internal port:
-        input(name='port_internal' value=port_internal)
-        br
-        label(for='port_external') External port:
-        input(name='port_external' value=port_external)
-        br
-        button.btn.btn-primary(type='submit') Add
-      |
-      p #{usefull_message}
+  div.row
+    div.col-md-9
+      div.container.px-2.px-sm-3
+        div.card.mb-4.shadow-sm
+          div.card-header
+            p.h2.h6.mb-0 Port redirect
+          div.card-body
+            each port_redirect in port_redirect_list
+              li Port internal: #{port_redirect.internal}. Port external: #{port_redirect.external}
+                a(class='rounded bg-primary text-white px-2 py-1' href="./port_redirect_delete?port_internal=" + port_redirect.internal + "&port_external=" + port_redirect.external) delete
+            br
+            form(method='POST' action='./port_redirect_add')
+              label(for='port_internal') Internal port:
+              input(name='port_internal' value=port_internal)
+              br
+              label(for='port_external') External port:
+              input(name='port_external' value=port_external)
+              br
+              button.btn.btn-primary(type='submit') Add
+            |
+            p #{usefull_message}
 
-      p
-      |
-      a(class='rounded bg-primary text-white px-2 py-1' href="./") Home
-    
+            p
+            |
+            a(class='rounded bg-primary text-white px-2 py-1' href="./") Home
+
+    div.col-md-3
+      div.container.px-2.px-sm-3
+        div.card.mb-4.shadow-sm
+          div.card-header
+            h2.h6 Suggestions
+          div.card-body
+            p Vale venga esto puede ser cualquier texto de soporte para que el usuario tenga una idea más clara
+

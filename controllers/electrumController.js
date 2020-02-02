@@ -51,6 +51,7 @@ exports.electrum_stop = function(req, res) {
 };
 
 exports.electrum_enable = function(req, res) {
+    console.log("Execute: " + electrumEnable);
     ip_internal = utilities.get_ip_internal();
     ip_external = utilities.get_ip_external();    
     const { exec } = require("child_process");
