@@ -116,6 +116,8 @@ exports.openvpn_status = function(req, res) {
 };
 
 exports.openvpn_home = function(req, res) {
+   ip_internal = utilities.get_ip_internal();
+   ip_external = utilities.get_ip_external();    
    console.log("Port: " + req.body.port);
    var message = "";
    if (req.body.port != "") {
@@ -127,6 +129,8 @@ exports.openvpn_home = function(req, res) {
       message = "Add port";
    }
 	
-   res.render('openvpn_home.pug', {password: utilities.get_password(), openvpn_message: message});
+   res.render('openvpn_home.pug', {ip_internal: ip_internal, ip_external: ip_external,
+		user: utilities.get_user(), password: utilities.get_password(), 
+   		openvpn_message: message});
 };
 

@@ -8,17 +8,19 @@ block content
           div.card-header
             p.h2.h6.mb-0 OpenVPN
           div.card-body
-            - var port_external = '443'
+            - var port_external = '4443'
+            - var port_internal = '3000'
             - var url = 'https://' + ip_external + ':' + port_external + '/bcube.ovpn';
+            - var url_internal = 'http://' + ip_internal + ':' + port_internal;
             |
             |
             p How to connect to the VPN
             p 1- Install the software OpenVPN client on the device: Computer, mobile, Tablet ...
-            p 2- Download the configuration file of this link
+            p 2- Download the configuration file of this link 
               a(class='rounded bg-primary text-white px-2 py-1' href=url) bcube.ovpn
             p The username and password are those of the Bcube website
             p 3- Start the OpenVPN program
-            p 4- In the OpenVPN program, add (+) -> Import Profile -> FILE, indicate the file that you have downloaded, the requested password is: <mark>#{password}</mark>
+            p 4- In the OpenVPN program, add (+) -> Import Profile -> FILE, indicate the file that you have downloaded
             p
             p From the client device you have to be able access to the web server and the port where you are listening to be able to download the file and to the port (443) where you listen to the OpenVPN and web server processes
             |
@@ -37,7 +39,9 @@ block content
       div.container.px-2.px-sm-3
         div.card.mb-4.shadow-sm
           div.card-header
-            h2.h6 Suggestions
+            h2.h6 Help
           div.card-body
-            p Vale venga esto puede ser cualquier texto de soporte para que el usuario tenga una idea más clara
+            p If you connect through the VPN, for example from your mobile or tables, you can access the Bcube Website from any location with: 
+            a(class='rounded bg-primary text-white px-2 py-1' href=url_internal) #{url_internal}
+       
 

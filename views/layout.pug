@@ -1,7 +1,9 @@
 block variables
 doctype html
-html
+html(lang="en")
   head
+    meta(charset="utf-8")
+    meta(name="csrf-token", content=csrfToken)
     link(rel="shortcut icon", href="/favicon.ico")
     title 'Bcube'
     style
@@ -9,21 +11,32 @@ html
       include ../public/css/bootstrap.min.css
   body
     div.container.px-2.px-sm-3
-      h1.h3='Bitcoin Cube'
+      a(class="navbar-brand", href="/")
+        h1.h3='Bcube'
       div.row
-        div.col-md-4
+        div.col-md-3
           if (user)
               p.font-weight-bold User: <mark>#{user}</mark>
-        div.col-md-4
+        div.col-md-3
+          if (password)
+            p.font-weight-bold Pass: <mark>#{password}</mark>
+        div.col-md-3
           if (ip_external)
             p.font-weight-bold External IP: #{ip_external}
-      div.row
-        div.col-md-4
-          if (password)
-            p.font-weight-bold Password: <mark>#{password}</mark>
-        div.col-md-4
+        div.col-md-3
           if (ip_internal)
             p.font-weight-bold Internal IP: #{ip_internal} 
+      div(id="sub-menu", class="container mb-2 pt-2 d-lg-block d-none border-top", style="")
+        ul(class="nav")
+          li(class="nav-item")
+            a(href="http://" + ip_internal + ":3002/", class="nav-link px-2 text-decoration-underline") 
+              span BTC-RPC-Explorer
+          li(class="nav-item")
+            a(href="http://" + ip_internal + ":3003/", class="nav-link px-2 text-decoration-underline") 
+              span RTL
+          li(class="nav-item")
+            a(href="./openvpn_home", class="nav-link px-2 text-decoration-underline") 
+              span OpenVPN
       hr
       block content
 

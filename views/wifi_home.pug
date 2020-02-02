@@ -19,10 +19,12 @@ block content
               form(method='POST' action='./wifi_connect')
                 div
                   label(for='name') Wifi ssid:
-                  input(name='ssid' value=ssid)
+                  input#name.form-control(type='text', placeholder='ssid' name='ssid')
+                  //input(name='ssid' value=ssid)
                   br
                   label(for='password') Wifi password:
-                  input(name='wifi_password' value=pass)
+                  input#name.form-control(type='pass', placeholder='password' name='wifi_password')
+                  //input(name='wifi_password' value=pass)
                   br
                   button.btn.btn-primary(type='submit') Connect
             else
@@ -35,7 +37,7 @@ block content
       div.container.px-2.px-sm-3
         div.card.mb-4.shadow-sm
           div.card-header
-            h2.h6 Suggestions
+            h2.h6 Help
           div.card-body
             p Vale venga esto puede ser cualquier texto de soporte para que el usuario tenga una idea más clara
 
