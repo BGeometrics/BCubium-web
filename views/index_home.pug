@@ -9,17 +9,22 @@ block content
             div.card.mb-3.shadow-sm
               div.card-header
                 if system_status.bitcoin == 'OK'
-                  p.h2.h6.mb-0 Bitcoin -> OK
+                  p.h2.h6.mb-0 Bitcoin   
+                    img(src='/check-mark.ico')
                 else
-                  p.h2.h6.mb-0 Bitcoin -> KO
+                  p.h2.h6.mb-0 Bitcoin
+                    img(src='/no-check-mark.ico')
               div.card-body
-                a(class='rounded bg-primary text-white px-2 py-1' href="./bitcoin_enable") Start
+                |
+                a(class='rounded bg-primary text-white px-2 py-1' href="./bitcoin_enable") On 
+                  img(src='/toggle_on.png')
                 |
                 |
-                a(class='rounded bg-primary text-white px-2 py-1' href="./bitcoin_disable") Stop
+                a(class='rounded bg-primary text-white px-2 py-1' href="./bitcoin_disable") Off 
+                  img(src='/toggle_off.png')
                 |
                 |
-                a(class='rounded bg-primary text-white px-2 py-1' href="./bitcoin_status") Status
+                a(class='rounded bg-primary text-white px-2 py-1' href="./bitcoin_status") Status 
                 |
                 |
                 br
@@ -27,22 +32,26 @@ block content
                 |
                 |
                 a(class='rounded bg-primary text-white px-2 py-1' href="http://" + ip_internal + ":3002/node-status") Details
-                |
-                |
+                br
+                br
                 p #{bitcoin_message}
 
           div.col-md-4
             div.card.mb-3.shadow-sm
               div.card-header
                 if system_status.lnd == 'OK'
-                  p.h2.h6.mb-0 LND -> OK
+                  p.h2.h6.mb-0 LND  
+                    img(src='/check-mark.ico')
                 else
-                  p.h2.h6.mb-0 LND -> KO
+                  p.h2.h6.mb-0 LND 
+                    img(src='/no-check-mark.ico')
               div.card-body
-                a(class='rounded bg-primary text-white px-2 py-1'  href="./lnd_start") Start
+                a(class='rounded bg-primary text-white px-2 py-1'  href="./lnd_start")
+                  img(src='/start.png')
                 |
                 |
-                a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_stop") Stop
+                a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_stop")
+                  img(src='/stop.png')
                 |
                 |
                 a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_status") Status
@@ -52,29 +61,37 @@ block content
                 br
                 |
                 |
-                a(class='rounded bg-primary text-white px-2 py-1'  href="./lnd_enable") Enable
+                a(class='rounded bg-primary text-white px-2 py-1'  href="./lnd_enable") On 
+                  img(src='/toggle_on.png')
                 |
                 |
-                a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_disable") Disable
-                |
-                |
+                a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_disable") Off 
+                  img(src='/toggle_off.png')
+                br
+                br
                 p #{lnd_message}
 
           div.col-md-4
             div.card.mb-3.shadow-sm
               div.card-header
                 if system_status.tor == 'OK'
-                  p.h2.h6.mb-0 Tor -> OK
+                  p.h2.h6.mb-0 Tor 
+                    img(src='/check-mark.ico')
                 else
-                  p.h2.h6.mb-0 Tor -> KO
+                  p.h2.h6.mb-0 Tor 
+                    img(src='/no-check-mark.ico')
               div.card-body
-                a(class='rounded bg-primary text-white px-2 py-1' href="./tor_enable") Start
+                a(class='rounded bg-primary text-white px-2 py-1' href="./tor_enable") On 
+                  img(src='/toggle_on.png')
                 |
                 |
-                a(class='rounded bg-primary text-white px-2 py-1' href="./tor_disable") Stop
+                a(class='rounded bg-primary text-white px-2 py-1' href="./tor_disable") Off 
+                  img(src='/toggle_off.png')
                 |
                 |
                 a(class='rounded bg-primary text-white px-2 py-1' href="./tor_status") Status
+                br
+                br
                 |
                 |
                 p #{tor_message}
@@ -84,15 +101,19 @@ block content
               div.card-header
                 if system_status.rtl == 'OK'
                   a(class='nav-bar-brand' href="http://" + ip_internal + ":3003/")
-                    p.h2.h6.mb-0 RTL -> OK
+                    p.h2.h6.mb-0 RTL 
+                      img(src='/check-mark.ico')
                 else
                   a(class='nav-bar-brand' href="http://" + ip_internal + ":3003/")
-                    p.h2.h6.mb-0 RTL -> KO
+                    p.h2.h6.mb-0 RTL 
+                      img(src='/no-check-mark.ico')
               div.card-body
-                a(class='rounded bg-primary text-white px-2 py-1'  href="./rtl_start") Start
+                a(class='rounded bg-primary text-white px-2 py-1'  href="./rtl_start")
+                  img(src='/start.png')
                 |
                 |
-                a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_stop") Stop
+                a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_stop")
+                  img(src='/stop.png')
                 |
                 |
                 a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_status") Status
@@ -102,12 +123,16 @@ block content
                 br
                 |
                 |
-                a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_enable") Enable
+                a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_enable") On 
+                  img(src='/toggle_on.png')
                 |
                 |
-                a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_disable") Disable
+                a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_disable") Off 
+                  img(src='/toggle_off.png')
                 |
                 |
+                br
+                br
                 p #{rtl_message}
 
           div.col-md-4
@@ -115,15 +140,19 @@ block content
               div.card-header
                 if system_status.btcrpcexplorer == 'OK'
                   a(class='nav-bar-brand' href="http://" + ip_internal + ":3002/")
-                    p.h2.h6.mb-0 BTC-RPC-Explorer -> OK
+                    p.h2.h6.mb-0 BTC-RPC-Explorer 
+                      img(src='/check-mark.ico')
                 else
                   a(class='nav-bar-brand' href="http://" + ip_internal + ":3002/")
-                    p.h2.h6.mb-0 BTC-RPC-Explorer -> KO
+                    p.h2.h6.mb-0 BTC-RPC-Explorer 
+                      img(src='/no-check-mark.ico')
               div.card-body
-                a(class='rounded bg-primary text-white px-2 py-1'  href="./btcrpcexplorer_start") Start
+                a(class='rounded bg-primary text-white px-2 py-1'  href="./btcrpcexplorer_start")
+                  img(src='/start.png')
                 |
                 |
-                a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_stop") Stop
+                a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_stop")
+                  img(src='/stop.png')
                 |
                 |
                 a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_status") Status
@@ -133,45 +162,57 @@ block content
                 br
                 |
                 |
-                a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_enable") Enable
+                a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_enable") On 
+                  img(src='/toggle_on.png')
                 | 
                 |
-                a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_disable") Disable
+                a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_disable") Off 
+                  img(src='/toggle_off.png')
                 |
                 |
+                br
+                br
                 p #{btcrpcexplorer_message}
 
           div.col-md-4
             div.card.mb-3.shadow-sm
               div.card-header
                 if system_status.firewall == 'OK'
-                  p.h2.h6.mb-0 Firewall -> OK
+                  p.h2.h6.mb-0 Firewall 
+                    img(src='/check-mark.ico')
                 else
-                  p.h2.h6.mb-0 Firewall -> KO
+                  p.h2.h6.mb-0 Firewall 
+                    img(src='/no-check-mark.ico')
               div.card-body
-                a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_enable") Start
+                a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_enable") On 
+                  img(src='/toggle_on.png')
                 |
                 |
-                a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_disable") Stop
+                a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_disable") Off 
+                  img(src='/toggle_off.png')
                 |
                 |
                 a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_status") Status
-                |
-                |
+                br
+                br
                 p #{firewall_message}
 
           div.col-md-4
             div.card.mb-3.shadow-sm
               div.card-header
                 if system_status.openvpn == 'OK'
-                  p.h2.h6.mb-0 VPN -> OK
+                  p.h2.h6.mb-0 VPN 
+                    img(src='/check-mark.ico')
                 else
-                  p.h2.h6.mb-0 VPN -> KO
+                  p.h2.h6.mb-0 VPN 
+                    img(src='/no-check-mark.ico')
               div.card-body
-                a(class='rounded bg-primary text-white px-2 py-1'  href="./openvpn_start") Start
+                a(class='rounded bg-primary text-white px-2 py-1'  href="./openvpn_start")
+                  img(src='/start.png')
                 |
                 |
-                a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_stop") Stop
+                a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_stop")
+                  img(src='/stop.png')
                 |
                 |
                 a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_status") Status
@@ -181,37 +222,44 @@ block content
                 br
                 |
                 |
-                a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_enable") Enable
+                a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_enable") On 
+                  img(src='/toggle_on.png')
                 |
                 |
-                a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_disable") Disable
+                a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_disable") Off 
+                  img(src='/toggle_off.png')
                 |
                 | 
                 a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_home") OpenVPN
-                |
-                |
+                br
+                br
                 p #{openvpn_message}
 
         if system_status.electrum_activated === 'OK'
           div.card.mb-3.shadow-sm
             div.card-header
               if system_status.electrum === 'OK'
-                p.h2.h6 Electrum -> OK
+                p.h2.h6 Electrum 
+                  img(src='/check-mark.ico')
               else
-                p.h2.h6 Electrum -> KO
+                p.h2.h6 Electrum 
+                  img(src='/no-check-mark.ico')
             div.card-body
-              a(class='rounded bg-primary text-white px-2 py-1'  href="./electrum_start") Start
+              a(class='rounded bg-primary text-white px-2 py-1'  href="./electrum_start")
+                img(src='/start.png')
               |
               |
-              a(class='rounded bg-primary text-white px-2 py-1' href="./electrum_stop") Stop
+              a(class='rounded bg-primary text-white px-2 py-1' href="./electrum_stop")
+                img(src='/stop.png')
               |
               |
               a(class='rounded bg-primary text-white px-2 py-1' href="./electrum_status") Status
               |
               |
-              a(class='rounded bg-primary text-white px-2 py-1'  href="./electrum_disable") Disable
-              |
-              |
+              a(class='rounded bg-primary text-white px-2 py-1'  href="./electrum_disable") Off 
+                  img(src='/toggle_off.png')
+              br
+              br
               p #{electrum_message}
 
         div.card.mb-3.shadow-sm
@@ -231,8 +279,8 @@ block content
             |
             |
             a(class='rounded bg-primary text-white px-2 py-1'  href="./webconfig_restart") Bcube Web Restart
-            |
-            |
+            br
+            br
             p #{usefull_message}
 
         div.card.mb-3.shadow-sm
