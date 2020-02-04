@@ -1,13 +1,15 @@
 #!/bin/bash
 
 SERVICE=ufw
-STATUS=$(systemctl is-active $SERVICE)
-ACTIVE=active
 
-if [ "$STATUS" == "$ACTIVE" ] ; then
-        echo -n "$SERVICE process is already running"
-else
+STATUS=$(sudo $SERVICE status | head -n 1)
+
+if [[ $STATUS == *" inactive"* ]]; then
 	echo "start"
+        ./firewall_start.sh
    	sudo systemctl start $SERVICE
-        systemctl status $SERVICE | grep Active
+   	sudo systemctl enable $SERVICE
+        sudo $SERVICE status | head -n 1 
+else
+        echo -n "$SERVICE process is already enabled"
 fi

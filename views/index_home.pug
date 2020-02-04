@@ -15,23 +15,9 @@ block content
                   p.h2.h6.mb-0 Bitcoin
                     img(src='/no-check-mark.ico')
               div.card-body
-                |
-                a(class='rounded bg-primary text-white px-2 py-1' href="./bitcoin_enable") On 
-                  img(src='/toggle_on.png')
-                |
-                |
-                a(class='rounded bg-primary text-white px-2 py-1' href="./bitcoin_disable") Off 
-                  img(src='/toggle_off.png')
-                |
-                |
                 a(class='rounded bg-primary text-white px-2 py-1' href="./bitcoin_status") Status 
-                |
-                |
-                br
-                br
-                |
-                |
-                a(class='rounded bg-primary text-white px-2 py-1' href="http://" + ip_internal + ":3002/node-status") Details
+                | &nbsp; 
+                a(class='rounded bg-primary text-white px-2 py-1' href="http://" + ip_internal + ":3002/node-status") Details 
                 br
                 br
                 p #{bitcoin_message}
@@ -48,12 +34,10 @@ block content
               div.card-body
                 a(class='rounded bg-primary text-white px-2 py-1'  href="./lnd_start")
                   img(src='/start.png')
-                |
-                |
+                | &nbsp; 
                 a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_stop")
                   img(src='/stop.png')
-                |
-                |
+                | &nbsp; 
                 a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_status") Status
                 |
                 |
@@ -61,11 +45,10 @@ block content
                 br
                 |
                 |
-                a(class='rounded bg-primary text-white px-2 py-1'  href="./lnd_enable") On 
+                a(class='rounded bg-primary text-white px-2 py-1'  href="./lnd_enable") Enable 
                   img(src='/toggle_on.png')
-                |
-                |
-                a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_disable") Off 
+                | &nbsp; 
+                a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_disable") Disable 
                   img(src='/toggle_off.png')
                 br
                 br
@@ -81,14 +64,6 @@ block content
                   p.h2.h6.mb-0 Tor 
                     img(src='/no-check-mark.ico')
               div.card-body
-                a(class='rounded bg-primary text-white px-2 py-1' href="./tor_enable") On 
-                  img(src='/toggle_on.png')
-                |
-                |
-                a(class='rounded bg-primary text-white px-2 py-1' href="./tor_disable") Off 
-                  img(src='/toggle_off.png')
-                |
-                |
                 a(class='rounded bg-primary text-white px-2 py-1' href="./tor_status") Status
                 br
                 br
@@ -110,12 +85,10 @@ block content
               div.card-body
                 a(class='rounded bg-primary text-white px-2 py-1'  href="./rtl_start")
                   img(src='/start.png')
-                |
-                |
+                | &nbsp; 
                 a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_stop")
                   img(src='/stop.png')
-                |
-                |
+                | &nbsp; 
                 a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_status") Status
                 |
                 |
@@ -123,12 +96,12 @@ block content
                 br
                 |
                 |
-                a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_enable") On 
+                a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_enable") Enable 
                   img(src='/toggle_on.png')
-                |
-                |
-                a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_disable") Off 
+                | &nbsp; 
+                a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_disable") Disable 
                   img(src='/toggle_off.png')
+                | &nbsp; 
                 |
                 |
                 br
@@ -149,12 +122,10 @@ block content
               div.card-body
                 a(class='rounded bg-primary text-white px-2 py-1'  href="./btcrpcexplorer_start")
                   img(src='/start.png')
-                |
-                |
+                | &nbsp; 
                 a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_stop")
                   img(src='/stop.png')
-                |
-                |
+                | &nbsp; 
                 a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_status") Status
                 |
                 |
@@ -162,11 +133,10 @@ block content
                 br
                 |
                 |
-                a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_enable") On 
+                a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_enable") Enable 
                   img(src='/toggle_on.png')
-                | 
-                |
-                a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_disable") Off 
+                | &nbsp; 
+                a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_disable") Disable 
                   img(src='/toggle_off.png')
                 |
                 |
@@ -184,14 +154,12 @@ block content
                   p.h2.h6.mb-0 Firewall 
                     img(src='/no-check-mark.ico')
               div.card-body
-                a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_enable") On 
+                a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_enable") Enable 
                   img(src='/toggle_on.png')
-                |
-                |
-                a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_disable") Off 
+                | &nbsp; 
+                a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_disable") Disable 
                   img(src='/toggle_off.png')
-                |
-                |
+                | &nbsp; 
                 a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_status") Status
                 br
                 br
@@ -209,12 +177,10 @@ block content
               div.card-body
                 a(class='rounded bg-primary text-white px-2 py-1'  href="./openvpn_start")
                   img(src='/start.png')
-                |
-                |
+                | &nbsp; 
                 a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_stop")
                   img(src='/stop.png')
-                |
-                |
+                | &nbsp; 
                 a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_status") Status
                 |
                 |
@@ -222,15 +188,11 @@ block content
                 br
                 |
                 |
-                a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_enable") On 
+                a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_enable") Enable 
                   img(src='/toggle_on.png')
-                |
-                |
-                a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_disable") Off 
+                | &nbsp; 
+                a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_disable") Disable 
                   img(src='/toggle_off.png')
-                |
-                | 
-                a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_home") OpenVPN
                 br
                 br
                 p #{openvpn_message}
@@ -247,16 +209,13 @@ block content
             div.card-body
               a(class='rounded bg-primary text-white px-2 py-1'  href="./electrum_start")
                 img(src='/start.png')
-              |
-              |
+                | &nbsp; 
               a(class='rounded bg-primary text-white px-2 py-1' href="./electrum_stop")
                 img(src='/stop.png')
-              |
-              |
+                | &nbsp; 
               a(class='rounded bg-primary text-white px-2 py-1' href="./electrum_status") Status
-              |
-              |
-              a(class='rounded bg-primary text-white px-2 py-1'  href="./electrum_disable") Off 
+                | &nbsp; 
+              a(class='rounded bg-primary text-white px-2 py-1'  href="./electrum_disable") Disable 
                   img(src='/toggle_off.png')
               br
               br
@@ -267,17 +226,13 @@ block content
             p.h2.h6 Utilities
           div.card-body
             a(class='rounded bg-primary text-white px-2 py-1' href="./backup") Backup
-            |
-            |
+            | &nbsp; 
             a(class='rounded bg-primary text-white px-2 py-1' href="./wifi_home") Wifi
-            |
-            |
+            | &nbsp; 
             a(class='rounded bg-primary text-white px-2 py-1' href="./port_home") Port redirect
-            |
-            |
+            | &nbsp; 
             a(class='rounded bg-primary text-white px-2 py-1' href="./upnp_home") UPnP
-            |
-            |
+            | &nbsp; 
             a(class='rounded bg-primary text-white px-2 py-1'  href="./webconfig_restart") Bcube Web Restart
             br
             br

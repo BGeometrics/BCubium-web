@@ -26,6 +26,19 @@ html(lang="en")
         div.col-md-3
           if (ip_internal)
             p.font-weight-bold Internal IP: #{ip_internal} 
+      div.row
+        div.col-md-3
+          if (system_info && system_info.CPU)
+              p.font-weight-bold CPU: #{system_info.CPU}%
+        div.col-md-3
+          if (system_info && system_info.RAM)
+            p.font-weight-bold RAM: #{system_info.RAM}%
+        div.col-md-3
+          if (system_info && system_info.HDD)
+            p.font-weight-bold HDD: #{system_info.HDD}%
+        div.col-md-3
+          if (system_info && system_info.TEMP)
+            p.font-weight-bold Temperature: #{system_info.TEMP} ºC
       div(id="sub-menu", class="container mb-2 pt-2 d-lg-block d-none border-top", style="")
         ul(class="nav")
           li(class="nav-item font-weight-bold")

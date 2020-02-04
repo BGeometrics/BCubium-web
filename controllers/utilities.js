@@ -12,6 +12,7 @@ var ip_external = "";
 var port_redirect_list = "./scripts/port_redirect_list.sh";
 var upnp_rules = "./scripts/upnp_rules.sh";
 var system_status = "./scripts/system_status.sh";
+var system_info = "./scripts/system_info.sh";
 
 
 /* Get internal IP */
@@ -157,3 +158,14 @@ exports.get_system_status = function(req, res) {
    return obj_status;
 };
 
+exports.get_system_info = function(req, res) {
+   console.log("execute: " + system_info);
+
+   const { execSync } = require("child_process");
+   var ret = execSync(system_info).toString();
+   ret = ret.replace(/\n$/, '')
+   console.log("get system info: " + ret);
+   var obj_status = JSON.parse(ret);
+
+   return obj_status;
+};

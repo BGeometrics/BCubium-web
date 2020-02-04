@@ -4,7 +4,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 //const basicAuth = require('express-basic-auth')
- 
+
+var package_json = require('./package.json');
+global.appVersion = package_json.version;
 
 var indexRouter = require('./routes/index');
 var bitcoinRouter = require('./routes/bitcoinRouter');

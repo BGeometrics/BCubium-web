@@ -54,7 +54,8 @@ exports.wifi_connect = function(req, res) {
     console.log("Connected");
   });
 
-  var execute = wifi_configure + " " + req.body.ssid  + " " + req.body.password;	
+  var execute = wifi_configure + " " + req.body.ssid  + " " + req.body.wifi_password;	
+  console.log("execute: " + execute);
   const { execSync } = require("child_process");
   var ret = execSync(execute).toString();
   res.render('wifi_home.pug', { ssid: req.body.ssid });
