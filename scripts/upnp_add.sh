@@ -6,7 +6,7 @@
 if [[ $1 =~ ^[0-9]+$ ]] && [[ $2 =~ ^[0-9]+$ ]]
 then
    export LC_ALL=C
-   ROUTER=$(ip r | grep default | cut -d " " -f 3)
+   ROUTER=$(ip r | grep default | cut -d " " -f 3 | head -n 1)
    GATEWAY=$(upnpc -l | grep "desc: http://$ROUTER:" | grep "/rootDesc.xml" | grep -v "IGD" | cut -d " " -f 3)
    IP=$(upnpc -l | grep "Local LAN ip address" | cut -d: -f2)
 

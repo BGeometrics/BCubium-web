@@ -27,7 +27,9 @@ exports.lnd_start = function(req, res) {
         console.log(`stdout: ${stdout}`);
         res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, 
 		lnd_message: `${stdout}`, system_status: utilities.get_system_status(),
-                user: utilities.get_user(), password: utilities.get_password()});
+                user: utilities.get_user(), password: utilities.get_password(),
+                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(),
+                router_connection: utilities.router_connection()});
     });
 };
 
@@ -46,7 +48,9 @@ exports.lnd_stop = function(req, res) {
         console.log(`stdout: ${stdout}`);
         res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external,
 		lnd_message: `${stdout}`, system_status: utilities.get_system_status(),
-                user: utilities.get_user(), password: utilities.get_password()});
+                user: utilities.get_user(), password: utilities.get_password(),
+                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(),
+                router_connection: utilities.router_connection()});
     });
 };
 
@@ -67,7 +71,9 @@ exports.lnd_enable = function(req, res) {
         console.log(`stdout: ${stdout}`);
         res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external,
 		lnd_message: `${stdout}`, system_status: utilities.get_system_status(),
-                user: utilities.get_user(), password: utilities.get_password()});
+                user: utilities.get_user(), password: utilities.get_password(),
+                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(),
+                router_connection: utilities.router_connection()});
     }); 
 };
 
@@ -88,7 +94,9 @@ exports.lnd_disable = function(req, res) {
         console.log(`stdout: ${stdout}`);
         res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external,
 		lnd_message: `${stdout}`, system_status: utilities.get_system_status(),
-                user: utilities.get_user(), password: utilities.get_password()});
+                user: utilities.get_user(), password: utilities.get_password(),
+                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(),
+                router_connection: utilities.router_connection()});
     }); 
 };
 
@@ -110,6 +118,8 @@ exports.lnd_status = function(req, res) {
         console.log(ret);
         res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external,
 		lnd_message: `${stdout}`, system_status: utilities.get_system_status(),
-                user: utilities.get_user(), password: utilities.get_password()});
+                user: utilities.get_user(), password: utilities.get_password(),
+                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(),
+                router_connection: utilities.router_connection()});
     });     
 };

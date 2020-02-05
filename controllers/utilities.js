@@ -13,6 +13,8 @@ var port_redirect_list = "./scripts/port_redirect_list.sh";
 var upnp_rules = "./scripts/upnp_rules.sh";
 var system_status = "./scripts/system_status.sh";
 var system_info = "./scripts/system_info.sh";
+var internet_connection = "./scripts/internet_connection.sh";
+var router_connection = "./scripts/router_connection.sh";
 
 
 /* Get internal IP */
@@ -165,6 +167,28 @@ exports.get_system_info = function(req, res) {
    var ret = execSync(system_info).toString();
    ret = ret.replace(/\n$/, '')
    console.log("get system info: " + ret);
+   var obj_status = JSON.parse(ret);
+
+   return obj_status;
+};
+
+exports.internet_connection = function(req, res) {
+   console.log("execute: " + internet_connection);
+   const { execSync } = require("child_process");
+   var ret = execSync(internet_connection).toString();
+   ret = ret.replace(/\n$/, '')
+   console.log("internet connection: " + ret);
+   var obj_status = JSON.parse(ret);
+
+   return obj_status;
+};
+
+exports.router_connection = function(req, res) {
+   console.log("execute: " + router_connection);
+   const { execSync } = require("child_process");
+   var ret = execSync(router_connection).toString();
+   ret = ret.replace(/\n$/, '')
+   console.log("Router connection: " + ret);
    var obj_status = JSON.parse(ret);
 
    return obj_status;

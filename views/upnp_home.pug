@@ -8,21 +8,22 @@ block content
           div.card-header
             p.h2.h6.mb-0 UPnP
           div.card-body
-            each rule in upnp_rules
-              li #{rule.line}
-                a(class='rounded bg-primary text-white px-2 py-1' href="./upnp_delete?external_port=" + rule.external_port) delete
-            br
+            if (upnp_rules)
+              each rule in upnp_rules
+                li #{rule.line}
+                  a(class='rounded bg-primary text-white px-2 py-1' href="./upnp_delete?external_port=" + rule.external_port) delete
+              br
 
-            form(method='POST' action='./upnp_add')
-              label(for='external_port') External port:
-              input#name.form-control(type='text', placeholder='External port' name='external_port')
-              br
-              label(for='internal_port') Internal port:
-              input#name.form-control(type='text', placeholder='Internal port' name='internal_port')
-              br
-              button.btn.btn-primary(type='submit') Add
-            |
-            p #{usefull_message}
+              form(method='POST' action='./upnp_add')
+                label(for='external_port') External port:
+                input#name.form-control(type='text', placeholder='External port' name='external_port')
+                br
+                label(for='internal_port') Internal port:
+                input#name.form-control(type='text', placeholder='Internal port' name='internal_port')
+                br
+                button.btn.btn-primary(type='submit') Add
+              |
+              p #{usefull_message}
 
             p
             |

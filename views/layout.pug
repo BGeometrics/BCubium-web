@@ -10,9 +10,27 @@ html(lang="en")
       include ../public/css/bootstrap.css
       include ../public/css/bootstrap.min.css
   body
+    script(defer, src="/js/fontawesome.min.js", integrity="sha384-eVEQC9zshBn0rFj4+TU78eNA19HMNigMviK/PU/FFjLXqa/GKPgX58rvt5Z8PLs7")
     div.container.px-2.px-sm-3
-      a(class="navbar-brand", href="/")
-        h1.h3='Bcube'
+      div.row
+        div.col-md-6
+          a(class="navbar-brand", href="/")
+            p.h3='Bcube ' 
+              i(class="fab fa-bitcoin fa-w-20", style="margin-top: 6px;")
+        div.col-md-3
+          if router_connection.connection == "On"
+            span.pull-right.font-weight-bold Router:  
+              i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;")
+          else
+            span.text-right.font-weight-bold Router: 
+              i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;")
+        div.col-md-3
+          if internet_connection.connection == "On"
+            span.pull-right.font-weight-bold Internet:  
+              i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;")
+          else
+            span.text-right.font-weight-bold  Internet: 
+              i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;")
       div.row
         div.col-md-3
           if (user)

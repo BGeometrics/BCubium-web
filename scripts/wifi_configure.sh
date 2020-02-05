@@ -14,3 +14,5 @@ DATE=$(date +%F)
 sudo /usr/bin/wpa_passphrase $1 $2 > /etc/wpa_supplicant/wpa_supplicant.conf
 sudo /usr/bin/nmcli device wifi connect $1 password $2
 sudo /bin/systemctl restart network-manager
+
+#sudo dhclient wlan0 -r
