@@ -18,14 +18,14 @@ html(lang="en")
             p.h3='Bcube ' 
               i(class="fab fa-bitcoin fa-w-20", style="margin-top: 6px;")
         div.col-md-3
-          if router_connection.connection == "On"
+          if router_connection && router_connection.connection == "On"
             span.pull-right.font-weight-bold Router:  
               i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;")
           else
             span.text-right.font-weight-bold Router: 
               i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;")
         div.col-md-3
-          if internet_connection.connection == "On"
+          if internet_connection && internet_connection.connection == "On"
             span.pull-right.font-weight-bold Internet:  
               i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;")
           else

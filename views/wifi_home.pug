@@ -1,4 +1,4 @@
-extends layout
+extends layout_mini
 
 block content
   div.row
@@ -8,13 +8,6 @@ block content
           div.card-header
             p.h2.h6.mb-0 Wifi
           div.card-body
-            a(class='rounded bg-primary text-white px-2 py-1' href="./wifi_scan") Scan
-            br
-            if networks != null
-              each network in networks
-                li Network SSID: #{network.ssid} Quality: #{network.quality} Signal level: #{network.signal_level}
-            br
-
             if ssid == null
               form(method='POST' action='./wifi_connect')
                 div
@@ -27,8 +20,25 @@ block content
                   button.btn.btn-primary(type='submit') Connect
             else
               p Connect wifi #{ssid}
-            p
-            |
+            br
+            a(class='rounded bg-primary text-white px-2 py-1' href="./wifi_scan") Scan
+            br
+            if networks != null
+              div(class="table-responsive")
+                table(class="table text-left mb-5 mb-lg-0")
+                  thead
+                    tr
+                      th SSID
+                      th Quality
+                      th Signal level
+                  tbody
+                    each network in networks
+                      tr(class="monospace")
+                        td #{network.ssid}
+                        td #{network.quality}
+                        td #{network.signal_level}
+            br
+
             a(class='rounded bg-primary text-white px-2 py-1' href="./") Home
 
     div.col-md-3

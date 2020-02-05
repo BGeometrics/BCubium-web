@@ -1,9 +1,11 @@
+var title = 'Bcube';
 var wifi = require("node-wifi");
 var wifi_configure = "./scripts/wifi_configure.sh";
 
 exports.wifi_home = function(req, res) {
    console.log("Wifi home");
-   res.render('wifi_home.pug');
+   res.render('wifi_home.pug', {title: title});
+
 };
 
 // Initialize wifi module
@@ -15,6 +17,7 @@ wifi.init({
 
 // Scan networks
 exports.wifi_scan = function(req, res) {
+  console.log("Wifi scan");
   wifi.scan(function(err, networks) {
     if (err) {
        console.log(err);

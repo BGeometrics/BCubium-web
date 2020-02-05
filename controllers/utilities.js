@@ -188,8 +188,8 @@ exports.router_connection = function(req, res) {
    const { execSync } = require("child_process");
    var ret = execSync(router_connection).toString();
    ret = ret.replace(/\n$/, '')
-   console.log("Router connection: " + ret);
    var obj_status = JSON.parse(ret);
 
    return obj_status;
 };
+

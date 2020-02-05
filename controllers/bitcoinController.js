@@ -1,6 +1,6 @@
 // Display detail page for Bitcoin.
 
-var title = 'Bitcoin Cube';
+var title = 'Bcube';
 var bitcoinEnable = "./scripts/bitcoin_enable.sh";  
 var bitcoinDisable = "./scripts/bitcoin_disable.sh"; 
 var bitcoinStatus = "./scripts/bitcoin_status.sh"; 

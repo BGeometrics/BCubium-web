@@ -1,0 +1,34 @@
+block variables
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    meta(name="csrf-token", content=csrfToken)
+    link(rel="shortcut icon", href="/favicon.ico")
+    title 'Bcube'
+    style
+      include ../public/css/bootstrap.css
+      include ../public/css/bootstrap.min.css
+  body
+    script(defer, src="/js/fontawesome.min.js", integrity="sha384-eVEQC9zshBn0rFj4+TU78eNA19HMNigMviK/PU/FFjLXqa/GKPgX58rvt5Z8PLs7")
+    div.container.px-2.px-sm-3
+      div.row
+        div.col-md-6
+          a(class="navbar-brand", href="/")
+            p.h3='Bcube ' 
+              i(class="fab fa-bitcoin fa-w-20", style="margin-top: 6px;")
+      div(id="sub-menu", class="container mb-2 pt-2 d-lg-block d-none border-top", style="")
+        ul(class="nav")
+          li(class="nav-item font-weight-bold")
+            a(href="http://" + ip_internal + ":3002/", class="nav-link px-2 text-decoration-underline") 
+              span BTC-RPC-Explorer
+          li(class="nav-item font-weight-bold")
+            a(href="http://" + ip_internal + ":3003/", class="nav-link px-2 text-decoration-underline") 
+              span RTL
+          li(class="nav-item font-weight-bold")
+            a(href="./openvpn_home", class="nav-link px-2 text-decoration-underline") 
+              span OpenVPN
+      hr
+      block content
+
+      include ./includes/foot
