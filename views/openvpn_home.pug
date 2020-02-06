@@ -1,4 +1,4 @@
-extends layout
+extends layout_mini
 
 block content
   div.row
@@ -18,7 +18,7 @@ block content
             p 1- Install the software OpenVPN client on the device: Computer, mobile, Tablet ...
             p 2- Download the configuration file of this link 
               a(class='rounded bg-primary text-white px-2 py-1' href=url) bcube.ovpn
-            p The username and password are those of the Bcube website
+            p The username: <mark>#{user}</mark> and password: <mark>#{password}</mark> are the same that the Bcube website
             p 3- Start the OpenVPN program
             p 4- In the OpenVPN program, add (+) -> Import Profile -> FILE, indicate the file that you have downloaded
             p
@@ -31,9 +31,6 @@ block content
                 label(for='name') If the router is port forwarding 443 to another port:
                 input#name.form-control(type='text', placeholder='port' name='port')
               button.btn.btn-primary(type='submit') Submit
-            br
-            |
-            a(class='rounded bg-primary text-white px-2 py-1' href="./") Home
 
     div.col-md-3
       div.container.px-2.px-sm-3
@@ -41,7 +38,6 @@ block content
           div.card-header
             h2.h6 Help
           div.card-body
-            p If you connect through the VPN, for example from your mobile or tablet, you can access the Bcube Website from any location with: 
+            p If you connect through the OpenVPN, for example from your mobile or tablet, you can access the Bcube website from any location and secure with: 
             a(class='rounded bg-primary text-white px-2 py-1' href=url_internal) Bcube
        
-

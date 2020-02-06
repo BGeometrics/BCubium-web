@@ -8,9 +8,20 @@ block content
           div.card-header
             p.h2.h6.mb-0 Port redirect
           div.card-body
-            each port_redirect in port_redirect_list
-              li Port internal: #{port_redirect.internal}. Port external: #{port_redirect.external}
-                a(class='rounded bg-primary text-white px-2 py-1' href="./port_redirect_delete?port_internal=" + port_redirect.internal + "&port_external=" + port_redirect.external) delete
+            div(class="table-responsive")
+              table(class="table text-left mb-5 mb-lg-0")
+                thead
+                  tr
+                    th Internal port
+                    th External port
+                    th 
+                  tbody
+                    each port_redirect in port_redirect_list
+                      tr(class="monospace")
+                        td #{port_redirect.internal}
+                        td #{port_redirect.external}
+                        td 
+                          a(class='rounded bg-primary text-white px-2 py-1' href="./port_redirect_delete?port_internal=" + port_redirect.internal + "&port_external=" + port_redirect.external) delete
             br
             form(method='POST' action='./port_redirect_add')
               label(for='port_internal_label') Internal port:
@@ -23,15 +34,12 @@ block content
             |
             p #{usefull_message}
 
-            p
-            |
-            a(class='rounded bg-primary text-white px-2 py-1' href="./") Home
-
     div.col-md-3
       div.container.px-2.px-sm-3
         div.card.mb-4.shadow-sm
           div.card-header
             h2.h6 Help
           div.card-body
-            p Vale venga esto puede ser cualquier texto de soporte para que el usuario tenga una idea más clara
+            p This option must be used when the router only allows redirecting traffic to certain ports. For example, if it does not allow port forwarding on port 8333 (default Bitcoin) but on 23 (Telnet) we can create a rule that redirects from 23 to 8333. The internal port would be 8333 and the external port would be 23.
+
 
