@@ -13,10 +13,11 @@ html(lang="en")
     script(defer, src="/js/fontawesome.min.js", integrity="sha384-eVEQC9zshBn0rFj4+TU78eNA19HMNigMviK/PU/FFjLXqa/GKPgX58rvt5Z8PLs7")
     div.container.px-2.px-sm-3
       div.row
-        div.col-md-6
+        div.col-md-9
           a(class="navbar-brand", href="/")
             p.h3='Bcube ' 
               i(class="fab fa-bitcoin fa-w-20", style="margin-top: 6px;")
+      div.row
         div.col-md-3
           if router_connection && router_connection.connection == "On"
             span.pull-right.font-weight-bold Router:  
@@ -31,6 +32,14 @@ html(lang="en")
           else
             span.text-right.font-weight-bold  Internet: 
               i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;")
+        div.col-md-3
+          if bitcoin_connection && bitcoin_connection.status == "UP"
+            span.pull-right.font-weight-bold Bitcoin network: 
+              i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;")
+          else
+            span.text-right.font-weight-bold  Bitcoin network: 
+              i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;")
+      br
       div.row
         div.col-md-3
           if (user)
@@ -68,6 +77,9 @@ html(lang="en")
           li(class="nav-item font-weight-bold")
             a(href="./openvpn_home", class="nav-link px-2 text-decoration-underline") 
               span OpenVPN
+          li(class="nav-item font-weight-bold")
+            a(href="./wireguard_home", class="nav-link px-2 text-decoration-underline") 
+              span WireGuard
       hr
       block content
 

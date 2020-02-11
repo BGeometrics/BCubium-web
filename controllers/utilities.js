@@ -15,6 +15,7 @@ var system_status = "./scripts/system_status.sh";
 var system_info = "./scripts/system_info.sh";
 var internet_connection = "./scripts/internet_connection.sh";
 var router_connection = "./scripts/router_connection.sh";
+var bitcoin_connection = "./scripts/bitcoin_connection.sh";
 
 
 /* Get internal IP */
@@ -153,6 +154,7 @@ exports.get_system_status = function(req, res) {
 
    const { execSync } = require("child_process");
    var ret = execSync(system_status).toString();
+   console.log("get system status: " + ret); 
    ret = ret.replace(/\n$/, '')
    console.log("get system status: " + ret); 
    var obj_status = JSON.parse(ret);
@@ -187,6 +189,16 @@ exports.router_connection = function(req, res) {
    console.log("execute: " + router_connection);
    const { execSync } = require("child_process");
    var ret = execSync(router_connection).toString();
+   ret = ret.replace(/\n$/, '')
+   var obj_status = JSON.parse(ret);
+
+   return obj_status;
+};
+
+exports.bitcoin_connection = function(req, res) {
+   console.log("execute: " + bitcoin_connection);
+   const { execSync } = require("child_process");
+   var ret = execSync(bitcoin_connection).toString();
    ret = ret.replace(/\n$/, '')
    var obj_status = JSON.parse(ret);
 

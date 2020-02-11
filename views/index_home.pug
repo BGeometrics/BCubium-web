@@ -168,19 +168,51 @@ block content
           div.col-md-4
             div.card.mb-3.shadow-sm
               div.card-header
-                if system_status.openvpn == 'OK'
-                  p.h2.h6.mb-0 VPN 
+                if system_status.wireguard == 'OK'
+                  p.h2.h6.mb-0 WireGuard 
                     i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;")
                 else
-                  p.h2.h6.mb-0 VPN 
+                  p.h2.h6.mb-0 WireGuard 
+                    i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;")
+              div.card-body
+                a(class='rounded bg-primary text-white px-2 py-1'  href="./wireguard_start") 
+                  i(class="fas fa-play fa-w-20", style="margin-top: 6px;")
+                | &nbsp;
+                a(class='rounded bg-primary text-white px-2 py-1' href="./wireguard_stop") 
+                  i(class="fas fa-stop fa-w-20", style="margin-top: 6px;")
+                | &nbsp;
+                a(class='rounded bg-primary text-white px-2 py-1' href="./wireguard_status") Status
+                |
+                |
+                br
+                br
+                |
+                |
+                a(class='rounded bg-primary text-white px-2 py-1' href="./wireguard_enable") Enable 
+                  i(class="fas fa-toggle-on fa-w-20", style="margin-top: 6px;")
+                | &nbsp;
+                a(class='rounded bg-primary text-white px-2 py-1' href="./wireguard_disable") Disable 
+                  i(class="fas fa-toggle-off fa-w-20", style="margin-top: 6px;")
+                br
+                br
+                p #{wireguard_message}
+
+          div.col-md-4
+            div.card.mb-3.shadow-sm
+              div.card-header
+                if system_status.openvpn == 'OK'
+                  p.h2.h6.mb-0 OpenVPN
+                    i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;")
+                else
+                  p.h2.h6.mb-0 OpenVPN
                     i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;")
               div.card-body
                 a(class='rounded bg-primary text-white px-2 py-1'  href="./openvpn_start")
                   i(class="fas fa-play fa-w-20", style="margin-top: 6px;")
-                | &nbsp; 
+                | &nbsp;
                 a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_stop")
                   i(class="fas fa-stop fa-w-20", style="margin-top: 6px;")
-                | &nbsp; 
+                | &nbsp;
                 a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_status") Status
                 |
                 |
@@ -188,10 +220,10 @@ block content
                 br
                 |
                 |
-                a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_enable") Enable 
+                a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_enable") Enable
                   i(class="fas fa-toggle-on fa-w-20", style="margin-top: 6px;")
-                | &nbsp; 
-                a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_disable") Disable 
+                | &nbsp;
+                a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_disable") Disable
                   i(class="fas fa-toggle-off fa-w-20", style="margin-top: 6px;")
                 br
                 br

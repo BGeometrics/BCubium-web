@@ -12,6 +12,7 @@ const wifiController = require('../controllers/wifiController');
 const usefulController = require('../controllers/usefulController');
 const rtlController = require('../controllers/rtlController');
 const webconfigController = require('../controllers/webconfigController');
+const wireguardController = require('../controllers/wireguardController');
 
 router.get('/', bitcoinController.bitcoin_home);
 router.get('/home/', bitcoinController.bitcoin_home);
@@ -77,6 +78,12 @@ router.get('/wifi_scan', wifiController.wifi_scan);
 router.get('/wifi_connect', wifiController.wifi_connect);
 router.post('/wifi_connect', wifiController.wifi_connect);
 
+router.get('/wireguard_home', wireguardController.wireguard_home);
+router.get('/wireguard_start', wireguardController.wireguard_start);
+router.get('/wireguard_stop', wireguardController.wireguard_stop);
+router.get('/wireguard_enable', wireguardController.wireguard_enable);
+router.get('/wireguard_disable', wireguardController.wireguard_disable);
+router.get('/wireguard_status', wireguardController.wireguard_status);
 
 // Pages
 /* Page to display all shopping lists

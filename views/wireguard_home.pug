@@ -1,0 +1,30 @@
+extends layout_mini
+
+block content
+  div.row
+    div.col-md-9
+      div.container.px-2.px-sm-3
+        div.card.mb-4.shadow-sm
+          div.card-header
+            p.h2.h6.mb-0 WireGuard
+          div.card-body
+            - var port_external = '4443'
+            - var port_internal = '3000'
+            - var url = 'https://' + ip_external + ':' + port_external + '/bcube.ovpn';
+            - var url_internal = 'http://' + ip_internal + ':' + port_internal;
+            |
+            |
+            p How to connect to the WireGuard
+            p 1- Install the software WireGuard client on the devices: Mobile, computer, tablet ...
+            p 2- Add -> Create from QR code
+            img(src="/bcube-wg0.png" alt="QR code WireGuard")
+
+    div.col-md-3
+      div.container.px-2.px-sm-3
+        div.card.mb-4.shadow-sm
+          div.card-header
+            h2.h6 Help
+          div.card-body
+            p If you connect through the WireGuard, for example from your mobile or tablet, you can access the Bcube website from any location and secure with: 
+            a(class='rounded bg-primary text-white px-2 py-1' href=url_internal) Bcube
+       
