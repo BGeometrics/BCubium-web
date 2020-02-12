@@ -16,71 +16,19 @@ var system_info = "./scripts/system_info.sh";
 var internet_connection = "./scripts/internet_connection.sh";
 var router_connection = "./scripts/router_connection.sh";
 var bitcoin_connection = "./scripts/bitcoin_connection.sh";
+var system_ports = "./scripts/system_ports.sh";
 
-
-/* Get internal IP */
-const { exec } = require("child_process");
-exec(ip_internal_script, (error, stdout, stderr) => {
-    if (error) {
-        console.log(`error: ${error.message}`);
-        return;
-    }
-    if (stderr) {
-        console.log(`stderr: ${stderr}`);
-        return;
-    }
-    ip_internal = `${stdout}`;
-    console.log("ip intenal: " + ip_internal);
-
-    var fs = require('fs');
-    var stream = fs.createWriteStream(ip_intenal_file);
-    stream.once('open', function(fd) {
-       stream.write(ip_internal);
-       stream.end();
-    });
-});
-
-/* Get external IP */
-exec(ip_external_script, (error, stdout, stderr) => {
-    if (error) {
-        console.log(`error: ${error.message}`);
-        return;
-    }
-    if (stderr) {
-        console.log(`stderr: ${stderr}`);
-        return;
-    }
-    ip_external = `${stdout}`;
-    console.log("ip external: " + ip_external);
-
-    var fs = require('fs');
-    var stream = fs.createWriteStream(ip_external_file);
-    stream.once('open', function(fd) {
-       stream.write(ip_external);
-       stream.end();
-    });
-});
-
-
-exports.get_ip_internal = function () {
-   var fs_int = require("fs");
-   fs_int.readFile(ip_intenal_file, "utf-8", (err, ip_internal_data) => {
-       ip_internal = ip_internal_data;
-       console.log(ip_internal);
-   });
-
-   return ip_internal;
-};
 
 exports.get_ip_external = function () {
-   var fs_ext = require("fs");
-   fs_ext.readFile(ip_external_file, "utf-8", (err, ip_external_data) => {
-       ip_external = ip_external_data;
-       console.log(ip_external);
-   });
+   const { execSync } = require("child_process");
+   console.log("Execute: " + ip_external_script);
+   return execSync(ip_external_script).toString();
+};
 
-   return ip_external;
-
+exports.get_ip_internal = function () {
+   const { execSync } = require("child_process");
+   console.log("Execute: " + ip_internal_script);
+   return execSync(ip_internal_script).toString();
 };
 
 exports.get_rpcuser = function () {
@@ -200,6 +148,18 @@ exports.bitcoin_connection = function(req, res) {
    const { execSync } = require("child_process");
    var ret = execSync(bitcoin_connection).toString();
    ret = ret.replace(/\n$/, '')
+   var obj_status = JSON.parse(ret);
+
+   return obj_status;
+};
+
+exports.get_system_ports = function(req, res) {
+   console.log("execute: " + system_ports);
+   const { execSync } = require("child_process");
+   var ret = execSync(system_ports).toString();
+   console.log("system_ports: " + ret);
+   ret = ret.replace(/\n$/, '')
+   console.log("system_ports: " + ret);
    var obj_status = JSON.parse(ret);
 
    return obj_status;

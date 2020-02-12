@@ -81,3 +81,9 @@ exports.upnp_delete = function(req, res) {
     res.render('upnp_home.pug', { usefull_message: 'Delete UPnP rule',
                  upnp_rules: upnp_rules});
 };
+
+exports.system_ports_home = function(req, res) {
+    var system_ports = utilities.get_system_ports();
+    res.render('system_ports.pug', { system_ports: system_ports});
+};
+

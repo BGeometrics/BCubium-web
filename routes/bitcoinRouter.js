@@ -72,6 +72,7 @@ router.get('/upnp_home', usefulController.upnp_home);
 router.get('/upnp_add', usefulController.upnp_add);
 router.post('/upnp_add', usefulController.upnp_add);
 router.get('/upnp_delete', usefulController.upnp_delete);
+router.get('/system_ports_home', usefulController.system_ports_home);
 
 router.get('/wifi_home', wifiController.wifi_home);
 router.get('/wifi_scan', wifiController.wifi_scan);
@@ -86,6 +87,8 @@ router.get('/wireguard_disable', wireguardController.wireguard_disable);
 router.get('/wireguard_status', wireguardController.wireguard_status);
 router.get('/wireguard_set_port', wireguardController.wireguard_home);
 router.post('/wireguard_set_port', wireguardController.wireguard_home);
+
+
 
 // Pages
 /* Page to display all shopping lists
