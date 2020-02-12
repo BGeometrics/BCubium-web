@@ -29,7 +29,7 @@ exports.lnd_start = function(req, res) {
 		lnd_message: `${stdout}`, system_status: utilities.get_system_status(),
                 user: utilities.get_user(), password: utilities.get_password(),
                 system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(),
-                router_connection: utilities.router_connection()});
+                router_connection: utilities.router_connection(), bitcoin_connection: utilities.bitcoin_connection()});
     });
 };
 
@@ -50,7 +50,7 @@ exports.lnd_stop = function(req, res) {
 		lnd_message: `${stdout}`, system_status: utilities.get_system_status(),
                 user: utilities.get_user(), password: utilities.get_password(),
                 system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(),
-                router_connection: utilities.router_connection()});
+                router_connection: utilities.router_connection(), bitcoin_connection: utilities.bitcoin_connection()});
     });
 };
 
@@ -73,7 +73,7 @@ exports.lnd_enable = function(req, res) {
 		lnd_message: `${stdout}`, system_status: utilities.get_system_status(),
                 user: utilities.get_user(), password: utilities.get_password(),
                 system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(),
-                router_connection: utilities.router_connection()});
+                router_connection: utilities.router_connection(), bitcoin_connection: utilities.bitcoin_connection()});
     }); 
 };
 
@@ -96,7 +96,7 @@ exports.lnd_disable = function(req, res) {
 		lnd_message: `${stdout}`, system_status: utilities.get_system_status(),
                 user: utilities.get_user(), password: utilities.get_password(),
                 system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(),
-                router_connection: utilities.router_connection()});
+                router_connection: utilities.router_connection(), bitcoin_connection: utilities.bitcoin_connection()});
     }); 
 };
 
@@ -120,6 +120,6 @@ exports.lnd_status = function(req, res) {
 		lnd_message: `${stdout}`, system_status: utilities.get_system_status(),
                 user: utilities.get_user(), password: utilities.get_password(),
                 system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(),
-                router_connection: utilities.router_connection()});
+                router_connection: utilities.router_connection(), bitcoin_connection: utilities.bitcoin_connection()});
     });     
 };

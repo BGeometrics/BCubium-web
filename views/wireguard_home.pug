@@ -18,6 +18,15 @@ block content
             p 1- Install the software WireGuard client on the devices: Mobile, computer, tablet ...
             p 2- Add -> Create from QR code
             img(src="/bcube-wg0.png" alt="QR code WireGuard")
+            p
+            p If you have had to perform a port forwarding on the router to access the wireguard 28165 UDP port, indicate it here to generate a new QR:
+            |
+            p
+            |
+            form(method='POST' action='./wireguard_set_port')
+              div.form-group
+                input#name.form-control(type='text', placeholder='port' name='port')
+              button.btn.btn-primary(type='submit') Submit
 
     div.col-md-3
       div.container.px-2.px-sm-3

@@ -12,7 +12,7 @@ block content
                   p.h2.h6.mb-0 Bitcoin   
                     i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;")
                 else
-                  p.h2.h6.mb-0 Bitcoin
+                  p.h2.h6.mb-0 Bitcoin 
                     i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;")
               div.card-body
                 a(class='rounded bg-primary text-white px-2 py-1' href="./bitcoin_status") Status 
@@ -29,15 +29,17 @@ block content
                   p.h2.h6.mb-0 LND  
                     i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;")
                 else
-                  p.h2.h6.mb-0 LND 
+                  p.h2.h6.mb-0 LND  
                     i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;")
               div.card-body
-                a(class='rounded bg-primary text-white px-2 py-1'  href="./lnd_start")
-                  i(class="fas fa-play fa-w-20", style="margin-top: 6px;")
-                | &nbsp; 
-                a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_stop")
-                  i(class="fas fa-stop fa-w-20", style="margin-top: 6px;")
-                | &nbsp; 
+                if system_status.lnd != 'OK'
+                  a(class='rounded bg-primary text-white px-2 py-1'  href="./lnd_start")
+                    i(class="fas fa-play fa-w-20", style="margin-top: 6px;")
+                  | &nbsp; 
+                if system_status.lnd == 'OK'
+                  a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_stop")
+                    i(class="fas fa-stop fa-w-20", style="margin-top: 6px;")
+                  | &nbsp; 
                 a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_status") Status
                 |
                 |
@@ -83,12 +85,14 @@ block content
                     p.h2.h6.mb-0 RTL 
                       i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;")
               div.card-body
-                a(class='rounded bg-primary text-white px-2 py-1'  href="./rtl_start")
-                  i(class="fas fa-play fa-w-20", style="margin-top: 6px;")
-                | &nbsp; 
-                a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_stop")
-                  i(class="fas fa-stop fa-w-20", style="margin-top: 6px;")
-                | &nbsp; 
+                if system_status.rtl != 'OK'
+                  a(class='rounded bg-primary text-white px-2 py-1'  href="./rtl_start")
+                    i(class="fas fa-play fa-w-20", style="margin-top: 6px;")
+                  | &nbsp; 
+                if system_status.rtl == 'OK'
+                  a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_stop")
+                    i(class="fas fa-stop fa-w-20", style="margin-top: 6px;")
+                  | &nbsp; 
                 a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_status") Status
                 |
                 |
@@ -120,12 +124,14 @@ block content
                     p.h2.h6.mb-0 BTC-RPC-Explorer 
                       i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;")
               div.card-body
-                a(class='rounded bg-primary text-white px-2 py-1'  href="./btcrpcexplorer_start")
-                  i(class="fas fa-play fa-w-20", style="margin-top: 6px;")
-                | &nbsp; 
-                a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_stop")
-                  i(class="fas fa-stop fa-w-20", style="margin-top: 6px;")
-                | &nbsp; 
+                if system_status.btcrpcexplorer != 'OK'
+                  a(class='rounded bg-primary text-white px-2 py-1'  href="./btcrpcexplorer_start")
+                    i(class="fas fa-play fa-w-20", style="margin-top: 6px;")
+                  | &nbsp; 
+                if system_status.btcrpcexplorer == 'OK'
+                  a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_stop")
+                    i(class="fas fa-stop fa-w-20", style="margin-top: 6px;")
+                  | &nbsp; 
                 a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_status") Status
                 |
                 |
@@ -175,12 +181,14 @@ block content
                   p.h2.h6.mb-0 WireGuard 
                     i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;")
               div.card-body
-                a(class='rounded bg-primary text-white px-2 py-1'  href="./wireguard_start") 
-                  i(class="fas fa-play fa-w-20", style="margin-top: 6px;")
-                | &nbsp;
-                a(class='rounded bg-primary text-white px-2 py-1' href="./wireguard_stop") 
-                  i(class="fas fa-stop fa-w-20", style="margin-top: 6px;")
-                | &nbsp;
+                if system_status.wireguard != 'OK'
+                  a(class='rounded bg-primary text-white px-2 py-1'  href="./wireguard_start") 
+                    i(class="fas fa-play fa-w-20", style="margin-top: 6px;")
+                  | &nbsp;
+                if system_status.wireguard == 'OK'
+                  a(class='rounded bg-primary text-white px-2 py-1' href="./wireguard_stop") 
+                    i(class="fas fa-stop fa-w-20", style="margin-top: 6px;")
+                  | &nbsp;
                 a(class='rounded bg-primary text-white px-2 py-1' href="./wireguard_status") Status
                 |
                 |
@@ -197,38 +205,39 @@ block content
                 br
                 p #{wireguard_message}
 
-          div.col-md-4
-            div.card.mb-3.shadow-sm
-              div.card-header
-                if system_status.openvpn == 'OK'
-                  p.h2.h6.mb-0 OpenVPN
-                    i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;")
-                else
-                  p.h2.h6.mb-0 OpenVPN
-                    i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;")
-              div.card-body
-                a(class='rounded bg-primary text-white px-2 py-1'  href="./openvpn_start")
-                  i(class="fas fa-play fa-w-20", style="margin-top: 6px;")
-                | &nbsp;
-                a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_stop")
-                  i(class="fas fa-stop fa-w-20", style="margin-top: 6px;")
-                | &nbsp;
-                a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_status") Status
-                |
-                |
-                br
-                br
-                |
-                |
-                a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_enable") Enable
-                  i(class="fas fa-toggle-on fa-w-20", style="margin-top: 6px;")
-                | &nbsp;
-                a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_disable") Disable
-                  i(class="fas fa-toggle-off fa-w-20", style="margin-top: 6px;")
-                br
-                br
-                p #{openvpn_message}
-
+          if system_status.openvpn_activated === 'OK'
+            div.col-md-4
+              div.card.mb-3.shadow-sm
+                div.card-header
+                  if system_status.openvpn == 'OK'
+                    p.h2.h6.mb-0 OpenVPN 
+                      i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;")
+                  else
+                    p.h2.h6.mb-0 OpenVPN 
+                      i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;")
+                div.card-body
+                  a(class='rounded bg-primary text-white px-2 py-1'  href="./openvpn_start")
+                    i(class="fas fa-play fa-w-20", style="margin-top: 6px;") 
+                  | &nbsp;
+                  a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_stop")
+                    i(class="fas fa-stop fa-w-20", style="margin-top: 6px;") 
+                  | &nbsp;
+                  a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_status") Status
+                  |
+                  |
+                  br
+                  br
+                  |
+                  |
+                  a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_enable") Enable 
+                    i(class="fas fa-toggle-on fa-w-20", style="margin-top: 6px;")
+                  | &nbsp;
+                  a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_disable") Disable 
+                    i(class="fas fa-toggle-off fa-w-20", style="margin-top: 6px;")
+                  br
+                  br
+                  p #{openvpn_message}
+                  |
         if system_status.electrum_activated === 'OK'
           div.card.mb-3.shadow-sm
             div.card-header
@@ -252,7 +261,7 @@ block content
               br
               br
               p #{electrum_message}
-
+              |
         div.card.mb-3.shadow-sm
           div.card-header
             p.h2.h6 Utilities
@@ -275,7 +284,10 @@ block content
             p.h2.h6 Marketplace
           div.card-body
             if system_status.electrum_activated === 'KO'
-              a(class='rounded bg-primary text-white px-2 py-1'  href="./electrum_enable") Electrum 
-                i(class="fas fa-power-off fa-w-20", style="margin-top: 6px;")
-
+              a(class='rounded bg-primary text-white px-2 py-1'  href="./electrum_enable") Electrum  
+                i(class="fas fa-power-off fa-w-20", style="margin-top: 6px;") 
+              | &nbsp; 
+            if system_status.openvpn_activated === 'KO'
+              a(class='rounded bg-primary text-white px-2 py-1'  href="./openvpn_enable") OpenVPN 
+                i(class="fas fa-power-off fa-w-20", style="margin-top: 6px;") 
  

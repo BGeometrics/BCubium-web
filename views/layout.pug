@@ -17,6 +17,23 @@ html(lang="en")
           a(class="navbar-brand", href="/")
             p.h3='Bcube ' 
               i(class="fab fa-bitcoin fa-w-20", style="margin-top: 6px;")
+
+      div(id="sub-menu", class="container mb-2 pt-2 d-lg-block d-none border-top", style="")
+        ul(class="nav")
+          li(class="nav-item font-weight-bold")
+            a(href="http://" + ip_internal + ":3002/", class="nav-link px-2 text-decoration-underline")
+              span BTC-RPC-Explorer
+          li(class="nav-item font-weight-bold")
+            a(href="http://" + ip_internal + ":3003/", class="nav-link px-2 text-decoration-underline")
+              span RTL
+          li(class="nav-item font-weight-bold")
+            a(href="./wireguard_home", class="nav-link px-2 text-decoration-underline")
+              span WireGuard
+          li(class="nav-item font-weight-bold")
+            a(href="./openvpn_home", class="nav-link px-2 text-decoration-underline")
+              span OpenVPN
+      hr
+
       div.row
         div.col-md-3
           if router_connection && router_connection.connection == "On"
@@ -53,6 +70,7 @@ html(lang="en")
         div.col-md-3
           if (ip_internal)
             p.font-weight-bold Internal IP: #{ip_internal} 
+
       div.row
         div.col-md-3
           if (system_info && system_info.CPU)
@@ -66,21 +84,7 @@ html(lang="en")
         div.col-md-3
           if (system_info && system_info.TEMP)
             p.font-weight-bold Temperature: #{system_info.TEMP} ºC
-      div(id="sub-menu", class="container mb-2 pt-2 d-lg-block d-none border-top", style="")
-        ul(class="nav")
-          li(class="nav-item font-weight-bold")
-            a(href="http://" + ip_internal + ":3002/", class="nav-link px-2 text-decoration-underline") 
-              span BTC-RPC-Explorer
-          li(class="nav-item font-weight-bold")
-            a(href="http://" + ip_internal + ":3003/", class="nav-link px-2 text-decoration-underline") 
-              span RTL
-          li(class="nav-item font-weight-bold")
-            a(href="./openvpn_home", class="nav-link px-2 text-decoration-underline") 
-              span OpenVPN
-          li(class="nav-item font-weight-bold")
-            a(href="./wireguard_home", class="nav-link px-2 text-decoration-underline") 
-              span WireGuard
-      hr
+
       block content
 
       include ./includes/foot

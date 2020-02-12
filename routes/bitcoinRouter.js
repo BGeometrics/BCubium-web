@@ -84,6 +84,8 @@ router.get('/wireguard_stop', wireguardController.wireguard_stop);
 router.get('/wireguard_enable', wireguardController.wireguard_enable);
 router.get('/wireguard_disable', wireguardController.wireguard_disable);
 router.get('/wireguard_status', wireguardController.wireguard_status);
+router.get('/wireguard_set_port', wireguardController.wireguard_home);
+router.post('/wireguard_set_port', wireguardController.wireguard_home);
 
 // Pages
 /* Page to display all shopping lists

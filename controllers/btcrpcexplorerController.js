@@ -29,7 +29,7 @@ exports.btcrpcexplorer_start = function(req, res) {
         res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, btcrpcexplorer_message: `${stdout}`, system_status: utilities.get_system_status(),
                 user: utilities.get_user(), password: utilities.get_password(),
                 system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(), 
-		router_connection: utilities.router_connection()});
+                router_connection: utilities.router_connection(), bitcoin_connection: utilities.bitcoin_connection()});
    });
 };
 
@@ -49,7 +49,7 @@ exports.btcrpcexplorer_stop = function(req, res) {
         res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, btcrpcexplorer_message: `${stdout}`, system_status: utilities.get_system_status(),
                 user: utilities.get_user(), password: utilities.get_password(),
                 system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(), 
-		router_connection: utilities.router_connection()});
+                router_connection: utilities.router_connection(), bitcoin_connection: utilities.bitcoin_connection()});
    });
 };
 
@@ -71,7 +71,7 @@ exports.btcrpcexplorer_enable = function(req, res) {
         res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, btcrpcexplorer_message: `${stdout}`, system_status: utilities.get_system_status(),
                 user: utilities.get_user(), password: utilities.get_password(),
                 system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(), 
-		router_connection: utilities.router_connection()});
+                router_connection: utilities.router_connection(), bitcoin_connection: utilities.bitcoin_connection()});
     }); 
 };
 
@@ -93,7 +93,7 @@ exports.btcrpcexplorer_disable = function(req, res) {
         res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, btcrpcexplorer_message: `${stdout}`, system_status: utilities.get_system_status(),
                 user: utilities.get_user(), password: utilities.get_password(),
                 system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(), 
-		router_connection: utilities.router_connection()});
+                router_connection: utilities.router_connection(), bitcoin_connection: utilities.bitcoin_connection()});
     }); 
 };
 
@@ -117,6 +117,6 @@ exports.btcrpcexplorer_status = function(req, res) {
 	res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, btcrpcexplorer_message: ret, system_status: utilities.get_system_status(),
                 user: utilities.get_user(), password: utilities.get_password(),
                 system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(), 
-		router_connection: utilities.router_connection()});
+                router_connection: utilities.router_connection(), bitcoin_connection: utilities.bitcoin_connection()});
     });     
 };
