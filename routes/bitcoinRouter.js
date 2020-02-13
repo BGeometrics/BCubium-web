@@ -63,7 +63,7 @@ router.post('/openvpn_set_port', openvpnController.openvpn_home);
 
 router.get('/webconfig_restart', webconfigController.webconfig_restart);
 
-router.get('/backup', usefulController.backup);
+router.get('/backup_home', usefulController.backup_home);
 router.get('/port_home', usefulController.port_home);
 router.get('/port_redirect_add', usefulController.port_redirect_add);
 router.post('/port_redirect_add', usefulController.port_redirect_add);

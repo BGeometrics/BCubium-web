@@ -5,7 +5,7 @@ PORT=$(netstat -ap | grep bitcoind |grep "\*:[0-9]" | grep LISTEN | head -n 1 | 
 BITCOIN_STATUS=$(curl -H "Accept: application/json; indent=4" https://bitnodes.io/api/v1/nodes/$EXTERNAL_IP-$PORT/ | grep status)
 RET=${BITCOIN_STATUS/,/}
 
-if [[ $RET == *"DOWN"* ]]; then
+if [[ $RET = "" ||  $RET == *"DOWN"* ]]; then
   BITCOIN_STATUS_2=$(curl -sL https://bitnodes.earn.com/api/v1/nodes/me-$PORT/)
 
   if [[ $BITCOIN_STATUS_2 == *"true"* ]]; then
@@ -16,5 +16,3 @@ if [[ $RET == *"DOWN"* ]]; then
 else
   echo -n "{"$RET"}"
 fi
-
-

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#https://{Internel_IP}/backup.tgz
+
 BACKUP_TMP=/opt/backup_tmp
 BACKUP_DIR=/opt/backup
 DATE=$(date '+%Y%m%d_%H%M%S')
@@ -28,4 +30,9 @@ cp $TOR_CONF $BACKUP_TMP
 cp $TOR_CONF $BACKUP_TMP
 cp $TOR_CONF $BACKUP_TMP
 
+cp /var/lib/bitcoin/.lnd/tls.* $BACKUP_TMP
+cp /etc/Bgeometrics/scripts/seed.txt $BACKUP_TMP
+cp /etc/Bgeometrics/credentials $BACKUP_TMP
+
 tar cfzP "$BACKUP_DIR/backup-$DATE.tgz" $BACKUP_TMP
+cp $BACKUP_DIR/backup-$DATE.tgz /var/www/html/backup.tgz

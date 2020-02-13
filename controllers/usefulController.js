@@ -10,9 +10,9 @@ var upnp_delete = "./scripts/upnp_delete.sh";
 const url = require('url');
 const utilities = require('./utilities');
 
-exports.backup = function(req, res) {
+exports.backup_home = function(req, res) {
+    console.log('Backup');
     const { exec } = require("child_process");
-
     exec(backup, (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
@@ -22,10 +22,14 @@ exports.backup = function(req, res) {
             console.log(`stderr: ${stderr}`);
             return;
         }
-        console.log('Backup done');
-        res.render('index_home.pug', { usefull_message: 'Backup done'});
+        console.log('Execute: ' + backup);
+        var url_backup = 'https://' + utilities.get_ip_internal() + '/backup.tgz';
+        console.log('Backup done ' + url_backup);
+	res.render('backup_home.pug', {backup_message: url_backup, usefull_message: 'Backup done',
+			user: utilities.get_user(), password: utilities.get_password()});
+
     }); 
-};
+}
 
 exports.port_home = function(req, res) {
     console.log("port_redirect_list:" + utilities.get_ports_redirect(req, res));
@@ -61,12 +65,12 @@ exports.upnp_home = function(req, res) {
 };
 
 exports.upnp_add = function(req, res) {
-    console.log("upnp add");
     var execute = upnp_add + " " + req.body.external_port + " " + req.body.internal_port;
     console.log("Execute: " + execute);
     const { execSync } = require("child_process");
     var ret = execSync(execute).toString();
     var upnp_rules = utilities.get_upnp_rules();
+    console.log("upnp_rules: " + upnp_rules);
     res.render('upnp_home.pug', { usefull_message: 'UPnP rule done',
                  upnp_rules: upnp_rules});
 };

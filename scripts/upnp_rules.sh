@@ -2,6 +2,10 @@
 #sudo apt-get install miniupnpc
 #crontab -l | grep upnp || echo $(crontab -l ; echo '*/5 * * * * ~/bin/upnpPortMapper.sh  >/dev/null 2>&1') | crontab -
 
-set +x
+RET=$(/usr/bin/upnpc -l | grep 'TCP\|UDP')
 
-/usr/bin/upnpc -l | grep TCP
+if [[ "$RET" == "" ]] ; then
+  echo ""
+else
+  /usr/bin/upnpc -l | grep 'TCP\|UDP'
+fi
