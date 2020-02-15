@@ -23,7 +23,7 @@ exports.backup_home = function(req, res) {
             return;
         }
         console.log('Execute: ' + backup);
-        var url_backup = 'https://' + utilities.get_ip_internal() + '/backup.tgz';
+        var url_backup = 'https://' + utilities.get_ip_internal() + '/backup.zip';
         console.log('Backup done ' + url_backup);
 	res.render('backup_home.pug', {backup_message: url_backup, usefull_message: 'Backup done',
 			user: utilities.get_user(), password: utilities.get_password()});

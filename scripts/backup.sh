@@ -4,6 +4,7 @@
 
 BACKUP_TMP=/opt/backup_tmp
 BACKUP_DIR=/opt/backup
+BACKUP_CONFIG=$BACKUP_TMP/config
 DATE=$(date '+%Y%m%d_%H%M%S')
 
 BITCOIN_CONF=/etc/bitcoin/bitcoin.conf
@@ -16,23 +17,29 @@ ELECTRS_SERVICE=/etc/systemd/system/electrs.service
 TOR_CONF=/etc/tor/torrc
 WEBCONFIG_SERVICE=/etc/systemd/system/webconfig.service
 
-rm -f $BACKUP_TMP/*
-cp $BITCOIN_CONF $BACKUP_TMP
-cp $BITCOIN_SERVICE $BACKUP_TMP
-cp $BTC_EXPLORER_ENV $BACKUP_TMP
-cp $BTC_EXPLORER_SERVICE $BACKUP_TMP
-cp $LND_CONF $BACKUP_TMP
-cp $LND_SERVICE $BACKUP_TMP
-cp $ELECTRS_SERVICE $BACKUP_TMP
-cp $TOR_CONF $BACKUP_TMP
-cp $WEBCONFIG_SERVICE $BACKUP_TMP
-cp $TOR_CONF $BACKUP_TMP
-cp $TOR_CONF $BACKUP_TMP
-cp $TOR_CONF $BACKUP_TMP
+LND_CHANNEL=/var/lib/bitcoin/.lnd/data/chain/bitcoin/mainnet/channel.backup
+LND_KEYS=/var/lib/bitcoin/.lnd/tls.*
+LND_SEED=/etc/Bgeometrics/scripts/seed.txt
+BCUBE_CREDENTIALS=/etc/Bgeometrics/credentials
 
-cp /var/lib/bitcoin/.lnd/tls.* $BACKUP_TMP
-cp /etc/Bgeometrics/scripts/seed.txt $BACKUP_TMP
-cp /etc/Bgeometrics/credentials $BACKUP_TMP
+rm -rf $BACKUP_TMP/*
+mkdir $BACKUP_CONFIG
+cp $BITCOIN_CONF $BACKUP_CONFIG
+cp $BITCOIN_SERVICE $BACKUP_CONFIG
+cp $BTC_EXPLORER_ENV $BACKUP_CONFIG
+cp $BTC_EXPLORER_SERVICE $BACKUP_CONFIG
+cp $LND_CONF $BACKUP_CONFIG
+cp $LND_SERVICE $BACKUP_CONFIG
+cp $ELECTRS_SERVICE $BACKUP_CONFIG
+cp $TOR_CONF $BACKUP_CONFIG
+cp $WEBCONFIG_SERVICE $BACKUP_CONFIG
+cp $TOR_CONF $BACKUP_CONFIG
 
-tar cfzP "$BACKUP_DIR/backup-$DATE.tgz" $BACKUP_TMP
-cp $BACKUP_DIR/backup-$DATE.tgz /var/www/html/backup.tgz
+cp $LND_KEYS $BACKUP_TMP
+cp $LND_CHANNEL $BACKUP_TMP
+cp $LND_SEED $BACKUP_TMP
+cp $BCUBE_CREDENTIALS $BACKUP_TMP
+
+#tar cfzP "$BACKUP_DIR/backup-$DATE.tgz" $BACKUP_TMP
+zip -r $BACKUP_DIR/backup-$DATE.zip $BACKUP_TMP
+cp $BACKUP_DIR/backup-$DATE.zip /var/www/html/backup.zip
