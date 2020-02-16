@@ -21,6 +21,8 @@ block content
             else
               p Connect wifi #{ssid}
             br
+            p After connecting to the Wi-Fi network, disconnect cable, restart the router and the node to build the new routes
+            br
             a(class='rounded bg-primary text-white px-2 py-1' href="./wifi_scan") Scan
             br
             if networks != null
@@ -38,12 +40,16 @@ block content
                         td #{network.quality}
                         td #{network.signal_level}
             br
+
     div.col-md-3
       div.container.px-2.px-sm-3
         div.card.mb-4.shadow-sm
           div.card-header
             h2.h6 Help
           div.card-body
-            p Vale venga esto puede ser cualquier texto de soporte para que el usuario tenga una idea más clara
+            p If you want to connect the node via Wi-Fi:
+            p 1- Connect to the Wi-Fi network
+            p 2- Disconnect the cable from the network
+            p 3- Restart the router and node to build the new routes
 
     

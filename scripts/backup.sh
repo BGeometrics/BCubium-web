@@ -19,7 +19,7 @@ WEBCONFIG_SERVICE=/etc/systemd/system/webconfig.service
 
 LND_CHANNEL=/var/lib/bitcoin/.lnd/data/chain/bitcoin/mainnet/channel.backup
 LND_KEYS=/var/lib/bitcoin/.lnd/tls.*
-LND_SEED=/etc/Bgeometrics/scripts/seed.txt
+LND_SEED=/etc/Bgeometrics/seed.txt
 BCUBE_CREDENTIALS=/etc/Bgeometrics/credentials
 
 rm -rf $BACKUP_TMP/*

@@ -176,11 +176,11 @@ block content
               div.card-header
                 if system_status && system_status.wireguard == 'OK'
                   a(class='nav-bar-brand' href="./wireguard_home")
-                    p.h2.h6.mb-0 WireGuard 
+                    p.h2.h6.mb-0 VPN - WireGuard 
                       i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;")
                 else
                   a(class='nav-bar-brand' href="./wireguard_home")
-                    p.h2.h6.mb-0 WireGuard 
+                    p.h2.h6.mb-0 VPN - WireGuard 
                       i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;")
               div.card-body
                 if system_status && system_status.wireguard != 'OK'
