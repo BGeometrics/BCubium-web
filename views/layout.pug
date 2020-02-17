@@ -21,7 +21,7 @@ html(lang="en")
         div(id="sub-menu", class="container mb-2 pt-2 d-lg-block d-none border-top", style="")
           ul(class="nav")
             li(class="nav-item font-weight-bold")
-              a(href="http://" + ip_internal + ":3002/", class="nav-link px-2 text-decoration-underline")
+              a(href="./btcrpcexplorer_home", class="nav-link px-2 text-decoration-underline")
                 span BTC-RPC-Explorer
             li(class="nav-item font-weight-bold")
               a(href="http://" + ip_internal + ":3003/", class="nav-link px-2 text-decoration-underline")
@@ -63,7 +63,7 @@ html(lang="en")
         div.col-md-3
           if (password)
             p.font-weight-bold Pass: 
-              input(type="password" id="myPassword" name="password" value="password" style="border: none; width: 40%;" readonly)
+              input(type="password" id="myPassword" name="password" value="password" style="border: none; width: 45%;" readonly)
               a(href="javascript:void(0)" onclick=("javascript:var x = document.getElementById('myPassword'); if (x.type === 'password') { x.type = 'text'; } else { x.type = 'password';}"))
                   i(class="far fa-eye fa-w-20", style="margin-top: 6px;")
         div.col-md-3

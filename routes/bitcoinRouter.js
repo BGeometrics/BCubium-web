@@ -41,6 +41,7 @@ router.get('/btcrpcexplorer_start', btcrpcexplorerController.btcrpcexplorer_star
 router.get('/btcrpcexplorer_enable', btcrpcexplorerController.btcrpcexplorer_enable);
 router.get('/btcrpcexplorer_disable', btcrpcexplorerController.btcrpcexplorer_disable);
 router.get('/btcrpcexplorer_status', btcrpcexplorerController.btcrpcexplorer_status);
+router.get('/btcrpcexplorer_home', btcrpcexplorerController.btcrpcexplorer_home);
 
 router.get('/rtl_start', rtlController.rtl_start);
 router.get('/rtl_stop', rtlController.rtl_stop);

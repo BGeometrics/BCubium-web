@@ -120,3 +120,13 @@ exports.btcrpcexplorer_status = function(req, res) {
                 router_connection: utilities.router_connection(), bitcoin_connection: utilities.bitcoin_connection()});
     });     
 };
+
+exports.btcrpcexplorer_home = function(req, res) {
+
+    var auth = 'Basic ' + Buffer.from(utilities.get_user() + ':' 
+		+ utilities.get_password()).toString('base64');
+    ip_internal = utilities.get_ip_internal();
+
+    res.header ("Authorization", auth);
+    res.redirect(307, 'http://' + ip_internal + ':3002');
+};

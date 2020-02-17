@@ -77,11 +77,11 @@ block content
             div.card.mb-3.shadow-sm
               div.card-header
                 if system_status && system_status.btcrpcexplorer == 'OK'
-                  a(class='nav-bar-brand' href="http://" + ip_internal + ":3002/")
+                  a(class='nav-bar-brand' href="./btcrpcexplorer_home")
                     p.h2.h6.mb-0 BTC-RPC-Explorer 
                       i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;")
                 else
-                  a(class='nav-bar-brand' href="http://" + ip_internal + ":3002/")
+                  a(class='nav-bar-brand' href="./btcrpcexplorer_home")
                     p.h2.h6.mb-0 BTC-RPC-Explorer 
                       i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;")
               div.card-body

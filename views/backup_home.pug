@@ -5,10 +5,15 @@ block content
     div.row
       div.col-md-3
         if (user)
-          p.font-weight-bold User: <mark>#{user}</mark>
+          p.font-weight-bold User: 
+            input(type="text" id="myUser" name="user" value="user" style="border: none;" readonly) 
+            |
       div.col-md-3
         if (password)
-          p.font-weight-bold Pass: <mark>#{password}</mark>
+          p.font-weight-bold Pass: 
+            input(type="password" id="myPassword" name="password" value="password" style="border: none; width: 45%;" readonly)
+            a(href="javascript:void(0)" onclick=("javascript:var x = document.getElementById('myPassword'); if (x.type === 'password') { x.type = 'text'; } else { x.type = 'password';}"))
+              i(class="far fa-eye fa-w-20", style="margin-top: 6px;")
 
     div.row
       div.col-md-9
