@@ -1,0 +1,16 @@
+extends layout_mini
+
+block content
+
+  <div class="nomics-ticker-widget" data-name="Bitcoin" data-base="BTC" data-quote="USD"></div><script src="https://widget.nomics.com/embed.js"></script>
+  br
+  <script src="https://widgets.coingecko.com/coingecko-coin-compare-chart-widget.js"></script>
+  <coingecko-coin-compare-chart-widget coin-ids="bitcoin" currency="usd" locale="en"></coingecko-coin-compare-chart-widget>
+  br
+  <script src="https://widgets.coingecko.com/coingecko-coin-ticker-widget.js"></script>
+  <coingecko-coin-ticker-widget  coin-id="bitcoin" currency="usd" locale="en"></coingecko-coin-ticker-widget>
+  br
+  <script src="https://widgets.coingecko.com/coingecko-coin-heatmap-widget.js"></script>
+  <coingecko-coin-heatmap-widget height="400" locale="en"></coingecko-coin-heatmap-widget>
+
+
