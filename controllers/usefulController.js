@@ -92,3 +92,7 @@ exports.system_ports_home = function(req, res) {
     res.render('system_ports.pug', { system_ports: system_ports});
 };
 
+exports.graphics_home = function(req, res) {
+    res.render('graphics_home.pug');
+};
+

@@ -189,11 +189,11 @@ block content
               div.card-header
                 if system_status && system_status.wireguard == 'OK'
                   a(class='nav-bar-brand' href="./wireguard_home")
-                    p.h2.h6.mb-0 VPN - WireGuard 
+                    p.h2.h6.mb-0 VPN-WireGuard 
                       i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;")
                 else
                   a(class='nav-bar-brand' href="./wireguard_home")
-                    p.h2.h6.mb-0 VPN - WireGuard 
+                    p.h2.h6.mb-0 VPN-WireGuard 
                       i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;")
               div.card-body
                 if system_status && system_status.wireguard != 'OK'
@@ -284,3 +284,12 @@ block content
               a(class='rounded bg-primary text-white px-2 py-1'  href="./openvpn_enable") OpenVPN 
                 i(class="fas fa-power-off fa-w-20", style="margin-top: 6px;") 
  
+    div.col-md-3
+      div.container.px-2.px-sm-3
+        div.card.mb-4.shadow-sm
+          div.card-header
+            h2.h6 Help
+          div.card-body
+            p XXXXX
+  br
+
