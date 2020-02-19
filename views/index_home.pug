@@ -2,7 +2,7 @@ extends layout
 
 block content
   div.row
-    div.col-md-22
+    div.col-md-9
       div.container.px-2.px-sm-3
         div.row
           div.col-md-4
@@ -26,11 +26,13 @@ block content
             div.card.mb-3.shadow-sm
               div.card-header
                 if system_status && system_status.lnd == 'OK'
-                  p.h2.h6.mb-0 LND  
-                    i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;")
+                  a(class='nav-bar-brand' href="./lnd_home")
+                    p.h2.h6.mb-0 LND  
+                      i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;")
                 else
-                  p.h2.h6.mb-0 LND  
-                    i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;")
+                  a(class='nav-bar-brand' href="./lnd_home")
+                    p.h2.h6.mb-0 LND  
+                      i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;")
               div.card-body
                 if system_status && system_status.lnd != 'OK'
                   a(class='rounded bg-primary text-white px-2 py-1'  href="./lnd_start")
@@ -52,7 +54,13 @@ block content
                 | &nbsp; 
                 a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_disable") Disable 
                   i(class="fas fa-toggle-off fa-w-20", style="margin-top: 6px;")
+                |
+                |
                 br
+                br
+                |
+                |
+                a(class='rounded bg-primary text-white px-2 py-1'  href="./lnd_home") Wallet 
                 br
                 p #{lnd_message}
 
@@ -165,7 +173,12 @@ block content
                 | &nbsp; 
                 a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_disable") Disable 
                   i(class="fas fa-toggle-off fa-w-20", style="margin-top: 6px;")
-                | &nbsp; 
+                |
+                |
+                br
+                br
+                |
+                |
                 a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_status") Status
                 br
                 br

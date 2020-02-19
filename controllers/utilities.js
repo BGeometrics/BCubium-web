@@ -18,6 +18,7 @@ var internet_connection = "./scripts/internet_connection.sh";
 var router_connection = "./scripts/router_connection.sh";
 var bitcoin_connection = "./scripts/bitcoin_connection.sh";
 var system_ports = "./scripts/system_ports.sh";
+var seed_file = "/etc/Bgeometrics/seed.txt";
 
 
 exports.get_ip_external = function () {
@@ -159,6 +160,7 @@ exports.router_connection = function(req, res) {
    const { execSync } = require("child_process");
    var ret = execSync(router_connection).toString();
    ret = ret.replace(/\n$/, '')
+   console.log('Router: ' + ret);
    var obj_status = JSON.parse(ret);
 
    return obj_status;
@@ -168,7 +170,7 @@ exports.bitcoin_connection = function(req, res) {
    console.log("execute: " + bitcoin_connection);
    const { execSync } = require("child_process");
    var ret = execSync(bitcoin_connection).toString();
-   ret = ret.replace(/\n$/, '')
+   console.log('bitcoin_connection: ' + ret);
    var obj_status = JSON.parse(ret);
 
    return obj_status;
@@ -184,5 +186,13 @@ exports.get_system_ports = function(req, res) {
    var obj_status = JSON.parse(ret);
 
    return obj_status;
+};
+
+exports.read_text_file = function (file) {
+
+   const fs = require('fs');
+   var data = fs.readFileSync(seed_file, 'utf8');
+  
+   return data;
 };
 

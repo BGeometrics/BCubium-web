@@ -18,6 +18,7 @@ TOR_CONF=/etc/tor/torrc
 WEBCONFIG_SERVICE=/etc/systemd/system/webconfig.service
 
 LND_CHANNEL=/var/lib/bitcoin/.lnd/data/chain/bitcoin/mainnet/channel.backup
+LND_WALLET=/var/lib/bitcoin/.lnd/data/chain/bitcoin/mainnet/wallet.db
 LND_KEYS=/var/lib/bitcoin/.lnd/tls.*
 LND_SEED=/etc/Bgeometrics/seed.txt
 BCUBE_CREDENTIALS=/etc/Bgeometrics/credentials
@@ -38,8 +39,9 @@ cp $TOR_CONF $BACKUP_CONFIG
 cp $LND_KEYS $BACKUP_TMP
 cp $LND_CHANNEL $BACKUP_TMP
 cp $LND_SEED $BACKUP_TMP
+cp $LND_WALLET $BACKUP_TMP
 cp $BCUBE_CREDENTIALS $BACKUP_TMP
 
 #tar cfzP "$BACKUP_DIR/backup-$DATE.tgz" $BACKUP_TMP
-zip -r $BACKUP_DIR/backup-$DATE.zip $BACKUP_TMP
-cp $BACKUP_DIR/backup-$DATE.zip /var/www/html/backup.zip
+zip -r $BACKUP_DIR/backup.zip $BACKUP_TMP
+mv $BACKUP_DIR/backup.zip /var/www/html/backup.zip

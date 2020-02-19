@@ -2,9 +2,9 @@
 
 SERVICE=ufw
 
-STATUS=$(sudo systemctl status $SERVICE | head -n 1)
+STATUS=$(sudo systemctl is-active $SERVICE)
 
-if [[ $STATUS == *" inactive"* ]]; then
+if [[ $STATUS == *"inactive"* ]]; then
   echo -n "KO. $STATUS"
 else
   echo -n "OK. $STATUS"
