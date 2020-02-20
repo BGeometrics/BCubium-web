@@ -21,9 +21,10 @@ block content
                 a(class='rounded bg-primary text-white px-2 py-1' href="./bitcoin_status") Status 
                 | &nbsp; 
                 a(class='rounded bg-primary text-white px-2 py-1' href="http://" + ip_internal + ":3002/node-status") Details 
-                br
-                br
-                p #{bitcoin_message}
+                if bitcoin_message
+                  br
+                  br
+                  p #{bitcoin_message}
 
           div.col-md-4
             div.card.mb-3.shadow-sm
@@ -67,9 +68,10 @@ block content
                 |
                 |
                 a(class='rounded bg-primary text-white px-2 py-1'  href="./lnd_home") Wallet 
-                br
-                br
-                p #{lnd_message}
+                if lnd_message
+                  br
+                  br 
+                  p #{lnd_message}
 
           div.col-md-4
             div.card.mb-3.shadow-sm
@@ -85,11 +87,10 @@ block content
                   i(class="fas fa-sync fa-w-20", style="margin-top: 6px;")
                 | &nbsp; 
                 a(class='rounded bg-primary text-white px-2 py-1' href="./tor_status") Status
-                br
-                br
-                |
-                |
-                p #{tor_message}
+                if tor_message
+                  br
+                  br
+                  p #{tor_message}
 
           div.col-md-4
             div.card.mb-3.shadow-sm
@@ -126,11 +127,10 @@ block content
                 | &nbsp; 
                 a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_disable") Disable 
                   i(class="fas fa-toggle-off fa-w-20", style="margin-top: 6px;")
-                |
-                |
-                br
-                br
-                p #{btcrpcexplorer_message}
+                if btcrpcexplorer_message
+                  br
+                  br
+                  p #{btcrpcexplorer_message}
 
           div.col-md-4
             div.card.mb-3.shadow-sm
@@ -167,12 +167,10 @@ block content
                 | &nbsp;
                 a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_disable") Disable 
                   i(class="fas fa-toggle-off fa-w-20", style="margin-top: 6px;")
-                | &nbsp;
-                |
-                |
-                br
-                br
-                p #{rtl_message}
+                if rtl_message
+                  br
+                  br
+                  p #{rtl_message}
 
           div.col-md-4
             div.card.mb-3.shadow-sm
@@ -199,9 +197,10 @@ block content
                 | &nbsp; 
                 a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_disable") Disable 
                   i(class="fas fa-toggle-off fa-w-20", style="margin-top: 6px;")
-                br
-                br
-                p #{firewall_message}
+                if firewall_message
+                  br
+                  br
+                  p #{firewall_message}
 
           div.col-md-4
             div.card.mb-3.shadow-sm
@@ -238,9 +237,10 @@ block content
                 | &nbsp;
                 a(class='rounded bg-primary text-white px-2 py-1' href="./wireguard_disable") Disable 
                   i(class="fas fa-toggle-off fa-w-20", style="margin-top: 6px;")
-                br
-                br
-                p #{wireguard_message}
+                if wireguard_message
+                  br
+                  br
+                  p #{wireguard_message}
 
           if system_status && system_status.openvpn_activated === 'OK'
             div.col-md-4
@@ -276,10 +276,10 @@ block content
                   | &nbsp;
                   a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_disable") Disable 
                     i(class="fas fa-toggle-off fa-w-20", style="margin-top: 6px;")
-                  br
-                  br
-                  p #{openvpn_message}
-                  |
+                  if openvpn_message
+                    br
+                    br
+                    p #{openvpn_message}
               |
         div.card.mb-3.shadow-sm
           div.card-header
@@ -297,9 +297,10 @@ block content
             | &nbsp; 
             a(class='rounded bg-primary text-white px-2 py-1' href="./port_home") Port redirect
             | &nbsp; 
-            br
-            br
-            p #{usefull_message}
+            if usefull_message
+              br
+              br
+              p #{usefull_message}
 
         div.card.mb-3.shadow-sm
           div.card-header
