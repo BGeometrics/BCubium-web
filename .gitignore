@@ -6,3 +6,5 @@ scripts/ip_external.txt
 
 *.txt
 
+public/*.conf
+public/bcube*.png
