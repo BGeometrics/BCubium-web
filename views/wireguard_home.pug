@@ -10,18 +10,25 @@ block content
           div.card-body
             - var port_external = '4443'
             - var port_internal = '3000'
+            - var fqdn = 'bcube.dyndns.com'
             - var url = 'https://' + ip_external + ':' + port_external + '/client.conf';
+            - var url_dns = 'https://' + fqdn + ':' + port_external + '/client-bcube-dns.conf';
             - var url_internal = 'http://' + ip_internal + ':' + port_internal;
             |
             |
             p How to connect to the WireGuard
             p 1- Install the software WireGuard client on the devices: Mobile, computer, tablet ...
-            p 2- Add -> Create from QR code
-            img(src="/bcube-wg0.png" alt="QR code WireGuard")
+            p 2- Add -> Create from QR code for Public IP
+            img(src="/bcube-wg0.png" alt="QR code WireGuard public IP")
+            p
+            p  - Or add -> Create from QR code for FDQN (Fully Qualified Domain Name)
+            img(src="/bcube-dyndns.png" alt="QR code WireGuard FQDN")
             p
             p 3- If you want to import the client configuration by file and not by QR code: 
-              a(class='rounded bg-primary text-white px-2 py-1' href=url) client.conf 
-            |
+              a(class='rounded bg-primary text-white px-2 py-1' href='/client.conf') client.conf 
+            br
+            p  - Or for FDQN (Fully Qualified Domain Name) and not by QR code: 
+              a(class='rounded bg-primary text-white px-2 py-1' href='/client-bcube-dns.conf') client-bcube-dns.conf  
             br
             p If you have had to perform a port forwarding on the router to access the wireguard 28165 UDP port, indicate it here to generate a new QR:
             |
