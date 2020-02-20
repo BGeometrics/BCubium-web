@@ -6,7 +6,7 @@ var port_redirect_delete = "./scripts/port_redirect_delete.sh";
 var upnp_add = "./scripts/upnp_add.sh"; 
 var upnp_list = "./scripts/upnp_list.sh"; 
 var upnp_delete = "./scripts/upnp_delete.sh"; 
-var web_port = "4443";
+var web_port = "4444";
 
 const url = require('url');
 const utilities = require('./utilities');

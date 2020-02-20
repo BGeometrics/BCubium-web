@@ -16,7 +16,7 @@ const utilities = require('./utilities');
 var lnd_wallet_delete = "./scripts/lnd_wallet_delete.sh"; 
 var lnd_wallet_create = "./scripts/lnd_wallet_create.sh"; 
 var lnd_wallet_backup = "./scripts/lnd_wallet_backup.sh"; 
-var web_port = "4443";
+var web_port = "4444";
 
 
 exports.lnd_start = function(req, res) {
