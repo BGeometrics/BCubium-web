@@ -6,6 +6,7 @@ var lndStop = "./scripts/lnd_stop.sh";
 var lndEnable = "./scripts/lnd_enable.sh";  
 var lndDisable = "./scripts/lnd_disable.sh"; 
 var lndStatus = "./scripts/lnd_status.sh"; 
+var lnd_restart = "./scripts/lnd_restart.sh";  
 var ip_intenal_file = "./scripts/ip_internal.txt";
 var ip_external_file = "./scripts/ip_external.txt";
 var seed_file = "/etc/Bgeometrics/seed.txt";
@@ -168,3 +169,13 @@ exports.lnd_wallet_backup = function(req, res) {
    		user: utilities.get_user(), password: utilities.get_password()});
 };
 
+exports.lnd_restart = function(req, res) {
+    console.log("Execute: " +  lnd_restart);
+    const { execSync } = require("child_process");
+    var ret = execSync(lnd_restart).toString();
+    res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external,
+                lnd_message: ret, system_status: utilities.get_system_status(),
+                user: utilities.get_user(), password: utilities.get_password(),
+                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(),
+                router_connection: utilities.router_connection(), bitcoin_connection: utilities.bitcoin_connection()});
+};

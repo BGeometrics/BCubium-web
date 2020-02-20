@@ -6,6 +6,7 @@ var openvpnStop = "./scripts/openvpn_stop.sh";
 var openvpnEnable = "./scripts/openvpn_enable.sh";  
 var openvpnDisable = "./scripts/openvpn_disable.sh"; 
 var openvpnStatus = "./scripts/openvpn_status.sh"; 
+var openvpn_restart = "./scripts/openvpn_restart.sh";
 var ip_intenal_file = "./scripts/ip_internal.txt";
 var ip_external_file = "./scripts/ip_external.txt";
 var openvpn_external_ip = "./scripts/openvpn_external_ip.sh";
@@ -144,3 +145,13 @@ exports.openvpn_home = function(req, res) {
    		openvpn_message: message});
 };
 
+exports.openvpn_restart = function(req, res) {
+    console.log("Execute: " +  openvpn_restart);
+    const { execSync } = require("child_process");
+    var ret = execSync(openvpn_restart).toString();
+    res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external,
+                openvpn_message: ret, system_status: utilities.get_system_status(),
+                user: utilities.get_user(), password: utilities.get_password(),
+                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(),
+                router_connection: utilities.router_connection(), bitcoin_connection: utilities.bitcoin_connection()});
+};

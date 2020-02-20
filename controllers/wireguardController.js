@@ -6,6 +6,7 @@ var wireguardStop = "./scripts/wireguard_stop.sh";
 var wireguardEnable = "./scripts/wireguard_enable.sh";  
 var wireguardDisable = "./scripts/wireguard_disable.sh"; 
 var wireguardStatus = "./scripts/wireguard_status.sh"; 
+var wireguard_restart = "./scripts/wireguard_restart.sh";
 var wireguard_set_port = "./scripts/wireguard_external_ip_port.sh";
 var ip_internal = "";
 var ip_external = "";
@@ -140,4 +141,15 @@ exports.wireguard_home = function(req, res) {
    res.render('wireguard_home.pug', {ip_internal: ip_internal, ip_external: ip_external,
 		user: utilities.get_user(), password: utilities.get_password(), 
    		wireguard_message: message});
+};
+
+exports.wireguard_restart = function(req, res) {
+    console.log("Execute: " +  wireguard_restart);
+    const { execSync } = require("child_process");
+    var ret = execSync(wireguard_restart).toString();
+    res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external,
+                wireguard_message: ret, system_status: utilities.get_system_status(),
+                user: utilities.get_user(), password: utilities.get_password(),
+                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(),
+                router_connection: utilities.router_connection(), bitcoin_connection: utilities.bitcoin_connection()});
 };

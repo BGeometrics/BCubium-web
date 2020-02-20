@@ -15,6 +15,9 @@ block content
                   p.h2.h6.mb-0 Bitcoin 
                     i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;")
               div.card-body
+                a(class='rounded bg-primary text-white px-2 py-1'  href="./bitcoin_restart")
+                  i(class="fas fa-sync fa-w-20", style="margin-top: 6px;")
+                | &nbsp; 
                 a(class='rounded bg-primary text-white px-2 py-1' href="./bitcoin_status") Status 
                 | &nbsp; 
                 a(class='rounded bg-primary text-white px-2 py-1' href="http://" + ip_internal + ":3002/node-status") Details 
@@ -34,6 +37,9 @@ block content
                     p.h2.h6.mb-0 LND  
                       i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;")
               div.card-body
+                a(class='rounded bg-primary text-white px-2 py-1'  href="./lnd_restart")
+                  i(class="fas fa-sync fa-w-20", style="margin-top: 6px;")
+                | &nbsp; 
                 if system_status && system_status.lnd != 'OK'
                   a(class='rounded bg-primary text-white px-2 py-1'  href="./lnd_start")
                     i(class="fas fa-play fa-w-20", style="margin-top: 6px;")
@@ -62,6 +68,7 @@ block content
                 |
                 a(class='rounded bg-primary text-white px-2 py-1'  href="./lnd_home") Wallet 
                 br
+                br
                 p #{lnd_message}
 
           div.col-md-4
@@ -74,6 +81,9 @@ block content
                   p.h2.h6.mb-0 Tor 
                     i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;")
               div.card-body
+                a(class='rounded bg-primary text-white px-2 py-1'  href="./tor_restart")
+                  i(class="fas fa-sync fa-w-20", style="margin-top: 6px;")
+                | &nbsp; 
                 a(class='rounded bg-primary text-white px-2 py-1' href="./tor_status") Status
                 br
                 br
@@ -93,6 +103,9 @@ block content
                     p.h2.h6.mb-0 BTC-RPC-Explorer 
                       i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;")
               div.card-body
+                a(class='rounded bg-primary text-white px-2 py-1'  href="./btcrpcexplorer_restart")
+                  i(class="fas fa-sync fa-w-20", style="margin-top: 6px;")
+                | &nbsp; 
                 if system_status && system_status.btcrpcexplorer != 'OK'
                   a(class='rounded bg-primary text-white px-2 py-1'  href="./btcrpcexplorer_start")
                     i(class="fas fa-play fa-w-20", style="margin-top: 6px;")
@@ -131,6 +144,9 @@ block content
                     p.h2.h6.mb-0 RTL 
                       i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;")
               div.card-body
+                a(class='rounded bg-primary text-white px-2 py-1'  href="./rtl_restart")
+                  i(class="fas fa-sync fa-w-20", style="margin-top: 6px;")
+                | &nbsp; 
                 if system_status && system_status.rtl != 'OK'
                   a(class='rounded bg-primary text-white px-2 py-1'  href="./rtl_start")
                     i(class="fas fa-play fa-w-20", style="margin-top: 6px;")
@@ -168,18 +184,21 @@ block content
                   p.h2.h6.mb-0 Firewall 
                     i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;")
               div.card-body
+                a(class='rounded bg-primary text-white px-2 py-1'  href="./firewall_restart")
+                  i(class="fas fa-sync fa-w-20", style="margin-top: 6px;")
+                | &nbsp; 
+                a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_status") Status
+                |
+                |
+                br
+                br
+                |
+                |
                 a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_enable") Enable 
                   i(class="fas fa-toggle-on fa-w-20", style="margin-top: 6px;")
                 | &nbsp; 
                 a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_disable") Disable 
                   i(class="fas fa-toggle-off fa-w-20", style="margin-top: 6px;")
-                |
-                |
-                br
-                br
-                |
-                |
-                a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_status") Status
                 br
                 br
                 p #{firewall_message}
@@ -196,6 +215,9 @@ block content
                     p.h2.h6.mb-0 VPN-WireGuard 
                       i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;")
               div.card-body
+                a(class='rounded bg-primary text-white px-2 py-1'  href="./wireguard_restart")
+                  i(class="fas fa-sync fa-w-20", style="margin-top: 6px;")
+                | &nbsp; 
                 if system_status && system_status.wireguard != 'OK'
                   a(class='rounded bg-primary text-white px-2 py-1'  href="./wireguard_start") 
                     i(class="fas fa-play fa-w-20", style="margin-top: 6px;")
@@ -233,6 +255,9 @@ block content
                       p.h2.h6.mb-0 OpenVPN 
                         i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;")
                 div.card-body
+                  a(class='rounded bg-primary text-white px-2 py-1'  href="./openvpn_restart")
+                    i(class="fas fa-sync fa-w-20", style="margin-top: 6px;")
+                  | &nbsp; 
                   a(class='rounded bg-primary text-white px-2 py-1'  href="./openvpn_start")
                     i(class="fas fa-play fa-w-20", style="margin-top: 6px;") 
                   | &nbsp;

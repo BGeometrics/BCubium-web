@@ -19,6 +19,7 @@ router.get('/home/', bitcoinController.bitcoin_home);
 router.get('/bitcoin_enable', bitcoinController.bitcoin_enable);
 router.get('/bitcoin_disable', bitcoinController.bitcoin_disable);
 router.get('/bitcoin_status', bitcoinController.bitcoin_status);
+router.get('/bitcoin_restart', bitcoinController.bitcoin_restart);
 
 router.get('/electrum_start', electrumController.electrum_start);
 router.get('/electrum_stop', electrumController.electrum_stop);
@@ -35,10 +36,12 @@ router.get('/lnd_home', lndController.lnd_home);
 router.get('/lnd_wallet_delete', lndController.lnd_wallet_delete);
 router.get('/lnd_wallet_create', lndController.lnd_wallet_create);
 router.get('/lnd_wallet_backup', lndController.lnd_wallet_backup);
+router.get('/lnd_restart', lndController.lnd_restart);
 
 router.get('/tor_enable', torController.tor_enable);
 router.get('/tor_disable', torController.tor_disable);
 router.get('/tor_status', torController.tor_status);
+router.get('/tor_restart', torController.tor_restart);
 
 router.get('/btcrpcexplorer_start', btcrpcexplorerController.btcrpcexplorer_start);
 router.get('/btcrpcexplorer_start', btcrpcexplorerController.btcrpcexplorer_start);
@@ -46,16 +49,19 @@ router.get('/btcrpcexplorer_enable', btcrpcexplorerController.btcrpcexplorer_ena
 router.get('/btcrpcexplorer_disable', btcrpcexplorerController.btcrpcexplorer_disable);
 router.get('/btcrpcexplorer_status', btcrpcexplorerController.btcrpcexplorer_status);
 router.get('/btcrpcexplorer_home', btcrpcexplorerController.btcrpcexplorer_home);
+router.get('/btcrpcexplorer_restart', btcrpcexplorerController.btcrpcexplorer_restart);
 
 router.get('/rtl_start', rtlController.rtl_start);
 router.get('/rtl_stop', rtlController.rtl_stop);
 router.get('/rtl_enable', rtlController.rtl_enable);
 router.get('/rtl_disable', rtlController.rtl_disable);
+router.get('/rtl_restart', rtlController.rtl_restart);
 router.get('/rtl_status', rtlController.rtl_status);
 
 router.get('/firewall_enable', firewallController.firewall_enable);
 router.get('/firewall_disable', firewallController.firewall_disable);
 router.get('/firewall_status', firewallController.firewall_status);
+router.get('/firewall_restart', firewallController.firewall_restart);
 
 router.get('/openvpn_start', openvpnController.openvpn_start);
 router.get('/openvpn_stop', openvpnController.openvpn_stop);
@@ -65,6 +71,7 @@ router.get('/openvpn_status', openvpnController.openvpn_status);
 router.get('/openvpn_home', openvpnController.openvpn_home);
 router.get('/openvpn_set_port', openvpnController.openvpn_home);
 router.post('/openvpn_set_port', openvpnController.openvpn_home);
+router.get('/openvpn_restart', openvpnController.openvpn_restart);
 
 router.get('/webconfig_restart', webconfigController.webconfig_restart);
 
@@ -93,6 +100,7 @@ router.get('/wireguard_disable', wireguardController.wireguard_disable);
 router.get('/wireguard_status', wireguardController.wireguard_status);
 router.get('/wireguard_set_port', wireguardController.wireguard_home);
 router.post('/wireguard_set_port', wireguardController.wireguard_home);
+router.get('/wireguard_restart', wireguardController.wireguard_restart);
 
 
 

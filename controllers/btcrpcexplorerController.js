@@ -6,6 +6,7 @@ var btcrpcexplorerStop = "./scripts/btcrpcexplorer_stop.sh";
 var btcrpcexplorerEnable = "./scripts/btcrpcexplorer_enable.sh";
 var btcrpcexplorerDisable = "./scripts/btcrpcexplorer_disable.sh";
 var btcrpcexplorerStatus = "./scripts/btcrpcexplorer_status.sh";
+var btcrpcexplorer_restart = "./scripts/btcrpcexplorer_restart.sh";
 var ip_intenal_file = "./scripts/ip_internal.txt";
 var ip_external_file = "./scripts/ip_external.txt";
 var ip_internal = "";
@@ -129,4 +130,15 @@ exports.btcrpcexplorer_home = function(req, res) {
 
     res.header ("Authorization", auth);
     res.redirect(307, 'http://' + ip_internal + ':3002');
+};
+
+exports.btcrpcexplorer_restart = function(req, res) {
+    console.log("Execute: " + btcrpcexplorer_restart);
+    const { execSync } = require("child_process");
+    var ret = execSync(btcrpcexplorer_restart).toString();
+    res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external,
+                btcrpcexplorer_message: ret, system_status: utilities.get_system_status(),
+                user: utilities.get_user(), password: utilities.get_password(),
+                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(),
+                router_connection: utilities.router_connection(), bitcoin_connection: utilities.bitcoin_connection()});
 };

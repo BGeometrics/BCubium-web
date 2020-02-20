@@ -4,6 +4,7 @@ var title = 'Bcube';
 var bitcoinEnable = "./scripts/bitcoin_enable.sh";  
 var bitcoinDisable = "./scripts/bitcoin_disable.sh"; 
 var bitcoinStatus = "./scripts/bitcoin_status.sh"; 
+var bitcoin_restart = "./scripts/bitcoin_restart.sh"; 
 var ip_internal = "";
 var ip_external = "";
 const utilities = require('./utilities');
@@ -93,5 +94,16 @@ exports.bitcoin_status = function(req, res) {
                 system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(), 
 		router_connection: utilities.router_connection(), bitcoin_connection: utilities.bitcoin_connection()});
     });     
+};
+
+exports.bitcoin_restart = function(req, res) {
+    console.log("Execute: " +  bitcoin_restart);
+    const { execSync } = require("child_process");
+    var ret = execSync(bitcoin_restart).toString();
+    res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external,
+		bitcoin_message: ret, system_status: utilities.get_system_status(),
+                user: utilities.get_user(), password: utilities.get_password(),
+                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(), 
+		router_connection: utilities.router_connection(), bitcoin_connection: utilities.bitcoin_connection()});
 };
 
