@@ -19,6 +19,7 @@ var router_connection = "./scripts/router_connection.sh";
 var bitcoin_connection = "./scripts/bitcoin_connection.sh";
 var system_ports = "./scripts/system_ports.sh";
 var seed_file = "/etc/Bgeometrics/seed.txt";
+var lnd_pass = "/etc/Bgeometrics/lnd_pass.txt";
 
 
 exports.get_ip_external = function () {
@@ -188,11 +189,20 @@ exports.get_system_ports = function(req, res) {
    return obj_status;
 };
 
-exports.read_text_file = function (file) {
-
+exports.read_file = function (file) {
    const fs = require('fs');
-   var data = fs.readFileSync(seed_file, 'utf8');
+   var data = fs.readFileSync(file, 'utf8');
   
    return data;
 };
+
+exports.read_text_file = function () {
+   return this.read_file(seed_file);
+};
+
+exports.get_lnd_pass = function () {
+   return this.read_file(lnd_pass);
+};
+
+
 

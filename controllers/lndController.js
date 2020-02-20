@@ -153,9 +153,8 @@ exports.lnd_wallet_create = function(req, res) {
        stat = ret.substring(0,2);
    }
    console.log("stat: " + stat);
-   //TODO: The password is better take the file lnd_pass.txt
    res.render('lnd_home.pug', {'seed': seed, 'lnd_message': ret, 'stat': stat,
-		'password_wallet': utilities.get_password()});
+		'password_wallet': utilities.get_lnd_pass()});
 };
 
 exports.lnd_wallet_backup = function(req, res) {

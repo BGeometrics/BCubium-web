@@ -127,9 +127,15 @@ exports.btcrpcexplorer_home = function(req, res) {
     var auth = 'Basic ' + Buffer.from(utilities.get_user() + ':' 
 		+ utilities.get_password()).toString('base64');
     ip_internal = utilities.get_ip_internal();
-
-    res.header ("Authorization", auth);
-    res.redirect(307, 'http://' + ip_internal + ':3002');
+    console.log('user: ' + utilities.get_user() + ' ' +  utilities.get_password());
+    console.log('Authorization: ' + auth);
+    res.set('Access-Control-Allow-Origin', '*');
+    res.set('Access-Control-Allow-Credentials', 'true');
+    res.set('Access-Control-Allow-Headers', 'Authorization');
+    res.set({'Authorization': auth});
+    res.set({'WWW-Authenticate': auth});
+    res.header("Authorization", auth);
+    res.redirect(301, 'http://' + ip_internal + ':3002/');
 };
 
 exports.btcrpcexplorer_restart = function(req, res) {
