@@ -6,7 +6,7 @@ var port_redirect_delete = "./scripts/port_redirect_delete.sh";
 var upnp_add = "./scripts/upnp_add.sh"; 
 var upnp_list = "./scripts/upnp_list.sh"; 
 var upnp_delete = "./scripts/upnp_delete.sh"; 
-
+var web_port = "4443";
 
 const url = require('url');
 const utilities = require('./utilities');
@@ -24,7 +24,7 @@ exports.backup_home = function(req, res) {
             return;
         }
         console.log('Execute: ' + backup);
-        var url_backup = 'https://' + utilities.get_ip_internal() + '/backup.zip';
+        var url_backup = 'https://' + utilities.get_ip_internal() + ':' + web_port + '/backup.zip';
         console.log('Backup done ' + url_backup);
 	res.render('backup_home.pug', {backup_message: url_backup, usefull_message: 'Backup done',
 			user: utilities.get_user(), password: utilities.get_password()});

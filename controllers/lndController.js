@@ -16,6 +16,8 @@ const utilities = require('./utilities');
 var lnd_wallet_delete = "./scripts/lnd_wallet_delete.sh"; 
 var lnd_wallet_create = "./scripts/lnd_wallet_create.sh"; 
 var lnd_wallet_backup = "./scripts/lnd_wallet_backup.sh"; 
+var web_port = "4443";
+
 
 exports.lnd_start = function(req, res) {
     const { exec } = require("child_process");
@@ -162,7 +164,7 @@ exports.lnd_wallet_backup = function(req, res) {
    console.log("Execute: " + lnd_wallet_backup);
    var ret = execSync(lnd_wallet_backup).toString();
    var seed = utilities.read_text_file(seed_file);
-   var url_backup = 'https://' + utilities.get_ip_internal() + '/lnd_backup.zip';
+   var url_backup = 'https://' + utilities.get_ip_internal() + ':' + web_port + '/lnd_backup.zip';
    console.log('Backup LND done ' + url_backup);
    res.render('lnd_home.pug', {'seed': seed, 'lnd_backup': url_backup, 'lnd_message': 'Backup done',
    		user: utilities.get_user(), password: utilities.get_password()});
