@@ -6,6 +6,7 @@ var port_redirect_delete = "./scripts/port_redirect_delete.sh";
 var upnp_add = "./scripts/upnp_add.sh"; 
 var upnp_list = "./scripts/upnp_list.sh"; 
 var upnp_delete = "./scripts/upnp_delete.sh"; 
+var router_open = "./scripts/router_open.sh"; 
 var web_port = "4444";
 
 const url = require('url');
@@ -94,5 +95,28 @@ exports.system_ports_home = function(req, res) {
 
 exports.graphics_home = function(req, res) {
     res.render('graphics_home.pug');
+};
+
+exports.router_open = function(req, res) {
+    var execute = router_open + " 80" ;
+    console.log("Execute: " + execute);
+    const { execSync } = require("child_process");
+    var ret = execSync(execute).toString();
+    if (ret.substring(0,2) == 'KO') {
+       ip_internal = utilities.get_ip_internal();
+       ip_external = utilities.get_ip_external();
+
+       console.log("Ret: " + ret);
+       res.render('index_home.pug', {ip_internal: ip_internal, ip_external: ip_external,
+                system_status: utilities.get_system_status(),
+                user: utilities.get_user(), password: utilities.get_password(),
+                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(),
+                router_connection: utilities.router_connection(), bitcoin_connection: utilities.bitcoin_connection(       )});
+    }
+    else {
+       var url = 'http://' + ret + '/'; 
+       console.log('Ret: '+ url);
+       res.redirect(url);
+    }
 };
 

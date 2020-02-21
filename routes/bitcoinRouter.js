@@ -87,6 +87,7 @@ router.post('/upnp_add', usefulController.upnp_add);
 router.get('/upnp_delete', usefulController.upnp_delete);
 router.get('/system_ports_home', usefulController.system_ports_home);
 router.get('/graphics_home', usefulController.graphics_home);
+router.get('/router_open', usefulController.router_open);
 
 router.get('/wifi_home', wifiController.wifi_home);
 router.get('/wifi_scan', wifiController.wifi_scan);
