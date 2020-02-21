@@ -127,20 +127,23 @@ exports.wireguard_status = function(req, res) {
 exports.wireguard_home = function(req, res) {
    ip_internal = utilities.get_ip_internal();
    ip_external = utilities.get_ip_external();    
-   console.log("Port: " + req.body.port);
-   var message = "";
-   if (req.body.port != "") {
-      var execute = wireguard_set_port + " " + req.body.port;
-      console.log("Execute: " + execute);
+   var ip = ip_external;
 
-      const { execSync } = require("child_process");
-      var ret = execSync(execute).toString();
-      message = "Add port";
+   if (req.body.ip != null &&  req.body.ip != "") {
+      ip = req.body.ip;
    }
 
+   console.log("Port: " + req.body.port);
+   console.log("Public IP: " + ip);
+
+   var execute = wireguard_set_port + " " + ip + " " + req.body.port;
+   console.log("Execute: " + execute);
+
+   const { execSync } = require("child_process");
+   var ret = execSync(execute).toString();
+
    res.render('wireguard_home.pug', {ip_internal: ip_internal, ip_external: ip_external,
-		user: utilities.get_user(), password: utilities.get_password(), 
-   		wireguard_message: message});
+		user: utilities.get_user(), password: utilities.get_password()});
 };
 
 exports.wireguard_restart = function(req, res) {

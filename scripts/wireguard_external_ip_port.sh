@@ -1,18 +1,25 @@
 #!/bin/bash
 
-SERVICE=wireguard
-PORT=28165
-FILE="/etc/wireguard/client.conf"
+HTML_DIR=/var/www/html
+FILE_CONF="$HTML_DIR/client-wg0.conf"
 
-if [[ -n "$1" ]] && [[ $1 =~ ^[0-9]+$ ]]; then
-    PORT=$1
+
+if [ -z "$1" ]; then
+    EXTERNAL_IP=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
 else
-    exit 0
+    EXTERNAL_IP=$1
 fi
 
-EXTERNAL_IP=$(./scripts/IP_external.sh)
-sed -i "s/Endpoint\ .*/Endpoint\ =\ $EXTERNAL_IP:$PORT/g" $FILE
+if [[ -n "$2" ]] && [[ $2 =~ ^[0-9]+$ ]]; then
+    PORT=$2
+else
+    PORT=28165
+fi
 
-# Generate QR
-qrencode -t PNG -o ./public/bcube-wg0.png < $FILE
+echo $EXTERNAL_IP
+echo $PORT
+
+sed -i "s/Endpoint\ .*/Endpoint\ =\ $EXTERNAL_IP:$PORT/g" $FILE_CONF
+qrencode -t PNG -o $HTML_DIR/webconfig/public/bcube-wg0.png < $FILE_CONF
+
 

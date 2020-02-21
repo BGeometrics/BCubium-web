@@ -50,6 +50,7 @@ router.get('/btcrpcexplorer_disable', btcrpcexplorerController.btcrpcexplorer_di
 router.get('/btcrpcexplorer_status', btcrpcexplorerController.btcrpcexplorer_status);
 router.get('/btcrpcexplorer_home', btcrpcexplorerController.btcrpcexplorer_home);
 router.get('/btcrpcexplorer_restart', btcrpcexplorerController.btcrpcexplorer_restart);
+router.post('/btcrpcexplorer_restart', btcrpcexplorerController.btcrpcexplorer_restart);
 
 router.get('/rtl_start', rtlController.rtl_start);
 router.get('/rtl_stop', rtlController.rtl_stop);

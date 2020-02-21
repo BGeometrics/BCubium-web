@@ -21,22 +21,16 @@ block content
             p 2- Add -> Create from QR code for Public IP
             img(src="/bcube-wg0.png" alt="QR code WireGuard public IP")
             p
-            p  - Or add -> Create from QR code for FDQN (Fully Qualified Domain Name)
-            img(src="/bcube-dns.png" alt="QR code WireGuard FQDN")
-            p
             p 3- If you want to import the client configuration by file and not by QR code: 
               a(class='rounded bg-primary text-white px-2 py-1' href=url_internal) WireGuard client 
             br
-            p  - Or for FDQN (Fully Qualified Domain Name) and not by QR code: 
-              a(class='rounded bg-primary text-white px-2 py-1' href=url_dns) WireGuard client
-            br
-            p If you have had to perform a port forwarding on the router to access the wireguard 28165 UDP port, indicate it here to generate a new QR:
-            |
-            br
-            |
             form(method='POST' action='./wireguard_set_port')
               div.form-group
-                input#name.form-control(type='text', placeholder='port' name='port')
+                p If you have had to perform a port forwarding on the router to access the wireguard 28165 UDP port, indicate it here to generate a new QR:
+                input#name.form-control(type='text', placeholder='Port' name='port')
+                br
+                p If you have had another public IP or FQDN (Fully Qualified Domain Name) indicate it here to generate a new QR:
+                input#name.form-control(type='text', placeholder='Public IP or FQDN' name='ip')
               button.btn.btn-primary(type='submit') Submit
 
     div.col-md-3
