@@ -9,6 +9,7 @@ var upnp_delete = "./scripts/upnp_delete.sh";
 var router_open = "./scripts/router_open.sh"; 
 var password_change = "./scripts/password_change.sh"; 
 var reboot_node = "./scripts/reboot_node.sh"; 
+var glances_start = "./scripts/glances_start.sh"; 
 var web_port = "4444";
 
 const url = require('url');
@@ -138,5 +139,29 @@ exports.reboot_node = function(req, res) {
     const { execSync } = require("child_process");
     var ret = execSync(reboot_node).toString();
     res.render('settings_home.pug');
+};
+
+exports.glances_start = function(req, res) {
+    var execute = glances_start + " " + 120;
+    console.log("execute: " + execute);
+
+    const { exec } = require("child_process");
+    exec(execute, (error, stdout, stderr) => {
+        if (error) {
+            console.log(`error: ${error.message}`);
+            return;
+        }
+        if (stderr) {
+            console.log(`stderr: ${stderr}`);
+            return;
+        }
+        console.log(`stdout: ${stdout}`);
+        res.redirect('http://' +  utilities.get_ip_internal() + ':61208/');
+    });
+
+    setTimeout(function() {
+       console.log('hello world!');
+       res.redirect('http://' +  utilities.get_ip_internal() + ':61208/');
+    }, 5000);
 };
 

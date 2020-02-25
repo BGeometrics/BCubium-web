@@ -89,9 +89,10 @@ router.get('/system_ports_home', usefulController.system_ports_home);
 router.get('/graphics_home', usefulController.graphics_home);
 router.get('/router_open', usefulController.router_open);
 router.get('/settings_home', usefulController.settings_home);
-router.get('/password_change', wifiController.password_change);
-router.post('/password_change', wifiController.password_change);
+router.get('/password_change', usefulController.password_change);
+router.post('/password_change', usefulController.password_change);
 router.get('/reboot_node', usefulController.reboot_node);
+router.get('/glances_start', usefulController.glances_start);
 
 router.get('/wifi_home', wifiController.wifi_home);
 router.get('/wifi_scan', wifiController.wifi_scan);
@@ -107,20 +108,5 @@ router.get('/wireguard_status', wireguardController.wireguard_status);
 router.get('/wireguard_set_port', wireguardController.wireguard_home);
 router.post('/wireguard_set_port', wireguardController.wireguard_home);
 router.get('/wireguard_restart', wireguardController.wireguard_restart);
-
-
-
-// Pages
-/* Page to display all shopping lists
-router.get('/', listsController.fetchAll);
-// Page to create new shopping list
-router.get('/create', listsController.create);
-// Page to fetch shopping list by id
-router.get('/:listId', listsController.read);
-// Page to update shopping list
-router.get('/:listId/update', listsController.update);
-// Page to search for items
-router.get('/:listId/itemSearch', listsController.itemSearch);
-*/
 
 module.exports = router;
