@@ -37,7 +37,7 @@ html(lang="en")
       div.row
         div.col-md-3
           if router_connection && router_connection.connection == "On"
-            a(href="./router_open", class="nav-link px-2 text-decoration-underline")
+            a(href="./router_open", class="nav-link px-2 text-decoration-underline" title="Router connection")
               span.pull-right.font-weight-bold Router:  
                 i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;")
           else if router_connection
@@ -47,7 +47,7 @@ html(lang="en")
                 i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;")
         div.col-md-3
           if internet_connection && internet_connection.connection == "On"
-            a(href="", class="nav-link px-2 text-decoration-underline")
+            a(href="", class="nav-link px-2 text-decoration-underline" title="Internet ccnnection")
               span.pull-right.font-weight-bold Internet:  
                 i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;")
           else
@@ -56,11 +56,11 @@ html(lang="en")
                 i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;")
         div.col-md-3
           if bitcoin_connection && bitcoin_connection.status == "UP"
-            a(href="https:///bitnodes.io/nodes/" + ip_external + "-8333/", class="nav-link px-2 text-decoration-underline")
+            a(href="https:///bitnodes.io/nodes/" + ip_external + "-8333/", class="nav-link px-2 text-decoration-underline" title="Bitcoin network connection")
               span.pull-right.font-weight-bold Bitcoin network: 
                 i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;")
           else
-            a(href="https:///bitnodes.io/nodes/" + ip_external + "-8333/", class="nav-link px-2 text-decoration-underline")
+            a(href="https:///bitnodes.io/nodes/" + ip_external + "-8333/", class="nav-link px-2 text-decoration-underline" title="Bitcoin network connection")
               span.text-right.font-weight-bold  Bitcoin network: 
                 i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;")
       br

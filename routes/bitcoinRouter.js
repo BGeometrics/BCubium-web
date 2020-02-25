@@ -91,6 +91,7 @@ router.get('/router_open', usefulController.router_open);
 router.get('/settings_home', usefulController.settings_home);
 router.get('/password_change', wifiController.password_change);
 router.post('/password_change', wifiController.password_change);
+router.get('/reboot_node', usefulController.reboot_node);
 
 router.get('/wifi_home', wifiController.wifi_home);
 router.get('/wifi_scan', wifiController.wifi_scan);

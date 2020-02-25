@@ -8,6 +8,7 @@ var upnp_list = "./scripts/upnp_list.sh";
 var upnp_delete = "./scripts/upnp_delete.sh"; 
 var router_open = "./scripts/router_open.sh"; 
 var password_change = "./scripts/password_change.sh"; 
+var reboot_node = "./scripts/reboot_node.sh"; 
 var web_port = "4444";
 
 const url = require('url');
@@ -28,9 +29,8 @@ exports.backup_home = function(req, res) {
         console.log('Execute: ' + backup);
         var url_backup = 'https://' + utilities.get_ip_internal() + ':' + web_port + '/backup.zip';
         console.log('Backup done ' + url_backup);
-	res.render('backup_home.pug', {backup_message: url_backup, usefull_message: 'Backup done',
-			user: utilities.get_user(), password: utilities.get_password()});
-
+	      res.render('backup_home.pug', {backup_message: url_backup, usefull_message: 'Backup done',
+			  user: utilities.get_user(), password: utilities.get_password()});
     }); 
 }
 
@@ -126,12 +126,17 @@ exports.settings_home = function(req, res) {
 };
 
 exports.password_change = function(req, res) {
-  //console.log("ssid: " + req.body.ssid);
+    var execute = password_change + " " + req.body.password_current  + " " + req.body.password_new +  " " + req.body.password_new_confirm;
+    console.log("execute: " + execute);
+    const { execSync } = require("child_process");
+    var ret = execSync(execute).toString();
+    res.render('settings_home.pug');
+};
 
-  var execute = password_change + " " + req.body.password_current  + " " + req.body.password_new +  " " + req.body.password_new_confirm;
-  console.log("execute: " + execute);
-  const { execSync } = require("child_process");
-  var ret = execSync(execute).toString();
-  res.render('settings_home.pug');
+exports.reboot_node = function(req, res) {
+    console.log("execute: " + reboot_node);
+    const { execSync } = require("child_process");
+    var ret = execSync(reboot_node).toString();
+    res.render('settings_home.pug');
 };
 
