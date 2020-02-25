@@ -7,6 +7,7 @@ var upnp_add = "./scripts/upnp_add.sh";
 var upnp_list = "./scripts/upnp_list.sh"; 
 var upnp_delete = "./scripts/upnp_delete.sh"; 
 var router_open = "./scripts/router_open.sh"; 
+var password_change = "./scripts/password_change.sh"; 
 var web_port = "4444";
 
 const url = require('url');
@@ -118,5 +119,19 @@ exports.router_open = function(req, res) {
        console.log('Ret: '+ url);
        res.redirect(url);
     }
+};
+
+exports.settings_home = function(req, res) {
+    res.render('settings_home.pug');
+};
+
+exports.password_change = function(req, res) {
+  //console.log("ssid: " + req.body.ssid);
+
+  var execute = password_change + " " + req.body.password_current  + " " + req.body.password_new +  " " + req.body.password_new_confirm;
+  console.log("execute: " + execute);
+  const { execSync } = require("child_process");
+  var ret = execSync(execute).toString();
+  res.render('settings_home.pug');
 };
 

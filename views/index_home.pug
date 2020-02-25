@@ -15,7 +15,7 @@ block content
                   p.h2.h6.mb-0 Bitcoin 
                     i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;")
               div.card-body
-                a(class='rounded bg-primary text-white px-2 py-1'  href="./bitcoin_restart")
+                a(class='rounded bg-primary text-white px-2 py-1'  href="./bitcoin_restart" title=`Service restart`)
                   i(class="fas fa-sync fa-w-20", style="margin-top: 6px;")
                 | &nbsp; 
                 a(class='rounded bg-primary text-white px-2 py-1' href="./bitcoin_status") Status 
@@ -38,7 +38,7 @@ block content
                     p.h2.h6.mb-0 LND  
                       i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;")
               div.card-body
-                a(class='rounded bg-primary text-white px-2 py-1'  href="./lnd_restart")
+                a(class='rounded bg-primary text-white px-2 py-1'  href="./lnd_restart" title=`Service restart`)
                   i(class="fas fa-sync fa-w-20", style="margin-top: 6px;")
                 | &nbsp; 
                 if system_status && system_status.lnd != 'OK'
@@ -46,7 +46,7 @@ block content
                     i(class="fas fa-play fa-w-20", style="margin-top: 6px;")
                   | &nbsp; 
                 if system_status && system_status.lnd == 'OK'
-                  a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_stop")
+                  a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_stop" title=`Service stop`)
                     i(class="fas fa-stop fa-w-20", style="margin-top: 6px;")
                   | &nbsp; 
                 a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_status") Status
@@ -56,10 +56,10 @@ block content
                 br
                 |
                 |
-                a(class='rounded bg-primary text-white px-2 py-1'  href="./lnd_enable") Enable 
+                a(class='rounded bg-primary text-white px-2 py-1'  href="./lnd_enable" title=`Enable service`)   
                   i(class="fas fa-toggle-on fa-w-20", style="margin-top: 6px;")
                 | &nbsp; 
-                a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_disable") Disable 
+                a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_disable" title=`Disable service`)   
                   i(class="fas fa-toggle-off fa-w-20", style="margin-top: 6px;")
                 |
                 |
@@ -83,7 +83,7 @@ block content
                   p.h2.h6.mb-0 Tor 
                     i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;")
               div.card-body
-                a(class='rounded bg-primary text-white px-2 py-1'  href="./tor_restart")
+                a(class='rounded bg-primary text-white px-2 py-1'  href="./tor_restart" title=`Service restart`)
                   i(class="fas fa-sync fa-w-20", style="margin-top: 6px;")
                 | &nbsp; 
                 a(class='rounded bg-primary text-white px-2 py-1' href="./tor_status") Status
@@ -104,7 +104,7 @@ block content
                     p.h2.h6.mb-0 BTC-RPC-Explorer 
                       i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;")
               div.card-body
-                a(class='rounded bg-primary text-white px-2 py-1'  href="./btcrpcexplorer_restart")
+                a(class='rounded bg-primary text-white px-2 py-1'  href="./btcrpcexplorer_restart" title=`Service restart`)
                   i(class="fas fa-sync fa-w-20", style="margin-top: 6px;")
                 | &nbsp; 
                 if system_status && system_status.btcrpcexplorer != 'OK'
@@ -112,7 +112,7 @@ block content
                     i(class="fas fa-play fa-w-20", style="margin-top: 6px;")
                   | &nbsp; 
                 if system_status && system_status.btcrpcexplorer == 'OK'
-                  a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_stop")
+                  a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_stop" title=`Service stop`)
                     i(class="fas fa-stop fa-w-20", style="margin-top: 6px;")
                   | &nbsp; 
                 a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_status") Status
@@ -122,10 +122,10 @@ block content
                 br
                 |
                 |
-                a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_enable") Enable 
+                a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_enable" title=`Enable service`)  
                   i(class="fas fa-toggle-on fa-w-20", style="margin-top: 6px;")
                 | &nbsp; 
-                a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_disable") Disable 
+                a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_disable" title=`Disable service`)  
                   i(class="fas fa-toggle-off fa-w-20", style="margin-top: 6px;")
                 if btcrpcexplorer_message
                   br
@@ -144,7 +144,7 @@ block content
                     p.h2.h6.mb-0 RTL 
                       i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;")
               div.card-body
-                a(class='rounded bg-primary text-white px-2 py-1'  href="./rtl_restart")
+                a(class='rounded bg-primary text-white px-2 py-1'  href="./rtl_restart" title=`Service restart`)
                   i(class="fas fa-sync fa-w-20", style="margin-top: 6px;")
                 | &nbsp; 
                 if system_status && system_status.rtl != 'OK'
@@ -152,7 +152,7 @@ block content
                     i(class="fas fa-play fa-w-20", style="margin-top: 6px;")
                   | &nbsp;
                 if system_status && system_status.rtl == 'OK'
-                  a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_stop")
+                  a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_stop" title=`Service stop`)
                     i(class="fas fa-stop fa-w-20", style="margin-top: 6px;")
                   | &nbsp;
                 a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_status") Status
@@ -162,10 +162,10 @@ block content
                 br
                 |
                 |
-                a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_enable") Enable 
+                a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_enable" title=`Enable service`)  
                   i(class="fas fa-toggle-on fa-w-20", style="margin-top: 6px;")
                 | &nbsp;
-                a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_disable") Disable 
+                a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_disable" title=`Disable service`)  
                   i(class="fas fa-toggle-off fa-w-20", style="margin-top: 6px;")
                 if rtl_message
                   br
@@ -182,7 +182,7 @@ block content
                   p.h2.h6.mb-0 Firewall 
                     i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;")
               div.card-body
-                a(class='rounded bg-primary text-white px-2 py-1'  href="./firewall_restart")
+                a(class='rounded bg-primary text-white px-2 py-1'  href="./firewall_restart" title=`Service restart`)
                   i(class="fas fa-sync fa-w-20", style="margin-top: 6px;")
                 | &nbsp; 
                 a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_status") Status
@@ -192,10 +192,10 @@ block content
                 br
                 |
                 |
-                a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_enable") Enable 
+                a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_enable" title=`Enable service`)  
                   i(class="fas fa-toggle-on fa-w-20", style="margin-top: 6px;")
                 | &nbsp; 
-                a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_disable") Disable 
+                a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_disable" title=`Disable service`)  
                   i(class="fas fa-toggle-off fa-w-20", style="margin-top: 6px;")
                 if firewall_message
                   br
@@ -214,7 +214,7 @@ block content
                     p.h2.h6.mb-0 VPN-WireGuard 
                       i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;")
               div.card-body
-                a(class='rounded bg-primary text-white px-2 py-1'  href="./wireguard_restart")
+                a(class='rounded bg-primary text-white px-2 py-1'  href="./wireguard_restart" title=`Service restart`)
                   i(class="fas fa-sync fa-w-20", style="margin-top: 6px;")
                 | &nbsp; 
                 if system_status && system_status.wireguard != 'OK'
@@ -222,7 +222,7 @@ block content
                     i(class="fas fa-play fa-w-20", style="margin-top: 6px;")
                   | &nbsp;
                 if system_status && system_status.wireguard == 'OK'
-                  a(class='rounded bg-primary text-white px-2 py-1' href="./wireguard_stop") 
+                  a(class='rounded bg-primary text-white px-2 py-1' href="./wireguard_stop" title=`Service stop`) 
                     i(class="fas fa-stop fa-w-20", style="margin-top: 6px;")
                   | &nbsp;
                 a(class='rounded bg-primary text-white px-2 py-1' href="./wireguard_status") Status
@@ -232,10 +232,10 @@ block content
                 br
                 |
                 |
-                a(class='rounded bg-primary text-white px-2 py-1' href="./wireguard_enable") Enable 
+                a(class='rounded bg-primary text-white px-2 py-1' href="./wireguard_enable" title=`Enable service`)   
                   i(class="fas fa-toggle-on fa-w-20", style="margin-top: 6px;")
                 | &nbsp;
-                a(class='rounded bg-primary text-white px-2 py-1' href="./wireguard_disable") Disable 
+                a(class='rounded bg-primary text-white px-2 py-1' href="./wireguard_disable" title=`Disable service`)   
                   i(class="fas fa-toggle-off fa-w-20", style="margin-top: 6px;")
                 if wireguard_message
                   br
@@ -255,13 +255,13 @@ block content
                       p.h2.h6.mb-0 OpenVPN 
                         i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;")
                 div.card-body
-                  a(class='rounded bg-primary text-white px-2 py-1'  href="./openvpn_restart")
+                  a(class='rounded bg-primary text-white px-2 py-1'  href="./openvpn_restart" title=`Service restart`)
                     i(class="fas fa-sync fa-w-20", style="margin-top: 6px;")
                   | &nbsp; 
                   a(class='rounded bg-primary text-white px-2 py-1'  href="./openvpn_start")
                     i(class="fas fa-play fa-w-20", style="margin-top: 6px;") 
                   | &nbsp;
-                  a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_stop")
+                  a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_stop" title=`Service stop`)
                     i(class="fas fa-stop fa-w-20", style="margin-top: 6px;") 
                   | &nbsp;
                   a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_status") Status
@@ -271,10 +271,10 @@ block content
                   br
                   |
                   |
-                  a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_enable") Enable 
+                  a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_enable" title=`Enable service`)   
                     i(class="fas fa-toggle-on fa-w-20", style="margin-top: 6px;")
                   | &nbsp;
-                  a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_disable") Disable 
+                  a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_disable" title=`Disable service`)   
                     i(class="fas fa-toggle-off fa-w-20", style="margin-top: 6px;")
                   if openvpn_message
                     br
@@ -285,11 +285,13 @@ block content
           div.card-header
             p.h2.h6 Utilities
           div.card-body
-            a(class='rounded bg-primary text-white px-2 py-1' href="./wifi_home") Wifi
+            a(class='rounded bg-primary text-white px-2 py-1' href="./wifi_home") Wifi 
             | &nbsp; 
-            a(class='rounded bg-primary text-white px-2 py-1' href="./backup_home") Backup
+            a(class='rounded bg-primary text-white px-2 py-1' href="./settings_home") Settings 
             | &nbsp; 
-            a(class='rounded bg-primary text-white px-2 py-1' href="./upnp_home") UPnP
+            a(class='rounded bg-primary text-white px-2 py-1' href="./backup_home") Backup 
+            | &nbsp; 
+            a(class='rounded bg-primary text-white px-2 py-1' href="./upnp_home") UPnP 
             | &nbsp; 
             a(class='rounded bg-primary text-white px-2 py-1'  href="./system_ports_home") System ports 
             | &nbsp; 
@@ -307,7 +309,7 @@ block content
             p.h2.h6 Marketplace
           div.card-body
             if system_status && system_status.openvpn_activated === 'KO'
-              a(class='rounded bg-primary text-white px-2 py-1'  href="./openvpn_enable") OpenVPN 
+              a(class='rounded bg-primary text-white px-2 py-1'  href="./openvpn_enable" title=`Add the application`) OpenVPN 
                 i(class="fas fa-power-off fa-w-20", style="margin-top: 6px;") 
  
     div.col-md-3

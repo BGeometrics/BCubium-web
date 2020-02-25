@@ -1,0 +1,39 @@
+extends layout_mini
+
+block content
+  div.row
+    div.col-md-9
+      div.container.px-2.px-sm-3
+        div.card.mb-4.shadow-sm
+          div.card-header
+            p.h2.h6.mb-0 Settings 
+          div.card-body
+            div(class="table-responsive")
+              form(method='POST' action='./password_change')
+                table(class="table text-left mb-5 mb-lg-0")
+                  tbody
+                    tr
+                      td Password current: 
+                      td 
+                        input#name.form-control(type='text', placeholder='Current password' name='password_current')
+                    tr
+                      td Password new: 
+                      td 
+                        input#name.form-control(type='pass', placeholder='New password' name='new_password')
+                    tr
+                      td Confirm password new: 
+                      td 
+                        input#name.form-control(type='pass', placeholder='New password' name='password_new_confirm')
+                    tr
+                      td 
+                        button.btn.btn-primary(type='submit') Change
+                      td 
+
+    div.col-md-3
+      div.container.px-2.px-sm-3
+        div.card.mb-4.shadow-sm
+          div.card-header
+            h2.h6 Help
+          div.card-body
+            p XXX
+
