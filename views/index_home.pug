@@ -2,25 +2,33 @@ extends layout
 
 block content
   div.row
-    div.col-md-9
+    div.col-md-12
       div.container.px-2.px-sm-3
         div.row
           div.col-md-4
             div.card.mb-3.shadow-sm
               div.card-header
                 if router_connection && system_status.bitcoin == 'OK'
-                  p.h2.h6.mb-0 Bitcoin   
+                  span(style="float: left;") <b>Bitcoin</b>  
                     i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;" title='Turned on')
+                  a(href="https://bitcoin.org") 
+                    span(style="float: right;") 
+                      i(class="fas fa-home fa-w-20", style="margin-top: 6px;") 
                 else
-                  p.h2.h6.mb-0 Bitcoin 
+                  span(style="float: left;") <b>Bitcoin</b>  
                     i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;" title='Turned off')
+                  a(href="https://bitcoin.org") 
+                    span(style="float: right;") 
+                      i(class="fas fa-home fa-w-20", style="margin-top: 6px;") 
               div.card-body
                 a(class='rounded bg-primary text-white px-2 py-1'  href="./bitcoin_restart" title='Service restart')
                   i(class="fas fa-sync fa-w-20", style="margin-top: 6px;")
                 | &nbsp; 
-                a(class='rounded bg-primary text-white px-2 py-1' href="./bitcoin_status") Status 
+                a(class='rounded bg-primary text-white px-2 py-1' href="./bitcoin_status" title="Status")  
+                  i(class="fas fa-info fa-w-20", style="margin-top: 6px;")
                 | &nbsp; 
-                a(class='rounded bg-primary text-white px-2 py-1' href="http://" + ip_internal + ":3002/node-status") Details 
+                a(class='rounded bg-primary text-white px-2 py-1' href="http://" + ip_internal + ":3002/node-status" title="Details") 
+                  i(class="fas fa-search-plus fa-w-20", style="margin-top: 6px;")
                 if bitcoin_message
                   br
                   br
@@ -30,13 +38,19 @@ block content
             div.card.mb-3.shadow-sm
               div.card-header
                 if system_status && system_status.lnd == 'OK'
-                  a(class='nav-bar-brand' href="./lnd_home" title='')
-                    p.h2.h6.mb-0 LND  
-                      i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;" title='Turned on')
+                  a(class='nav-bar-brand' href="./lnd_home" title='Lightning Network Daemon')
+                    span(style="float: left;") <b>LND</b> 
+                      i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;" title='Turned on') 
+                  a(href="https://lightning.engineering/") 
+                    span(style="float: right;") 
+                      i(class="fas fa-home fa-w-20", style="margin-top: 6px;") 
                 else
                   a(class='nav-bar-brand' href="./lnd_home")
-                    p.h2.h6.mb-0 LND  
+                    span(style="float: left;") <b>LND</b> 
                       i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;" title='Turned off')
+                  a(href="https://lightning.engineering/") 
+                    span(style="float: right;") 
+                      i(class="fas fa-home fa-w-20", style="margin-top: 6px;") 
               div.card-body
                 a(class='rounded bg-primary text-white px-2 py-1'  href="./lnd_restart" title='Service restart')
                   i(class="fas fa-sync fa-w-20", style="margin-top: 6px;")
@@ -49,7 +63,8 @@ block content
                   a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_stop" title='Service stop')
                     i(class="fas fa-stop fa-w-20", style="margin-top: 6px;")
                   | &nbsp; 
-                a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_status") Status
+                a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_status" title="Status")
+                  i(class="fas fa-info fa-w-20", style="margin-top: 6px;")
                 |
                 |
                 br
@@ -77,16 +92,23 @@ block content
             div.card.mb-3.shadow-sm
               div.card-header
                 if system_status && system_status.tor == 'OK'
-                  p.h2.h6.mb-0 Tor 
+                  span(style="float: left;") <b>Tor</b>  
                     i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;" title='Turned on')
+                  a(href="https://www.torproject.org/") 
+                    span(style="float: right;") 
+                      i(class="fas fa-home fa-w-20", style="margin-top: 6px;") 
                 else
-                  p.h2.h6.mb-0 Tor 
+                  span(style="float: left;") <b>Tor</b>  
                     i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;" title='Turned off')
+                  a(href="https://www.torproject.org/") 
+                    span(style="float: right;") 
+                      i(class="fas fa-home fa-w-20", style="margin-top: 6px;") 
               div.card-body
                 a(class='rounded bg-primary text-white px-2 py-1'  href="./tor_restart" title='Service restart')
                   i(class="fas fa-sync fa-w-20", style="margin-top: 6px;")
                 | &nbsp; 
-                a(class='rounded bg-primary text-white px-2 py-1' href="./tor_status") Status
+                a(class='rounded bg-primary text-white px-2 py-1' href="./tor_status" title="Status")
+                  i(class="fas fa-info fa-w-20", style="margin-top: 6px;")
                 if tor_message
                   br
                   br
@@ -96,13 +118,19 @@ block content
             div.card.mb-3.shadow-sm
               div.card-header
                 if system_status && system_status.btcrpcexplorer == 'OK'
-                  a(class='nav-bar-brand' href="./btcrpcexplorer_home")
-                    p.h2.h6.mb-0 BTC-RPC-Explorer 
+                  a(class='nav-bar-brand' href="./btcrpcexplorer_home" title="BTC-RPC-Explorer. Database-free, self-hosted Bitcoin explorer, via RPC")
+                    span(style="float: left;") <b>Bitcoin explorer</b>  
                       i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;" title='Turned on')
+                  a(href="https://github.com/janoside/btc-rpc-explorer") 
+                    span(style="float: right;") 
+                      i(class="fas fa-home fa-w-20", style="margin-top: 6px;") 
                 else
                   a(class='nav-bar-brand' href="./btcrpcexplorer_home")
-                    p.h2.h6.mb-0 BTC-RPC-Explorer 
+                    span(style="float: left;") <b>Bitcoin explorer</b>  
                       i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;" title='Turned off')
+                  a(href="https://github.com/janoside/btc-rpc-explorer") 
+                    span(style="float: right;") 
+                      i(class="fas fa-home fa-w-20", style="margin-top: 6px;") 
               div.card-body
                 a(class='rounded bg-primary text-white px-2 py-1'  href="./btcrpcexplorer_restart" title='Service restart')
                   i(class="fas fa-sync fa-w-20", style="margin-top: 6px;")
@@ -115,7 +143,8 @@ block content
                   a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_stop" title='Service stop')
                     i(class="fas fa-stop fa-w-20", style="margin-top: 6px;")
                   | &nbsp; 
-                a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_status") Status
+                a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_status" title="Status")
+                  i(class="fas fa-info fa-w-20", style="margin-top: 6px;")
                 |
                 |
                 br
@@ -136,13 +165,19 @@ block content
             div.card.mb-3.shadow-sm
               div.card-header
                 if system_status && system_status.rtl == 'OK'
-                  a(class='nav-bar-brand' href="http://" + ip_internal + ":3003/")
-                    p.h2.h6.mb-0 RTL 
+                  a(class='nav-bar-brand' href="http://" + ip_internal + ":3003/" title="Ride The Lightning - A full function web browser app for LND and C-Lightning")
+                    span(style="float: left;") <b>LND WebUI</b>  
                       i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;" title='Turned on')
+                  a(href="https://github.com/Ride-The-Lightning/RTL") 
+                    span(style="float: right;") 
+                      i(class="fas fa-home fa-w-20", style="margin-top: 6px;") 
                 else
                   a(class='nav-bar-brand' href="http://" + ip_internal + ":3003/")
-                    p.h2.h6.mb-0 RTL 
+                    span(style="float: left;") <b>LND WebUI</b>  
                       i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;" title='Turned off')
+                  a(href="https://github.com/Ride-The-Lightning/RTL") 
+                    span(style="float: right;") 
+                      i(class="fas fa-home fa-w-20", style="margin-top: 6px;") 
               div.card-body
                 a(class='rounded bg-primary text-white px-2 py-1'  href="./rtl_restart" title='Service restart')
                   i(class="fas fa-sync fa-w-20", style="margin-top: 6px;")
@@ -155,7 +190,8 @@ block content
                   a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_stop" title='Service stop')
                     i(class="fas fa-stop fa-w-20", style="margin-top: 6px;")
                   | &nbsp; 
-                a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_status") Status
+                a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_status" title="Status")
+                  i(class="fas fa-info fa-w-20", style="margin-top: 6px;")
                 |
                 |
                 br
@@ -176,16 +212,17 @@ block content
             div.card.mb-3.shadow-sm
               div.card-header
                 if system_status && system_status.firewall == 'OK'
-                  p.h2.h6.mb-0 Firewall 
+                  span(style="float: left;") <b>Firewall</b>  
                     i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;" title='Turned on')
                 else
-                  p.h2.h6.mb-0 Firewall 
+                  span(style="float: left;") <b>Firewall</b>  
                     i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;" title='Turned off')
               div.card-body
                 a(class='rounded bg-primary text-white px-2 py-1'  href="./firewall_restart" title='Service restart')
                   i(class="fas fa-sync fa-w-20", style="margin-top: 6px;")
                 | &nbsp; 
-                a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_status") Status
+                a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_status" title="Status")
+                  i(class="fas fa-info fa-w-20", style="margin-top: 6px;")
                 |
                 |
                 br
@@ -206,13 +243,19 @@ block content
             div.card.mb-3.shadow-sm
               div.card-header
                 if system_status && system_status.wireguard == 'OK'
-                  a(class='nav-bar-brand' href="./wireguard_home")
-                    p.h2.h6.mb-0 VPN-WireGuard 
+                  a(class='nav-bar-brand' href="./wireguard_home" title="VPN with WireGuard application")
+                    span(style="float: left;") <b>VPN</b>  
                       i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;" title='Turned on')
+                  a(href="https://www.wireguard.com/") 
+                    span(style="float: right;") 
+                      i(class="fas fa-home fa-w-20", style="margin-top: 6px;") 
                 else
                   a(class='nav-bar-brand' href="./wireguard_home")
-                    p.h2.h6.mb-0 VPN-WireGuard 
+                    span(style="float: left;") <b>VPN</b>  
                       i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;" title='Turned off')
+                  a(href="https://www.wireguard.com/") 
+                    span(style="float: right;") 
+                      i(class="fas fa-home fa-w-20", style="margin-top: 6px;") 
               div.card-body
                 a(class='rounded bg-primary text-white px-2 py-1'  href="./wireguard_restart" title='Service restart')
                   i(class="fas fa-sync fa-w-20", style="margin-top: 6px;")
@@ -225,7 +268,8 @@ block content
                   a(class='rounded bg-primary text-white px-2 py-1' href="./wireguard_stop" title='Service stop') 
                     i(class="fas fa-stop fa-w-20", style="margin-top: 6px;")
                   | &nbsp; 
-                a(class='rounded bg-primary text-white px-2 py-1' href="./wireguard_status") Status
+                a(class='rounded bg-primary text-white px-2 py-1' href="./wireguard_status" title="Status")
+                  i(class="fas fa-info fa-w-20", style="margin-top: 6px;")
                 |
                 |
                 br
@@ -248,11 +292,11 @@ block content
                 div.card-header
                   if system_status && system_status.openvpn == 'OK'
                     a(class='nav-bar-brand' href="./openvpn_home")
-                      p.h2.h6.mb-0 OpenVPN 
+                      span(style="float: left;") <b>OpenVPN</b>  
                         i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;" title='Turned on')
                   else
                     a(class='nav-bar-brand' href="./openvpn_home")
-                      p.h2.h6.mb-0 OpenVPN 
+                      span(style="float: left;") <b>OpenVPN</b>  
                         i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;" title='Turned off')
                 div.card-body
                   a(class='rounded bg-primary text-white px-2 py-1'  href="./openvpn_restart" title='Service restart')
@@ -264,7 +308,8 @@ block content
                   a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_stop" title='Service stop')
                     i(class="fas fa-stop fa-w-20", style="margin-top: 6px;") 
                   | &nbsp; 
-                  a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_status") Status
+                  a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_status" title="Status")
+                    i(class="fas fa-info fa-w-20", style="margin-top: 6px;")
                   |
                   |
                   br
@@ -312,12 +357,4 @@ block content
               a(class='rounded bg-primary text-white px-2 py-1'  href="./openvpn_enable" title='Add the application') OpenVPN 
                 i(class="fas fa-power-off fa-w-20", style="margin-top: 6px;") 
  
-    div.col-md-3
-      div.container.px-2.px-sm-3
-        div.card.mb-4.shadow-sm
-          div.card-header
-            h2.h6 Help
-          div.card-body
-            p XXXXX
-  br
 

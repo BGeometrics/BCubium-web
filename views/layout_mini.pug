@@ -17,24 +17,26 @@ html(lang="en")
           a(class="navbar-brand", href="/")
             p.h3='Bcube ' 
               i(class="fab fa-bitcoin fa-w-20", style="margin-top: 6px;")
-      div(id="sub-menu", class="container mb-2 pt-2 d-lg-block d-none border-top", style="")
-        ul(class="nav")
-          li(class="nav-item font-weight-bold")
-            a(href="http://" + ip_internal + ":3002/", class="nav-link px-2 text-decoration-underline") 
-              span BTC-RPC-Explorer
-          li(class="nav-item font-weight-bold")
-            a(href="http://" + ip_internal + ":3003/", class="nav-link px-2 text-decoration-underline") 
-              span RTL
-          li(class="nav-item font-weight-bold")
-            a(href="./wireguard_home", class="nav-link px-2 text-decoration-underline")
-              span VPN-WireGuard
+
+        div(id="sub-menu", class="container mb-2 pt-2 d-lg-block d-none border-top", style="")
+          ul(class="nav")
             li(class="nav-item font-weight-bold")
-              a(href="./graphics_home", class="nav-link px-2 text-decoration-underline")
+              a(href="./btcrpcexplorer_home", class="nav-link px-2 text-decoration-underline" title="BTC-RPC-Explorer, database-free Bitcoin blockchain explorer, via RPC")
+                span Bitcoin explorer
+            li(class="nav-item font-weight-bold")
+              a(href="http://" + ip_internal + ":3003/", class="nav-link px-2 text-decoration-underline" title="RTL, a Web UI for Lightning Network Daemon")
+                span LND WebUI
+            li(class="nav-item font-weight-bold")
+              a(href="./wireguard_home", class="nav-link px-2 text-decoration-underline" title="VPN with WireGuard application")
+                span VPN
+            li(class="nav-item font-weight-bold")
+              a(href="./graphics_home", class="nav-link px-2 text-decoration-underline" title="Bitcoin widgets")
                 span Graphics
             li(class="nav-item font-weight-bold")
-              a(href="./glances_start", class="nav-link px-2 text-decoration-underline" title='Monitoring with Glances only 120 seconds')
-                span Monitoring-Glances
+              a(href="./glances_start", class="nav-link px-2 text-decoration-underline" title='Monitoring with Glances. Only 120 seconds')
+                span Monitoring
       hr
+
       block content
 
       include ./includes/foot
