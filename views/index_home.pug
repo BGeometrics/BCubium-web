@@ -14,26 +14,25 @@ block content
                     i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;" title='Turned on')
                   a(href="https://bitcoin.org") 
                     span(style="float: right;") 
-                      i(class="fas fa-home fa-w-20", style="margin-top: 6px;") 
+                      i(class="fas fa-home fa-2x mr-2", style="margin-top: 6px;") 
                 else
                   span(style="float: left;") <b>Bitcoin</b>  
                     i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;" title='Turned off')
                   a(href="https://bitcoin.org") 
                     span(style="float: right;") 
-                      i(class="fas fa-home fa-w-20", style="margin-top: 6px;") 
+                      i(class="fas fa-home fa-2x mr", style="margin-top: 6px;") 
               div.card-body
-                a(class='rounded bg-primary text-white px-2 py-1'  href="./bitcoin_restart" title='Service restart')
-                  i(class="fas fa-sync fa-w-20", style="margin-top: 6px;")
-                | &nbsp; 
-                a(class='rounded bg-primary text-white px-2 py-1' href="./bitcoin_status" title="Status")  
-                  i(class="fas fa-info fa-w-20", style="margin-top: 6px;")
-                | &nbsp; 
-                a(class='rounded bg-primary text-white px-2 py-1' href="http://" + ip_internal + ":3002/node-status" title="Details") 
-                  i(class="fas fa-search-plus fa-w-20", style="margin-top: 6px;")
-                if bitcoin_message
-                  br
-                  br
-                  p #{bitcoin_message}
+                div.row
+                  a(class='rounded bg-primary text-white px-2 py-1'  href="./bitcoin_restart" title='Service restart')
+                    i(class="fas fa-sync fa-2x mr", style="margin-top: 6px;")
+                  | &nbsp; 
+                  a(class='rounded bg-primary text-white px-2 py-1' href="./bitcoin_status" title="Status")  
+                    i(class="fas fa-info fa-2x mr", style="margin-top: 6px;")
+                  | &nbsp; 
+                  a(class='rounded bg-primary text-white px-2 py-1' href="http://" + ip_internal + ":3002/node-status" title="Details") 
+                    i(class="fas fa-search-plus fa-2x mr", style="margin-top: 6px;")
+                  if bitcoin_message
+                    p #{bitcoin_message}
 
           div.col-md-4
             div.card.mb-3.shadow-sm
@@ -44,50 +43,39 @@ block content
                       i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;" title='Turned on') 
                   a(href="https://lightning.engineering/") 
                     span(style="float: right;") 
-                      i(class="fas fa-home fa-w-20", style="margin-top: 6px;") 
+                      i(class="fas fa-home fa-2x mr", style="margin-top: 6px;") 
                 else
                   a(class='nav-bar-brand' href="./lnd_home")
                     span(style="float: left;") <b>LND</b> 
                       i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;" title='Turned off')
                   a(href="https://lightning.engineering/") 
                     span(style="float: right;") 
-                      i(class="fas fa-home fa-w-20", style="margin-top: 6px;") 
+                      i(class="fas fa-home fa-2x mr", style="margin-top: 6px;") 
               div.card-body
-                a(class='rounded bg-primary text-white px-2 py-1'  href="./lnd_restart" title='Service restart')
-                  i(class="fas fa-sync fa-w-20", style="margin-top: 6px;")
-                | &nbsp; 
-                if system_status && system_status.lnd != 'OK'
-                  a(class='rounded bg-primary text-white px-2 py-1'  href="./lnd_start")
-                    i(class="fas fa-play fa-w-20", style="margin-top: 6px;")
+                div.row
+                  a(class='rounded bg-primary text-white px-2 py-1'  href="./lnd_restart" title='Service restart')
+                    i(class="fas fa-sync fa-2x mr", style="margin-top: 6px;")
                   | &nbsp; 
-                if system_status && system_status.lnd == 'OK'
-                  a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_stop" title='Service stop')
-                    i(class="fas fa-stop fa-w-20", style="margin-top: 6px;")
+                  if system_status && system_status.lnd != 'OK'
+                    a(class='rounded bg-primary text-white px-2 py-1'  href="./lnd_start")
+                      i(class="fas fa-play fa-2x mr", style="margin-top: 6px;")
+                    | &nbsp; 
+                  if system_status && system_status.lnd == 'OK'
+                    a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_stop" title='Service stop')
+                      i(class="fas fa-stop fa-2x mr", style="margin-top: 6px;")
+                    | &nbsp; 
+                  a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_status" title="Status")
+                    i(class="fas fa-info fa-2x mr", style="margin-top: 6px;")
                   | &nbsp; 
-                a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_status" title="Status")
-                  i(class="fas fa-info fa-w-20", style="margin-top: 6px;")
-                |
-                |
-                br
-                br
-                |
-                |
-                a(class='rounded bg-primary text-white px-2 py-1'  href="./lnd_enable" title='Enable service')   
-                  i(class="fas fa-toggle-on fa-w-20", style="margin-top: 6px;")
-                | &nbsp; 
-                a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_disable" title='Disable service')   
-                  i(class="fas fa-toggle-off fa-w-20", style="margin-top: 6px;")
-                |
-                |
-                br
-                br
-                |
-                |
-                a(class='rounded bg-primary text-white px-2 py-1'  href="./lnd_home") Wallet 
-                if lnd_message
-                  br
-                  br 
-                  p #{lnd_message}
+                  a(class='rounded bg-primary text-white px-2 py-1'  href="./lnd_enable" title='Enable service')   
+                    i(class="fas fa-toggle-on fa-2x mr", style="margin-top: 6px;")
+                  | &nbsp; 
+                  a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_disable" title='Disable service')   
+                    i(class="fas fa-toggle-off fa-2x mr", style="margin-top: 6px;")
+                  | &nbsp; 
+                  a(class='rounded bg-primary text-white px-2 py-1'  href="./lnd_home") Wallet 
+                  if lnd_message
+                    p #{lnd_message}
 
           div.col-md-4
             div.card.mb-3.shadow-sm
@@ -97,23 +85,22 @@ block content
                     i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;" title='Turned on')
                   a(href="https://www.torproject.org/") 
                     span(style="float: right;") 
-                      i(class="fas fa-home fa-w-20", style="margin-top: 6px;") 
+                      i(class="fas fa-home fa-2x mr", style="margin-top: 6px;") 
                 else
                   span(style="float: left;") <b>Tor</b>  
                     i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;" title='Turned off')
                   a(href="https://www.torproject.org/") 
                     span(style="float: right;") 
-                      i(class="fas fa-home fa-w-20", style="margin-top: 6px;") 
+                      i(class="fas fa-home fa-2x mr", style="margin-top: 6px;") 
               div.card-body
-                a(class='rounded bg-primary text-white px-2 py-1'  href="./tor_restart" title='Service restart')
-                  i(class="fas fa-sync fa-w-20", style="margin-top: 6px;")
-                | &nbsp; 
-                a(class='rounded bg-primary text-white px-2 py-1' href="./tor_status" title="Status")
-                  i(class="fas fa-info fa-w-20", style="margin-top: 6px;")
-                if tor_message
-                  br
-                  br
-                  p #{tor_message}
+                div.row
+                  a(class='rounded bg-primary text-white px-2 py-1'  href="./tor_restart" title='Service restart')
+                    i(class="fas fa-sync fa-2x mr", style="margin-top: 6px;")
+                  | &nbsp; 
+                  a(class='rounded bg-primary text-white px-2 py-1' href="./tor_status" title="Status")
+                    i(class="fas fa-info fa-2x mr", style="margin-top: 6px;")
+                  if tor_message
+                    p #{tor_message}
 
           div.col-md-4
             div.card.mb-3.shadow-sm
@@ -124,43 +111,37 @@ block content
                       i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;" title='Turned on')
                   a(href="https://github.com/janoside/btc-rpc-explorer") 
                     span(style="float: right;") 
-                      i(class="fas fa-home fa-w-20", style="margin-top: 6px;") 
+                      i(class="fas fa-home fa-2x mr", style="margin-top: 6px;") 
                 else
                   a(class='nav-bar-brand' href="./btcrpcexplorer_home")
                     span(style="float: left;") <b>Bitcoin explorer</b>  
                       i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;" title='Turned off')
                   a(href="https://github.com/janoside/btc-rpc-explorer") 
                     span(style="float: right;") 
-                      i(class="fas fa-home fa-w-20", style="margin-top: 6px;") 
+                      i(class="fas fa-home fa-2x mr", style="margin-top: 6px;") 
               div.card-body
-                a(class='rounded bg-primary text-white px-2 py-1'  href="./btcrpcexplorer_restart" title='Service restart')
-                  i(class="fas fa-sync fa-w-20", style="margin-top: 6px;")
-                | &nbsp; 
-                if system_status && system_status.btcrpcexplorer != 'OK'
-                  a(class='rounded bg-primary text-white px-2 py-1'  href="./btcrpcexplorer_start")
-                    i(class="fas fa-play fa-w-20", style="margin-top: 6px;")
+                div.row
+                  a(class='rounded bg-primary text-white px-2 py-1'  href="./lnd_restart" title='Service restart')
+                    i(class="fas fa-sync fa-2x mr", style="margin-top: 6px;")
+                  | &nbsp;
+                  if system_status && system_status.btcrpcexplorer != 'OK'
+                    a(class='rounded bg-primary text-white px-2 py-1'  href="./btcrpcexplorer_start")
+                      i(class="fas fa-play fa-2x mr", style="margin-top: 6px;") 
+                    | &nbsp; 
+                  if system_status && system_status.btcrpcexplorer == 'OK'
+                    a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_stop" title='Service stop')
+                      i(class="fas fa-stop fa-2x mr", style="margin-top: 6px;") 
                   | &nbsp; 
-                if system_status && system_status.btcrpcexplorer == 'OK'
-                  a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_stop" title='Service stop')
-                    i(class="fas fa-stop fa-w-20", style="margin-top: 6px;")
+                  a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_status" title="Status") 
+                    i(class="fas fa-info fa-2x mr", style="margin-top: 6px;") 
                   | &nbsp; 
-                a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_status" title="Status")
-                  i(class="fas fa-info fa-w-20", style="margin-top: 6px;")
-                |
-                |
-                br
-                br
-                |
-                |
-                a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_enable" title='Enable service')  
-                  i(class="fas fa-toggle-on fa-w-20", style="margin-top: 6px;")
-                | &nbsp; 
-                a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_disable" title='Disable service')  
-                  i(class="fas fa-toggle-off fa-w-20", style="margin-top: 6px;")
-                if btcrpcexplorer_message
-                  br
-                  br
-                  p #{btcrpcexplorer_message}
+                  a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_enable" title='Enable service')  
+                    i(class="fas fa-toggle-on fa-2x mr", style="margin-top: 6px;") 
+                  | &nbsp; 
+                  a(class='rounded bg-primary text-white px-2 py-1' href="./btcrpcexplorer_disable" title='Disable service')  
+                    i(class="fas fa-toggle-off fa-2x mr", style="margin-top: 6px;") 
+                  if btcrpcexplorer_message
+                    p #{btcrpcexplorer_message}
 
           div.col-md-4
             div.card.mb-3.shadow-sm
@@ -171,43 +152,37 @@ block content
                       i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;" title='Turned on')
                   a(href="https://github.com/Ride-The-Lightning/RTL") 
                     span(style="float: right;") 
-                      i(class="fas fa-home fa-w-20", style="margin-top: 6px;") 
+                      i(class="fas fa-home fa-2x mr", style="margin-top: 6px;") 
                 else
                   a(class='nav-bar-brand' href="http://" + ip_internal + ":3003/")
                     span(style="float: left;") <b>LND WebUI</b>  
                       i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;" title='Turned off')
                   a(href="https://github.com/Ride-The-Lightning/RTL") 
                     span(style="float: right;") 
-                      i(class="fas fa-home fa-w-20", style="margin-top: 6px;") 
+                      i(class="fas fa-home fa-2x mr", style="margin-top: 6px;") 
               div.card-body
-                a(class='rounded bg-primary text-white px-2 py-1'  href="./rtl_restart" title='Service restart')
-                  i(class="fas fa-sync fa-w-20", style="margin-top: 6px;")
-                | &nbsp; 
-                if system_status && system_status.rtl != 'OK'
-                  a(class='rounded bg-primary text-white px-2 py-1'  href="./rtl_start")
-                    i(class="fas fa-play fa-w-20", style="margin-top: 6px;")
+                div.row
+                  a(class='rounded bg-primary text-white px-2 py-1'  href="./rtl_restart" title='Service restart')
+                    i(class="fas fa-sync fa-2x mr", style="margin-top: 6px;")
                   | &nbsp; 
-                if system_status && system_status.rtl == 'OK'
-                  a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_stop" title='Service stop')
-                    i(class="fas fa-stop fa-w-20", style="margin-top: 6px;")
+                  if system_status && system_status.rtl != 'OK'
+                    a(class='rounded bg-primary text-white px-2 py-1'  href="./rtl_start")
+                      i(class="fas fa-play fa-2x mr", style="margin-top: 6px;")
+                    | &nbsp; 
+                  if system_status && system_status.rtl == 'OK'
+                    a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_stop" title='Service stop')
+                      i(class="fas fa-stop fa-2x mr", style="margin-top: 6px;")
                   | &nbsp; 
-                a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_status" title="Status")
-                  i(class="fas fa-info fa-w-20", style="margin-top: 6px;")
-                |
-                |
-                br
-                br
-                |
-                |
-                a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_enable" title='Enable service')  
-                  i(class="fas fa-toggle-on fa-w-20", style="margin-top: 6px;")
-                | &nbsp; 
-                a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_disable" title='Disable service')  
-                  i(class="fas fa-toggle-off fa-w-20", style="margin-top: 6px;")
-                if rtl_message
-                  br
-                  br
-                  p #{rtl_message}
+                  a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_status" title="Status")
+                    i(class="fas fa-info fa-2x mr", style="margin-top: 6px;")
+                  | &nbsp; 
+                  a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_enable" title='Enable service')  
+                    i(class="fas fa-toggle-on fa-2x mr", style="margin-top: 6px;")
+                  | &nbsp; 
+                  a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_disable" title='Disable service')  
+                    i(class="fas fa-toggle-off fa-2x mr", style="margin-top: 6px;")
+                  if rtl_message
+                    p #{rtl_message}
 
           div.col-md-4
             div.card.mb-3.shadow-sm
@@ -219,26 +194,20 @@ block content
                   span(style="float: left;") <b>Firewall</b>  
                     i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;" title='Turned off')
               div.card-body
-                a(class='rounded bg-primary text-white px-2 py-1'  href="./firewall_restart" title='Service restart')
-                  i(class="fas fa-sync fa-w-20", style="margin-top: 6px;")
-                | &nbsp; 
-                a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_status" title="Status")
-                  i(class="fas fa-info fa-w-20", style="margin-top: 6px;")
-                |
-                |
-                br
-                br
-                |
-                |
-                a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_enable" title='Enable service')  
-                  i(class="fas fa-toggle-on fa-w-20", style="margin-top: 6px;")
-                | &nbsp; 
-                a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_disable" title='Disable service')  
-                  i(class="fas fa-toggle-off fa-w-20", style="margin-top: 6px;")
-                if firewall_message
-                  br
-                  br
-                  p #{firewall_message}
+                div.row
+                  a(class='rounded bg-primary text-white px-2 py-1'  href="./firewall_restart" title='Service restart')
+                    i(class="fas fa-sync fa-2x mr", style="margin-top: 6px;")
+                  | &nbsp; 
+                  a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_status" title="Status")
+                    i(class="fas fa-info fa-2x mr", style="margin-top: 6px;")
+                  | &nbsp; 
+                  a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_enable" title='Enable service')  
+                    i(class="fas fa-toggle-on fa-2x mr", style="margin-top: 6px;")
+                  | &nbsp; 
+                  a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_disable" title='Disable service')  
+                    i(class="fas fa-toggle-off fa-2x mr", style="margin-top: 6px;")
+                  if firewall_message
+                    p #{firewall_message}
 
           div.col-md-4
             div.card.mb-3.shadow-sm
@@ -249,43 +218,37 @@ block content
                       i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;" title='Turned on')
                   a(href="https://www.wireguard.com/") 
                     span(style="float: right;") 
-                      i(class="fas fa-home fa-w-20", style="margin-top: 6px;") 
+                      i(class="fas fa-home fa-2x mr", style="margin-top: 6px;") 
                 else
                   a(class='nav-bar-brand' href="./wireguard_home")
                     span(style="float: left;") <b>VPN</b>  
                       i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;" title='Turned off')
                   a(href="https://www.wireguard.com/") 
                     span(style="float: right;") 
-                      i(class="fas fa-home fa-w-20", style="margin-top: 6px;") 
+                      i(class="fas fa-home fa-2x mr", style="margin-top: 6px;") 
               div.card-body
-                a(class='rounded bg-primary text-white px-2 py-1'  href="./wireguard_restart" title='Service restart')
-                  i(class="fas fa-sync fa-w-20", style="margin-top: 6px;")
-                | &nbsp; 
-                if system_status && system_status.wireguard != 'OK'
-                  a(class='rounded bg-primary text-white px-2 py-1'  href="./wireguard_start") 
-                    i(class="fas fa-play fa-w-20", style="margin-top: 6px;")
+                div.row
+                  a(class='rounded bg-primary text-white px-2 py-1'  href="./wireguard_restart" title='Service restart')
+                    i(class="fas fa-sync fa-2x mr", style="margin-top: 6px;")
                   | &nbsp; 
-                if system_status && system_status.wireguard == 'OK'
-                  a(class='rounded bg-primary text-white px-2 py-1' href="./wireguard_stop" title='Service stop') 
-                    i(class="fas fa-stop fa-w-20", style="margin-top: 6px;")
+                  if system_status && system_status.wireguard != 'OK'
+                    a(class='rounded bg-primary text-white px-2 py-1'  href="./wireguard_start") 
+                      i(class="fas fa-play fa-2x mr", style="margin-top: 6px;")
+                    | &nbsp; 
+                  if system_status && system_status.wireguard == 'OK'
+                    a(class='rounded bg-primary text-white px-2 py-1' href="./wireguard_stop" title='Service stop') 
+                      i(class="fas fa-stop fa-2x mr", style="margin-top: 6px;")
                   | &nbsp; 
-                a(class='rounded bg-primary text-white px-2 py-1' href="./wireguard_status" title="Status")
-                  i(class="fas fa-info fa-w-20", style="margin-top: 6px;")
-                |
-                |
-                br
-                br
-                |
-                |
-                a(class='rounded bg-primary text-white px-2 py-1' href="./wireguard_enable" title='Enable service')   
-                  i(class="fas fa-toggle-on fa-w-20", style="margin-top: 6px;")
-                | &nbsp; 
-                a(class='rounded bg-primary text-white px-2 py-1' href="./wireguard_disable" title='Disable service')   
-                  i(class="fas fa-toggle-off fa-w-20", style="margin-top: 6px;")
-                if wireguard_message
-                  br
-                  br
-                  p #{wireguard_message}
+                  a(class='rounded bg-primary text-white px-2 py-1' href="./wireguard_status" title="Status")
+                    i(class="fas fa-info fa-2x mr", style="margin-top: 6px;")
+                  | &nbsp; 
+                  a(class='rounded bg-primary text-white px-2 py-1' href="./wireguard_enable" title='Enable service')   
+                    i(class="fas fa-toggle-on fa-2x mr", style="margin-top: 6px;")
+                  | &nbsp; 
+                  a(class='rounded bg-primary text-white px-2 py-1' href="./wireguard_disable" title='Disable service')   
+                    i(class="fas fa-toggle-off fa-2x mr", style="margin-top: 6px;")
+                  if wireguard_message
+                    p #{wireguard_message}
 
           if system_status && system_status.openvpn_activated === 'OK'
             div.col-md-4
@@ -301,30 +264,23 @@ block content
                         i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;" title='Turned off')
                 div.card-body
                   a(class='rounded bg-primary text-white px-2 py-1'  href="./openvpn_restart" title='Service restart')
-                    i(class="fas fa-sync fa-w-20", style="margin-top: 6px;")
+                    i(class="fas fa-sync fa-2x mr", style="margin-top: 6px;")
                   | &nbsp; 
                   a(class='rounded bg-primary text-white px-2 py-1'  href="./openvpn_start")
-                    i(class="fas fa-play fa-w-20", style="margin-top: 6px;") 
+                    i(class="fas fa-play fa-2x mr", style="margin-top: 6px;") 
                   | &nbsp; 
                   a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_stop" title='Service stop')
-                    i(class="fas fa-stop fa-w-20", style="margin-top: 6px;") 
+                    i(class="fas fa-stop fa-2x mr", style="margin-top: 6px;") 
                   | &nbsp; 
                   a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_status" title="Status")
-                    i(class="fas fa-info fa-w-20", style="margin-top: 6px;")
-                  |
-                  |
-                  br
-                  br
-                  |
-                  |
+                    i(class="fas fa-info fa-2x mr", style="margin-top: 6px;")
+                  | &nbsp; 
                   a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_enable" title='Enable service')   
-                    i(class="fas fa-toggle-on fa-w-20", style="margin-top: 6px;")
+                    i(class="fas fa-toggle-on fa-2x mr", style="margin-top: 6px;")
                   | &nbsp; 
                   a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_disable" title='Disable service')   
-                    i(class="fas fa-toggle-off fa-w-20", style="margin-top: 6px;")
+                    i(class="fas fa-toggle-off fa-2x mr", style="margin-top: 6px;")
                   if openvpn_message
-                    br
-                    br
                     p #{openvpn_message}
               |
         div.card.mb-3.shadow-sm
