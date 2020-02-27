@@ -45,63 +45,63 @@ html(lang="en")
               div.col-md-3
                 if router_connection && router_connection.connection == "On"
                   a(href="./router_open", class="nav-link px-2 text-decoration-underline" title="Router connection")
-                    span.pull-right.font-weight-bold Router:  
+                    span.font-weight-bold Router:  
                       i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;" title="Ok")
                 else if router_connection
                   a(href="./router_open", class="nav-link px-2 text-decoration-underline")
                 else
-                    span.text-right.font-weight-bold Router: 
+                    span.font-weight-bold Router: 
                       i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;" title="KO")
               div.col-md-3
                 if internet_connection && internet_connection.connection == "On"
                   a(href="", class="nav-link px-2 text-decoration-underline" title="Internet ccnnection")
-                    span.pull-right.font-weight-bold Internet:  
+                    span.font-weight-bold Internet:  
                       i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;")
                 else
                   a(href="", class="nav-link px-2 text-decoration-underline")
-                    span.text-right.font-weight-bold  Internet: 
+                    span.font-weight-bold Internet: 
                       i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;")
               div.col-md-3
                 if bitcoin_connection && bitcoin_connection.status == "UP"
                   a(href="https:///bitnodes.io/nodes/" + ip_external + "-8333/", class="nav-link px-2 text-decoration-underline" title="Bitcoin network connection")
-                    span.pull-right.font-weight-bold Bitcoin network: 
+                    span.font-weight-bold Bitcoin network: 
                       i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;")
                 else
                   a(href="https:///bitnodes.io/nodes/" + ip_external + "-8333/", class="nav-link px-2 text-decoration-underline" title="Bitcoin network connection")
-                    span.text-right.font-weight-bold  Bitcoin network: 
+                    span.font-weight-bold Bitcoin network: 
                       i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;")
               div.col-md-3
 
               div.col-md-3
                 if (user)
-                  p.font-weight-bold User: 
+                  p User: 
                     input(type="text" id="myUser" name="user" value="user" style="border: none;" readonly)  
                     |
               div.col-md-3
                 if (password)
-                  p.font-weight-bold Pass: 
+                  p Pass: 
                     input(type="password" id="myPassword" name="password" value="password" style="border: none; width: 45%;" readonly)
                     a(href="javascript:void(0)" onclick=("javascript:var x = document.getElementById('myPassword'); if (x.type === 'password') { x.type = 'text'; } else { x.type = 'password';}"))
                         i(class="far fa-eye fa-w-20", style="margin-top: 6px;")
               div.col-md-3
                 if (ip_external)
-                  p.font-weight-bold Public IP: #{ip_external}
+                  p Public IP: #{ip_external}
               div.col-md-3
                 if (ip_internal)
-                  p.font-weight-bold Internal IP: #{ip_internal} 
+                  p Internal IP: #{ip_internal} 
 
               div.col-md-3
                 if (system_info && system_info.CPU)
-                    p.font-weight-bold CPU: #{system_info.CPU}%
+                    p CPU: #{system_info.CPU}%
               div.col-md-3
                 if (system_info && system_info.RAM)
-                  p.font-weight-bold RAM: #{system_info.RAM}%
+                  p RAM: #{system_info.RAM}%
               div.col-md-3
                 if (system_info && system_info.HDD)
-                  p.font-weight-bold HDD: #{system_info.HDD}%
+                  p HDD: #{system_info.HDD}%
               div.col-md-3
                 if (system_info && system_info.TEMP)
-                  p.font-weight-bold Temperature: #{system_info.TEMP} ºC
+                  p Temperature: #{system_info.TEMP} ºC
 
         block content
 

@@ -73,7 +73,8 @@ block content
                   a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_disable" title='Disable service')   
                     i(class="fas fa-toggle-off fa-2x mr", style="margin-top: 6px;")
                   | &nbsp; 
-                  a(class='rounded bg-primary text-white px-2 py-1'  href="./lnd_home") Wallet 
+                  a(class='rounded bg-primary text-white px-2 py-1'  href="./lnd_home" title="Wallet LND")  
+                    i(class="fas fa-wallet fa-2x mr", style="margin-top: 6px;")
                   if lnd_message
                     p #{lnd_message}
 
@@ -285,30 +286,34 @@ block content
               |
         div.card.mb-3.shadow-sm
           div.card-header
-            p.h2.h6 Utilities
+            span(style="float: left;") <b>Utilities</b>  
           div.card-body
-            a(class='rounded bg-primary text-white px-2 py-1' href="./wifi_home") Wifi 
-            | &nbsp; 
-            a(class='rounded bg-primary text-white px-2 py-1' href="./settings_home") Settings 
-            | &nbsp; 
-            a(class='rounded bg-primary text-white px-2 py-1' href="./backup_home") Backup 
-            | &nbsp; 
-            a(class='rounded bg-primary text-white px-2 py-1' href="./upnp_home") UPnP 
-            | &nbsp; 
-            a(class='rounded bg-primary text-white px-2 py-1'  href="./system_ports_home") System ports 
-            | &nbsp; 
-            a(class='rounded bg-primary text-white px-2 py-1'  href="./webconfig_restart") Bcube Web Restart
-            | &nbsp; 
-            a(class='rounded bg-primary text-white px-2 py-1' href="./port_home") Port redirect
-            | &nbsp; 
-            if usefull_message
-              br
-              br
-              p #{usefull_message}
+            div.row
+              a(class='rounded bg-primary text-white px-2 py-1' href="./wifi_home" title="Wifi")  
+                i(class="fas fa-wifi fa-2x mr", style="margin-top: 6px;")
+              | &nbsp; 
+              a(class='rounded bg-primary text-white px-2 py-1' href="./settings_home" title="Settings")  
+                i(class="fas fa-cog fa-2x mr", style="margin-top: 6px;")
+              | &nbsp; 
+              a(class='rounded bg-primary text-white px-2 py-1' href="./backup_home" title="Backup")  
+                i(class="far fa-save fa-2x mr", style="margin-top: 6px;")
+              | &nbsp; 
+              a(class='rounded bg-primary text-white px-2 py-1' href="./upnp_home") UPnP 
+              | &nbsp; 
+              a(class='rounded bg-primary text-white px-2 py-1'  href="./system_ports_home") System ports 
+              | &nbsp; 
+              a(class='rounded bg-primary text-white px-2 py-1'  href="./webconfig_restart") Bcube Web Restart
+              | &nbsp; 
+              a(class='rounded bg-primary text-white px-2 py-1' href="./port_home") Port redirect
+              | &nbsp; 
+              if usefull_message
+                br
+                br
+                p #{usefull_message}
 
         div.card.mb-3.shadow-sm
           div.card-header
-            p.h2.h6 Marketplace
+            span(style="float: left;") <b>Marketplace</b>  
           div.card-body
             if system_status && system_status.openvpn_activated === 'KO'
               a(class='rounded bg-primary text-white px-2 py-1'  href="./openvpn_enable" title='Add the application') OpenVPN 
