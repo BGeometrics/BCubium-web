@@ -1,43 +1,47 @@
 extends layout_mini
 
 block content
-  div.row
-    div.col-md-9
+  div(class="card mb-4 shadow-sm")
+    br
+    div.col-md-12
       div.container.px-2.px-sm-3
-        div.card.mb-4.shadow-sm
-          div.card-header
-            p.h2.h6.mb-0 Password change 
-          div.card-body
-            div(class="table-responsive")
-              form(method='POST' action='./password_change')
-                table(class="table text-left mb-5 mb-lg-0")
-                  tbody
-                    tr
-                      td Current password: 
-                      td 
-                        input#name.form-control(type='text', placeholder='Current password' name='password_current')
-                    tr
-                      td New password: 
-                      td 
-                        input#name.form-control(type='pass', placeholder='New password' name='new_password')
-                    tr
-                      td Confirm new password: 
-                      td 
-                        input#name.form-control(type='pass', placeholder='New password' name='password_new_confirm')
-                    tr
-                      td 
-                        button.btn.btn-primary(type='submit') Change
-                      td 
+        div.row
+          div.col-md-9
+            div.container.px-2.px-sm-3
+              div.card.mb-4.shadow-sm
+                div.card-header
+                  p.h2.h6.mb-0 Password change 
+                div.card-body
+                  div(class="table-responsive")
+                    form(method='POST' action='./password_change')
+                      table(class="table text-left mb-5 mb-lg-0")
+                        tbody
+                          tr
+                            td Current password: 
+                            td 
+                              input#name.form-control(type='text', placeholder='Current password' name='password_current')
+                          tr
+                            td New password: 
+                            td 
+                              input#name.form-control(type='pass', placeholder='New password' name='new_password')
+                          tr
+                            td Confirm new password: 
+                            td 
+                              input#name.form-control(type='pass', placeholder='New password' name='password_new_confirm')
+                          tr
+                            td 
+                              button.btn.btn-primary(type='submit') Change
+                            td 
 
-        div.card.mb-4.shadow-sm
-          div.card-body
-              a(class='rounded bg-primary text-white px-2 py-1'  href="./reboot_node" title='Bcube restart. Until startup the node will stop working') Bcube reboot
+              div.card.mb-4.shadow-sm
+                div.card-body
+                    a(class='rounded bg-primary text-white px-2 py-1'  href="./reboot_node" title='Bcube restart. Until startup the node will stop working') Bcube reboot
 
-    div.col-md-3
-      div.container.px-2.px-sm-3
-        div.card.mb-4.shadow-sm
-          div.card-header
-            h2.h6 Help
-          div.card-body
-            p XXX
+          div.col-md-3
+            div.container.px-2.px-sm-3
+              div.card.mb-4.shadow-sm
+                div.card-header
+                  h2.h6 Help
+                div.card-body
+                  p XXX
 

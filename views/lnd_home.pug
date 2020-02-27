@@ -1,53 +1,57 @@
 extends layout_mini
 
 block content
-  div.row
-    div.col-md-9
+  div(class="card mb-4 shadow-sm")
+    br
+    div.col-md-12
       div.container.px-2.px-sm-3
-        div.card.mb-9.shadow-sm
-          div.card-header
-            p.h2.h6.mb-0 Lightning Network Daemon
-          div.card-body.mb-0
-            if (seed)
-              p <b>Seed LND:</b>
-              p <mark>#{seed}</mark>
-              p 
-        br
-        div.card.mb-9.shadow-sm
-          div.card-header
-            if (user)
-              p.font-weight-bold User: 
-                input(type="text" id="myUser" name="user" value="user" style="border: none;" readonly) 
-              p.font-weight-bold Pass: 
-                input(type="password" id="myPassword" name="password" value="password" style="border: none;" readonly) 
-                a(href="javascript:void(0)" onclick=("javascript:var x = document.getElementById('myPassword'); if (x.type === 'password') { x.type = 'text'; } else { x.type = 'password';}")) 
-                  i(class="far fa-eye fa-w-20", style="margin-top: 6px;") 
+        div.row
+          div.col-md-9
+            div.container.px-2.px-sm-3
+              div.card.mb-9.shadow-sm
+                div.card-header
+                  p.h2.h6.mb-0 Lightning Network Daemon
+                div.card-body.mb-0
+                  if (seed)
+                    p <b>Seed LND:</b>
+                    p <mark>#{seed}</mark>
+                    p 
+              br
+              div.card.mb-9.shadow-sm
+                div.card-header
+                  if (user)
+                    p.font-weight-bold User: 
+                      input(type="text" id="myUser" name="user" value="user" style="border: none;" readonly) 
+                    p.font-weight-bold Pass: 
+                      input(type="password" id="myPassword" name="password" value="password" style="border: none;" readonly) 
+                      a(href="javascript:void(0)" onclick=("javascript:var x = document.getElementById('myPassword'); if (x.type === 'password') { x.type = 'text'; } else { x.type = 'password';}")) 
+                        i(class="far fa-eye fa-w-20", style="margin-top: 6px;") 
 
-            if (password_wallet && stat === 'OK')
-              p.font-weight-bold LND wallet password: 
-                input(type="password" id="myPasswordWallet" name="password" value="password" style="border: none;" readonly) 
-                a(href="javascript:void(0)" onclick=("javascript:var x = document.getElementById('myPasswordWallet'); if (x.type === 'password') { x.type = 'text'; } else { x.type = 'password';}")) 
-                  i(class="far fa-eye fa-w-20", style="margin-top: 6px;")
-	
-          div.card-body
-            a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_wallet_delete") Wallet delete
-            | &nbsp;
-            a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_wallet_create") Wallet create
-            | &nbsp;
-            a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_wallet_backup") LND keys
-            | &nbsp;
-            if lnd_backup
-              a(class='rounded bg-primary text-white px-2 py-1' href=lnd_backup, target='_blank') Download keys
-            | &nbsp;
-            br
-            br
-            p #{lnd_message}
-		
-    div.col-md-3
-      div.container.px-2.px-sm-3
-        div.card.mb-4.shadow-sm
-          div.card-header
-            h2.h6 Help
-          div.card-body
-            p The Wallet delete option will erase the entire Wallet and its associated data and cannot be recovered. 
-  br
+                  if (password_wallet && stat === 'OK')
+                    p.font-weight-bold LND wallet password: 
+                      input(type="password" id="myPasswordWallet" name="password" value="password" style="border: none;" readonly) 
+                      a(href="javascript:void(0)" onclick=("javascript:var x = document.getElementById('myPasswordWallet'); if (x.type === 'password') { x.type = 'text'; } else { x.type = 'password';}")) 
+                        i(class="far fa-eye fa-w-20", style="margin-top: 6px;")
+        
+                div.card-body
+                  a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_wallet_delete") Wallet delete
+                  | &nbsp;
+                  a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_wallet_create") Wallet create
+                  | &nbsp;
+                  a(class='rounded bg-primary text-white px-2 py-1' href="./lnd_wallet_backup") LND keys
+                  | &nbsp;
+                  if lnd_backup
+                    a(class='rounded bg-primary text-white px-2 py-1' href=lnd_backup, target='_blank') Download keys
+                  | &nbsp;
+                  br
+                  br
+                  p #{lnd_message}
+          
+          div.col-md-3
+            div.container.px-2.px-sm-3
+              div.card.mb-4.shadow-sm
+                div.card-header
+                  h2.h6 Help
+                div.card-body
+                  p The Wallet delete option will erase the entire Wallet and its associated data and cannot be recovered. 
+        br

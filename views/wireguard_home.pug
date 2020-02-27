@@ -1,44 +1,48 @@
 extends layout_mini
 
 block content
-  div.row
-    div.col-md-9
+  div(class="card mb-4 shadow-sm")
+    br
+    div.col-md-12
       div.container.px-2.px-sm-3
-        div.card.mb-4.shadow-sm
-          div.card-header
-            p.h2.h6.mb-0 WireGuard
-          div.card-body
-            - var port_external = '4444'
-            - var port_internal = '3000'
-            - var fqdn = 'bcube.dyndns.com'
-            - var url = 'https://' + ip_external + ':' + port_external + '/client-wg0.conf';
-            - var url_dns = 'https://' + fqdn + ':' + port_external + '/client-bcube-dns.conf';
-            - var url_internal = 'https://' + ip_internal + ':' + port_external + '/client-wg0.conf';
-            |
-            |
-            p How to connect to the WireGuard
-            p 1- Install the software WireGuard client on the devices: Mobile, computer, tablet ...
-            p 2- Add -> Create from QR code for Public IP
-            img(src="/bcube-wg0.png" alt="QR code WireGuard public IP")
-            p
-            p 3- If you want to import the client configuration by file and not by QR code: 
-              a(class='rounded bg-primary text-white px-2 py-1' href=url_internal) WireGuard client 
-            br
-            form(method='POST' action='./wireguard_set_port')
-              div.form-group
-                p If you have had to perform a port forwarding on the router to access the wireguard 28165 UDP port, indicate it here to generate a new QR:
-                input#name.form-control(type='text', placeholder='Port' name='port')
-                br
-                p If you have had another public IP or FQDN (Fully Qualified Domain Name) indicate it here to generate a new QR:
-                input#name.form-control(type='text', placeholder='Public IP or FQDN' name='ip')
-              button.btn.btn-primary(type='submit') Submit
+        div.row
+          div.col-md-9
+            div.container.px-2.px-sm-3
+              div.card.mb-4.shadow-sm
+                div.card-header
+                  p.h2.h6.mb-0 WireGuard
+                div.card-body
+                  - var port_external = '4444'
+                  - var port_internal = '3000'
+                  - var fqdn = 'bcube.dyndns.com'
+                  - var url = 'https://' + ip_external + ':' + port_external + '/client-wg0.conf';
+                  - var url_dns = 'https://' + fqdn + ':' + port_external + '/client-bcube-dns.conf';
+                  - var url_internal = 'https://' + ip_internal + ':' + port_external + '/client-wg0.conf';
+                  |
+                  |
+                  p How to connect to the WireGuard
+                  p 1- Install the software WireGuard client on the devices: Mobile, computer, tablet ...
+                  p 2- Add -> Create from QR code for Public IP
+                  img(src="/bcube-wg0.png" alt="QR code WireGuard public IP")
+                  p
+                  p 3- If you want to import the client configuration by file and not by QR code: 
+                    a(class='rounded bg-primary text-white px-2 py-1' href=url_internal) WireGuard client 
+                  br
+                  form(method='POST' action='./wireguard_set_port')
+                    div.form-group
+                      p If you have had to perform a port forwarding on the router to access the wireguard 28165 UDP port, indicate it here to generate a new QR:
+                      input#name.form-control(type='text', placeholder='Port' name='port')
+                      br
+                      p If you have had another public IP or FQDN (Fully Qualified Domain Name) indicate it here to generate a new QR:
+                      input#name.form-control(type='text', placeholder='Public IP or FQDN' name='ip')
+                    button.btn.btn-primary(type='submit') Submit
 
-    div.col-md-3
-      div.container.px-2.px-sm-3
-        div.card.mb-4.shadow-sm
-          div.card-header
-            h2.h6 Help
-          div.card-body
-            p If you connect through the WireGuard, for example from your mobile or tablet, you can access the Bcube website from any location and secure with: 
-            a(class='rounded bg-primary text-white px-2 py-1' href=url_internal) Bcube
-       
+          div.col-md-3
+            div.container.px-2.px-sm-3
+              div.card.mb-4.shadow-sm
+                div.card-header
+                  h2.h6 Help
+                div.card-body
+                  p If you connect through the WireGuard, for example from your mobile or tablet, you can access the Bcube website from any location and secure with: 
+                  a(class='rounded bg-primary text-white px-2 py-1' href=url_internal) Bcube
+             

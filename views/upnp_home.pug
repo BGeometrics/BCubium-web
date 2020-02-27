@@ -1,44 +1,48 @@
 extends layout_mini
 
 block content
-  div.row
-    div.col-md-9
+  div(class="card mb-4 shadow-sm")
+    br
+    div.col-md-12
       div.container.px-2.px-sm-3
-        div.card.mb-4.shadow-sm
-          div.card-header
-            p.h2.h6.mb-0 UPnP
-          div.card-body
-            if upnp_rules
-              div(class="table-responsive")
-                table(class="table text-left mb-5 mb-lg-0")
-                  thead
-                    tr
-                      th Rules
-                      th
-                    tbody
-                      each rule in upnp_rules
-                        tr(class="monospace")
-                          td #{rule.line}
-                          td
-                            a(class='rounded bg-primary text-white px-2 py-1' href="./upnp_delete?external_port=" + rule.external_port) delete 
-                            br
-              br
-              form(method='POST' action='./upnp_add')
-                label(for='external_port') External port:
-                input#name.form-control(type='text', placeholder='External port' name='external_port')
-                br
-                label(for='internal_port') Internal port:
-                input#name.form-control(type='text', placeholder='Internal port' name='internal_port')
-                br
-                button.btn.btn-primary(type='submit') Add
-              |
-              p #{usefull_message}
+        div.row
+          div.col-md-9
+            div.container.px-2.px-sm-3
+              div.card.mb-4.shadow-sm
+                div.card-header
+                  p.h2.h6.mb-0 UPnP
+                div.card-body
+                  if upnp_rules
+                    div(class="table-responsive")
+                      table(class="table text-left mb-5 mb-lg-0")
+                        thead
+                          tr
+                            th Rules
+                            th
+                          tbody
+                            each rule in upnp_rules
+                              tr(class="monospace")
+                                td #{rule.line}
+                                td
+                                  a(class='rounded bg-primary text-white px-2 py-1' href="./upnp_delete?external_port=" + rule.external_port) delete 
+                                  br
+                    br
+                    form(method='POST' action='./upnp_add')
+                      label(for='external_port') External port:
+                      input#name.form-control(type='text', placeholder='External port' name='external_port')
+                      br
+                      label(for='internal_port') Internal port:
+                      input#name.form-control(type='text', placeholder='Internal port' name='internal_port')
+                      br
+                      button.btn.btn-primary(type='submit') Add
+                    |
+                    p #{usefull_message}
 
-    div.col-md-3
-      div.container.px-2.px-sm-3
-        div.card.mb-4.shadow-sm
-          div.card-header
-            h2.h6 Help
-          div.card-body
-            p The UPnP service allows applications to automatically open Router ports, to access from the Internet, and redirect them to ports Bcube node, into local network.
-            p The router you must have the UPnP service activated.
+          div.col-md-3
+            div.container.px-2.px-sm-3
+              div.card.mb-4.shadow-sm
+                div.card-header
+                  h2.h6 Help
+                div.card-body
+                  p The UPnP service allows applications to automatically open Router ports, to access from the Internet, and redirect them to ports Bcube node, into local network.
+                  p The router you must have the UPnP service activated.

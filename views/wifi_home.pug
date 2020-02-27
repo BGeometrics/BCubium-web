@@ -1,55 +1,59 @@
 extends layout_mini
 
 block content
-  div.row
-    div.col-md-9
+  div(class="card mb-4 shadow-sm")
+    br
+    div.col-md-12
       div.container.px-2.px-sm-3
-        div.card.mb-4.shadow-sm
-          div.card-header
-            p.h2.h6.mb-0 Wifi
-          div.card-body
-            if ssid == null
-              form(method='POST' action='./wifi_connect')
-                div
-                  label(for='name') Wifi ssid:
-                  input#name.form-control(type='text', placeholder='ssid' name='ssid')
+        div.row
+          div.col-md-9
+            div.container.px-2.px-sm-3
+              div.card.mb-4.shadow-sm
+                div.card-header
+                  p.h2.h6.mb-0 Wifi
+                div.card-body
+                  if ssid == null
+                    form(method='POST' action='./wifi_connect')
+                      div
+                        label(for='name') Wifi ssid:
+                        input#name.form-control(type='text', placeholder='ssid' name='ssid')
+                        br
+                        label(for='password') Wifi password:
+                        input#name.form-control(type='pass', placeholder='password' name='wifi_password')
+                        br
+                        button.btn.btn-primary(type='submit') Connect
+                  else
+                    p Connect wifi #{ssid}
                   br
-                  label(for='password') Wifi password:
-                  input#name.form-control(type='pass', placeholder='password' name='wifi_password')
+                  p After connecting to the Wi-Fi network, disconnect cable, restart the router and the node to build the new routes
                   br
-                  button.btn.btn-primary(type='submit') Connect
-            else
-              p Connect wifi #{ssid}
-            br
-            p After connecting to the Wi-Fi network, disconnect cable, restart the router and the node to build the new routes
-            br
-            a(class='rounded bg-primary text-white px-2 py-1' href="./wifi_scan") Scan
-            br
-            if networks != null
-              div(class="table-responsive")
-                table(class="table text-left mb-5 mb-lg-0")
-                  thead
-                    tr
-                      th SSID
-                      th Quality
-                      th Signal level
-                  tbody
-                    each network in networks
-                      tr(class="monospace")
-                        td #{network.ssid}
-                        td #{network.quality}
-                        td #{network.signal_level}
-            br
+                  a(class='rounded bg-primary text-white px-2 py-1' href="./wifi_scan") Scan
+                  br
+                  if networks != null
+                    div(class="table-responsive")
+                      table(class="table text-left mb-5 mb-lg-0")
+                        thead
+                          tr
+                            th SSID
+                            th Quality
+                            th Signal level
+                        tbody
+                          each network in networks
+                            tr(class="monospace")
+                              td #{network.ssid}
+                              td #{network.quality}
+                              td #{network.signal_level}
+                  br
 
-    div.col-md-3
-      div.container.px-2.px-sm-3
-        div.card.mb-4.shadow-sm
-          div.card-header
-            h2.h6 Help
-          div.card-body
-            p If you want to connect the node via Wi-Fi:
-            p 1- Connect to the Wi-Fi network
-            p 2- Disconnect the cable from the network
-            p 3- Restart the router and node to build the new routes
+          div.col-md-3
+            div.container.px-2.px-sm-3
+              div.card.mb-4.shadow-sm
+                div.card-header
+                  h2.h6 Help
+                div.card-body
+                  p If you want to connect the node via Wi-Fi:
+                  p 1- Connect to the Wi-Fi network
+                  p 2- Disconnect the cable from the network
+                  p 3- Restart the router and node to build the new routes
 
     

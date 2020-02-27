@@ -9,34 +9,41 @@ html(lang="en")
     style
       include ../public/css/bootstrap.css
       include ../public/css/bootstrap.min.css
-  body
+      include ../public/stylesheets/styling.css
+      include ../public/stylesheets/fonts.css
+      include ../public/stylesheets/highlight.min.css
+
+  body(class="bg-dark", style="font-size: 16px;")
     script(defer, src="/js/fontawesome.min.js", integrity="sha384-eVEQC9zshBn0rFj4+TU78eNA19HMNigMviK/PU/FFjLXqa/GKPgX58rvt5Z8PLs7")
-    div.container.px-2.px-sm-3
-      div.row
-        div.col-md-6
-          a(class="navbar-brand", href="/")
-            p.h3='Bcube ' 
-              i(class="fab fa-bitcoin fa-w-20", style="margin-top: 6px;")
 
-        div(id="sub-menu", class="container mb-2 pt-2 d-lg-block d-none border-top", style="")
-          ul(class="nav")
-            li(class="nav-item font-weight-bold")
-              a(href="./btcrpcexplorer_home", class="nav-link px-2 text-decoration-underline" title="BTC-RPC-Explorer, database-free Bitcoin blockchain explorer, via RPC")
-                span Bitcoin explorer
-            li(class="nav-item font-weight-bold")
-              a(href="http://" + ip_internal + ":3003/", class="nav-link px-2 text-decoration-underline" title="RTL, a Web UI for Lightning Network Daemon")
-                span LND WebUI
-            li(class="nav-item font-weight-bold")
-              a(href="./wireguard_home", class="nav-link px-2 text-decoration-underline" title="VPN with WireGuard application")
-                span VPN
-            li(class="nav-item font-weight-bold")
-              a(href="./graphics_home", class="nav-link px-2 text-decoration-underline" title="Bitcoin widgets")
-                span Graphics
-            li(class="nav-item font-weight-bold")
-              a(href="./glances_start", class="nav-link px-2 text-decoration-underline" title='Monitoring with Glances. Only 120 seconds')
-                span Monitoring
-      hr
+    div(class="pb-4 pt-3 pt-md-4")
+      div.container.px-2.px-sm-3
+        a(class="navbar-brand", href="/")
+          p.h3='Bcube '
+            i(class="fab fa-bitcoin fa-w-20", style="margin-top: 6px;")
+        div(class="card mb-4 shadow-sm")
+          div(id="sub-menu", class="container mb-2 pt-2 d-lg-block d-none border-top", style="")
+            ul(class="nav")
+              li(class="nav-item font-weight-bold")
+                a(href="./btcrpcexplorer_home", class="nav-link px-2 text-decoration-underline" title="BTC-RPC-Explorer, database-free Bitcoin blockchain explorer, via RPC")
+                  span Bitcoin explorer
+              li(class="nav-item font-weight-bold")
+                a(href="http://" + ip_internal + ":3003/", class="nav-link px-2 text-decoration-underline" title="RTL, a Web UI for Lightning Network Daemon")
+                  span LND WebUI
+              li(class="nav-item font-weight-bold")
+                a(href="./wireguard_home", class="nav-link px-2 text-decoration-underline" title="VPN with WireGuard application")
+                  span VPN
+              li(class="nav-item font-weight-bold")
+                a(href="./graphics_home", class="nav-link px-2 text-decoration-underline" title="Bitcoin widgets")
+                  span Graphics
+              li(class="nav-item font-weight-bold")
+                a(href="./glances_start", class="nav-link px-2 text-decoration-underline" title='Monitoring with Glances. Only 120 seconds')
+                  span Monitoring
+        hr
 
-      block content
+        block content
 
-      include ./includes/foot
+        include ./includes/foot
+
+
+
