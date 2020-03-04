@@ -12,13 +12,13 @@ block content
                 if router_connection && system_status.bitcoin == 'OK'
                   span(style="float: left;") <b>Bitcoin</b>  
                     i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;" title='Turned on')
-                  a(href="https://bitcoin.org") 
+                  a(href="https://bitcoin.org" class="text-secondary") 
                     span(style="float: right;") 
                       i(class="fas fa-home fa-2x mr-2", style="margin-top: 6px;") 
                 else
                   span(style="float: left;") <b>Bitcoin</b>  
                     i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;" title='Turned off')
-                  a(href="https://bitcoin.org") 
+                  a(href="https://bitcoin.org" class="text-secondary") 
                     span(style="float: right;") 
                       i(class="fas fa-home fa-2x mr", style="margin-top: 6px;") 
               div.card-body
@@ -41,14 +41,14 @@ block content
                   a(class='nav-bar-brand' href="./lnd_home" title='Lightning Network Daemon')
                     span(style="float: left;") <b>LND</b> 
                       i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;" title='Turned on') 
-                  a(href="https://lightning.engineering/") 
+                  a(href="https://lightning.engineering/" class="text-secondary") 
                     span(style="float: right;") 
                       i(class="fas fa-home fa-2x mr", style="margin-top: 6px;") 
                 else
                   a(class='nav-bar-brand' href="./lnd_home")
                     span(style="float: left;") <b>LND</b> 
                       i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;" title='Turned off')
-                  a(href="https://lightning.engineering/") 
+                  a(href="https://lightning.engineering/" class="text-secondary") 
                     span(style="float: right;") 
                       i(class="fas fa-home fa-2x mr", style="margin-top: 6px;") 
               div.card-body
@@ -84,13 +84,13 @@ block content
                 if system_status && system_status.tor == 'OK'
                   span(style="float: left;") <b>Tor</b>  
                     i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;" title='Turned on')
-                  a(href="https://www.torproject.org/") 
+                  a(href="https://www.torproject.org/" class="text-secondary") 
                     span(style="float: right;") 
                       i(class="fas fa-home fa-2x mr", style="margin-top: 6px;") 
                 else
                   span(style="float: left;") <b>Tor</b>  
                     i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;" title='Turned off')
-                  a(href="https://www.torproject.org/") 
+                  a(href="https://www.torproject.org/" class="text-secondary") 
                     span(style="float: right;") 
                       i(class="fas fa-home fa-2x mr", style="margin-top: 6px;") 
               div.card-body
@@ -110,14 +110,14 @@ block content
                   a(class='nav-bar-brand' href="./btcrpcexplorer_home" title="BTC-RPC-Explorer. Database-free, self-hosted Bitcoin explorer, via RPC")
                     span(style="float: left;") <b>Bitcoin explorer</b>  
                       i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;" title='Turned on')
-                  a(href="https://github.com/janoside/btc-rpc-explorer") 
+                  a(href="https://github.com/janoside/btc-rpc-explorer" class="text-secondary") 
                     span(style="float: right;") 
                       i(class="fas fa-home fa-2x mr", style="margin-top: 6px;") 
                 else
                   a(class='nav-bar-brand' href="./btcrpcexplorer_home")
                     span(style="float: left;") <b>Bitcoin explorer</b>  
                       i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;" title='Turned off')
-                  a(href="https://github.com/janoside/btc-rpc-explorer") 
+                  a(href="https://github.com/janoside/btc-rpc-explorer" class="text-secondary") 
                     span(style="float: right;") 
                       i(class="fas fa-home fa-2x mr", style="margin-top: 6px;") 
               div.card-body
@@ -151,14 +151,14 @@ block content
                   a(class='nav-bar-brand' href="http://" + ip_internal + ":3003/" title="Ride The Lightning - A full function web browser app for LND and C-Lightning")
                     span(style="float: left;") <b>LND WebUI</b>  
                       i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;" title='Turned on')
-                  a(href="https://github.com/Ride-The-Lightning/RTL") 
+                  a(href="https://github.com/Ride-The-Lightning/RTL" class="text-secondary") 
                     span(style="float: right;") 
                       i(class="fas fa-home fa-2x mr", style="margin-top: 6px;") 
                 else
                   a(class='nav-bar-brand' href="http://" + ip_internal + ":3003/")
                     span(style="float: left;") <b>LND WebUI</b>  
                       i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;" title='Turned off')
-                  a(href="https://github.com/Ride-The-Lightning/RTL") 
+                  a(href="https://github.com/Ride-The-Lightning/RTL" class="text-secondary") 
                     span(style="float: right;") 
                       i(class="fas fa-home fa-2x mr", style="margin-top: 6px;") 
               div.card-body
@@ -217,14 +217,14 @@ block content
                   a(class='nav-bar-brand' href="./wireguard_home" title="VPN with WireGuard application")
                     span(style="float: left;") <b>VPN</b>  
                       i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;" title='Turned on')
-                  a(href="https://www.wireguard.com/") 
+                  a(href="https://www.wireguard.com/" class="text-secondary") 
                     span(style="float: right;") 
                       i(class="fas fa-home fa-2x mr", style="margin-top: 6px;") 
                 else
                   a(class='nav-bar-brand' href="./wireguard_home")
                     span(style="float: left;") <b>VPN</b>  
                       i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;" title='Turned off')
-                  a(href="https://www.wireguard.com/") 
+                  a(href="https://www.wireguard.com/" class="text-secondary") 
                     span(style="float: right;") 
                       i(class="fas fa-home fa-2x mr", style="margin-top: 6px;") 
               div.card-body
@@ -259,10 +259,16 @@ block content
                     a(class='nav-bar-brand' href="./openvpn_home")
                       span(style="float: left;") <b>OpenVPN</b>  
                         i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;" title='Turned on')
+                    a(href="https://openvpn.net/" class="text-secondary") 
+                      span(style="float: right;") 
+                        i(class="fas fa-home fa-2x mr", style="margin-top: 6px;") 
                   else
                     a(class='nav-bar-brand' href="./openvpn_home")
                       span(style="float: left;") <b>OpenVPN</b>  
                         i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;" title='Turned off')
+                    a(href="https://openvpn.net/" class="text-secondary") 
+                      span(style="float: right;") 
+                        i(class="fas fa-home fa-2x mr", style="margin-top: 6px;")                         
                 div.card-body
                   a(class='rounded bg-primary text-white px-2 py-1'  href="./openvpn_restart" title='Service restart')
                     i(class="fas fa-sync fa-2x mr", style="margin-top: 6px;")
@@ -319,4 +325,5 @@ block content
               a(class='rounded bg-primary text-white px-2 py-1'  href="./openvpn_enable" title='Add the application') OpenVPN 
                 i(class="fas fa-power-off fa-w-20", style="margin-top: 6px;") 
  
+
 

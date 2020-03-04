@@ -8,7 +8,7 @@ var upnp_list = "./scripts/upnp_list.sh";
 var upnp_delete = "./scripts/upnp_delete.sh"; 
 var router_open = "./scripts/router_open.sh"; 
 var password_change = "./scripts/password_change.sh"; 
-var reboot_node = "./scripts/reboot_node.sh"; 
+var reboot_node = "./scripts/system_reboot.sh"; 
 var glances_start = "./scripts/glances_start.sh"; 
 var web_port = "4444";
 

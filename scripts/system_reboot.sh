@@ -2,6 +2,6 @@
 
 sudo systemctl stop lnd 
 sudo systemctl stop bitcoin
-sleep 3s
-sudo shutdown -h now
+sudo /sbin/reboot
+#sudo /sbin/shutdown -h now
 

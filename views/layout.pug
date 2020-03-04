@@ -12,7 +12,8 @@ html(lang="en")
       include ../public/stylesheets/styling.css
       include ../public/stylesheets/fonts.css
       include ../public/stylesheets/highlight.min.css
-  body(class="bg-dark", style="font-size: 16px;")
+
+  body(style="font-size: 16px; background-color: #072146")
     script(defer, src="/js/fontawesome.min.js", integrity="sha384-eVEQC9zshBn0rFj4+TU78eNA19HMNigMviK/PU/FFjLXqa/GKPgX58rvt5Z8PLs7")
 
     div(class="pb-4 pt-3 pt-md-4")
@@ -20,8 +21,8 @@ html(lang="en")
         a(class="navbar-brand", href="/")
           p.h3='Bcube ' 
             i(class="fab fa-bitcoin fa-w-20", style="margin-top: 6px;")
-        div(class="card mb-4 shadow-sm")
-          div(id="sub-menu", class="container mb-2 pt-2 d-lg-block d-none border-top", style="")
+        div(class="card mb-4 shadow-sm", style="background-color: #eafafa")
+          div(id="sub-menu", class="container mb-2 pt-2 d-lg-block d-none border-top")
             ul(class="nav")
               li(class="nav-item font-weight-bold")
                 a(href="./btcrpcexplorer_home", class="nav-link px-2 text-decoration-underline" title="BTC-RPC-Explorer, database-free Bitcoin blockchain explorer, via RPC")
@@ -39,7 +40,7 @@ html(lang="en")
                 a(href="./glances_start", class="nav-link px-2 text-decoration-underline" title='Monitoring with Glances. Only 120 seconds')
                   span Monitoring
 
-        div(class="card mb-4 shadow-sm")
+        div(class="card mb-4 shadow-sm", style="background-color: #ffffff")
           div(class="card-body")
             div.row
               div.col-md-3
@@ -82,7 +83,7 @@ html(lang="en")
                   p Pass: 
                     input(type="password" id="myPassword" name="password" value="password" style="border: none; width: 45%;" readonly)
                     a(href="javascript:void(0)" onclick=("javascript:var x = document.getElementById('myPassword'); if (x.type === 'password') { x.type = 'text'; } else { x.type = 'password';}"))
-                        i(class="far fa-eye fa-w-20", style="margin-top: 6px;")
+                        i(class="far fa-eye fa-w-20 text-warning", style="margin-top: 6px;")
               div.col-md-3
                 if (ip_external)
                   p Public IP: #{ip_external}
@@ -106,3 +107,4 @@ html(lang="en")
         block content
 
         include ./includes/foot
+
