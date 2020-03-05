@@ -21,9 +21,12 @@ html(lang="en")
         a(class="navbar-brand", href="/")
           p.h3='Bcube ' 
             i(class="fab fa-bitcoin fa-w-20", style="margin-top: 6px;")
-        div(class="card mb-4 shadow-sm", style="background-color: #eafafa")
+        div(class="card mb-4 shadow-sm")
           div(id="sub-menu", class="container mb-2 pt-2 d-lg-block d-none border-top")
             ul(class="nav")
+              li(class="nav-item font-weight-bold")
+                a(href="/", class="nav-link px-2 text-decoration-underline" title="Home Bcube")
+                  span Home
               li(class="nav-item font-weight-bold")
                 a(href="./btcrpcexplorer_home", class="nav-link px-2 text-decoration-underline" title="BTC-RPC-Explorer, database-free Bitcoin blockchain explorer, via RPC")
                   span Bitcoin explorer
@@ -37,8 +40,8 @@ html(lang="en")
                 a(href="./graphics_home", class="nav-link px-2 text-decoration-underline" title="Bitcoin widgets")
                   span Graphics
               li(class="nav-item font-weight-bold")
-                a(href="./glances_start", class="nav-link px-2 text-decoration-underline" title='Monitoring with Glances. Only 120 seconds')
-                  span Monitoring
+                a(href="./bitcoin_opreturn_home", class="nav-link px-2 text-decoration-underline" title="Write a message forever on the Blockchain")
+                  span Message Blockchain
 
         div(class="card mb-4 shadow-sm", style="background-color: #ffffff")
           div(class="card-body")

@@ -20,6 +20,9 @@ router.get('/bitcoin_enable', bitcoinController.bitcoin_enable);
 router.get('/bitcoin_disable', bitcoinController.bitcoin_disable);
 router.get('/bitcoin_status', bitcoinController.bitcoin_status);
 router.get('/bitcoin_restart', bitcoinController.bitcoin_restart);
+router.get('/bitcoin_opreturn_home', bitcoinController.bitcoin_opreturn_home);
+router.post('/bitcoin_opreturn_message', bitcoinController.bitcoin_opreturn_message);
+router.get('/bitcoin_opreturn_message', bitcoinController.bitcoin_opreturn_message);
 
 router.get('/electrum_start', electrumController.electrum_start);
 router.get('/electrum_stop', electrumController.electrum_stop);

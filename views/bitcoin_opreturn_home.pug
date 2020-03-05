@@ -1,0 +1,78 @@
+extends layout_mini
+
+block content
+  div(class="card mb-4 shadow-sm")
+    br
+    div.col-md-12
+      div.container.px-2.px-sm-3
+        div.row
+          div.col-md-9
+            div.container.px-2.px-sm-3
+              div.card.mb-4.shadow-sm
+                div.card-header
+                  p.h2.h6.mb-0 Write a message forever on the Blockchain 
+                div.card-body
+                  div(class="table-responsive")
+                    form(method='POST' action='./bitcoin_opreturn_message')
+                      table(class="table text-left mb-5 mb-lg-0")
+                        tbody
+                          tr
+                            td Wallet: 
+                            td 
+                              input#name.form-control(type='text', placeholder='Wallet' name='wallet')
+                          tr
+                            td Wallet password: 
+                            td 
+                              input#name.form-control(type='pass', placeholder='Wallet password' name='wallet_password')
+                          tr
+                            td Address origin (Have to have money): 
+                            td 
+                              input#name.form-control(type='text', placeholder='Address origin' name='address_origin')
+                          tr
+                            td Address target: 
+                            td 
+                              input#name.form-control(type='text', placeholder='Address target' name='address_target')
+                          tr
+                            td Amount to send (BTC): 
+                            td 
+                              input#name.form-control(type='text', placeholder='0.000001' name='amount')
+                          tr
+                            td Feed (BTC): 
+                            td 
+                              input#name.form-control(type='text', placeholder='0.000005' name='fee')
+                          tr
+                            td Text (max. 75 characters)
+                            td 
+                              textarea.form-control(rows=3 name='text' maxlength='75')
+                          tr
+                            td 
+                              button.btn.btn-primary(type='submit') Write
+                            td 
+
+            if bitcoin_opreturn && bitcoin_opreturn.address_target && bitcoin_opreturn.address_target !== "undefined"
+              div.container.px-2.px-sm-3
+                div.card.mb-4.shadow-sm
+                  div.card-body
+                    - var url='https://www.blockchain.com/btc/address/' + bitcoin_opreturn.address_target
+                    - var url_tx='https://www.blockchain.com/btc/tx/' + bitcoin_opreturn.send_tx
+                    p Wallet: #{bitcoin_opreturn.wallet}
+                    p Address target: #{bitcoin_opreturn.address_target}
+                    p Amount: #{bitcoin_opreturn.amount}
+                    p Transaction: #{bitcoin_opreturn.transaction}
+                    p Send TX: #{bitcoin_opreturn.send_tx}
+                    p
+                      a(href=url_tx, class="rounded bg-primary text-white px-2 py-1") #{url_tx} 
+                    p Text below of OP_RETURN in hexadecimal 
+                    p 
+                      a(href="https://codebeautify.org/hex-string-converter", class="rounded bg-primary text-white px-2 py-1") Convert hex to string 
+                    p 
+                      a(href=url, class="rounded bg-primary text-white px-2 py-1") #{url} 
+
+          div.col-md-3
+            div.container.px-2.px-sm-3
+              div.card.mb-4.shadow-sm
+                div.card-header
+                  h2.h6 Help
+                div.card-body
+                  p XXX
+
