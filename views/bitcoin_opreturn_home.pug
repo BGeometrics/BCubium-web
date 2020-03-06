@@ -9,102 +9,100 @@ block content
           div.col-md-9
             div.container.px-2.px-sm-3
               div.card.mb-4.shadow-sm
-                if bitcoin_opereturn || bitcoin_opereturn === 'initial'
-                  div.card-header
-                    p.h2.h6.mb-0 Load or create wallet
-                  div.card-body
-                    div(class="table-responsive")
-                      form(method='POST' action='./bitcoin_load_wallet')
-                        table(class="table text-left mb-5 mb-lg-0")
-                          tbody
-                            tr
-                              td Wallet:  
-                              td 
-                                input#name.form-control(type='text' name='wallet')
-                            tr
-                              td 
-                                button.btn.btn-primary(type='submit') Load wallet
-                              td 
-                      if bitcoin_message
-                        p(style="color:red;") #{bitcoin_message}
-
-                      form(method='POST' action='./bitcoin_create_wallet')
-                        table(class="table text-left mb-5 mb-lg-0")
-                          tbody
-                            tr
-                              td Wallet:  
-                              td 
-                                input#name.form-control(type='text' name='create_wallet')
-                            tr
-                              td Password:  
-                              td 
-                                input#name.form-control(type='password' name='password')
-                            tr
-                              td Confirm password:  
-                              td 
-                                input#name.form-control(type='password' name='password_confirm')
-                            tr
-                              td 
-                                button.btn.btn-primary(type='submit') Create wallet
-                else
-                  div.card-header
-                    p.h2.h6.mb-0 Write a message forever on the Blockchain
-                  div.card-body
-                    div(class="table-responsive")
-                      form(method='POST' action='./bitcoin_opreturn_message')
-                        table(class="table text-left mb-5 mb-lg-0")
-                          tbody
-                            tr
-                              td Wallet: 
-                              td 
-                                input#name.form-control(type='text', placeholder='Wallet' name='wallet' value=bitcoin_opreturn.wallet)
-                            tr
+                div.card-header
+                  p.h2.h6.mb-0 Write a message forever on the Blockchain
+                div.card-body
+                  div(class="table-responsive")
+                    form(method='POST' action='./bitcoin_opreturn_message')
+                      table(class="table text-left mb-5 mb-lg-0")
+                        tbody
+                          tr
+                            td Wallet: 
+                            td 
+                              input#name.form-control(type='text', placeholder='Wallet' name='wallet' value=bitcoin_opreturn.wallet)
+                          tr
+                            if (bitcoin_opreturn.balance !== '0.00000000')
+                              td Wallet balance: 
+                            else
                               td Wallet balance (Have to have money): 
-                              td #{bitcoin_opreturn.balance} BTC
-                            tr
+                            td #{bitcoin_opreturn.balance} BTC
+                          tr
+                            if (bitcoin_opreturn.balance !== '0.00000000')
                               td A address of the wallet: 
-                              td #{bitcoin_opreturn.address}
-                            tr
-                              td Wallet password: 
-                              td 
-                                input#name.form-control(type='pass' name='wallet_password')
-                            tr
-                              td Address target (Optional, if no will be generated):
-                              td 
-                                input#name.form-control(type='text' name='address_target')
-                            tr
-                              td Amount to send (For example 0.000001 BTC): 
-                              td 
-                                input#name.form-control(type='text' name='amount')
-                            tr
-                              td Feed (for example 0.000005 BTC): 
-                              td 
-                                input#name.form-control(type='text' name='fee')
-                            tr
-                              td Text (max. 75 characters)
-                              td 
-                                textarea.form-control(rows=3 name='text' maxlength='75')
-                            tr
-                              td 
-                                button.btn.btn-primary(type='submit') Write
-                              td 
+                            else
+                              td A address of the wallet. Send small amount for example 0.000001 BTC: 
+                            td #{bitcoin_opreturn.address}
+                          tr
+                            td Wallet password: 
+                            td 
+                              input#name.form-control(type='pass' name='wallet_password')
+                          tr
+                            td Address target (Optional, if no will be generated):
+                            td 
+                              input#name.form-control(type='text' name='address_target')
+                          tr
+                            td Amount to send (For example 0.000001 BTC): 
+                            td 
+                              input#name.form-control(type='text' name='amount')
+                          tr
+                            td Feed (for example 0.000005 BTC): 
+                            td 
+                              input#name.form-control(type='text' name='fee')
+                          tr
+                            td Text (max. 75 characters)
+                            td 
+                              textarea.form-control(rows=3 name='text' maxlength='75')
+                          tr
+                            td 
+                              button.btn.btn-primary(type='submit') Write
+                            td 
 
             if bitcoin_opreturn && bitcoin_opreturn.address_target && bitcoin_opreturn.address_target !== "undefined"
               div.container.px-2.px-sm-3
                 div.card.mb-4.shadow-sm
+                  div.card-header
+                    p.h2.h6.mb-0 Transaction Data
                   div.card-body
                     - var url='https://www.blockchain.com/btc/address/' + bitcoin_opreturn.address_target
                     - var url_tx='https://www.blockchain.com/btc/tx/' + bitcoin_opreturn.send_tx
-                    p Wallet: #{bitcoin_opreturn.wallet}
-                    p Address target: #{bitcoin_opreturn.address_target}
-                    p Amount: #{bitcoin_opreturn.amount}
-                    p Transaction: #{bitcoin_opreturn.transaction}
-                    p Send TX: #{bitcoin_opreturn.send_tx}
+
+                    div(class="table-responsive")
+                      table(class="table text-left mb-5 mb-lg-0")
+                        tbody
+                          tr
+                            td Wallet: 
+                            td 
+                              input#name.form-control(type='text', placeholder='Wallet' name='wallet' value=bitcoin_opreturn.wallet)
+                          tr
+                            td Wallet: 
+                            td 
+                              #{bitcoin_opreturn.wallet}
+                          tr
+                            td Address target: 
+                            td
+                              #{bitcoin_opreturn.address_target}
+                          tr
+                            td Amount: 
+                            td
+                              #{bitcoin_opreturn.amount}
+                          tr
+                            td Transaction: 
+                            td
+                              #{bitcoin_opreturn.transaction}
+                          tr
+                            td Send TX: 
+                            td 
+                              #{bitcoin_opreturn.send_tx}
+                          tr
+                            td Write data in hexadecimal: 
+                            td
+                              #{bitcoin_opreturn.op_return}
+                    br
                     p
                       a(href=url_tx, class="rounded bg-primary text-white px-2 py-1") #{url_tx} 
                     p Text below of OP_RETURN in hexadecimal 
                     p 
-                      a(href="https://codebeautify.org/hex-string-converter", class="rounded bg-primary text-white px-2 py-1") Convert hex to string 
+                      a(href="https://codebeautify.org/hex-string-converter", class="rounded bg-primary text-white px-2 py-1") Hexadecimal to string converter 
                     p 
                       a(href=url, class="rounded bg-primary text-white px-2 py-1") #{url} 
 
@@ -115,4 +113,3 @@ block content
                   h2.h6 Help
                 div.card-body
                   p XXX
-

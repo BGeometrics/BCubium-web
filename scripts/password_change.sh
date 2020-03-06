@@ -1,16 +1,16 @@
 #!/bin/bash
 
 DATE=$(date +%F)
-USER=pi
-PASS_OLD=$1
-PASS_NEW=$2
+USER=$1
+PASS_OLD=$2
+PASS_NEW=$3
 
-PASS_CHECK=$(sudo /etc/Bgeometrics/scripts/check_pass.sh $USER $PASS_OLD | grep OK)
+PASS_CHECK=$(sudo /etc/Bgeometrics/scripts/Bcube_check_pass.sh $USER $PASS_OLD)
 
-if [ $PASS_CHECK != "OK" ] ; then
+if [[ "$PASS_CHECK" != "OK" ]] ; then
    echo -n "KO"
 else
-   /etc/Bgeometrics/scripts/change_pass.sh $PASS_NEW
+   sudo /etc/Bgeometrics/scripts/Bcube_change_pass.sh $USER $PASS_NEW
    echo -n "OK"
 fi 
 

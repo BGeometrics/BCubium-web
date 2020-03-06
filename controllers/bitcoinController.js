@@ -111,22 +111,20 @@ exports.bitcoin_restart = function(req, res) {
 };
 
 exports.bitcoin_opreturn_home = function(req, res) {
-    var initial = 'initial';
-    console.log("opreturn_home " + initial);
-    res.render('bitcoin_opreturn_home.pug', {'bitcoin_opereturn': initial});
+    res.render('bitcoin_load_wallet.pug');
 };
 
 exports.bitcoin_opreturn_message = function(req, res) {
-      var execute = bitcoin_op_return + " " + req.body.wallet + " \"" + req.body.wallet_password + "\" "  
-            + req.body.amount + " " + req.body.fee + " \"" + req.body.text + "\" " + req.body.address_target;
-      console.log("Execute: " + execute);
-      const { execSync } = require("child_process");
-      var ret = execSync(execute).toString();
-      ret = ret.substring(ret.indexOf("{\""));
-      console.log("Return: " + ret);
-      var ret_obj = JSON.parse(ret);
+    var execute = bitcoin_op_return + " " + req.body.wallet + " \"" + req.body.wallet_password + "\" "  
+          + req.body.amount + " " + req.body.fee + " \"" + req.body.text + "\" " + req.body.address_target;
+    console.log("Execute: " + execute);
+    const { execSync } = require("child_process");
+    var ret = execSync(execute).toString();
+    ret = ret.substring(ret.indexOf("{\""));
+    console.log("Return: " + ret);
+    var ret_obj = JSON.parse(ret);
 
-      res.render('bitcoin_opreturn_home.pug', {bitcoin_opreturn: ret_obj});
+    res.render('bitcoin_opreturn_home.pug', {bitcoin_opreturn: ret_obj});
 };
 
 exports.bitcoin_load_wallet = function(req, res) {
@@ -142,21 +140,14 @@ exports.bitcoin_load_wallet = function(req, res) {
 };
 
 exports.bitcoin_create_wallet = function(req, res) {
-    if (req.body.password != req.body.password_confirm) {
-        var initial = 'initial';
-        console.log("opreturn_home " + initial);
-        res.render('bitcoin_opreturn_home.pug', {'bitcoin_opereturn': initial, 'bitcoin_message':'Passwords do not match'});
-    }
-    else {
-        var execute = bitcoin_create_wallet + " \"" + req.body.create_wallet + "\" \"" + req.body.password + "\" ";
-        console.log("Execute: " + execute);
-        const { execSync } = require("child_process");
-        var ret = execSync(execute).toString();
-        ret = ret.substring(ret.indexOf("{\""));
-        console.log("Return: " + ret);
-        var ret_obj = JSON.parse(ret);
-    
-        res.render('bitcoin_opreturn_home.pug', {bitcoin_opreturn: ret_obj});
-    }
+    var execute = bitcoin_create_wallet + " \"" + req.body.create_wallet + "\" \"" + req.body.password + "\" ";
+    console.log("Execute: " + execute);
+    const { execSync } = require("child_process");
+    var ret = execSync(execute).toString();
+    ret = ret.substring(ret.indexOf("{\""));
+    console.log("Return: " + ret);
+    var ret_obj = JSON.parse(ret);
+
+    res.render('bitcoin_opreturn_home.pug', {bitcoin_opreturn: ret_obj});
 };
 

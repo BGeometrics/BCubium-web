@@ -30,6 +30,8 @@ else
    TEXT="Test 5"
 fi
 
+MY_WALLET="/usr/bin/bitcoin-cli -rpccookiefile=/var/lib/bitcoin/.bitcoin/.cookie -conf=/etc/bitcoin/bitcoin.conf -datadir=/var/lib/bitcoin/.bitcoin -rpcwallet=$WALLET"
+
 if [ -n "$6" ]; then
    ADDRESS_TARGET=$6
 else
@@ -44,7 +46,6 @@ echo "TEXT " $TEXT
 echo "ADDRESS_TARGET " $ADDRESS_TARGET
 
 COUNT=$(echo "$AMOUNT - $FEE" | bc | awk '{printf "%08f\n", $0}')  # Format 0.xxxx
-MY_WALLET="/usr/bin/bitcoin-cli -rpccookiefile=/var/lib/bitcoin/.bitcoin/.cookie -conf=/etc/bitcoin/bitcoin.conf -datadir=/var/lib/bitcoin/.bitcoin -rpcwallet=$WALLET"
 
 # Cargar un wallet
 echo $MY_WALLET loadwallet $WALLET
@@ -72,7 +73,7 @@ echo "SEND_TX " $SEND_TX
 
 STATUS="OK"
 
-echo -n "{\"wallet\":\"$WALLET\", \"address_target\":\"$ADDRESS_TARGET\", \"amount\":\"$COUNT\", \"transaction\":\"$RAW_TX\", \"send_tx\":\"$SEND_TX\", \"status\":\"$STATUS\"}"
+echo -n "{\"wallet\":\"$WALLET\", \"address_target\":\"$ADDRESS_TARGET\", \"amount\":\"$COUNT\", \"transaction\":\"$RAW_TX\", \"send_tx\":\"$SEND_TX\", \"op_return\": \"OP_RETURN_DATA\",  \"status\":\"$STATUS\"}"
 
 #$MY_WALLET decoderawtransaction $RAW_TX
 # https://codebeautify.org/string-hex-converter

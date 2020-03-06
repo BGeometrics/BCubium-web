@@ -12,6 +12,7 @@ var reboot_node = "./scripts/system_reboot.sh";
 var halt_node = "./scripts/system_halt.sh"; 
 var glances_start = "./scripts/glances_start.sh"; 
 var web_port = "4444";
+var user = "pi";
 
 const url = require('url');
 const utilities = require('./utilities');
@@ -128,12 +129,25 @@ exports.settings_home = function(req, res) {
 };
 
 exports.password_change = function(req, res) {
-    //TODO: Check req.body.password_new and 'password_new_confirm 
-    var execute = password_change + " " + req.body.password_current  + " " + req.body.password_new +  " " + req.body.password_new_confirm;
-    console.log("execute: " + execute);
-    const { execSync } = require("child_process");
-    var ret = execSync(execute).toString();
-    res.render('settings_home.pug');
+    var message;
+    if (req.body.password_new !== req.body.password_new_confirm) {
+        message = 'Passwords not match';
+    }  
+    else {
+        var execute = password_change + " " + user + " " + req.body.password_current  + " " + req.body.password_new;
+        console.log("execute: " + execute);
+
+        const { execSync } = require("child_process");
+        var ret = execSync(execute).toString();
+        var message;
+        console.log("Password change: " + ret);
+        if (ret == 'OK') 
+            message = 'Password changed';
+        else 
+            message = 'Wrong password';
+    }
+
+    res.render('settings_home.pug', {settings_message: message});
 };
 
 exports.reboot_node = function(req, res) {

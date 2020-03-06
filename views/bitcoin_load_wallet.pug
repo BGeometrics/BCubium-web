@@ -1,0 +1,62 @@
+extends layout_mini
+
+block content
+  div(class="card mb-4 shadow-sm")
+    br
+    div.col-md-12
+      div.container.px-2.px-sm-3
+        div.row
+          div.col-md-9
+            div.container.px-2.px-sm-3
+              div.card.mb-4.shadow-sm
+                div.card-header
+                  p.h2.h6.mb-0 Load wallet
+                div.card-body
+                  div(class="table-responsive")
+                    form(method='POST' action='./bitcoin_load_wallet')
+                      table(class="table text-left mb-5 mb-lg-0")
+                        tbody
+                          tr
+                            td Wallet:  
+                            td 
+                              input#name.form-control(type='text' name='wallet')
+                          tr
+                            td 
+                              button.btn.btn-primary(type='submit') Load wallet
+                            td 
+                    if bitcoin_message
+                      p(style="color:red;") #{bitcoin_message}
+                    
+              div.card.mb-4.shadow-sm
+                div.card-header
+                  p.h2.h6.mb-0 Create new wallet. You must save the password, cannot recover.
+                div.card-body
+                  div(class="table-responsive")
+                    form(method='POST' action='./bitcoin_create_wallet')
+                      table(class="table text-left mb-5 mb-lg-0")
+                        tbody
+                          tr
+                            td Wallet:  
+                            td 
+                              input#name.form-control(type='text' name='create_wallet')
+                          tr
+                            td Password:  
+                            td 
+                              input#name.form-control(type='password' name='password')
+                          tr
+                            td Confirm password:  
+                            td 
+                              input#name.form-control(type='password' name='password_confirm')
+                          tr
+                            td 
+                              button.btn.btn-primary(type='submit') Create wallet
+
+          div.col-md-3
+            div.container.px-2.px-sm-3
+              div.card.mb-4.shadow-sm
+                div.card-header
+                  h2.h6 Help
+                div.card-body
+                  p Choose between loading a wallet or creating a new one.
+                  p If you create a new wallet remember to save the password. Cannot recover.
+
