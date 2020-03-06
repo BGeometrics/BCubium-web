@@ -9,6 +9,7 @@ var upnp_delete = "./scripts/upnp_delete.sh";
 var router_open = "./scripts/router_open.sh"; 
 var password_change = "./scripts/password_change.sh"; 
 var reboot_node = "./scripts/system_reboot.sh"; 
+var halt_node = "./scripts/system_halt.sh"; 
 var glances_start = "./scripts/glances_start.sh"; 
 var web_port = "4444";
 
@@ -127,6 +128,7 @@ exports.settings_home = function(req, res) {
 };
 
 exports.password_change = function(req, res) {
+    //TODO: Check req.body.password_new and 'password_new_confirm 
     var execute = password_change + " " + req.body.password_current  + " " + req.body.password_new +  " " + req.body.password_new_confirm;
     console.log("execute: " + execute);
     const { execSync } = require("child_process");
@@ -138,6 +140,13 @@ exports.reboot_node = function(req, res) {
     console.log("execute: " + reboot_node);
     const { execSync } = require("child_process");
     var ret = execSync(reboot_node).toString();
+    res.render('settings_home.pug');
+};
+
+exports.halt_node = function(req, res) {
+    console.log("execute: " + halt_node);
+    const { execSync } = require("child_process");
+    var ret = execSync(halt_node).toString();
     res.render('settings_home.pug');
 };
 

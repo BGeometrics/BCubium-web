@@ -4,8 +4,17 @@ var wifi_configure = "./scripts/wifi_configure.sh";
 
 exports.wifi_home = function(req, res) {
    console.log("Wifi home");
-   res.render('wifi_home.pug', {title: title});
 
+   wifi.getCurrentConnections(function(err, currentConnections) {
+      if (err) {
+         console.log(err);
+      } 
+      else {
+         console.log(currentConnections);
+
+         res.render('wifi_home.pug', {title: title, connections: currentConnections});
+      }
+   });
 };
 
 // Initialize wifi module

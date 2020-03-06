@@ -9,45 +9,85 @@ block content
           div.col-md-9
             div.container.px-2.px-sm-3
               div.card.mb-4.shadow-sm
-                div.card-header
-                  p.h2.h6.mb-0 Write a message forever on the Blockchain 
-                div.card-body
-                  div(class="table-responsive")
-                    form(method='POST' action='./bitcoin_opreturn_message')
-                      table(class="table text-left mb-5 mb-lg-0")
-                        tbody
-                          tr
-                            td Wallet: 
-                            td 
-                              input#name.form-control(type='text', placeholder='Wallet' name='wallet')
-                          tr
-                            td Wallet password: 
-                            td 
-                              input#name.form-control(type='pass', placeholder='Wallet password' name='wallet_password')
-                          tr
-                            td Address origin (Have to have money): 
-                            td 
-                              input#name.form-control(type='text', placeholder='Address origin' name='address_origin')
-                          tr
-                            td Address target: 
-                            td 
-                              input#name.form-control(type='text', placeholder='Address target' name='address_target')
-                          tr
-                            td Amount to send (BTC): 
-                            td 
-                              input#name.form-control(type='text', placeholder='0.000001' name='amount')
-                          tr
-                            td Feed (BTC): 
-                            td 
-                              input#name.form-control(type='text', placeholder='0.000005' name='fee')
-                          tr
-                            td Text (max. 75 characters)
-                            td 
-                              textarea.form-control(rows=3 name='text' maxlength='75')
-                          tr
-                            td 
-                              button.btn.btn-primary(type='submit') Write
-                            td 
+                if bitcoin_opereturn || bitcoin_opereturn === 'initial'
+                  div.card-header
+                    p.h2.h6.mb-0 Load or create wallet
+                  div.card-body
+                    div(class="table-responsive")
+                      form(method='POST' action='./bitcoin_load_wallet')
+                        table(class="table text-left mb-5 mb-lg-0")
+                          tbody
+                            tr
+                              td Wallet:  
+                              td 
+                                input#name.form-control(type='text' name='wallet')
+                            tr
+                              td 
+                                button.btn.btn-primary(type='submit') Load wallet
+                              td 
+                      if bitcoin_message
+                        p(style="color:red;") #{bitcoin_message}
+
+                      form(method='POST' action='./bitcoin_create_wallet')
+                        table(class="table text-left mb-5 mb-lg-0")
+                          tbody
+                            tr
+                              td Wallet:  
+                              td 
+                                input#name.form-control(type='text' name='create_wallet')
+                            tr
+                              td Password:  
+                              td 
+                                input#name.form-control(type='password' name='password')
+                            tr
+                              td Confirm password:  
+                              td 
+                                input#name.form-control(type='password' name='password_confirm')
+                            tr
+                              td 
+                                button.btn.btn-primary(type='submit') Create wallet
+                else
+                  div.card-header
+                    p.h2.h6.mb-0 Write a message forever on the Blockchain
+                  div.card-body
+                    div(class="table-responsive")
+                      form(method='POST' action='./bitcoin_opreturn_message')
+                        table(class="table text-left mb-5 mb-lg-0")
+                          tbody
+                            tr
+                              td Wallet: 
+                              td 
+                                input#name.form-control(type='text', placeholder='Wallet' name='wallet' value=bitcoin_opreturn.wallet)
+                            tr
+                              td Wallet balance (Have to have money): 
+                              td #{bitcoin_opreturn.balance} BTC
+                            tr
+                              td A address of the wallet: 
+                              td #{bitcoin_opreturn.address}
+                            tr
+                              td Wallet password: 
+                              td 
+                                input#name.form-control(type='pass' name='wallet_password')
+                            tr
+                              td Address target (Optional, if no will be generated):
+                              td 
+                                input#name.form-control(type='text' name='address_target')
+                            tr
+                              td Amount to send (For example 0.000001 BTC): 
+                              td 
+                                input#name.form-control(type='text' name='amount')
+                            tr
+                              td Feed (for example 0.000005 BTC): 
+                              td 
+                                input#name.form-control(type='text' name='fee')
+                            tr
+                              td Text (max. 75 characters)
+                              td 
+                                textarea.form-control(rows=3 name='text' maxlength='75')
+                            tr
+                              td 
+                                button.btn.btn-primary(type='submit') Write
+                              td 
 
             if bitcoin_opreturn && bitcoin_opreturn.address_target && bitcoin_opreturn.address_target !== "undefined"
               div.container.px-2.px-sm-3

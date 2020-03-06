@@ -7,10 +7,19 @@ block content
       div.container.px-2.px-sm-3
         div.row
           div.col-md-9
+            if connections != null
+              div.container.px-2.px-sm-3
+                div.card.mb-4.shadow-sm
+                  div.card-header
+                    p.h2.h6.mb-0 Wifi connected 
+                      i(class="fas fa-wifi fa-w-20", style="margin-top: 6px; color:green;" title="Connected")
+                  div.card-body
+                    div(class="table-responsive")
+                      each connection in connections
+                        span SSID: #{connection.ssid}
+
             div.container.px-2.px-sm-3
               div.card.mb-4.shadow-sm
-                div.card-header
-                  p.h2.h6.mb-0 Wifi
                 div.card-body
                   if ssid == null
                     form(method='POST' action='./wifi_connect')

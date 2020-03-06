@@ -17,6 +17,7 @@ ELECTRS_SERVICE=/etc/systemd/system/electrs.service
 TOR_CONF=/etc/tor/torrc
 WEBCONFIG_SERVICE=/etc/systemd/system/webconfig.service
 
+BITCOIN_WALLETS=/var/lib/bitcoin/.bitcoin/backup_*
 LND_CHANNEL=/var/lib/bitcoin/.lnd/data/chain/bitcoin/mainnet/channel.backup
 LND_WALLET=/var/lib/bitcoin/.lnd/data/chain/bitcoin/mainnet/wallet.db
 LND_KEYS=/var/lib/bitcoin/.lnd/tls.*
@@ -36,6 +37,7 @@ cp $TOR_CONF $BACKUP_CONFIG
 cp $WEBCONFIG_SERVICE $BACKUP_CONFIG
 cp $TOR_CONF $BACKUP_CONFIG
 
+cp $BITCOIN_WALLETS $BACKUP_TMP
 cp $LND_KEYS $BACKUP_TMP
 cp $LND_CHANNEL $BACKUP_TMP
 cp $LND_SEED $BACKUP_TMP

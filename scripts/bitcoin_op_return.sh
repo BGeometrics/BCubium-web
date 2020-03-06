@@ -1,9 +1,5 @@
 #!/bin/bash
 
-#./bitcoin_op_return.sh wallet myadddress text amount feed 
-
-STATUS="KO"
-
 if [ -n "$1" ]; then
    WALLET=$1
 else
@@ -17,38 +13,31 @@ else
 fi
 
 if [ -n "$3" ]; then
-   ADDRESS_ORIGIN=$3
-else
-   ADDRESS_ORIGIN=1DEDLPxcRWutG2FcscC5Xe3NXzZQqrHvJY
-fi
-
-if [ -n "$4" ]; then
-   AMOUNT=$4
+   AMOUNT=$3
 else
    AMOUNT=0.000001
 fi
 
-if [ -n "$5" ]; then
-   FEE=$5
+if [ -n "$4" ]; then
+   FEE=$4
 else
    FEE=0.000005
 fi
 
-if [ -n "$6" ]; then
-   TEXT=$6
+if [ -n "$5" ]; then
+   TEXT=$5
 else
-   TEXT="Test 4"
+   TEXT="Test 5"
 fi
 
-if [ -n "$7" ]; then
-   ADDRESS_TARGET=$7
+if [ -n "$6" ]; then
+   ADDRESS_TARGET=$6
 else
    ADDRESS_TARGET=$($MY_WALLET getnewaddress "" legacy)
 fi
 
 echo "WALLET " $WALLET
 echo "PASS " $PASS
-echo "ADDRESS_ORIGIN " $ADDRESS_ORIGIN
 echo "AMOUNT " $AMOUNT
 echo "FEE " $FEE
 echo "TEXT " $TEXT

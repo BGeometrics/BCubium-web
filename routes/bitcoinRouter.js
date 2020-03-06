@@ -23,6 +23,10 @@ router.get('/bitcoin_restart', bitcoinController.bitcoin_restart);
 router.get('/bitcoin_opreturn_home', bitcoinController.bitcoin_opreturn_home);
 router.post('/bitcoin_opreturn_message', bitcoinController.bitcoin_opreturn_message);
 router.get('/bitcoin_opreturn_message', bitcoinController.bitcoin_opreturn_message);
+router.post('/bitcoin_load_wallet', bitcoinController.bitcoin_load_wallet);
+router.get('/bitcoin_load_wallet', bitcoinController.bitcoin_load_wallet);
+router.post('/bitcoin_create_wallet', bitcoinController.bitcoin_create_wallet);
+router.get('/bitcoin_create_wallet', bitcoinController.bitcoin_create_wallet);
 
 router.get('/electrum_start', electrumController.electrum_start);
 router.get('/electrum_stop', electrumController.electrum_stop);
@@ -95,6 +99,7 @@ router.get('/settings_home', usefulController.settings_home);
 router.get('/password_change', usefulController.password_change);
 router.post('/password_change', usefulController.password_change);
 router.get('/reboot_node', usefulController.reboot_node);
+router.get('/halt_node', usefulController.halt_node);
 router.get('/glances_start', usefulController.glances_start);
 
 router.get('/wifi_home', wifiController.wifi_home);

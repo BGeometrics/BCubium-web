@@ -6,6 +6,8 @@ var bitcoinDisable = "./scripts/bitcoin_disable.sh";
 var bitcoinStatus = "./scripts/bitcoin_status.sh"; 
 var bitcoin_restart = "./scripts/bitcoin_restart.sh"; 
 var bitcoin_op_return = "./scripts/bitcoin_op_return.sh"; 
+var bitcoin_load_wallet = "./scripts/bitcoin_load_wallet.sh"; 
+var bitcoin_create_wallet = "./scripts/bitcoin_create_wallet.sh"; 
 var ip_internal = "";
 var ip_external = "";
 const utilities = require('./utilities');
@@ -109,12 +111,14 @@ exports.bitcoin_restart = function(req, res) {
 };
 
 exports.bitcoin_opreturn_home = function(req, res) {
-      res.render('bitcoin_opreturn_home.pug');
+    var initial = 'initial';
+    console.log("opreturn_home " + initial);
+    res.render('bitcoin_opreturn_home.pug', {'bitcoin_opereturn': initial});
 };
 
 exports.bitcoin_opreturn_message = function(req, res) {
-      var execute = bitcoin_op_return + " " + req.body.wallet + " \"" + req.body.wallet_password + "\" " + req.body.address_origin 
-            + " " + req.body.amount + " " + req.body.fee + " \"" + req.body.text + "\" " + req.body.address_target ;
+      var execute = bitcoin_op_return + " " + req.body.wallet + " \"" + req.body.wallet_password + "\" "  
+            + req.body.amount + " " + req.body.fee + " \"" + req.body.text + "\" " + req.body.address_target;
       console.log("Execute: " + execute);
       const { execSync } = require("child_process");
       var ret = execSync(execute).toString();
@@ -124,3 +128,35 @@ exports.bitcoin_opreturn_message = function(req, res) {
 
       res.render('bitcoin_opreturn_home.pug', {bitcoin_opreturn: ret_obj});
 };
+
+exports.bitcoin_load_wallet = function(req, res) {
+    var execute = bitcoin_load_wallet + " \"" + req.body.wallet + "\" ";
+    console.log("Execute: " + execute);
+    const { execSync } = require("child_process");
+    var ret = execSync(execute).toString();
+    ret = ret.substring(ret.indexOf("{\""));
+    console.log("Return: " + ret);
+    var ret_obj = JSON.parse(ret);
+
+    res.render('bitcoin_opreturn_home.pug', {bitcoin_opreturn: ret_obj});
+};
+
+exports.bitcoin_create_wallet = function(req, res) {
+    if (req.body.password != req.body.password_confirm) {
+        var initial = 'initial';
+        console.log("opreturn_home " + initial);
+        res.render('bitcoin_opreturn_home.pug', {'bitcoin_opereturn': initial, 'bitcoin_message':'Passwords do not match'});
+    }
+    else {
+        var execute = bitcoin_create_wallet + " \"" + req.body.create_wallet + "\" \"" + req.body.password + "\" ";
+        console.log("Execute: " + execute);
+        const { execSync } = require("child_process");
+        var ret = execSync(execute).toString();
+        ret = ret.substring(ret.indexOf("{\""));
+        console.log("Return: " + ret);
+        var ret_obj = JSON.parse(ret);
+    
+        res.render('bitcoin_opreturn_home.pug', {bitcoin_opreturn: ret_obj});
+    }
+};
+
