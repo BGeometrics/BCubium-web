@@ -206,8 +206,10 @@ block content
                     i(class="fas fa-toggle-on fa-2x mr", style="margin-top: 6px;")
                   | &nbsp; 
                   a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_disable" title='Disable service')  
-                    i(class="fas fa-toggle-off fa-2x mr", style="margin-top: 6px;")
-                  if firewall_message
+                    i(class="fas fa-toggle-off fa-2x mr", style="margin-top: 6px;") 
+                  | &nbsp; 
+                if firewall_message
+                  div.row
                     p #{firewall_message}
 
           div.col-md-4
@@ -248,7 +250,8 @@ block content
                   | &nbsp; 
                   a(class='rounded bg-primary text-white px-2 py-1' href="./wireguard_disable" title='Disable service')   
                     i(class="fas fa-toggle-off fa-2x mr", style="margin-top: 6px;")
-                  if wireguard_message
+                if wireguard_message
+                  div.row
                     p #{wireguard_message}
 
           if system_status && system_status.openvpn_activated === 'OK'
