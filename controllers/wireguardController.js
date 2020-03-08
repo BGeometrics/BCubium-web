@@ -25,10 +25,10 @@ exports.wireguard_start = function(req, res) {
             return;
         }
         console.log(`stdout: ${stdout}`);
-        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, 
-		wireguard_message: `${stdout}`, system_status: utilities.get_system_status(),
+        res.render('index_home.pug', { title: title, ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external(),
+		            wireguard_message: `${stdout}`, system_status: utilities.get_system_status(),
                 user: utilities.get_user(), password: utilities.get_password(),
-                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(),
+                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(), wifi_connection: utilities.wifi_connection(),
                 router_connection: utilities.router_connection(), bitcoin_connection: utilities.bitcoin_connection()});
     });
 };
@@ -46,17 +46,15 @@ exports.wireguard_stop = function(req, res) {
             return;
         }
         console.log(`stdout: ${stdout}`);
-        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external,
-		wireguard_message: `${stdout}`, system_status: utilities.get_system_status(),
+        res.render('index_home.pug', { title: title, ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external(),
+		            wireguard_message: `${stdout}`, system_status: utilities.get_system_status(),
                 user: utilities.get_user(), password: utilities.get_password(),
-                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(),
+                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(), wifi_connection: utilities.wifi_connection(),
                 router_connection: utilities.router_connection(), bitcoin_connection: utilities.bitcoin_connection()});
     });
 };
 
 exports.wireguard_enable = function(req, res) {
-    ip_internal = utilities.get_ip_internal();
-    ip_external = utilities.get_ip_external();    
     const { exec } = require("child_process");
 
     exec(wireguardEnable, (error, stdout, stderr) => {
@@ -69,17 +67,15 @@ exports.wireguard_enable = function(req, res) {
             return;
         }
         console.log(`stdout: ${stdout}`);
-        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external,
-		wireguard_message: `${stdout}`, system_status: utilities.get_system_status(),
+        res.render('index_home.pug', { title: title, ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external(),
+		            wireguard_message: `${stdout}`, system_status: utilities.get_system_status(),
                 user: utilities.get_user(), password: utilities.get_password(),
-                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(),
+                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(), wifi_connection: utilities.wifi_connection(),
                 router_connection: utilities.router_connection(), bitcoin_connection: utilities.bitcoin_connection()});
     }); 
 };
 
 exports.wireguard_disable = function(req, res) {
-    ip_internal = utilities.get_ip_internal();
-    ip_external = utilities.get_ip_external();    
     const { exec } = require("child_process");
 
     exec(wireguardDisable, (error, stdout, stderr) => {
@@ -92,17 +88,15 @@ exports.wireguard_disable = function(req, res) {
             return;
         }
         console.log(`stdout: ${stdout}`);
-        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, 
-		wireguard_message: `${stdout}`, system_status: utilities.get_system_status(),
+        res.render('index_home.pug', { title: title, ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external(),
+		            wireguard_message: `${stdout}`, system_status: utilities.get_system_status(),
                 user: utilities.get_user(), password: utilities.get_password(),
-                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(),
+                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(), wifi_connection: utilities.wifi_connection(),
                 router_connection: utilities.router_connection(), bitcoin_connection: utilities.bitcoin_connection()});
     }); 
 };
 
 exports.wireguard_status = function(req, res) {
-    ip_internal = utilities.get_ip_internal();
-    ip_external = utilities.get_ip_external();    
     const { exec } = require("child_process");
 
     exec(wireguardStatus, (error, stdout, stderr) => {
@@ -116,17 +110,15 @@ exports.wireguard_status = function(req, res) {
         }
         var ret = `${stdout}`;
         console.log(ret);
-        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external,
-		wireguard_message: `${stdout}`, system_status: utilities.get_system_status(),
+        res.render('index_home.pug', { title: title, ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external(),
+		            wireguard_message: `${stdout}`, system_status: utilities.get_system_status(),
                 user: utilities.get_user(), password: utilities.get_password(),
-                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(),
+                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(), wifi_connection: utilities.wifi_connection(),
                 router_connection: utilities.router_connection(), bitcoin_connection: utilities.bitcoin_connection()});
     });     
 };
 
 exports.wireguard_home = function(req, res) {
-   ip_internal = utilities.get_ip_internal();
-   ip_external = utilities.get_ip_external();    
    var ip = ip_external;
 
    if (req.body.ip != null &&  req.body.ip != "") {
@@ -142,7 +134,7 @@ exports.wireguard_home = function(req, res) {
    const { execSync } = require("child_process");
    var ret = execSync(execute).toString();
 
-   res.render('wireguard_home.pug', {ip_internal: ip_internal, ip_external: ip_external,
+   res.render('wireguard_home.pug', {ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external(),
 		user: utilities.get_user(), password: utilities.get_password()});
 };
 
@@ -150,9 +142,9 @@ exports.wireguard_restart = function(req, res) {
     console.log("Execute: " +  wireguard_restart);
     const { execSync } = require("child_process");
     var ret = execSync(wireguard_restart).toString();
-    res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external,
+    res.render('index_home.pug', { title: title, ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external(),
                 wireguard_message: ret, system_status: utilities.get_system_status(),
                 user: utilities.get_user(), password: utilities.get_password(),
-                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(),
+                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(), wifi_connection: utilities.wifi_connection(),
                 router_connection: utilities.router_connection(), bitcoin_connection: utilities.bitcoin_connection()});
 };

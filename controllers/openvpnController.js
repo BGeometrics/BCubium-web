@@ -27,10 +27,10 @@ exports.openvpn_start = function(req, res) {
             return;
         }
         console.log(`stdout: ${stdout}`);
-        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, 
-		openvpn_message: `${stdout}`, system_status: utilities.get_system_status(),
+        res.render('index_home.pug', { title: title, ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external(),
+		            openvpn_message: `${stdout}`, system_status: utilities.get_system_status(),
                 user: utilities.get_user(), password: utilities.get_password(),
-                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(),
+                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(), wifi_connection: utilities.wifi_connection(),
                 router_connection: utilities.router_connection(), bitcoin_connection: utilities.bitcoin_connection()});
     });
 };
@@ -48,17 +48,15 @@ exports.openvpn_stop = function(req, res) {
             return;
         }
         console.log(`stdout: ${stdout}`);
-        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external,
-		openvpn_message: `${stdout}`, system_status: utilities.get_system_status(),
+        res.render('index_home.pug', { title: title, ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external(),
+		            openvpn_message: `${stdout}`, system_status: utilities.get_system_status(),
                 user: utilities.get_user(), password: utilities.get_password(),
-                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(),
+                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(), wifi_connection: utilities.wifi_connection(),
                 router_connection: utilities.router_connection(), bitcoin_connection: utilities.bitcoin_connection()});
     });
 };
 
 exports.openvpn_enable = function(req, res) {
-    ip_internal = utilities.get_ip_internal();
-    ip_external = utilities.get_ip_external();    
     const { exec } = require("child_process");
 
     exec(openvpnEnable, (error, stdout, stderr) => {
@@ -71,17 +69,15 @@ exports.openvpn_enable = function(req, res) {
             return;
         }
         console.log(`stdout: ${stdout}`);
-        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external,
-		openvpn_message: `${stdout}`, system_status: utilities.get_system_status(),
+        res.render('index_home.pug', { title: title, ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external(),
+		            openvpn_message: `${stdout}`, system_status: utilities.get_system_status(),
                 user: utilities.get_user(), password: utilities.get_password(),
-                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(),
+                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(), wifi_connection: utilities.wifi_connection(),
                 router_connection: utilities.router_connection(), bitcoin_connection: utilities.bitcoin_connection()});
     }); 
 };
 
 exports.openvpn_disable = function(req, res) {
-    ip_internal = utilities.get_ip_internal();
-    ip_external = utilities.get_ip_external();    
     const { exec } = require("child_process");
 
     exec(openvpnDisable, (error, stdout, stderr) => {
@@ -94,17 +90,15 @@ exports.openvpn_disable = function(req, res) {
             return;
         }
         console.log(`stdout: ${stdout}`);
-        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, 
-		openvpn_message: `${stdout}`, system_status: utilities.get_system_status(),
+        res.render('index_home.pug', { title: title, ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external(),
+		            openvpn_message: `${stdout}`, system_status: utilities.get_system_status(),
                 user: utilities.get_user(), password: utilities.get_password(),
-                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(),
+                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(), wifi_connection: utilities.wifi_connection(),
                 router_connection: utilities.router_connection(), bitcoin_connection: utilities.bitcoin_connection()});
     }); 
 };
 
 exports.openvpn_status = function(req, res) {
-    ip_internal = utilities.get_ip_internal();
-    ip_external = utilities.get_ip_external();    
     const { exec } = require("child_process");
 
     exec(openvpnStatus, (error, stdout, stderr) => {
@@ -118,17 +112,15 @@ exports.openvpn_status = function(req, res) {
         }
         var ret = `${stdout}`;
         console.log(ret);
-        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external,
-		openvpn_message: `${stdout}`, system_status: utilities.get_system_status(),
+        res.render('index_home.pug', { title: title, ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external(),
+		            openvpn_message: `${stdout}`, system_status: utilities.get_system_status(),
                 user: utilities.get_user(), password: utilities.get_password(),
-                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(),
+                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(), wifi_connection: utilities.wifi_connection(),
                 router_connection: utilities.router_connection(), bitcoin_connection: utilities.bitcoin_connection()});
     });     
 };
 
 exports.openvpn_home = function(req, res) {
-   ip_internal = utilities.get_ip_internal();
-   ip_external = utilities.get_ip_external();    
    console.log("Port: " + req.body.port);
    var message = "";
    if (req.body.port != "") {
@@ -140,7 +132,7 @@ exports.openvpn_home = function(req, res) {
       message = "Add port";
    }
 	
-   res.render('openvpn_home.pug', {ip_internal: ip_internal, ip_external: ip_external,
+   res.render('openvpn_home.pug', {ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external(),
 		user: utilities.get_user(), password: utilities.get_password(), 
    		openvpn_message: message});
 };
@@ -149,9 +141,9 @@ exports.openvpn_restart = function(req, res) {
     console.log("Execute: " +  openvpn_restart);
     const { execSync } = require("child_process");
     var ret = execSync(openvpn_restart).toString();
-    res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external,
+    res.render('index_home.pug', { title: title, ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external(),
                 openvpn_message: ret, system_status: utilities.get_system_status(),
                 user: utilities.get_user(), password: utilities.get_password(),
-                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(),
+                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(), wifi_connection: utilities.wifi_connection(),
                 router_connection: utilities.router_connection(), bitcoin_connection: utilities.bitcoin_connection()});
 };

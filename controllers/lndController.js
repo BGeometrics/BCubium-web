@@ -32,10 +32,10 @@ exports.lnd_start = function(req, res) {
             return;
         }
         console.log(`stdout: ${stdout}`);
-        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, 
-		lnd_message: `${stdout}`, system_status: utilities.get_system_status(),
+        res.render('index_home.pug', { title: title, ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external(),
+		            lnd_message: `${stdout}`, system_status: utilities.get_system_status(),
                 user: utilities.get_user(), password: utilities.get_password(),
-                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(),
+                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(), wifi_connection: utilities.wifi_connection(),
                 router_connection: utilities.router_connection(), bitcoin_connection: utilities.bitcoin_connection()});
     });
 };
@@ -53,17 +53,15 @@ exports.lnd_stop = function(req, res) {
             return;
         }
         console.log(`stdout: ${stdout}`);
-        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external,
-		lnd_message: `${stdout}`, system_status: utilities.get_system_status(),
+        res.render('index_home.pug', { title: title, ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external(),
+		            lnd_message: `${stdout}`, system_status: utilities.get_system_status(),
                 user: utilities.get_user(), password: utilities.get_password(),
-                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(),
+                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(), wifi_connection: utilities.wifi_connection(),
                 router_connection: utilities.router_connection(), bitcoin_connection: utilities.bitcoin_connection()});
     });
 };
 
 exports.lnd_enable = function(req, res) {
-    ip_internal = utilities.get_ip_internal();
-    ip_external = utilities.get_ip_external();    
     const { exec } = require("child_process");
 
     exec(lndEnable, (error, stdout, stderr) => {
@@ -76,17 +74,15 @@ exports.lnd_enable = function(req, res) {
             return;
         }
         console.log(`stdout: ${stdout}`);
-        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external,
-		lnd_message: `${stdout}`, system_status: utilities.get_system_status(),
+        res.render('index_home.pug', { title: title, ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external(),
+		            lnd_message: `${stdout}`, system_status: utilities.get_system_status(),
                 user: utilities.get_user(), password: utilities.get_password(),
-                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(),
+                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(), wifi_connection: utilities.wifi_connection(),
                 router_connection: utilities.router_connection(), bitcoin_connection: utilities.bitcoin_connection()});
     }); 
 };
 
 exports.lnd_disable = function(req, res) {
-    ip_internal = utilities.get_ip_internal();
-    ip_external = utilities.get_ip_external();    
     const { exec } = require("child_process");
 
     exec(lndDisable, (error, stdout, stderr) => {
@@ -99,17 +95,15 @@ exports.lnd_disable = function(req, res) {
             return;
         }
         console.log(`stdout: ${stdout}`);
-        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external,
-		lnd_message: `${stdout}`, system_status: utilities.get_system_status(),
+        res.render('index_home.pug', { title: title, ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external(),
+		            lnd_message: `${stdout}`, system_status: utilities.get_system_status(),
                 user: utilities.get_user(), password: utilities.get_password(),
-                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(),
+                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(), wifi_connection: utilities.wifi_connection(),
                 router_connection: utilities.router_connection(), bitcoin_connection: utilities.bitcoin_connection()});
     }); 
 };
 
 exports.lnd_status = function(req, res) {
-    ip_internal = utilities.get_ip_internal();
-    ip_external = utilities.get_ip_external();    
     const { exec } = require("child_process");
 
     exec(lndStatus, (error, stdout, stderr) => {
@@ -123,10 +117,10 @@ exports.lnd_status = function(req, res) {
         }
         var ret = `${stdout}`;
         console.log(ret);
-        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external,
-		lnd_message: `${stdout}`, system_status: utilities.get_system_status(),
+        res.render('index_home.pug', { title: title, ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external(),
+		            lnd_message: `${stdout}`, system_status: utilities.get_system_status(),
                 user: utilities.get_user(), password: utilities.get_password(),
-                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(),
+                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(), wifi_connection: utilities.wifi_connection(),
                 router_connection: utilities.router_connection(), bitcoin_connection: utilities.bitcoin_connection()});
     });     
 };
@@ -174,9 +168,9 @@ exports.lnd_restart = function(req, res) {
     console.log("Execute: " +  lnd_restart);
     const { execSync } = require("child_process");
     var ret = execSync(lnd_restart).toString();
-    res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external,
+    res.render('index_home.pug', { title: title, ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external(),
                 lnd_message: ret, system_status: utilities.get_system_status(),
                 user: utilities.get_user(), password: utilities.get_password(),
-                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(),
+                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(), wifi_connection: utilities.wifi_connection(),
                 router_connection: utilities.router_connection(), bitcoin_connection: utilities.bitcoin_connection()});
 };

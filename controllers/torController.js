@@ -12,10 +12,6 @@ var ip_external = "";
 const utilities = require('./utilities');
 
 exports.tor_enable = function(req, res) {
-    ip_internal = utilities.get_ip_internal();
-    ip_external = utilities.get_ip_external();    
-    const { exec } = require("child_process");
-
     exec(torEnable, (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
@@ -26,17 +22,15 @@ exports.tor_enable = function(req, res) {
             return;
         }
         console.log(`stdout: ${stdout}`);
-        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external, 
-		tor_message: `${stdout}`, system_status: utilities.get_system_status(),
+        res.render('index_home.pug', { title: title, ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external(),
+		            tor_message: `${stdout}`, system_status: utilities.get_system_status(),
                 user: utilities.get_user(), password: utilities.get_password(),
-                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(),
+                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(), wifi_connection: utilities.wifi_connection(),
                 router_connection: utilities.router_connection(), bitcoin_connection: utilities.bitcoin_connection()});
     }); 
 };
 
 exports.tor_disable = function(req, res) {
-    ip_internal = utilities.get_ip_internal();
-    ip_external = utilities.get_ip_external();    
     const { exec } = require("child_process");
 
     exec(torDisable, (error, stdout, stderr) => {
@@ -49,17 +43,15 @@ exports.tor_disable = function(req, res) {
             return;
         }
         console.log(`stdout: ${stdout}`);
-        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external,
-		tor_message: `${stdout}`, system_status: utilities.get_system_status(),
+        res.render('index_home.pug', { title: title, ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external(),
+		            tor_message: `${stdout}`, system_status: utilities.get_system_status(),
                 user: utilities.get_user(), password: utilities.get_password(),
-                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(),
+                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(), wifi_connection: utilities.wifi_connection(),
                 router_connection: utilities.router_connection(), bitcoin_connection: utilities.bitcoin_connection()});
     }); 
 };
 
 exports.tor_status = function(req, res) {
-    ip_internal = utilities.get_ip_internal();
-    ip_external = utilities.get_ip_external();    
     const { exec } = require("child_process");
 
     exec(torStatus, (error, stdout, stderr) => {
@@ -73,10 +65,10 @@ exports.tor_status = function(req, res) {
         }
         var ret = `${stdout}`;
         console.log(ret);
-        res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external,
-		tor_message: `${stdout}`, system_status: utilities.get_system_status(),
+        res.render('index_home.pug', { title: title, ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external(),
+		            tor_message: `${stdout}`, system_status: utilities.get_system_status(),
                 user: utilities.get_user(), password: utilities.get_password(),
-                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(),
+                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(), wifi_connection: utilities.wifi_connection(),
                 router_connection: utilities.router_connection(), bitcoin_connection: utilities.bitcoin_connection()});
     });     
 };
@@ -85,9 +77,9 @@ exports.tor_restart = function(req, res) {
     console.log("Execute: " +  tor_restart);
     const { execSync } = require("child_process");
     var ret = execSync(tor_restart).toString();
-    res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external,
+    res.render('index_home.pug', { title: title, ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external(),
                 tor_message: ret, system_status: utilities.get_system_status(),
                 user: utilities.get_user(), password: utilities.get_password(),
-                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(),
+                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(), wifi_connection: utilities.wifi_connection(),
                 router_connection: utilities.router_connection(), bitcoin_connection: utilities.bitcoin_connection()});
 };

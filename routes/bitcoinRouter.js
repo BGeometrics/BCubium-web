@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 
 const bitcoinController = require('../controllers/bitcoinController');
-const electrumController = require('../controllers/electrumController');
 const lndController = require('../controllers/lndController');
 const torController = require('../controllers/torController');
 const btcrpcexplorerController = require('../controllers/btcrpcexplorerController');
@@ -27,12 +26,6 @@ router.post('/bitcoin_load_wallet', bitcoinController.bitcoin_load_wallet);
 router.get('/bitcoin_load_wallet', bitcoinController.bitcoin_load_wallet);
 router.post('/bitcoin_create_wallet', bitcoinController.bitcoin_create_wallet);
 router.get('/bitcoin_create_wallet', bitcoinController.bitcoin_create_wallet);
-
-router.get('/electrum_start', electrumController.electrum_start);
-router.get('/electrum_stop', electrumController.electrum_stop);
-router.get('/electrum_enable', electrumController.electrum_enable);
-router.get('/electrum_disable', electrumController.electrum_disable);
-router.get('/electrum_status', electrumController.electrum_status);
 
 router.get('/lnd_start', lndController.lnd_start);
 router.get('/lnd_stop', lndController.lnd_stop);

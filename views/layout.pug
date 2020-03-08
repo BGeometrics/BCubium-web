@@ -75,6 +75,13 @@ html(lang="en")
                     span.font-weight-bold Bitcoin network: 
                       i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;")
               div.col-md-3
+                  if wifi_connection != null && wifi_connection.connection != "Off"
+                    a(href="./wifi_home", class="nav-link px-2 text-decoration-underline" title=wifi_connection.connection)
+                      span.font-weight-bold Wifi: 
+                        i(class="fas fa-wifi fa-w-20", style="margin-top: 6px; color:green;" title=wifi_connection.connection)
+                  else
+                    a(href="./wifi_home", class="nav-link px-2 text-decoration-underline" )
+                      span.font-weight-bold Wifi: 
 
               div.col-md-3
                 if (user)

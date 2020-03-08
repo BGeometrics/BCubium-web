@@ -1,4 +1,5 @@
 var PropertiesReader = require('properties-reader');
+var wifi = require("node-wifi");
 var properties = PropertiesReader('/etc/bitcoin/bitcoin.conf');
 var credentials_properties = PropertiesReader('/etc/Bgeometrics/credentials');
 var credentials_file = "/etc/Bgeometrics/credentials";
@@ -17,6 +18,7 @@ var system_info = "./scripts/system_info.sh";
 var internet_connection = "./scripts/internet_connection.sh";
 var router_connection = "./scripts/router_connection.sh";
 var bitcoin_connection = "./scripts/bitcoin_connection.sh";
+var wifi_connection = "./scripts/wifi_connection.sh";
 var system_ports = "./scripts/system_ports.sh";
 var seed_file = "/etc/Bgeometrics/seed.txt";
 var lnd_pass = "/etc/Bgeometrics/lnd_pass.txt";
@@ -204,5 +206,13 @@ exports.get_lnd_pass = function () {
    return this.read_file(lnd_pass);
 };
 
+exports.wifi_connection = function(req, res) {
+    console.log("execute: " + wifi_connection);
+    const { execSync } = require("child_process");
+    var ret = execSync(wifi_connection).toString();
+    console.log('wifi_connection: ' + ret);
+    var obj_status = JSON.parse(ret);
 
+    return obj_status;
+};
 
