@@ -33,7 +33,7 @@ exports.backup_home = function(req, res) {
         var url_backup = 'https://' + utilities.get_ip_internal() + ':' + web_port + '/backup.zip';
         console.log('Backup done ' + url_backup);
 	      res.render('backup_home.pug', {backup_message: url_backup, usefull_message: 'Backup done',
-			  user: utilities.get_user(), password: utilities.get_password()});
+			          user: utilities.get_user(), password: utilities.get_password()});
     }); 
 }
 
@@ -106,16 +106,14 @@ exports.router_open = function(req, res) {
     console.log("Execute: " + execute);
     const { execSync } = require("child_process");
     var ret = execSync(execute).toString();
-    if (ret.substring(0,2) == 'KO') {
-       ip_internal = utilities.get_ip_internal();
-       ip_external = utilities.get_ip_external();
 
-       console.log("Ret: " + ret);
-       res.render('index_home.pug', {ip_internal: ip_internal, ip_external: ip_external,
+    if (ret.substring(0,2) == 'KO') {
+       console.log("Ret no port listening: " + ret);
+       res.render('index_home.pug', {ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external(),
                 system_status: utilities.get_system_status(),
                 user: utilities.get_user(), password: utilities.get_password(),
                 system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(),
-                router_connection: utilities.router_connection(), bitcoin_connection: utilities.bitcoin_connection(       )});
+                router_connection: utilities.router_connection(), bitcoin_connection: utilities.bitcoin_connection()});
     }
     else {
        var url = 'http://' + ret + '/'; 
@@ -125,7 +123,7 @@ exports.router_open = function(req, res) {
 };
 
 exports.settings_home = function(req, res) {
-    res.render('settings_home.pug');
+    res.render('settings_home.pug', {user: utilities.get_user(), password: utilities.get_password()});
 };
 
 exports.password_change = function(req, res) {
@@ -147,7 +145,7 @@ exports.password_change = function(req, res) {
             message = 'Wrong password';
     }
 
-    res.render('settings_home.pug', {settings_message: message});
+    res.render('settings_home.pug', {user: utilities.get_user(), password: utilities.get_password(), settings_message: message});
 };
 
 exports.reboot_node = function(req, res) {

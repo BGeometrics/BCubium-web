@@ -27,7 +27,7 @@ exports.btcrpcexplorer_start = function(req, res) {
             return;
         }
         console.log(`stdout: ${stdout}`);
-	res.render('index_home.pug', { title: title, ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external(), 
+	      res.render('index_home.pug', { title: title, ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external(), 
                 btcrpcexplorer_message: ret, system_status: utilities.get_system_status(),
                 user: utilities.get_user(), password: utilities.get_password(),
                 system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(), wifi_connection: utilities.wifi_connection(),
@@ -48,7 +48,7 @@ exports.btcrpcexplorer_stop = function(req, res) {
             return;
         }
         console.log(`stdout: ${stdout}`);
-	res.render('index_home.pug', { title: title, ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external(), 
+	      res.render('index_home.pug', { title: title, ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external(), 
                 btcrpcexplorer_message: ret, system_status: utilities.get_system_status(),
                 user: utilities.get_user(), password: utilities.get_password(),
                 system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(), wifi_connection: utilities.wifi_connection(),
@@ -69,7 +69,7 @@ exports.btcrpcexplorer_enable = function(req, res) {
             return;
         }
         console.log(`stdout: ${stdout}`);
-	res.render('index_home.pug', { title: title, ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external(), 
+	      res.render('index_home.pug', { title: title, ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external(), 
                 btcrpcexplorer_message: ret, system_status: utilities.get_system_status(),
                 user: utilities.get_user(), password: utilities.get_password(),
                 system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(), wifi_connection: utilities.wifi_connection(),
@@ -90,7 +90,7 @@ exports.btcrpcexplorer_disable = function(req, res) {
             return;
         }
         console.log(`stdout: ${stdout}`);
-	res.render('index_home.pug', { title: title, ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external(), 
+	      res.render('index_home.pug', { title: title, ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external(), 
                 btcrpcexplorer_message: ret, system_status: utilities.get_system_status(),
                 user: utilities.get_user(), password: utilities.get_password(),
                 system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(), wifi_connection: utilities.wifi_connection(),
@@ -112,7 +112,7 @@ exports.btcrpcexplorer_status = function(req, res) {
         }
         var ret = `${stdout}`;
         console.log(ret);
-	res.render('index_home.pug', { title: title, ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external(), 
+	      res.render('index_home.pug', { title: title, ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external(), 
                 btcrpcexplorer_message: ret, system_status: utilities.get_system_status(),
                 user: utilities.get_user(), password: utilities.get_password(),
                 system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(), wifi_connection: utilities.wifi_connection(),
