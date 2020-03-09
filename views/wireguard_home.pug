@@ -20,7 +20,12 @@ block content
                   - var url_internal = 'https://' + ip_internal + ':' + port_external + '/client-wg0.conf';
                   |
                   |
-                  p How to connect to the WireGuard
+                  p 
+                    a(class='rounded bg-primary text-white px-2 py-1' href='./wireguard_update_publicIP' title='Click link if the public IP has changed, the WireGuard client configuration must be updated.') Configuration update by public ip change
+                    if wireguard_message
+                      p <mark>#{wireguard_message}</mark>
+                  p 
+                  p <b>How to connect to the WireGuard</b>
                   p 1- Install the software WireGuard client on the devices: Mobile, computer, tablet ...
                   p 2- Add -> Create from QR code for Public IP
                   img(src="/bcube-wg0.png" alt="QR code WireGuard public IP")
@@ -30,12 +35,12 @@ block content
                   br
                   form(method='POST' action='./wireguard_set_port')
                     div.form-group
-                      p If you have had to perform a port forwarding on the router to access the wireguard 28165 UDP port, indicate it here to generate a new QR:
-                      input#name.form-control(type='text', placeholder='Port' name='port')
-                      br
                       p If you have had another public IP or FQDN (Fully Qualified Domain Name) indicate it here to generate a new QR:
                       input#name.form-control(type='text', placeholder='Public IP or FQDN' name='ip')
-                    button.btn.btn-primary(type='submit') Submit
+                      br
+                      p If you have had to perform a port forwarding on the router to access the wireguard 28165 UDP port, indicate it here to generate a new QR:
+                      input#name.form-control(type='text', placeholder='Port' name='port')
+                    button.btn.btn-primary(type='submit') Change
 
           div.col-md-3
             div.container.px-2.px-sm-3

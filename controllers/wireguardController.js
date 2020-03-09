@@ -119,7 +119,11 @@ exports.wireguard_status = function(req, res) {
 };
 
 exports.wireguard_home = function(req, res) {
-   var ip = ip_external;
+   res.render('wireguard_home.pug', {ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external()});
+}
+
+exports.wireguard_set_publicIP_port = function(req, res) {
+   var ip = utilities.get_ip_external();
 
    if (req.body.ip != null &&  req.body.ip != "") {
       ip = req.body.ip;
@@ -135,7 +139,7 @@ exports.wireguard_home = function(req, res) {
    var ret = execSync(execute).toString();
 
    res.render('wireguard_home.pug', {ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external(),
-		user: utilities.get_user(), password: utilities.get_password()});
+	       user: utilities.get_user(), password: utilities.get_password()});
 };
 
 exports.wireguard_restart = function(req, res) {
@@ -148,3 +152,15 @@ exports.wireguard_restart = function(req, res) {
                 system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(), wifi_connection: utilities.wifi_connection(),
                 router_connection: utilities.router_connection(), bitcoin_connection: utilities.bitcoin_connection()});
 };
+
+exports.wireguard_update_publicIP = function(req, res) {
+    var execute = wireguard_set_port + " " + utilities.get_ip_external();
+    console.log("Execute: " + execute);
+
+    const { execSync } = require("child_process");
+    var ret = execSync(execute).toString();
+
+    res.render('wireguard_home.pug', {ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external(),
+           user: utilities.get_user(), password: utilities.get_password(), wireguard_message: 'Scan the QR again or load the WireGuard client file'});
+};
+

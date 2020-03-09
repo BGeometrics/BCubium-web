@@ -106,8 +106,9 @@ router.get('/wireguard_stop', wireguardController.wireguard_stop);
 router.get('/wireguard_enable', wireguardController.wireguard_enable);
 router.get('/wireguard_disable', wireguardController.wireguard_disable);
 router.get('/wireguard_status', wireguardController.wireguard_status);
-router.get('/wireguard_set_port', wireguardController.wireguard_home);
-router.post('/wireguard_set_port', wireguardController.wireguard_home);
+router.get('/wireguard_set_port', wireguardController.wireguard_set_publicIP_port);
+router.post('/wireguard_set_port', wireguardController.wireguard_set_publicIP_port);
 router.get('/wireguard_restart', wireguardController.wireguard_restart);
+router.get('/wireguard_update_publicIP', wireguardController.wireguard_update_publicIP);
 
 module.exports = router;
