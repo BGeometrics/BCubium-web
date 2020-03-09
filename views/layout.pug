@@ -30,8 +30,9 @@ html(lang="en")
               li(class="nav-item font-weight-bold")
                 a(href="./btcrpcexplorer_home", class="nav-link px-2 text-decoration-underline" title="BTC-RPC-Explorer, database-free Bitcoin blockchain explorer, via RPC")
                   span Bitcoin explorer
+              -var title_rtl='Pass: ' + password + '. RTL, a Web UI for Lightning Network Daemon'
               li(class="nav-item font-weight-bold")
-                a(href="http://" + ip_internal + ":3003/", class="nav-link px-2 text-decoration-underline" title="RTL, a Web UI for Lightning Network Daemon")
+                a(href="http://" + ip_internal + ":3003/", class="nav-link px-2 text-decoration-underline" title=title_rtl)
                   span LND WebUI
               li(class="nav-item font-weight-bold")
                 a(href="./wireguard_home", class="nav-link px-2 text-decoration-underline" title="VPN with WireGuard application")
@@ -84,17 +85,6 @@ html(lang="en")
                       span.font-weight-bold Wifi: 
 
               div.col-md-3
-                if (user)
-                  p User: 
-                    input(type="text" id="myUser" name="user" value="user" style="border: none;" readonly)  
-                    |
-              div.col-md-3
-                if (password)
-                  p Pass: 
-                    input(type="password" id="myPassword" name="password" value="password" style="border: none; width: 45%;" readonly)
-                    a(href="javascript:void(0)" onclick=("javascript:var x = document.getElementById('myPassword'); if (x.type === 'password') { x.type = 'text'; } else { x.type = 'password';}"))
-                        i(class="far fa-eye fa-w-20 text-warning", style="margin-top: 6px;")
-              div.col-md-3
                 if (ip_external)
                   p Public IP: #{ip_external}
               div.col-md-3
@@ -103,18 +93,31 @@ html(lang="en")
 
               div.col-md-3
                 if (system_info && system_info.CPU)
-                    p CPU: #{system_info.CPU}%
-              div.col-md-3
+                  i(class="fas fa-microchip fa-w-20" style="margin-top: 6px;" title='CPU') 
+                  | &nbsp; 
+                  span(title='CPU') #{system_info.CPU}%
+                  | &nbsp;
+                  | &nbsp;
+                  | &nbsp;
                 if (system_info && system_info.RAM)
-                  p RAM: #{system_info.RAM}%
+                  i(class="fas fa-memory fa-w-20" style="margin-top: 6px;" title='RAM') 
+                  | &nbsp; 
+                  span(title='RAM') #{system_info.RAM}%
               div.col-md-3
                 if (system_info && system_info.HDD)
-                  p HDD: #{system_info.HDD}%
-              div.col-md-3
+                  i(class="far fa-hdd fa-w-20" style="margin-top: 6px;" title='HDD') 
+                  | &nbsp; 
+                  span(title='HDD') #{system_info.HDD}%
+                  | &nbsp;
+                  | &nbsp;
+                  | &nbsp;
                 if (system_info && system_info.TEMP)
-                  p Temperature: #{system_info.TEMP} ºC
+                  i(class="fas fa-thermometer-quarter fa-w-20" style="margin-top: 6px" title='Temperature') 
+                  | &nbsp; 
+                  span(title='Temperature') #{system_info.TEMP} ºC
 
         block content
 
         include ./includes/foot
+
 
