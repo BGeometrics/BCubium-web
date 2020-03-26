@@ -190,33 +190,6 @@ block content
           div.col-md-4
             div.card.mb-3.shadow-sm
               div.card-header
-                if system_status && system_status.firewall == 'OK'
-                  span(style="float: left;") <b>Firewall</b>  
-                    i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;" title='Turned on')
-                else
-                  span(style="float: left;") <b>Firewall</b>  
-                    i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;" title='Turned off')
-              div.card-body
-                div.row
-                  a(class='rounded bg-primary text-white px-2 py-1'  href="./firewall_restart" title='Service restart')
-                    i(class="fas fa-sync fa-2x mr", style="margin-top: 6px;")
-                  | &nbsp; 
-                  a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_status" title="Status")
-                    i(class="fas fa-info fa-2x mr", style="margin-top: 6px;")
-                  | &nbsp; 
-                  a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_enable" title='Enable service')  
-                    i(class="fas fa-toggle-on fa-2x mr", style="margin-top: 6px;")
-                  | &nbsp; 
-                  a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_disable" title='Disable service')  
-                    i(class="fas fa-toggle-off fa-2x mr", style="margin-top: 6px;") 
-                  | &nbsp; 
-                if firewall_message
-                  div.row
-                    p #{firewall_message}
-
-          div.col-md-4
-            div.card.mb-3.shadow-sm
-              div.card-header
                 if system_status && system_status.wireguard == 'OK'
                   a(class='nav-bar-brand' href="./wireguard_home" title="VPN with WireGuard application")
                     span(style="float: left;") <b>VPN</b>  
@@ -255,6 +228,33 @@ block content
                 if wireguard_message
                   div.row
                     p #{wireguard_message}
+
+          div.col-md-4
+            div.card.mb-3.shadow-sm
+              div.card-header
+                if system_status && system_status.firewall == 'OK'
+                  span(style="float: left;") <b>Firewall</b> 
+                    i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;" title='Turned on')
+                else
+                  span(style="float: left;") <b>Firewall</b> 
+                    i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;" title='Turned off')
+              div.card-body
+                div.row
+                  a(class='rounded bg-primary text-white px-2 py-1'  href="./firewall_restart" title='Service restart')
+                    i(class="fas fa-sync fa-2x mr", style="margin-top: 6px;")
+                  | &nbsp;
+                  a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_status" title="Status")
+                    i(class="fas fa-info fa-2x mr", style="margin-top: 6px;")
+                  | &nbsp;
+                  a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_enable" title='Enable service')
+                    i(class="fas fa-toggle-on fa-2x mr", style="margin-top: 6px;")
+                  | &nbsp;
+                  a(class='rounded bg-primary text-white px-2 py-1' href="./firewall_disable" title='Disable service')
+                    i(class="fas fa-toggle-off fa-2x mr", style="margin-top: 6px;")
+                  | &nbsp;
+                if firewall_message
+                  div.row
+                    p #{firewall_message}
 
           if system_status && system_status.openvpn_activated === 'OK'
             div.col-md-4
