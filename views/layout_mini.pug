@@ -1,6 +1,7 @@
 block variables
 doctype html
 html(lang="en")
+  - var node='BCubium'
   head
     meta(charset="utf-8")
     meta(name="csrf-token", content=csrfToken)
@@ -19,19 +20,19 @@ html(lang="en")
     div(class="pb-4 pt-3 pt-md-4")
       div.container.px-2.px-sm-3
         a(class="navbar-brand", href="/")
-          p.h3='Bcube '
-            i(class="fab fa-bitcoin fa-w-20", style="margin-top: 6px;")
+          img(src="/Logo_BCubium_write.png" width="35%" height="35%")
+          i(class="fab fa-bitcoin fa-w-20", style="margin-top: 6px;")
         div(class="card mb-4 shadow-sm")
-          div(id="sub-menu", class="container mb-2 pt-2 d-lg-block d-none border-top", style="")
+          div(id="sub-menu", class="container mb-2 pt-2 d-lg-block d-none border-top")
             ul(class="nav")
               li(class="nav-item font-weight-bold")
-                a(href="/", class="nav-link px-2 text-decoration-underline" title="Home Bcube")
+                a(href="/", class="nav-link px-2 text-decoration-underline" title="Home " + node)
                   span Home
               li(class="nav-item font-weight-bold")
                 a(href="./btcrpcexplorer_home", class="nav-link px-2 text-decoration-underline" title="BTC-RPC-Explorer, database-free Bitcoin blockchain explorer, via RPC")
                   span Bitcoin explorer
               li(class="nav-item font-weight-bold")
-                a(href="http://" + ip_internal + ":3003/", class="nav-link px-2 text-decoration-underline" title="RTL, a Web UI for Lightning Network Daemon")
+                a(href="./lnd_wallet_home", class="nav-link px-2 text-decoration-underline" title="RTL, a Web UI for Lightning Network Daemon")
                   span LND WebUI
               li(class="nav-item font-weight-bold")
                 a(href="./wireguard_home", class="nav-link px-2 text-decoration-underline" title="VPN with WireGuard application")
@@ -41,7 +42,7 @@ html(lang="en")
                   span Graphics
               li(class="nav-item font-weight-bold")
                 a(href="./bitcoin_opreturn_home", class="nav-link px-2 text-decoration-underline" title="Write a message forever on the Blockchain")
-                  span Message Blockchain
+                  span Blockchain message
         hr
 
         block content

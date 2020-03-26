@@ -148,7 +148,7 @@ block content
             div.card.mb-3.shadow-sm
               div.card-header
                 if system_status && system_status.rtl == 'OK'
-                  a(class='nav-bar-brand' href="http://" + ip_internal + ":3003/" title="Ride The Lightning - A full function web browser app for LND and C-Lightning")
+                  a(class='nav-bar-brand' href="./lnd_wallet_home" title="Ride The Lightning - A full function web browser app for LND and C-Lightning")
                     span(style="float: left;") <b>LND WebUI</b> 
                       i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;" title='Turned on')
                   | &nbsp; (pass:#{password})
@@ -156,7 +156,7 @@ block content
                     span(style="float: right;") 
                       i(class="fas fa-home fa-2x mr", style="margin-top: 6px;")
                 else
-                  a(class='nav-bar-brand' href="http://" + ip_internal + ":3003/")
+                  a(class='nav-bar-brand' href="./lnd_wallet_home")
                     span(style="float: left;") <b>LND WebUI</b>  
                       i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;" title='Turned off')
                   | &nbsp; (pass:#{password})

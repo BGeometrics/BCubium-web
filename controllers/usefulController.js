@@ -98,7 +98,7 @@ exports.system_ports_home = function(req, res) {
 };
 
 exports.graphics_home = function(req, res) {
-    res.render('graphics_home.pug');
+    res.render('graphics_home.pug', {ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external()});
 };
 
 exports.router_open = function(req, res) {

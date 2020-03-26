@@ -160,8 +160,9 @@ exports.lnd_wallet_backup = function(req, res) {
    var seed = utilities.read_text_file(seed_file);
    var url_backup = 'https://' + utilities.get_ip_internal() + ':' + web_port + '/lnd_backup.zip';
    console.log('Backup LND done ' + url_backup);
-   res.render('lnd_home.pug', {'seed': seed, 'lnd_backup': url_backup, 'lnd_message': 'Backup done',
-   		user: utilities.get_user(), password: utilities.get_password()});
+   res.render('lnd_home.pug', {'seed': seed, 'lnd_backup': url_backup, 'lnd_message': 'Backup keys done',
+   		user: utilities.get_user(), password: utilities.get_password(), 
+      ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external()});
 };
 
 exports.lnd_restart = function(req, res) {
@@ -171,6 +172,13 @@ exports.lnd_restart = function(req, res) {
     res.render('index_home.pug', { title: title, ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external(),
                 lnd_message: ret, system_status: utilities.get_system_status(),
                 user: utilities.get_user(), password: utilities.get_password(),
-                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(), wifi_connection: utilities.wifi_connection(),
+                system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(), 
+                wifi_connection: utilities.wifi_connection(),
                 router_connection: utilities.router_connection(), bitcoin_connection: utilities.bitcoin_connection()});
 };
+
+exports.lnd_wallet_home = function(req, res) {
+    ip_internal = utilities.get_ip_internal();
+    res.redirect('http://' + ip_internal + ':3003/');
+};
+

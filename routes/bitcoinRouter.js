@@ -37,6 +37,7 @@ router.get('/lnd_wallet_delete', lndController.lnd_wallet_delete);
 router.get('/lnd_wallet_create', lndController.lnd_wallet_create);
 router.get('/lnd_wallet_backup', lndController.lnd_wallet_backup);
 router.get('/lnd_restart', lndController.lnd_restart);
+router.get('/lnd_wallet_home', lndController.lnd_wallet_home);
 
 router.get('/tor_enable', torController.tor_enable);
 router.get('/tor_disable', torController.tor_disable);
