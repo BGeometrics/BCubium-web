@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FILE_TX_ID=./public/bcube_tx_id.txt
+FILE_TX_ID=../bcube_tx_id.txt
 
 if [ -n "$1" ]; then
    WALLET=$1

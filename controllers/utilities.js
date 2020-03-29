@@ -22,7 +22,7 @@ var wifi_connection = "./scripts/wifi_connection.sh";
 var system_ports = "./scripts/system_ports.sh";
 var seed_file = "/etc/Bgeometrics/seed.txt";
 var lnd_pass = "/etc/Bgeometrics/lnd_pass.txt";
-var op_return_txid = "./public/bcube_tx_id.txt";
+var op_return_txid = "../bcube_tx_id.txt";
 
 
 exports.get_ip_external = function () {
