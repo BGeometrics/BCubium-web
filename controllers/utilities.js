@@ -22,6 +22,7 @@ var wifi_connection = "./scripts/wifi_connection.sh";
 var system_ports = "./scripts/system_ports.sh";
 var seed_file = "/etc/Bgeometrics/seed.txt";
 var lnd_pass = "/etc/Bgeometrics/lnd_pass.txt";
+var op_return_txid = "./public/bcube_tx_id.txt";
 
 
 exports.get_ip_external = function () {
@@ -214,5 +215,23 @@ exports.wifi_connection = function(req, res) {
     var obj_status = JSON.parse(ret);
 
     return obj_status;
+};
+
+exports.get_op_return_txid = function () {
+     var txids = this.read_file(op_return_txid);
+     console.log("read file: " + txids);
+     var txid_list = txids.split(os.EOL);
+     var res = "";
+     console.log("txid_list: " + txid_list);
+
+     for( var i = 0; i < txid_list.length-1; ++i ) {
+         console.log(txid_list[i]);
+         res = res + "\{\'txid\':\"" + txid_list[i] + "\"},";
+     }
+     res = res.substring(0, res.length - 1);
+     console.log("res: " + res);
+     var objectStringArray = (new Function("return [" + res + "];")());
+     
+     return objectStringArray;
 };
 

@@ -26,6 +26,8 @@ router.post('/bitcoin_load_wallet', bitcoinController.bitcoin_load_wallet);
 router.get('/bitcoin_load_wallet', bitcoinController.bitcoin_load_wallet);
 router.post('/bitcoin_create_wallet', bitcoinController.bitcoin_create_wallet);
 router.get('/bitcoin_create_wallet', bitcoinController.bitcoin_create_wallet);
+router.get('/bitcoin_opreturn_show_txs', bitcoinController.bitcoin_opreturn_show_txs);
+router.get('/bitcoin_opreturn_show_message', bitcoinController.bitcoin_opreturn_show_message);
 
 router.get('/lnd_start', lndController.lnd_start);
 router.get('/lnd_stop', lndController.lnd_stop);
@@ -110,5 +112,7 @@ router.get('/wireguard_set_port', wireguardController.wireguard_set_publicIP_por
 router.post('/wireguard_set_port', wireguardController.wireguard_set_publicIP_port);
 router.get('/wireguard_restart', wireguardController.wireguard_restart);
 router.get('/wireguard_update_publicIP', wireguardController.wireguard_update_publicIP);
+
+
 
 module.exports = router;

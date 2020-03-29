@@ -8,6 +8,7 @@ var bitcoin_restart = "./scripts/bitcoin_restart.sh";
 var bitcoin_op_return = "./scripts/bitcoin_op_return.sh"; 
 var bitcoin_load_wallet = "./scripts/bitcoin_load_wallet.sh"; 
 var bitcoin_create_wallet = "./scripts/bitcoin_create_wallet.sh"; 
+var bitcoin_opreturn_show_message = "./scripts/bitcoin_op_return_get_message.sh"
 var ip_internal = "";
 var ip_external = "";
 const utilities = require('./utilities');
@@ -139,4 +140,21 @@ exports.bitcoin_create_wallet = function(req, res) {
 
     res.render('bitcoin_opreturn_home.pug', {bitcoin_opreturn: ret_obj});
 };
+
+exports.bitcoin_opreturn_show_txs = function(req, res) {
+    var txids = utilities.get_op_return_txid();
+    console.log("txids: " + txids);
+    res.render('bitcoin_opreturn_txids.pug', {txids: txids});
+}
+
+exports.bitcoin_opreturn_show_message = function(req, res) {
+    var execute = bitcoin_opreturn_show_message + " " + req.query.txid;
+    console.log("Execute: " + execute);
+    const { execSync } = require("child_process");
+    var messages = execSync(execute).toString();
+    var message = messages.split('||||');
+    var txids = utilities.get_op_return_txid();
+    res.render('bitcoin_opreturn_txids.pug', {txids: txids, opreturn_message: message[0], opreturn_data: message[1]});
+};
+
 

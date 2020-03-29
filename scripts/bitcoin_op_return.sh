@@ -1,5 +1,7 @@
 #!/bin/bash
 
+FILE_TX_ID=./public/bcube_tx_id.txt
+
 if [ -n "$1" ]; then
    WALLET=$1
 else
@@ -71,6 +73,8 @@ echo "SIGN_TX " $SIGN_TX
 SEND_TX=$($MY_WALLET sendrawtransaction $SIGN_TX)
 echo "SEND_TX " $SEND_TX
 
+echo $SEND_TX >> $FILE_TX_ID
+
 STATUS="OK"
 
 echo -n "{\"wallet\":\"$WALLET\", \"address_target\":\"$ADDRESS_TARGET\", \"amount\":\"$COUNT\", \"transaction\":\"$RAW_TX\", \"send_tx\":\"$SEND_TX\", \"op_return\": \"OP_RETURN_DATA\",  \"status\":\"$STATUS\"}"
@@ -78,4 +82,4 @@ echo -n "{\"wallet\":\"$WALLET\", \"address_target\":\"$ADDRESS_TARGET\", \"amou
 #$MY_WALLET decoderawtransaction $RAW_TX
 # https://codebeautify.org/string-hex-converter
 # https://codebeautify.org/hex-string-converter
-#i https://www.blockchain.com/btc/address/1Hssq3vfrdd6XxiLUiasCgHuRmzGGcXBEQ
+# https://www.blockchain.com/btc/address/1Hssq3vfrdd6XxiLUiasCgHuRmzGGcXBEQ
