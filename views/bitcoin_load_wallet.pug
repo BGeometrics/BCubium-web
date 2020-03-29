@@ -11,13 +11,7 @@ block content
 
               div.card.mb-4.shadow-sm
                 div.card-header
-                  p.h2.h6.mb-0 Show messages in the Blockchain
-                div.card-body
-                  a(class='rounded bg-primary text-white px-2 py-1' href="./bitcoin_opreturn_show_txs" title="Show message") Show
-
-              div.card.mb-4.shadow-sm
-                div.card-header
-                  p.h2.h6.mb-0 Load wallet
+                  p.h2.h6.mb-0 Load wallet for the transaction
                 div.card-body
                   div(class="table-responsive")
                     form(method='POST' action='./bitcoin_load_wallet')
@@ -34,6 +28,12 @@ block content
                     if bitcoin_message
                       p(style="color:red;") #{bitcoin_message}
                     
+              div.card.mb-4.shadow-sm
+                div.card-header
+                  p.h2.h6.mb-0 Show messages in the Blockchain
+                div.card-body
+                  a(class='rounded bg-primary text-white px-2 py-1' href="./bitcoin_opreturn_show_txs" title="It is necessary to have written a message before") Show messages
+
               div.card.mb-4.shadow-sm
                 div.card-header
                   p.h2.h6.mb-0 Create new wallet. You must save the password, cannot recover.

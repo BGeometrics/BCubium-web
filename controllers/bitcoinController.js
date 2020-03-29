@@ -154,7 +154,8 @@ exports.bitcoin_opreturn_show_message = function(req, res) {
     var messages = execSync(execute).toString();
     var message = messages.split('||||');
     var txids = utilities.get_op_return_txid();
-    res.render('bitcoin_opreturn_txids.pug', {txids: txids, opreturn_message: message[0], opreturn_data: message[1]});
+    res.render('bitcoin_opreturn_txids.pug', {txids: txids, opreturn_message: message[0], opreturn_data: message[1], 
+            opreturn_block:  message[2]});
 };
 
 

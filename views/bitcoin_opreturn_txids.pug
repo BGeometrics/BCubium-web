@@ -11,24 +11,36 @@ block content
               div.card.mb-4.shadow-sm
                 div.card-body
                   if opreturn_message 
-                    p Blockchain text message: <b>#{opreturn_message}</b>
-                    p Blockchain hex. message: #{opreturn_data} 
-
+                    div(class="table-responsive")
+                      table(class="table text-left mb-5 mb-lg-0")
+                        tbody
+                          tr
+                            td Blockchain text message
+                            td <b>#{opreturn_message}</b>
+                          tr
+                            td Blockchain hex. message
+                            td #{opreturn_data} 
+                          tr
+                            td Included in block
+                            td 
+                              - var url_block='https://www.blockchain.com/btc/block/' + opreturn_block
+                              a(class='rounded bg-primary text-white px-2 py-1' href=url_block) #{opreturn_block} 
+                  br
                   if txids
                     div(class="table-responsive")
                       table(class="table text-left mb-5 mb-lg-0")
                         thead
                           tr
-                            th Transactions
+                            th Transactions with messages
                             th
-                          tbody
-                            each txid in txids
-                              tr(class="monospace")
-                                td
-                                  a(class='rounded bg-primary text-white px-2 py-1' href="./bitcoin_opreturn_show_message?txid=" + txid.txid) Show
-                                td 
-                                  - var url='https://www.blockchain.com/es/btc/tx/' + txid.txid
-                                  a(class='rounded bg-primary text-white px-2 py-1' href=url) #{txid.txid}
+                        tbody
+                          each txid in txids
+                            tr
+                              td
+                                a(class='rounded bg-primary text-white px-2 py-1' href="./bitcoin_opreturn_show_message?txid=" + txid.txid) Show
+                              td 
+                                - var url='https://www.blockchain.com/es/btc/tx/' + txid.txid
+                                a(class='rounded bg-primary text-white px-2 py-1' href=url) #{txid.txid}
                     br
                     if bitcoin_message
                         p(style="color:red;") #{bitcoin_message}
