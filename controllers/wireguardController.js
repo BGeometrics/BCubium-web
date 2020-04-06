@@ -119,7 +119,8 @@ exports.wireguard_status = function(req, res) {
 };
 
 exports.wireguard_home = function(req, res) {
-   res.render('wireguard_home.pug', {ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external()});
+    res.render('wireguard_home.pug', {ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external(),
+        user: utilities.get_user(), password: utilities.get_password()});
 }
 
 exports.wireguard_set_publicIP_port = function(req, res) {

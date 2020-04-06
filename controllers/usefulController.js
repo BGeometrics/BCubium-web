@@ -11,7 +11,7 @@ var password_change = "./scripts/password_change.sh";
 var reboot_node = "./scripts/system_reboot.sh"; 
 var halt_node = "./scripts/system_halt.sh"; 
 var glances_start = "./scripts/glances_start.sh"; 
-var web_port = "4444";
+var web_port_https = "4444";
 var user = "pi";
 
 const url = require('url');
@@ -30,7 +30,7 @@ exports.backup_home = function(req, res) {
             return;
         }
         console.log('Execute: ' + backup);
-        var url_backup = 'https://' + utilities.get_ip_internal() + ':' + web_port + '/backup.zip';
+        var url_backup = 'https://' + utilities.get_ip_internal() + ':' + web_port_https + '/backup.zip';
         console.log('Backup done ' + url_backup);
 	      res.render('backup_home.pug', {backup_message: url_backup, usefull_message: 'Backup done',
 			          user: utilities.get_user(), password: utilities.get_password()});

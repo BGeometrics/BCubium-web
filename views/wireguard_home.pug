@@ -33,6 +33,22 @@ block content
                   p 3- If you want to import the client configuration by file and not by QR code: 
                     a(class='rounded bg-primary text-white px-2 py-1' href=url_internal) WireGuard client 
                   br
+
+                  div.col-md-5
+                    if (user)
+                      p.font-weight-bold User: 
+                        input(type="text" id="myUser" name="user" value="user" style="border: none;" readonly)
+                        |
+                  div.col-md-5
+                    if (password)
+                      p.font-weight-bold Pass: 
+                        input(type="password" id="myPassword" name="password" value="password" style="border: none; width: 45%;" readonly)
+                        a(href="javascript:void(0)" onclick=("javascript:var x = document.getElementById('myPassword'); if (x.type === 'password') { x.type = 'text'; } else { x.type = 'password';}"))
+                          i(class="far fa-eye fa-w-20", style="margin-top: 6px;")
+
+                  br
+                  br
+
                   form(method='POST' action='./wireguard_set_port')
                     div.form-group
                       p If you have had another public IP or FQDN (Fully Qualified Domain Name) indicate it here to generate a new QR:
@@ -46,8 +62,9 @@ block content
             div.container.px-2.px-sm-3
               div.card.mb-4.shadow-sm
                 div.card-header
-                  h2.h6 Help
+                  h2.h6 Do you know...?
                 div.card-body
-                  p If you connect through the WireGuard, for example from your mobile or tablet, you can access the Bcube website from any location and secure with: 
-                  a(class='rounded bg-primary text-white px-2 py-1' href=url_internal) Bcube
+                  p If you download the Wireguard client, it will ask you for the username and password and it is possible that the browser will show a security warning for accessing through https and IP, click on advanced and accept the warning.
+                  p If you connect through the WireGuard, for example from your mobile or tablet, you can access the BCubium website from any location and secure with: 
+                  a(class='rounded bg-primary text-white px-2 py-1' href=url_internal) BCubium
              
