@@ -3,7 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-//const basicAuth = require('express-basic-auth')
+var basicAuth = require('basic-auth');
+var utilities = require('./controllers/utilities');
 
 var package_json = require('./package.json');
 global.appVersion = package_json.version;
@@ -22,11 +23,33 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-//app.use(basicAuth({users: { 'user': 'password' }}));
 
-app.use('/', indexRouter);
-app.use('/home/', bitcoinRouter);
-app.use('/bitcoin/', bitcoinRouter);
+
+var auth = function (req, res, next) {
+  var user = basicAuth(req);
+  console.log("Authentication: " + utilities.get_auth());
+  if (utilities.get_auth() !== 'true') {
+  	next();
+	}
+  else {
+		if (!user || !user.name || !user.pass) {
+			res.set('WWW-Authenticate', 'Basic realm=Authorization Required');
+			res.sendStatus(401);
+			return;
+		}
+		if (user.name === utilities.get_user() && user.pass === utilities.get_password()) {
+			next();
+		} else {
+			res.set('WWW-Authenticate', 'Basic realm=Authorization Required');
+			res.sendStatus(401);
+			return;
+		}
+  }
+}
+ 
+app.use('/', auth, indexRouter);
+app.use('/home/', auth, bitcoinRouter);
+app.use('/bitcoin/', auth, bitcoinRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

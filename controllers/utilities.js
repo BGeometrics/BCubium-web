@@ -3,6 +3,7 @@ var wifi = require("node-wifi");
 var properties = PropertiesReader('/etc/bitcoin/bitcoin.conf');
 var credentials_properties = PropertiesReader('/etc/Bgeometrics/credentials');
 var credentials_file = "/etc/Bgeometrics/credentials";
+var auth_file = "/etc/Bgeometrics/auth_web";
 var os = require("os");
 
 var ip_internal_script = "./scripts/IP_internal.sh";
@@ -235,3 +236,11 @@ exports.get_op_return_txid = function () {
      return objectStringArray;
 };
 
+exports.get_auth = function () {
+     var user = "";
+     const fs = require('fs');
+     var auth = fs.readFileSync(auth_file, 'UTF-8');
+     auth = auth.replace(/\n$/, '')
+
+     return auth;
+};

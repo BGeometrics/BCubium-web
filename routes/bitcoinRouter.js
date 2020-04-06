@@ -96,6 +96,9 @@ router.post('/password_change', usefulController.password_change);
 router.get('/reboot_node', usefulController.reboot_node);
 router.get('/halt_node', usefulController.halt_node);
 router.get('/glances_start', usefulController.glances_start);
+router.get('/web_security', usefulController.web_security);
+router.get('/web_security_activate', usefulController.web_security_activate);
+router.get('/web_security_desactivate', usefulController.web_security_desactivate);
 
 router.get('/wifi_home', wifiController.wifi_home);
 router.get('/wifi_scan', wifiController.wifi_scan);
@@ -112,7 +115,5 @@ router.get('/wireguard_set_port', wireguardController.wireguard_set_publicIP_por
 router.post('/wireguard_set_port', wireguardController.wireguard_set_publicIP_port);
 router.get('/wireguard_restart', wireguardController.wireguard_restart);
 router.get('/wireguard_update_publicIP', wireguardController.wireguard_update_publicIP);
-
-
 
 module.exports = router;

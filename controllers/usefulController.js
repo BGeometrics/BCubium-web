@@ -11,6 +11,8 @@ var password_change = "./scripts/password_change.sh";
 var reboot_node = "./scripts/system_reboot.sh"; 
 var halt_node = "./scripts/system_halt.sh"; 
 var glances_start = "./scripts/glances_start.sh"; 
+var web_security_activate = "./scripts/system_web_security_activate.sh"; 
+var web_security_desactivate = "./scripts/system_web_security_desactivate.sh"; 
 var web_port_https = "4444";
 var user = "pi";
 
@@ -186,3 +188,20 @@ exports.glances_start = function(req, res) {
     }, 5000);
 };
 
+exports.web_security = function(req, res) {
+    res.render('settings_show_user.pug', {user: utilities.get_user(), password: utilities.get_password()});
+}
+
+exports.web_security_activate = function(req, res) {
+    console.log("execute: " + web_security_activate);
+    const { execSync } = require("child_process");
+    var ret = execSync(web_security_activate).toString();
+    res.render('settings_home.pug');
+}
+
+exports.web_security_desactivate = function(req, res) {
+    console.log("execute: " + web_security_desactivate);
+    const { execSync } = require("child_process");
+    var ret = execSync(web_security_desactivate).toString();
+    res.render('settings_home.pug');
+}
