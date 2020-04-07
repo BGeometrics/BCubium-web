@@ -93,6 +93,8 @@ router.get('/router_open', usefulController.router_open);
 router.get('/settings_home', usefulController.settings_home);
 router.get('/password_change', usefulController.password_change);
 router.post('/password_change', usefulController.password_change);
+router.get('/password_reset', usefulController.password_reset);
+router.get('/password_unique', usefulController.password_unique);
 router.get('/reboot_node', usefulController.reboot_node);
 router.get('/halt_node', usefulController.halt_node);
 router.get('/glances_start', usefulController.glances_start);

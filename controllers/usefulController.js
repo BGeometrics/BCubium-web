@@ -8,6 +8,8 @@ var upnp_list = "./scripts/upnp_list.sh";
 var upnp_delete = "./scripts/upnp_delete.sh"; 
 var router_open = "./scripts/router_open.sh"; 
 var password_change = "./scripts/password_change.sh"; 
+var password_reset = "./scripts/password_reset.sh"; 
+var password_unique = "./scripts/password_unique.sh"; 
 var reboot_node = "./scripts/system_reboot.sh"; 
 var halt_node = "./scripts/system_halt.sh"; 
 var glances_start = "./scripts/glances_start.sh"; 
@@ -148,6 +150,20 @@ exports.password_change = function(req, res) {
     }
 
     res.render('settings_home.pug', {user: utilities.get_user(), password: utilities.get_password(), settings_message: message});
+};
+
+exports.password_reset = function(req, res) {
+    console.log("execute: " + password_reset);
+    const { execSync } = require("child_process");
+    var ret = execSync(password_reset).toString();
+    res.render('settings_home.pug');
+};
+
+exports.password_unique = function(req, res) {
+    console.log("execute: " + password_unique);
+    const { execSync } = require("child_process");
+    var ret = execSync(password_unique).toString();
+    res.render('settings_home.pug');
 };
 
 exports.reboot_node = function(req, res) {
