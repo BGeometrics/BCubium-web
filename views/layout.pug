@@ -105,10 +105,17 @@ html(lang="en")
                   | &nbsp; 
                   span(title='RAM') #{system_info.RAM}%
               div.col-md-3
-                if (system_info && system_info.HDD)
-                  i(class="far fa-hdd fa-w-20" style="margin-top: 6px;" title='Hard disk') 
+                if (system_info && system_info.SSD)
+                  i(class="far fa-hdd fa-w-20" style="margin-top: 6px;" title='SSD disk') 
                   | &nbsp; 
-                  span(title='Hard disk') #{system_info.HDD}%
+                  span(title='SSD disk') #{system_info.SSD}%
+                  | &nbsp;
+                  | &nbsp;
+                  | &nbsp;
+                else
+                  i(class="far fa-hdd fa-w-20" style="margin-top: 6px;" title='HDD disk') 
+                  | &nbsp; 
+                  span(title='HDD disk') #{system_info.HDD}%
                   | &nbsp;
                   | &nbsp;
                   | &nbsp;
