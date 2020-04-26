@@ -1,6 +1,6 @@
 {
-  "name": "myapp_fnb",
-  "version": "0.0.1",
+  "name": "webconfig",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"

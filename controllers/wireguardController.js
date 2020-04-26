@@ -119,6 +119,12 @@ exports.wireguard_status = function(req, res) {
 };
 
 exports.wireguard_home = function(req, res) {
+    var execute = wireguard_set_port + " " + utilities.get_ip_external();
+    console.log("Execute: " + execute);
+
+    const { execSync } = require("child_process");
+    var ret = execSync(execute).toString();
+
     res.render('wireguard_home.pug', {ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external(),
         user: utilities.get_user(), password: utilities.get_password()});
 }

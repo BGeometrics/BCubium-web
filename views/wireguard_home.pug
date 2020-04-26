@@ -20,11 +20,6 @@ block content
                   - var url_internal = 'https://' + ip_internal + ':' + port_external + '/client-wg0.conf';
                   |
                   |
-                  p 
-                    a(class='rounded bg-primary text-white px-2 py-1' href='./wireguard_update_publicIP' title='Click link if the public IP has changed, the WireGuard client configuration must be updated.') Configuration update by public ip change
-                    if wireguard_message
-                      p <mark>#{wireguard_message}</mark>
-                  p 
                   p <b>How to connect to the WireGuard</b>
                   p 1- Install the software WireGuard client on the devices: Mobile, computer, tablet ...
                   p 2- Add -> Create from QR code for Public IP
@@ -65,6 +60,7 @@ block content
                   h2.h6 Do you know...?
                 div.card-body
                   p If you download the Wireguard client, it will ask you for the username and password and it is possible that the browser will show a security warning for accessing through https and IP, click on advanced and accept the warning.
+                  p If you change your public IP you have to re-capture the QR displayed on this screen with your mobile or update the client
                   p If you connect through the WireGuard, for example from your mobile or tablet, you can access the BCubium website from any location and secure with: 
                   a(class='rounded bg-primary text-white px-2 py-1' href=url_internal) BCubium
              

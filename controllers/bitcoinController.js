@@ -14,8 +14,8 @@ var ip_external = "";
 const utilities = require('./utilities');
 
 exports.bitcoin_home = function(req, res) {
-   console.log('system_status: ' + utilities.get_system_status());
-   console.log('system_info: ' + utilities.get_system_info());
+   console.log(`#### Enviroment: ${process.env.NODE_ENV}`);
+
    res.render('index_home.pug', { title: title, ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external(), 
            system_status: utilities.get_system_status(), user: utilities.get_user(), password: utilities.get_password(), 
            system_info: utilities.get_system_info(), internet_connection: utilities.internet_connection(), wifi_connection: utilities.wifi_connection(), 
