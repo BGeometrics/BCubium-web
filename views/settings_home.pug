@@ -20,6 +20,7 @@ block content
                   | &nbsp;
                   a(class='rounded bg-primary text-white px-2 py-1' href="./port_home") Port redirect
                   | &nbsp;
+
               div.card.mb-4.shadow-sm
                 div.card-body
                   a(class='rounded bg-primary text-white px-2 py-1'  href="./password_reset" title='The default password is set: pythagoras') Password reset
@@ -31,6 +32,13 @@ block content
                   a(class='rounded bg-primary text-white px-2 py-1'  href="./reboot_node" title='Until startup the node will stop working') BCubium reboot
                   | &nbsp;
                   a(class='rounded bg-primary text-white px-2 py-1'  href="./halt_node" title='To start it you have to remove and put the power cable') BCubium stop
+                  | &nbsp;
+
+              div.card.mb-4.shadow-sm
+                div.card-body
+                  a(class='rounded bg-primary text-white px-2 py-1'  href="./upnp_add_ssh" title='Port 22222 forwarding ssh tunnel from router to BCubium') Activate SSH port tunnel
+                  | &nbsp;
+                  a(class='rounded bg-primary text-white px-2 py-1'  href="./upnp_delete_ssh" title='Port 22222 forwarding ssh tunnel from router to BCubium') Desactivate SSH port tunnel
                   | &nbsp;
 
               div.card.mb-4.shadow-sm

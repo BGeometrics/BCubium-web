@@ -87,6 +87,8 @@ router.get('/upnp_home', usefulController.upnp_home);
 router.get('/upnp_add', usefulController.upnp_add);
 router.post('/upnp_add', usefulController.upnp_add);
 router.get('/upnp_delete', usefulController.upnp_delete);
+router.get('/upnp_add_ssh', usefulController.upnp_add_ssh);
+router.get('/upnp_delete_ssh', usefulController.upnp_delete_ssh);
 router.get('/system_ports_home', usefulController.system_ports_home);
 router.get('/graphics_home', usefulController.graphics_home);
 router.get('/router_open', usefulController.router_open);

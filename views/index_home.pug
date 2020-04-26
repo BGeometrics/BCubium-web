@@ -318,13 +318,3 @@ block content
                 br
                 p #{usefull_message}
 
-        div.card.mb-3.shadow-sm
-          div.card-header
-            span(style="float: left;") <b>Marketplace</b>  
-          div.card-body
-            if system_status && system_status.openvpn_activated === 'KO'
-              a(class='rounded bg-primary text-white px-2 py-1'  href="./openvpn_enable" title='Add the application') OpenVPN 
-                i(class="fas fa-power-off fa-w-20", style="margin-top: 6px;") 
- 
-
-

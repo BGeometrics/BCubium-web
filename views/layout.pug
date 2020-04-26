@@ -112,13 +112,14 @@ html(lang="en")
                   | &nbsp;
                   | &nbsp;
                   | &nbsp;
-                else
+                else if (system_info && system_info.HDD)
                   i(class="far fa-hdd fa-w-20" style="margin-top: 6px;" title='HDD disk') 
                   | &nbsp; 
                   span(title='HDD disk') #{system_info.HDD}%
                   | &nbsp;
                   | &nbsp;
                   | &nbsp;
+
                 if (system_info && system_info.TEMP)
                   i(class="fas fa-thermometer-quarter fa-w-20" style="margin-top: 6px" title='Temperature') 
                   | &nbsp; 

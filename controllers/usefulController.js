@@ -15,6 +15,8 @@ var halt_node = "./scripts/system_halt.sh";
 var glances_start = "./scripts/glances_start.sh"; 
 var web_security_activate = "./scripts/system_web_security_activate.sh"; 
 var web_security_desactivate = "./scripts/system_web_security_desactivate.sh"; 
+var upnp_ssh_activate = "./scripts/upnp_add_ssh.sh"; 
+var upnp_ssh_desactivate = "./scripts/upnp_delete_ssh.sh"; 
 var web_port_https = "4444";
 var user = "pi";
 
@@ -220,4 +222,20 @@ exports.web_security_desactivate = function(req, res) {
     const { execSync } = require("child_process");
     var ret = execSync(web_security_desactivate).toString();
     res.render('settings_home.pug');
+}
+
+exports.upnp_add_ssh = function(req, res) {
+    var execute = upnp_ssh_activate + " 22222 22 TCP ";
+    console.log("Execute: " + execute);
+    const { execSync } = require("child_process");
+    var ret = execSync(execute).toString();
+    res.render('settings_home.pug', {user: utilities.get_user(), password: utilities.get_password()});
+}
+
+exports.upnp_delete_ssh = function(req, res) {
+    var execute = upnp_ssh_desactivate + " 22222 22 TCP ";
+    console.log("Execute: " + execute);
+    const { execSync } = require("child_process");
+    var ret = execSync(execute).toString();
+    res.render('settings_home.pug', {user: utilities.get_user(), password: utilities.get_password()});
 }
