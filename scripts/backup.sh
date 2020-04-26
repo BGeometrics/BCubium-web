@@ -16,6 +16,7 @@ LND_SERVICE=/etc/systemd/system/lnd.service
 ELECTRS_SERVICE=/etc/systemd/system/electrs.service
 TOR_CONF=/etc/tor/torrc
 WEBCONFIG_SERVICE=/etc/systemd/system/webconfig.service
+WIREGUARD_CONF=/etc/wireguard/wg0.conf
 
 BITCOIN_WALLETS=/var/lib/bitcoin/.bitcoin/backup_*
 LND_CHANNEL=/var/lib/bitcoin/.lnd/data/chain/bitcoin/mainnet/channel.backup
@@ -43,6 +44,7 @@ cp $LND_CHANNEL $BACKUP_TMP
 cp $LND_SEED $BACKUP_TMP
 cp $LND_WALLET $BACKUP_TMP
 cp $BCUBE_CREDENTIALS $BACKUP_TMP
+cp $WIREGUARD_CONF $BACKUP_TMP
 
 zip -r $BACKUP_DIR/backup.zip $BACKUP_TMP
 mv $BACKUP_DIR/backup.zip /var/www/html/backup.zip
