@@ -1,8 +1,7 @@
 #!/bin/bash
 
-#https://{Internel_IP}/backup.tgz
 
-BACKUP_TMP=/opt/backup_tmp
+BACKUP_TMP=/opt/backup_
 BACKUP_DIR=/opt/backup
 BACKUP_CONFIG=$BACKUP_TMP/config
 DATE=$(date '+%Y%m%d_%H%M%S')
