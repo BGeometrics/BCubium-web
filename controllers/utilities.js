@@ -1,7 +1,6 @@
 var PropertiesReader = require('properties-reader');
 var wifi = require("node-wifi");
 var properties = PropertiesReader('/etc/bitcoin/bitcoin.conf');
-var credentials_properties = PropertiesReader('/etc/Bgeometrics/credentials');
 var credentials_file = "/etc/Bgeometrics/credentials";
 var auth_file = "/etc/Bgeometrics/auth_web";
 var os = require("os");
