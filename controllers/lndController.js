@@ -128,7 +128,8 @@ exports.lnd_status = function(req, res) {
 exports.lnd_home = function(req, res) {
    var seed = utilities.read_text_file(seed_file);
    console.log('seed: ' + seed);
-   res.render('lnd_home.pug', {'seed': seed, 'password_wallet': utilities.get_lnd_pass()});
+   res.render('lnd_home.pug', {'seed': seed, 'password_wallet': utilities.get_lnd_pass(),
+                user: utilities.get_user(), password: utilities.get_password()});
 };
 
 exports.lnd_wallet_delete = function(req, res) {
@@ -150,6 +151,7 @@ exports.lnd_wallet_create = function(req, res) {
    }
    console.log("stat: " + stat);
    res.render('lnd_home.pug', {'seed': seed, 'lnd_message': ret, 'stat': stat,
+                user: utilities.get_user(), password: utilities.get_password(),
 		'password_wallet': utilities.get_lnd_pass()});
 };
 
@@ -161,7 +163,8 @@ exports.lnd_wallet_backup = function(req, res) {
    var url_backup = 'https://' + utilities.get_ip_internal() + ':' + web_port + '/lnd_backup.zip';
    console.log('Backup LND done ' + url_backup);
    res.render('lnd_home.pug', {'seed': seed, 'lnd_backup': url_backup, 'lnd_message': 'Backup keys done',
-   		password_wallet: utilities.get_lnd_pass(), 
+   	password_wallet: utilities.get_lnd_pass(), 
+        user: utilities.get_user(), password: utilities.get_password(),
       ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external()});
 };
 

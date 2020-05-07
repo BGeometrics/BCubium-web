@@ -14,13 +14,13 @@ block content
                     i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;" title='Turned on')
                   a(href="https://bitcoin.org" class="text-secondary") 
                     span(style="float: right;") 
-                      i(class="fas fa-home fa-2x mr-2", style="margin-top: 6px;") 
+                      img(src='/Logo_Bitcoin_32_32.png', style="margin-top: 6px;") 
                 else
                   span(style="float: left;") <b>Bitcoin</b>  
                     i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;" title='Turned off')
                   a(href="https://bitcoin.org" class="text-secondary") 
                     span(style="float: right;") 
-                      i(class="fas fa-home fa-2x mr", style="margin-top: 6px;") 
+                      img(src='/Logo_Bitcoin_32_32.png', style="margin-top: 6px;") 
               div.card-body
                 div.row
                   a(class='rounded bg-primary text-white px-2 py-1'  href="./bitcoin_restart" title='Service restart')
@@ -43,14 +43,14 @@ block content
                       i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;" title='Turned on') 
                   a(href="https://lightning.engineering/" class="text-secondary") 
                     span(style="float: right;") 
-                      i(class="fas fa-home fa-2x mr", style="margin-top: 6px;") 
+                      img(src='/Logo_LND_32.jpg', style="margin-top: 6px;") 
                 else
                   a(class='nav-bar-brand' href="./lnd_home")
                     span(style="float: left;") <b>LND</b> 
                       i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;" title='Turned off')
                   a(href="https://lightning.engineering/" class="text-secondary") 
                     span(style="float: right;") 
-                      i(class="fas fa-home fa-2x mr", style="margin-top: 6px;") 
+                      img(src='/Logo_LND_32.jpg', style="margin-top: 6px;") 
               div.card-body
                 div.row
                   a(class='rounded bg-primary text-white px-2 py-1'  href="./lnd_restart" title='Service restart')
@@ -86,13 +86,13 @@ block content
                     i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;" title='Turned on')
                   a(href="https://www.torproject.org/" class="text-secondary") 
                     span(style="float: right;") 
-                      i(class="fas fa-home fa-2x mr", style="margin-top: 6px;") 
+                      img(src='/Logo_tor_32.jpg', style="margin-top: 6px;") 
                 else
                   span(style="float: left;") <b>Tor</b>  
                     i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;" title='Turned off')
                   a(href="https://www.torproject.org/" class="text-secondary") 
                     span(style="float: right;") 
-                      i(class="fas fa-home fa-2x mr", style="margin-top: 6px;") 
+                      img(src='/Logo_tor_32.jpg', style="margin-top: 6px;") 
               div.card-body
                 div.row
                   a(class='rounded bg-primary text-white px-2 py-1'  href="./tor_restart" title='Service restart')
@@ -147,63 +147,20 @@ block content
           div.col-md-4
             div.card.mb-3.shadow-sm
               div.card-header
-                if system_status && system_status.rtl == 'OK'
-                  a(class='nav-bar-brand' href="./lnd_wallet_home" title="Ride The Lightning - A full function web browser app for LND and C-Lightning")
-                    span(style="float: left;") <b>LND WebUI</b> 
-                      i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;" title='Turned on')
-                  | &nbsp; (pass:#{password})
-                  a(href="https://github.com/Ride-The-Lightning/RTL" class="text-secondary") 
-                    span(style="float: right;") 
-                      i(class="fas fa-home fa-2x mr", style="margin-top: 6px;")
-                else
-                  a(class='nav-bar-brand' href="./lnd_wallet_home")
-                    span(style="float: left;") <b>LND WebUI</b>  
-                      i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;" title='Turned off')
-                  | &nbsp; (pass:#{password})
-                  a(href="https://github.com/Ride-The-Lightning/RTL" class="text-secondary") 
-                    span(style="float: right;") 
-                      i(class="fas fa-home fa-2x mr", style="margin-top: 6px;") 
-              div.card-body
-                div.row
-                  a(class='rounded bg-primary text-white px-2 py-1'  href="./rtl_restart" title='Service restart')
-                    i(class="fas fa-sync fa-2x mr", style="margin-top: 6px;")
-                  | &nbsp; 
-                  if system_status && system_status.rtl != 'OK'
-                    a(class='rounded bg-primary text-white px-2 py-1'  href="./rtl_start")
-                      i(class="fas fa-play fa-2x mr", style="margin-top: 6px;")
-                    | &nbsp; 
-                  if system_status && system_status.rtl == 'OK'
-                    a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_stop" title='Service stop')
-                      i(class="fas fa-stop fa-2x mr", style="margin-top: 6px;")
-                  | &nbsp; 
-                  a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_status" title="Status")
-                    i(class="fas fa-info fa-2x mr", style="margin-top: 6px;")
-                  | &nbsp; 
-                  a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_enable" title='Enable service')  
-                    i(class="fas fa-toggle-on fa-2x mr", style="margin-top: 6px;")
-                  | &nbsp; 
-                  a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_disable" title='Disable service')  
-                    i(class="fas fa-toggle-off fa-2x mr", style="margin-top: 6px;")
-                  if rtl_message
-                    p #{rtl_message}
-
-          div.col-md-4
-            div.card.mb-3.shadow-sm
-              div.card-header
                 if system_status && system_status.wireguard == 'OK'
                   a(class='nav-bar-brand' href="./wireguard_home" title="VPN with WireGuard application")
                     span(style="float: left;") <b>VPN</b>  
                       i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;" title='Turned on')
                   a(href="https://www.wireguard.com/" class="text-secondary") 
                     span(style="float: right;") 
-                      i(class="fas fa-home fa-2x mr", style="margin-top: 6px;") 
+                      img(src='/Logo_wireguard_32.jpg', style="margin-top: 6px;") 
                 else
                   a(class='nav-bar-brand' href="./wireguard_home")
                     span(style="float: left;") <b>VPN</b>  
                       i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;" title='Turned off')
                   a(href="https://www.wireguard.com/" class="text-secondary") 
                     span(style="float: right;") 
-                      i(class="fas fa-home fa-2x mr", style="margin-top: 6px;") 
+                      img(src='/Logo_wireguard_32.jpg', style="margin-top: 6px;") 
               div.card-body
                 div.row
                   a(class='rounded bg-primary text-white px-2 py-1'  href="./wireguard_restart" title='Service restart')
@@ -256,45 +213,51 @@ block content
                   div.row
                     p #{firewall_message}
 
-          if system_status && system_status.openvpn_activated === 'OK'
-            div.col-md-4
-              div.card.mb-3.shadow-sm
-                div.card-header
-                  if system_status && system_status.openvpn == 'OK'
-                    a(class='nav-bar-brand' href="./openvpn_home")
-                      span(style="float: left;") <b>OpenVPN</b>  
-                        i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;" title='Turned on')
-                    a(href="https://openvpn.net/" class="text-secondary") 
-                      span(style="float: right;") 
-                        i(class="fas fa-home fa-2x mr", style="margin-top: 6px;") 
-                  else
-                    a(class='nav-bar-brand' href="./openvpn_home")
-                      span(style="float: left;") <b>OpenVPN</b>  
-                        i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;" title='Turned off')
-                    a(href="https://openvpn.net/" class="text-secondary") 
-                      span(style="float: right;") 
-                        i(class="fas fa-home fa-2x mr", style="margin-top: 6px;")                         
-                div.card-body
-                  a(class='rounded bg-primary text-white px-2 py-1'  href="./openvpn_restart" title='Service restart')
+          div.col-md-4
+            div.card.mb-3.shadow-sm
+              div.card-header
+                if system_status && system_status.rtl == 'OK'
+                  a(class='nav-bar-brand' href="./lnd_wallet_home" title="Ride The Lightning - A full function web browser app for LND and C-Lightning")
+                    span(style="float: left;") <b>LND WebUI</b> 
+                      i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;" title='Turned on')
+                  a(href="https://github.com/Ride-The-Lightning/RTL" class="text-secondary") 
+                    span(style="float: right;") 
+                      i(class="fas fa-home fa-2x mr", style="margin-top: 6px;")
+                else
+                  a(class='nav-bar-brand' href="./lnd_wallet_home")
+                    span(style="float: left;") <b>LND WebUI</b>  
+                      i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;" title='Turned off')
+                  a(href="https://github.com/Ride-The-Lightning/RTL" class="text-secondary") 
+                    span(style="float: right; margin-top: -20px;") 
+                      i(class="fas fa-home fa-2x mr", style="margin-top: 6px;")
+              div.card-body
+                div.row
+                  a(class='rounded bg-primary text-white px-2 py-1'  href="./rtl_restart" title='Service restart')
                     i(class="fas fa-sync fa-2x mr", style="margin-top: 6px;")
                   | &nbsp; 
-                  a(class='rounded bg-primary text-white px-2 py-1'  href="./openvpn_start")
-                    i(class="fas fa-play fa-2x mr", style="margin-top: 6px;") 
+                  if system_status && system_status.rtl != 'OK'
+                    a(class='rounded bg-primary text-white px-2 py-1'  href="./rtl_start")
+                      i(class="fas fa-play fa-2x mr", style="margin-top: 6px;")
+                    | &nbsp; 
+                  if system_status && system_status.rtl == 'OK'
+                    a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_stop" title='Service stop')
+                      i(class="fas fa-stop fa-2x mr", style="margin-top: 6px;")
                   | &nbsp; 
-                  a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_stop" title='Service stop')
-                    i(class="fas fa-stop fa-2x mr", style="margin-top: 6px;") 
-                  | &nbsp; 
-                  a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_status" title="Status")
+                  a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_status" title="Status")
                     i(class="fas fa-info fa-2x mr", style="margin-top: 6px;")
                   | &nbsp; 
-                  a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_enable" title='Enable service')   
+                  a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_enable" title='Enable service')  
                     i(class="fas fa-toggle-on fa-2x mr", style="margin-top: 6px;")
                   | &nbsp; 
-                  a(class='rounded bg-primary text-white px-2 py-1' href="./openvpn_disable" title='Disable service')   
+                  a(class='rounded bg-primary text-white px-2 py-1' href="./rtl_disable" title='Disable service')  
                     i(class="fas fa-toggle-off fa-2x mr", style="margin-top: 6px;")
-                  if openvpn_message
-                    p #{openvpn_message}
-              |
+                  | &nbsp; &nbsp; &nbsp; &nbsp;  
+                  br
+                  p(style="font-size: 12px;") Pass default: #{password} 
+                  if rtl_message
+                    br
+                    p #{rtl_message}
+
         div.card.mb-3.shadow-sm
           div.card-header
             span(style="float: left;") <b>Utilities</b>  
