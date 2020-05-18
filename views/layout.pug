@@ -72,11 +72,11 @@ html(lang="en")
                       i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;")
               div.col-md-3
                 if bitcoin_connection && bitcoin_connection.status == "UP"
-                  a(href="https:///bitnodes.io/nodes/" + ip_external + "-8333/", class="nav-link px-2 text-decoration-underline" title="Bitcoin network connection")
+                  a(href="https://bitnodes.io/nodes/" + ip_external + "-8333/", class="nav-link px-2 text-decoration-underline" title="Bitcoin network connection")
                     span.font-weight-bold Bitcoin network: 
                       i(class="fas fa-check fa-w-20", style="margin-top: 6px; color:green;")
                 else
-                  a(href="https:///bitnodes.io/nodes/" + ip_external + "-8333/", class="nav-link px-2 text-decoration-underline" title="Bitcoin network connection")
+                  a(href="https://bitnodes.io/nodes/" + ip_external + "-8333/?activated=1", class="nav-link px-2 text-decoration-underline" title="Bitcoin network connection")
                     span.font-weight-bold Bitcoin network: 
                       i(class="fas fa-times fa-w-20", style="margin-top: 6px; color:red;")
               div.col-md-3

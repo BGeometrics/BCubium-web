@@ -106,15 +106,16 @@ exports.bitcoin_opreturn_home = function(req, res) {
 
 exports.bitcoin_opreturn_message = function(req, res) {
     var execute = bitcoin_op_return + " " + req.body.wallet + " \"" + req.body.wallet_password + "\" "  
-          + req.body.amount + " " + req.body.fee + " \"" + req.body.text + "\" " + req.body.address_target;
-    console.log("Execute: " + execute);
+          + req.body.amount + " " + req.body.fee + " \"" + req.body.text + "\" "  
+          + req.body.address_origin + " " + req.body.address_target;
+    console.log("Execute opreturn message: " + execute);
     const { execSync } = require("child_process");
     var ret = execSync(execute).toString();
     ret = ret.substring(ret.indexOf("{\""));
     console.log("Return: " + ret);
     var ret_obj = JSON.parse(ret);
 
-    res.render('bitcoin_opreturn_home.pug', {bitcoin_opreturn: ret_obj});
+    res.render('bitcoin_opreturn_home.pug', {bitcoin_opreturn: ret_obj, tx: 'OK'});
 };
 
 exports.bitcoin_load_wallet = function(req, res) {

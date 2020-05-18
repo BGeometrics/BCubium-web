@@ -7,61 +7,11 @@ block content
       div.container.px-2.px-sm-3
         div.row
           div.col-md-9
-            div.container.px-2.px-sm-3
-              div.card.mb-4.shadow-sm
-                div.card-header
-                  p.h2.h6.mb-0 Write a message forever on the Blockchain
-                div.card-body
-                  div(class="table-responsive")
-                    form(method='POST' action='./bitcoin_opreturn_message')
-                      table(class="table text-left mb-5 mb-lg-0")
-                        tbody
-                          tr
-                            td Wallet: 
-                            td 
-                              input#name.form-control(type='text', placeholder='Wallet' name='wallet' value=bitcoin_opreturn.wallet)
-                          tr
-                            if (bitcoin_opreturn.balance !== '0.00000000')
-                              td Wallet balance: 
-                            else
-                              td Wallet balance (Have to have money): 
-                            td #{bitcoin_opreturn.balance} BTC
-                          tr
-                            if (bitcoin_opreturn.balance !== '0.00000000')
-                              td A address of the wallet: 
-                            else
-                              td A address of the wallet. Send small amount for example 0.000001 BTC: 
-                            td #{bitcoin_opreturn.address}
-                          tr
-                            td Wallet password: 
-                            td 
-                              input#name.form-control(type='pass' name='wallet_password')
-                          tr
-                            td Address target (Optional, if no will be generated):
-                            td 
-                              input#name.form-control(type='text' name='address_target')
-                          tr
-                            td Amount to send (For example 0.000001 BTC): 
-                            td 
-                              input#name.form-control(type='text' name='amount')
-                          tr
-                            td Feed (for example 0.000005 BTC): 
-                            td 
-                              input#name.form-control(type='text' name='fee')
-                          tr
-                            td Text (max. 75 characters)
-                            td 
-                              textarea.form-control(rows=3 name='text' maxlength='75')
-                          tr
-                            td 
-                              button.btn.btn-primary(type='submit') Write
-                            td 
-
             if bitcoin_opreturn && bitcoin_opreturn.address_target && bitcoin_opreturn.address_target !== "undefined"
               div.container.px-2.px-sm-3
                 div.card.mb-4.shadow-sm
                   div.card-header
-                    p.h2.h6.mb-0 Transaction Data
+                    p.h2.h6.mb-0 You have to wait for the transaction to be confirmed
                   div.card-body
                     - var url='https://www.blockchain.com/btc/address/' + bitcoin_opreturn.address_target
                     - var url_tx='https://www.blockchain.com/btc/tx/' + bitcoin_opreturn.send_tx
@@ -88,10 +38,6 @@ block content
                           tr
                             td Transaction: 
                             td
-                              #{bitcoin_opreturn.transaction}
-                          tr
-                            td Send TX: 
-                            td 
                               #{bitcoin_opreturn.send_tx}
                           tr
                             td Write data in hexadecimal: 
@@ -99,12 +45,69 @@ block content
                               #{bitcoin_opreturn.op_return}
                     br
                     p
-                      a(href=url_tx, class="rounded bg-primary text-white px-2 py-1") #{url_tx} 
+                      a(href=url_tx, class="rounded bg-primary text-white px-2 py-1") #{bitcoin_opreturn.send_tx} 
                     p Text below of OP_RETURN in hexadecimal 
                     p 
                       a(href="https://codebeautify.org/hex-string-converter", class="rounded bg-primary text-white px-2 py-1") Hexadecimal to string converter 
                     p 
-                      a(href=url, class="rounded bg-primary text-white px-2 py-1") #{url} 
+                      a(href=url, class="rounded bg-primary text-white px-2 py-1") #{bitcoin_opreturn.address_target}
+
+            div.container.px-2.px-sm-3
+              div.card.mb-4.shadow-sm
+                div.card-header
+                  p.h2.h6.mb-0 Write a message forever on the Blockchain
+                div.card-body
+                  div(class="table-responsive")
+                    form(method='POST' action='./bitcoin_opreturn_message')
+                      table(class="table text-left mb-5 mb-lg-0")
+                        tbody
+                          tr
+                            td Wallet: 
+                            td 
+                              input#name.form-control(type='text', placeholder='Wallet' name='wallet' value=bitcoin_opreturn.wallet)
+                          tr
+                            if (bitcoin_opreturn.balance !== '0.00000000')
+                              td Wallet balance: 
+                            else
+                              td Wallet balance (Have to have money): 
+                            td #{bitcoin_opreturn.balance} BTC
+                          if (bitcoin_opreturn.balance !== '0.00000000')
+                            tr 
+                              td Max amount available for transaction:
+                              td #{bitcoin_opreturn.amount_txid} BTC
+                            tr
+                              td A address of the wallet:                               
+                              td
+                                input#name.form-control(type='text' name='address_origin' value=bitcoin_opreturn.address readonly)
+                          else
+                            tr
+                              td A address of the wallet. Send small amount for example 0.000005 BTC: 
+                              td
+                                input#name.form-control(type='text' name='address_origin' value=bitcoin_opreturn.address readonly)
+                          tr
+                            td Wallet password: 
+                            td 
+                              input#name.form-control(type='password' name='wallet_password')
+                          tr
+                            td Address target (Optional, if no will be generated):
+                            td 
+                              input#name.form-control(type='text' name='address_target')
+                          tr
+                            td Amount to send (for example 0.00001 BTC): 
+                            td 
+                              input#name.form-control(type='text' name='amount')
+                          tr
+                            td Feed (for example 0.00001 BTC): 
+                            td 
+                              input#name.form-control(type='text' name='fee')
+                          tr
+                            td Text (max. 75 characters)
+                            td 
+                              textarea.form-control(rows=3 name='text' maxlength='75')
+                          tr
+                            td 
+                              button.btn.btn-primary(type='submit') Write
+                            td 
 
           div.col-md-3
             div.container.px-2.px-sm-3
@@ -112,6 +115,10 @@ block content
                 div.card-header
                   h2.h6 Do you know...?
                 div.card-body
-                  p In order to write messages on the Blockchain it is necessary to have bitcoin in the wallet so you can send a small amount such as 0.000006 BTC to be able to carry out the transaction with the message.
+                  a(class='rounded bg-primary text-white px-2 py-1' href='https://youtu.be/rAoeFWwlwKU') Video
+                  p
+                  p In order to write messages on the Blockchain it is necessary to have bitcoin in the wallet so you can send a small amount such as 0.00002 BTC to be able to carry out the transaction with the message.
                   p This wallet and the bitcoin they contain are yours and you can do whatever you want with it and you can also download it in the backup option: 
                   a(class='rounded bg-primary text-white px-2 py-1' href='http://bcubium.home:3000/home/backup_home') Backup
+                  p The message will not be written to the blockchain until the transaction is confirmed, this can take more than an hour.
+                  p You cannot write another message with the same wallet until the transaction is confirmed.

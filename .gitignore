@@ -1,5 +1,4 @@
-# ignore all ovpn
-*.ovpn
+*.log
 
 scripts/ip_internal.txt
 scripts/ip_external.txt

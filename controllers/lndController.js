@@ -182,6 +182,6 @@ exports.lnd_restart = function(req, res) {
 
 exports.lnd_wallet_home = function(req, res) {
     ip_internal = utilities.get_ip_internal();
-    res.redirect('http://' + ip_internal + ':3003/');
+    res.redirect('http://' + ip_internal + ':3003/rtl/lnd/home');
 };
 
