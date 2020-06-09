@@ -46,8 +46,5 @@ Currently the project is in a crowdfunding campaign in Indiegogo <a href="https:
 * PCB Layer: 6-Layer
 
 ### Videos
-
-[BCubium web administrator](https://youtu.be/Vr3V6QwL2MI)
-[BCubium box wood](https://youtu.be/353EV8jsZCg)
- 
-
+* [BCubium web administrator](https://youtu.be/Vr3V6QwL2MI)
+* [BCubium box wood](https://youtu.be/353EV8jsZCg)
