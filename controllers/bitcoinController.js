@@ -1,4 +1,3 @@
-// Display detail page for Bitcoin.
 
 var title = 'Bcube';
 var bitcoinEnable = "./scripts/bitcoin_enable.sh";  
@@ -24,7 +23,6 @@ exports.bitcoin_home = function(req, res) {
 
 exports.bitcoin_enable = function(req, res) {
     const { exec } = require("child_process");
-
     exec(bitcoinEnable, (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
@@ -46,7 +44,6 @@ exports.bitcoin_enable = function(req, res) {
 
 exports.bitcoin_disable = function(req, res) {
     const { exec } = require("child_process");
-
     exec(bitcoinDisable, (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
@@ -68,7 +65,6 @@ exports.bitcoin_disable = function(req, res) {
 
 exports.bitcoin_status = function(req, res) {
     const { exec } = require("child_process");
-
     exec(bitcoinStatus, (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
@@ -79,7 +75,7 @@ exports.bitcoin_status = function(req, res) {
             return;
         }
         var ret = `${stdout}`;
-	var stat = ret.substring(0,2);
+	      var stat = ret.substring(0,2);
         console.log(ret);
         res.render('index_home.pug', { title: title, ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external(),
 		        bitcoin_message: ret, system_status: utilities.get_system_status(),
@@ -158,5 +154,4 @@ exports.bitcoin_opreturn_show_message = function(req, res) {
     res.render('bitcoin_opreturn_txids.pug', {txids: txids, opreturn_message: message[0], opreturn_data: message[1], 
             opreturn_block:  message[2]});
 };
-
 

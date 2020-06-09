@@ -1,4 +1,3 @@
-// Display detail page for openvpn.
 
 var title = 'Bcube';
 var openvpnStart = "./scripts/openvpn_start.sh";  
@@ -16,7 +15,6 @@ const utilities = require('./utilities');
 
 exports.openvpn_start = function(req, res) {
     const { exec } = require("child_process");
-
     exec(openvpnStart, (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
@@ -37,7 +35,6 @@ exports.openvpn_start = function(req, res) {
 
 exports.openvpn_stop = function(req, res) {
     const { exec } = require("child_process");
-
     exec(openvpnStop, (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
@@ -58,7 +55,6 @@ exports.openvpn_stop = function(req, res) {
 
 exports.openvpn_enable = function(req, res) {
     const { exec } = require("child_process");
-
     exec(openvpnEnable, (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
@@ -79,7 +75,6 @@ exports.openvpn_enable = function(req, res) {
 
 exports.openvpn_disable = function(req, res) {
     const { exec } = require("child_process");
-
     exec(openvpnDisable, (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
@@ -100,7 +95,6 @@ exports.openvpn_disable = function(req, res) {
 
 exports.openvpn_status = function(req, res) {
     const { exec } = require("child_process");
-
     exec(openvpnStatus, (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
@@ -121,20 +115,20 @@ exports.openvpn_status = function(req, res) {
 };
 
 exports.openvpn_home = function(req, res) {
-   console.log("Port: " + req.body.port);
-   var message = "";
-   if (req.body.port != "") {
-      var execute = openvpn_external_ip + " " + req.body.port;
-      console.log("Execute: " + execute);
+    console.log("Port: " + req.body.port);
+    var message = "";
+    if (req.body.port != "") {
+       var execute = openvpn_external_ip + " " + req.body.port;
+       console.log("Execute: " + execute);
 
-      const { execSync } = require("child_process");
-      var ret = execSync(execute).toString();
-      message = "Add port";
-   }
+       const { execSync } = require("child_process");
+       var ret = execSync(execute).toString();
+       message = "Add port";
+    }
 	
-   res.render('openvpn_home.pug', {ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external(),
-		user: utilities.get_user(), password: utilities.get_password(), 
-   		openvpn_message: message});
+    res.render('openvpn_home.pug', {ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external(),
+		       user: utilities.get_user(), password: utilities.get_password(), 
+   		     openvpn_message: message});
 };
 
 exports.openvpn_restart = function(req, res) {

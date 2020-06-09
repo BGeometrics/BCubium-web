@@ -1,3 +1,4 @@
+
 var title = 'Bcube';
 var wifi = require("node-wifi");
 var wifi_configure = "./scripts/wifi_configure.sh";

@@ -1,4 +1,3 @@
-// Display detail page for firewall.
 
 var title = 'cubeBitcoin';
 var firewallEnable = "./scripts/firewall_enable.sh";  
@@ -12,7 +11,6 @@ const utilities = require('./utilities');
 
 exports.firewall_enable = function(req, res) {
     const { exec } = require("child_process");
-
     exec(firewallEnable, (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
@@ -33,7 +31,6 @@ exports.firewall_enable = function(req, res) {
 
 exports.firewall_disable = function(req, res) {
     const { exec } = require("child_process");
-
     exec(firewallDisable, (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
@@ -54,7 +51,6 @@ exports.firewall_disable = function(req, res) {
 
 exports.firewall_status = function(req, res) {
     const { exec } = require("child_process");
-
     exec(firewallStatus, (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);

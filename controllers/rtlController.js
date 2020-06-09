@@ -1,4 +1,3 @@
-// Display detail page for rtl.
 
 var title = 'cubeBitcoin';
 var rtlStart = "./scripts/rtl_start.sh";  
@@ -15,7 +14,6 @@ const utilities = require('./utilities');
 
 exports.rtl_start = function(req, res) {
     const { exec } = require("child_process");
-
     exec(rtlStart, (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
@@ -36,7 +34,6 @@ exports.rtl_start = function(req, res) {
 
 exports.rtl_stop = function(req, res) {
     const { exec } = require("child_process");
-
     exec(rtlStop, (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
@@ -57,7 +54,6 @@ exports.rtl_stop = function(req, res) {
 
 exports.rtl_enable = function(req, res) {
     const { exec } = require("child_process");
-
     exec(rtlEnable, (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
@@ -78,7 +74,6 @@ exports.rtl_enable = function(req, res) {
 
 exports.rtl_disable = function(req, res) {
     const { exec } = require("child_process");
-
     exec(rtlDisable, (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
@@ -99,7 +94,6 @@ exports.rtl_disable = function(req, res) {
 
 exports.rtl_status = function(req, res) {
     const { exec } = require("child_process");
-
     exec(rtlStatus, (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
@@ -118,7 +112,6 @@ exports.rtl_status = function(req, res) {
                 router_connection: utilities.router_connection(), bitcoin_connection: utilities.bitcoin_connection()});
     });     
 };
-
 
 exports.rtl_restart = function(req, res) {
     console.log("Execute: " +  rtl_restart);

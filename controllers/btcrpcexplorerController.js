@@ -1,4 +1,3 @@
-// Display detail page for btcrpcexplorer
 
 var title = 'cubeBitcoin';
 var btcrpcexplorerStart = "./scripts/btcrpcexplorer_start.sh";
@@ -16,7 +15,6 @@ const utilities = require('./utilities');
 
 exports.btcrpcexplorer_start = function(req, res) {
     const { exec } = require("child_process");
-
     exec(btcrpcexplorerStart, (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
@@ -37,7 +35,6 @@ exports.btcrpcexplorer_start = function(req, res) {
 
 exports.btcrpcexplorer_stop = function(req, res) {
     const { exec } = require("child_process");
-
     exec(btcrpcexplorerStop, (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
@@ -58,7 +55,6 @@ exports.btcrpcexplorer_stop = function(req, res) {
 
 exports.btcrpcexplorer_enable = function(req, res) {
     const { exec } = require("child_process");
-
     exec(btcrpcexplorerEnable, (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
@@ -79,7 +75,6 @@ exports.btcrpcexplorer_enable = function(req, res) {
 
 exports.btcrpcexplorer_disable = function(req, res) {
     const { exec } = require("child_process");
-
     exec(btcrpcexplorerDisable, (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
@@ -100,7 +95,6 @@ exports.btcrpcexplorer_disable = function(req, res) {
 
 exports.btcrpcexplorer_status = function(req, res) {
     const { exec } = require("child_process");
-
     exec(btcrpcexplorerStatus, (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);

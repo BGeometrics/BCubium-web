@@ -1,10 +1,10 @@
+
 var PropertiesReader = require('properties-reader');
 var wifi = require("node-wifi");
 var properties = PropertiesReader('/etc/bitcoin/bitcoin.conf');
 var credentials_file = "/etc/Bgeometrics/credentials";
 var auth_file = "/etc/Bgeometrics/auth_web";
 var os = require("os");
-
 var ip_internal_script = "./scripts/IP_internal.sh";
 var ip_external_script = "./scripts/IP_external.sh";
 var ip_intenal_file = "./scripts/ip_internal.txt";

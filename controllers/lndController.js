@@ -1,4 +1,3 @@
-// Display detail page for lnd.
 
 var title = 'cubeBitcoin';
 var lndStart = "./scripts/lnd_start.sh";  
@@ -21,7 +20,6 @@ var web_port = "4444";
 
 exports.lnd_start = function(req, res) {
     const { exec } = require("child_process");
-
     exec(lndStart, (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
@@ -42,7 +40,6 @@ exports.lnd_start = function(req, res) {
 
 exports.lnd_stop = function(req, res) {
     const { exec } = require("child_process");
-
     exec(lndStop, (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
@@ -63,7 +60,6 @@ exports.lnd_stop = function(req, res) {
 
 exports.lnd_enable = function(req, res) {
     const { exec } = require("child_process");
-
     exec(lndEnable, (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
@@ -84,7 +80,6 @@ exports.lnd_enable = function(req, res) {
 
 exports.lnd_disable = function(req, res) {
     const { exec } = require("child_process");
-
     exec(lndDisable, (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
@@ -105,7 +100,6 @@ exports.lnd_disable = function(req, res) {
 
 exports.lnd_status = function(req, res) {
     const { exec } = require("child_process");
-
     exec(lndStatus, (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
@@ -140,32 +134,32 @@ exports.lnd_wallet_delete = function(req, res) {
 };
 
 exports.lnd_wallet_create = function(req, res) {
-   const { execSync } = require("child_process");
-   console.log("Execute: " + lnd_wallet_create);
-   var ret = execSync(lnd_wallet_create).toString();
-   console.log("ret: " + ret);
-   var seed = utilities.read_text_file(seed_file);
-   var stat;
-   if (ret.substring(0,2) == 'OK') {
+    const { execSync } = require("child_process");
+    console.log("Execute: " + lnd_wallet_create);
+    var ret = execSync(lnd_wallet_create).toString();
+    console.log("ret: " + ret);
+    var seed = utilities.read_text_file(seed_file);
+    var stat;
+    if (ret.substring(0,2) == 'OK') {
        stat = ret.substring(0,2);
-   }
-   console.log("stat: " + stat);
-   res.render('lnd_home.pug', {'seed': seed, 'lnd_message': ret, 'stat': stat,
+    }
+    console.log("stat: " + stat);
+    res.render('lnd_home.pug', {'seed': seed, 'lnd_message': ret, 'stat': stat,
                 user: utilities.get_user(), password: utilities.get_password(),
-		'password_wallet': utilities.get_lnd_pass()});
+		            'password_wallet': utilities.get_lnd_pass()});
 };
 
 exports.lnd_wallet_backup = function(req, res) {
-   const { execSync } = require("child_process");
-   console.log("Execute: " + lnd_wallet_backup);
-   var ret = execSync(lnd_wallet_backup).toString();
-   var seed = utilities.read_text_file(seed_file);
-   var url_backup = 'https://' + utilities.get_ip_internal() + ':' + web_port + '/lnd_backup.zip';
-   console.log('Backup LND done ' + url_backup);
-   res.render('lnd_home.pug', {'seed': seed, 'lnd_backup': url_backup, 'lnd_message': 'Backup keys done',
+    const { execSync } = require("child_process");
+    console.log("Execute: " + lnd_wallet_backup);
+    var ret = execSync(lnd_wallet_backup).toString();
+    var seed = utilities.read_text_file(seed_file);
+    var url_backup = 'https://' + utilities.get_ip_internal() + ':' + web_port + '/lnd_backup.zip';
+    console.log('Backup LND done ' + url_backup);
+    res.render('lnd_home.pug', {'seed': seed, 'lnd_backup': url_backup, 'lnd_message': 'Backup keys done',
    	password_wallet: utilities.get_lnd_pass(), 
         user: utilities.get_user(), password: utilities.get_password(),
-      ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external()});
+        ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external()});
 };
 
 exports.lnd_restart = function(req, res) {
@@ -184,4 +178,3 @@ exports.lnd_wallet_home = function(req, res) {
     ip_internal = utilities.get_ip_internal();
     res.redirect('http://' + ip_internal + ':3003/rtl/lnd/home');
 };
-

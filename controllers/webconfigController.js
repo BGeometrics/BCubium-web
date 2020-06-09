@@ -1,4 +1,3 @@
-// Display detail page for rtl.
 
 var title = 'Bcube';
 var webconfigRestart = "./scripts/webconfig_restart.sh";  
@@ -15,23 +14,22 @@ exports.webconfig_restart = function(req, res) {
                 user: utilities.get_user(), password: utilities.get_password()});
 
    setTimeout(function() {
-    const { exec } = require("child_process");
-    exec(webconfigRestart, (error, stdout, stderr) => {
-        if (error) {
+      const { exec } = require("child_process");
+      exec(webconfigRestart, (error, stdout, stderr) => {
+         if (error) {
             console.log(`error: ${error.message}`);
             return;
-        }
-        if (stderr) {
+         }
+         if (stderr) {
             console.log(`stderr: ${stderr}`);
             return;
-        }
-        console.log(`stdout: ${stdout}`);
+         }
+         console.log(`stdout: ${stdout}`);
 
-      res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external,
+         res.render('index_home.pug', { title: title, ip_internal: ip_internal, ip_external: ip_external,
                 webconfig_message: ret, system_status: utilities.get_system_status(),
                 user: utilities.get_user(), password: utilities.get_password()});
-
-    });
+      });
    }, 5000);
 };
 

@@ -1,4 +1,3 @@
-// Display detail page for tor.
 
 var title = 'cubeBitcoin';
 var torEnable = "./scripts/tor_enable.sh";
@@ -32,7 +31,6 @@ exports.tor_enable = function(req, res) {
 
 exports.tor_disable = function(req, res) {
     const { exec } = require("child_process");
-
     exec(torDisable, (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
@@ -53,7 +51,6 @@ exports.tor_disable = function(req, res) {
 
 exports.tor_status = function(req, res) {
     const { exec } = require("child_process");
-
     exec(torStatus, (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);

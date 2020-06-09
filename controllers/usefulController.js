@@ -18,6 +18,7 @@ var web_security_desactivate = "./scripts/system_web_security_desactivate.sh";
 var upnp_ssh_activate = "./scripts/upnp_add_ssh.sh"; 
 var upnp_ssh_desactivate = "./scripts/upnp_delete_ssh.sh"; 
 var web_port_https = "4444";
+var port_vpn = "61208";
 var user = "pi";
 
 const url = require('url');
@@ -197,12 +198,12 @@ exports.glances_start = function(req, res) {
             return;
         }
         console.log(`stdout: ${stdout}`);
-        res.redirect('http://' +  utilities.get_ip_internal() + ':61208/');
+        res.redirect('http://' +  utilities.get_ip_internal() + ':' + port_vpn + '/');
     });
 
     setTimeout(function() {
        console.log('hello world!');
-       res.redirect('http://' +  utilities.get_ip_internal() + ':61208/');
+       res.redirect('http://' +  utilities.get_ip_internal() + ':' + port_vpn + '/');
     }, 5000);
 };
 

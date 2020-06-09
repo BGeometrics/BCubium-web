@@ -1,4 +1,3 @@
-// Display detail page for wireguard.
 
 var title = 'Bcube';
 var wireguardStart = "./scripts/wireguard_start.sh";  
@@ -35,7 +34,6 @@ exports.wireguard_start = function(req, res) {
 
 exports.wireguard_stop = function(req, res) {
     const { exec } = require("child_process");
-
     exec(wireguardStop, (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
@@ -56,7 +54,6 @@ exports.wireguard_stop = function(req, res) {
 
 exports.wireguard_enable = function(req, res) {
     const { exec } = require("child_process");
-
     exec(wireguardEnable, (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
@@ -77,7 +74,6 @@ exports.wireguard_enable = function(req, res) {
 
 exports.wireguard_disable = function(req, res) {
     const { exec } = require("child_process");
-
     exec(wireguardDisable, (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
@@ -98,7 +94,6 @@ exports.wireguard_disable = function(req, res) {
 
 exports.wireguard_status = function(req, res) {
     const { exec } = require("child_process");
-
     exec(wireguardStatus, (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
@@ -121,7 +116,6 @@ exports.wireguard_status = function(req, res) {
 exports.wireguard_home = function(req, res) {
     var execute = wireguard_set_port + " " + utilities.get_ip_external();
     console.log("Execute: " + execute);
-
     const { execSync } = require("child_process");
     var ret = execSync(execute).toString();
 
@@ -170,4 +164,3 @@ exports.wireguard_update_publicIP = function(req, res) {
     res.render('wireguard_home.pug', {ip_internal: utilities.get_ip_internal(), ip_external: utilities.get_ip_external(),
            user: utilities.get_user(), password: utilities.get_password(), wireguard_message: 'Scan the QR again or load the WireGuard client file'});
 };
-
