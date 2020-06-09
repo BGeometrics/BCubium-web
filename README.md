@@ -19,7 +19,7 @@ Currently the project is in a crowdfunding campaign in Indiegogo <a href="https:
 ### Stable Release: v0.0.1
 
 ### Installed software
-* Bitcoin Core 0.19.1
+* Bitcoin Core 0.20.0
 * Lightning Network Daemon  0.10.0-beta
 * Tor 0.2.9.14 
 * BTC RPC Explorer 1.1.8 
@@ -44,4 +44,10 @@ Currently the project is in a crowdfunding campaign in Indiegogo <a href="https:
 * Power Supply: DC 5V/2A
 * PCB Dimension: 40 x 52mm
 * PCB Layer: 6-Layer
+
+### Videos
+
+[BCubium web administrator](https://youtu.be/Vr3V6QwL2MI)
+[BCubium box wood](https://youtu.be/353EV8jsZCg)
  
+
