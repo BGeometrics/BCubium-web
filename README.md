@@ -1,4 +1,4 @@
-##  Web administrator of BCubium, Craft full node Bitcoin <a href="https://bgeometrics.com" alt="Logo BGeometrics">![](https://bgeometrics.com/wp-content/uploads/2020/05/Bcubium_logo_colores_ico_32_32.png)</a>
+##  Web administration of BCubium, Craft full node Bitcoin <a href="https://bgeometrics.com" alt="Logo BGeometrics">![](https://bgeometrics.com/wp-content/uploads/2020/05/Bcubium_logo_colores_ico_32_32.png)</a>
 
 
 ![](https://bgeometrics.com/wp-content/uploads/2020/05/BCubium_main_1600.jpg)
