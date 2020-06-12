@@ -45,6 +45,9 @@ Currently the project is in a crowdfunding campaign in Indiegogo <a href="https:
 * PCB Dimension: 40 x 52mm
 * PCB Layer: 6-Layer
 
+### FAQ
+* [BCubium FAQ](https://bgeometrics.com/faq/)
+
 ### Videos
 * [BCubium web administrator](https://youtu.be/Vr3V6QwL2MI)
 * [BCubium box wood](https://youtu.be/353EV8jsZCg)
