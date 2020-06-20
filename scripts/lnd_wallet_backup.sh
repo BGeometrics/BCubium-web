@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#https://{Internel_IP}/backup.tgz
-
 BACKUP_TMP=/opt/lnd_backup_tmp
 BACKUP_DIR=/opt/lnd_backup
 DATE=$(date '+%Y%m%d_%H%M%S')
