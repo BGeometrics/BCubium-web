@@ -1,5 +1,5 @@
 *.log
-.gitignore
+*.gitignore
 
 scripts/ip_internal.txt
 scripts/ip_external.txt
