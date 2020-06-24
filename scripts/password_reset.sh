@@ -2,7 +2,8 @@
 
 USER="pi"
 PASS="pythagoras"
+DIR_BGEOMETRICS=/etc/Bgeometrics
 
-sudo /etc/Bgeometrics/scripts/Bcube_change_pass.sh $USER $PASS
+sudo $DIR_BGEOMETRICS/scripts/Bcube_change_pass.sh $USER $PASS
 echo -n "OK"
 

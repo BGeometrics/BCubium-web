@@ -2,9 +2,10 @@
 
 RTL_CONF="/var/lib/bitcoin/RTL/RTL-Config.json"
 RTL_CONF_SAMPLE="/etc/Bgeometrics/scripts/sample-RTL-Config.json"
+DIR_BGEOMETRICS=/etc/Bgeometrics
 
 if [ -z "$1" ]; then
-    PASS=$(cat /etc/Bgeometrics/credentials | grep password | cut -b 10-)
+    PASS=$(cat $DIR_BGEOMETRICS/credentials | grep password | cut -b 10-)
 else
     PASS=$1
 fi
